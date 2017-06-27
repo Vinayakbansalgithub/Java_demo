@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<report>
+	<activity
+		result="Success"
+		duration="0ms"
+		durationms="0"
+		type="root"
+		rid="1fbb7be0594dcb44"
+		totalerrorcount="0"
+		totalwarningcount="1"
+		totalsuccesscount="1"
+		totalfailedcount="0"
+		totalblockedcount="0"
+		user="vinayak.bansal"
+		host="VINAYAK-PC"
+		rxversion="6.0.0.0"
+		osversion="Windows 7 Service Pack 1 64bit"
+		runtimeversion="4.0.30319.42000"
+		procarch="32bit"
+		language="en-US"
+		screenresolution="1366x768"
+		timestamp="6/6/2016 6:03:25 PM"
+		timestampiso="2016-06-06T12:33:25"
+		timeoutfactor="1">
+		<detail>
+			Ranorex Testscript
+		</detail>
+		<activity
+			result="Success"
+			duration="15.02s"
+			durationms="15016"
+			type="test suite"
+			rid="1a36483fe493f7c"
+			totalerrorcount="0"
+			totalwarningcount="1"
+			totalsuccesscount="1"
+			totalfailedcount="0"
+			totalblockedcount="0"
+			testsuitename="toolsqa"
+			runconfigname="TestRun"
+			runlabel=""
+			maxchildren="1">
+			<params/>
+			<detail>
+			</detail>
+			<activity
+				result="Success"
+				duration="15.01s"
+				durationms="15009"
+				type="test case"
+				rid="1768c2fdca4aee8c"
+				totalerrorcount="0"
+				totalwarningcount="1"
+				totalsuccesscount="1"
+				totalfailedcount="0"
+				totalblockedcount="0"
+				testcasename="TestCase"
+				testcaseid="5aa7784f-0b00-49fe-8be8-e4650236417f"
+				maxchildren="0">
+				<params/>
+				<detail>
+				</detail>
+				<activity
+					result="Success"
+					duration="14.96s"
+					durationms="14960"
+					type="test module"
+					rid="71b327292de7e70"
+					totalerrorcount="0"
+					totalwarningcount="1"
+					totalsuccesscount="0"
+					totalfailedcount="0"
+					totalblockedcount="0"
+					modulename="Vinayak"
+					moduleid="299201d0-5231-4f49-9378-49eb5becce18"
+					moduletype="Recording">
+					<detail>
+					</detail>
+					<varbindings/>
+					<item
+						timeRelativeToTestSuiteStartTime="00:00.125"
+						timeRelativeToTestModuleStartTime="00:00.001"
+						timeWallClock="18:03:25"
+						time="00:00.125"
+						level="Warn"
+						category="Data">
+						<message>
+							The following module variables are not bound to a data column:<br/>toolsqaURL, givenvalue
+						</message>
+						<metainfo
+							loglvl="Warn"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:00.180"
+						timeRelativeToTestModuleStartTime="00:00.056"
+						timeWallClock="18:03:25"
+						time="00:00.180"
+						level="Info"
+						category="Website">
+						<message>
+							Opening web site URL in variable $toolsqaURL with browser 'Chrome' in maximized mode.
+						</message>
+						<metainfo
+							itemindex="0"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="108"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:00.261"
+						timeRelativeToTestModuleStartTime="00:00.137"
+						timeWallClock="18:03:25"
+						time="00:00.261"
+						level="Info"
+						category="Wait">
+						<message>
+							Waiting 30s for item 'TOOLSQASeleniumSpecFlowCucumberJU.Firstname' to exist.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[@name='firstname']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Firstname"
+							id="94cf2315eddf454baa81a94fd8a0ace1"
+							timeout="30000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="112"
+							itemindex="1"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:03.281"
+						timeRelativeToTestModuleStartTime="00:03.157"
+						timeWallClock="18:03:28"
+						time="00:03.281"
+						level="Info"
+						category="Keyboard">
+						<message>
+							Key sequence 'vinayak' with focus on 'TOOLSQASeleniumSpecFlowCucumberJU.Firstname'.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[@name='firstname']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Firstname"
+							id="94cf2315eddf454baa81a94fd8a0ace1"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="115"
+							itemindex="2"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:06.662"
+						timeRelativeToTestModuleStartTime="00:06.538"
+						timeWallClock="18:03:32"
+						time="00:06.662"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Left Click item 'TOOLSQASeleniumSpecFlowCucumberJU.Lastname' at 89;18.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[@name='lastname']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Lastname"
+							id="10363c1b4bb34df6ad93f53b3df3993b"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="119"
+							itemindex="3"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:08.042"
+						timeRelativeToTestModuleStartTime="00:07.918"
+						timeWallClock="18:03:33"
+						time="00:08.042"
+						level="Info"
+						category="Keyboard">
+						<message>
+							Key sequence 'bansal' with focus on 'TOOLSQASeleniumSpecFlowCucumberJU.Lastname'.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[@name='lastname']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Lastname"
+							id="10363c1b4bb34df6ad93f53b3df3993b"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="123"
+							itemindex="4"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:09.742"
+						timeRelativeToTestModuleStartTime="00:09.618"
+						timeWallClock="18:03:35"
+						time="00:09.742"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Left Click item 'TOOLSQASeleniumSpecFlowCucumberJU.Sex0' at 8;4.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[#'sex-0']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Sex0"
+							id="d54315d9afdc405cb8664f460cfab287"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="127"
+							itemindex="5"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:10.892"
+						timeRelativeToTestModuleStartTime="00:10.768"
+						timeWallClock="18:03:36"
+						time="00:10.892"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Left Click item 'TOOLSQASeleniumSpecFlowCucumberJU.Exp0' at 7;7.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[#'exp-1']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Exp0"
+							id="0191c4ef1a204b03a219a5ff535f1c7a"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="131"
+							itemindex="6"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:11.909"
+						timeRelativeToTestModuleStartTime="00:11.785"
+						timeWallClock="18:03:37"
+						time="00:11.909"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Scroll Vertical by -120 units.
+						</message>
+						<metainfo
+							itemindex="7"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="135"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:12.449"
+						timeRelativeToTestModuleStartTime="00:12.325"
+						timeWallClock="18:03:37"
+						time="00:12.449"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Left Click item 'TOOLSQASeleniumSpecFlowCucumberJU.Profession1' at 7;9.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[#'profession-1']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Profession1"
+							id="dfef648c8be645609027272cc7c752e5"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="139"
+							itemindex="8"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:13.499"
+						timeRelativeToTestModuleStartTime="00:13.375"
+						timeWallClock="18:03:38"
+						time="00:13.499"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Scroll Vertical by -240 units.
+						</message>
+						<metainfo
+							itemindex="9"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="143"
+							loglvl="Info"/>
+					</item>
+					<item
+						timeRelativeToTestSuiteStartTime="00:14.046"
+						timeRelativeToTestModuleStartTime="00:13.922"
+						timeWallClock="18:03:39"
+						time="00:14.046"
+						level="Info"
+						category="Mouse">
+						<message>
+							Mouse Left Click item 'TOOLSQASeleniumSpecFlowCucumberJU.Tool2' at 2;2.
+						</message>
+						<metainfo
+							type="repoitem"
+							path="/dom[@domain='toolsqa.com']//input[#'tool-2']"
+							fullname="toolsqaRepository.TOOLSQASeleniumSpecFlowCucumberJU.Tool2"
+							id="dc05e8ce674b412eb209ba782fbaa3ff"
+							timeout="60000"
+							codefile="c:\Users\vinayak.bansal\Documents\Ranorex\RanorexStudio Projects\toolsqa\toolsqa\vinayak.cs"
+							codeline="147"
+							itemindex="10"
+							loglvl="Info"/>
+					</item>
+				</activity>
+			</activity>
+		</activity>
+	</activity>
+</report>
