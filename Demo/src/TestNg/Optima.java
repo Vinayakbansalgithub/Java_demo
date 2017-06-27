@@ -96,7 +96,6 @@ public static void main(String[] args)  {
 		List<WebElement>  calandercolumns= driver.findElements(By.xpath(path));
 
 		if(i==calanderRows.size()){
-			System.out.println("sss");
 			
 		}
 		

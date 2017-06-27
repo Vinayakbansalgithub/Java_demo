@@ -8,6 +8,8 @@ class BSTnode {
 	BSTnode left, right;
 	boolean isVisited = false;
 	public boolean lastVisited;
+	
+	public boolean leftTriversed=false;
 
 	BSTnode(int value) {
 		this.value = value;
@@ -107,9 +109,9 @@ public class BSTdemo {
 		}
 		return minv;
 	}
-
+	static int h = 0;
 	static int maxDepth(BSTnode node) {
-		int h = 0;
+		
 		if (node == null)
 			return 0;
 		else {
@@ -284,6 +286,109 @@ current=current.right;
 
 	}
 
+	
+	
+	 static BSTnode templeft=null;
+	 static  BSTnode tempright=null;
+	 static BSTnode parentleft=null;
+	 static int max_level=-1;
+	 void leftViewUtil(BSTnode node, int level)
+		{
+			// Base Case
+			if (node==null) return;
+
+			// If this is the first node of its level
+			if (max_level < level)
+			{
+				System.out.print(" " + node.value);
+				max_level = level;
+			}
+
+			// Recur for left and right subtrees
+			leftViewUtil(node.left, level+1);
+			leftViewUtil(node.right, level+1);
+		}
+	
+	 
+	 
+	 static int max_levelRight=-1;
+	  void rightViewUtil(BSTnode node, int level) {
+			// TODO Auto-generated method stub
+		// Base Case
+					if (node==null) return;
+
+					// If this is the first node of its level
+					if (max_levelRight < level)
+					{
+						System.out.print(" " + node.value);
+						max_levelRight = level;
+					}
+
+					// Recur for left and right subtrees
+					rightViewUtil(node.right, level+1);
+					rightViewUtil(node.left, level+1);
+					
+		}
+	 
+	 
+	 
+	 static int floor=0;
+	 
+	 void level(BSTnode node){
+		 for (int i = 0; i < h; i++) {
+			 levelOrder(node ,i,0);
+		}
+		 
+	 }
+	 
+	 void levelOrder(BSTnode node, int level,int current)
+		{
+			// Base Case
+			if (node==null) return;
+
+			// If this is the first node of its level
+			if (current == level)
+			{
+				System.out.print(" " + node.value);
+				//max_level = level+1;
+			}
+
+			// Recur for left and right subtrees
+			levelOrder(node.left,level, current+1);
+			levelOrder(node.right,level, current+1);
+		}
+	static boolean switchorder=false;
+	 private void sprial(BSTnode parent) {
+			// TODO Auto-generated method stub
+		 for (int i = 0; i < h; i++) {
+			 sprialOrder(parent ,i,0,switchorder);
+			 switchorder=!switchorder;
+		}
+		}
+	 
+	
+	 void sprialOrder(BSTnode node, int level, int current,boolean switchorder) {
+		// TODO Auto-generated method stub
+		 if (node==null) return;
+
+			// If this is the first node of its level
+			if (current == level)
+			{
+				System.out.print(" " + node.value);
+				//max_level = level+1;
+			}
+
+			// Recur for left and right subtrees
+			if(switchorder){
+			levelOrder(node.left,level, current+1);
+			levelOrder(node.right,level, current+1);
+			}else{
+				sprialOrder(node.right,level, current+1,switchorder);
+				sprialOrder(node.left,level, current+1,switchorder);
+
+			}
+	}
+
 	public static void main(String[] args) {
 		BSTdemo obj = new BSTdemo();
 		obj.add(15, null);
@@ -295,7 +400,7 @@ current=current.right;
 
 		obj.add(19, obj.getParent());
 		obj.add(6, obj.getParent());
-		obj.add(7, obj.getParent());
+	//	obj.add(7, obj.getParent());
 		obj.add(28, obj.getParent());
 		obj.add(11, obj.getParent());
 		obj.add(13, obj.getParent());
@@ -312,12 +417,29 @@ current=current.right;
 		// obj.postOrder(obj.getParent());
 		// System.out.println(Arrays.toString(arrPostOrder));
 
-		obj.WInOrder(obj.getParent());
+		//obj.WInOrder(obj.getParent());
+		
+		
+		
+		//obj.leftViewUtil(obj.getParent(),0);
+		//obj.rightViewUtil(obj.getParent(),0);
+		//obj.level(obj.getParent());
+		obj.sprial(obj.getParent());
+		
 
-		System.out.println("values are  " + Arrays.toString(WarrIntOrder));
+
+		
+		
+
+		//System.out.println("values are  " + Arrays.toString(WarrIntOrder));
 
 		// BSTnode top = obj.getParent();
 
 	}
+
+	
+
+	
+
 
 }
