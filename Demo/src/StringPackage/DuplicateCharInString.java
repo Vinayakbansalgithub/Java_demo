@@ -9,6 +9,11 @@ import java.util.Set;
 class DuplicateCharInString {
 	
 public static void main(String[] args) {
+	Integer i=12345;
+String str1= new String(i.toString());
+System.out.println(str1.length());
+
+	
 	DuplicateCharInString obj = new DuplicateCharInString();
 	String str="vinayak bansal is a good boy";
 	char[] ch= str.toCharArray();

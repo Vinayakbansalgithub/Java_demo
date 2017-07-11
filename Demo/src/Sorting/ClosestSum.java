@@ -35,6 +35,7 @@ public class ClosestSum {
     // Driver program to test above function
     public static void main(String[] args)
     {
+    	Object o= new Object();
         int arr[] =  {10, 20,30,61,90,100}, x = 70;
         int n = arr.length;
         printClosest(arr, n, x);        

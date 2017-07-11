@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +25,22 @@ public class FluentWaitDemo {
 	//     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    
 	     		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-	     WebElement button =driver.findElement(By.name("btnLogin"));			
+	     WebElement button =driver.findElement(By.name("btnLogin"));		
+	     
+	     
+	     driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+	     
+	     
+	     WebDriverWait wait1= new WebDriverWait(driver, 2000);
+	     WebElement fowo= wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("")));
+	     
+	     fowo.isDisplayed();
+	     
+	      
+	     
+	     
+	     
+	     
 	     		
 	     FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 	    		 
@@ -33,7 +50,7 @@ public class FluentWaitDemo {
 	    	 
 	    	       .ignoring(NoSuchElementException.class);
 	    	 
-	     WebElement foo=	  wait.until(new Function<WebDriver,WebElement>() {
+	     WebElement foo= wait.until(new Function<WebDriver,WebElement>() {
 
 				@Override
 				public WebElement apply(WebDriver driver) {
@@ -41,16 +58,7 @@ public class FluentWaitDemo {
 		    	       return driver.findElement(By.name("btnLogin"));
 				}
 			});
-	    	 /*
-	    	   WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
 	    	 
-	    	     public WebElement apply(WebDriver driver) {
-	    	 
-	    	       return driver.findElement(By.id("foo"));
-	    	 
-	    	     }
-	    	 
-	    	   });*/
 	     
 	  
 

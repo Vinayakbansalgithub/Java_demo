@@ -1,6 +1,5 @@
 package Trees;
 
-import com.googlecode.javacv.cpp.opencv_legacy.LDetector;
 
 class AVLNode {
     int value, height;
@@ -88,6 +87,11 @@ public class AVLTree {
 	        tree.root = tree.insert(tree.root, 40);
 	        tree.root = tree.insert(tree.root, 50);
 	        tree.root = tree.insert(tree.root, 25);
+
+	        tree.root= tree.insert(tree.root,23);
+	        tree.root= tree.insert(tree.root, 47);
+	        tree.root=tree.insert(tree.root, 11);
+	        tree.root= tree.insert(tree.root, 44);
 	 
 	        /* The constructed AVL Tree would be
 	             30

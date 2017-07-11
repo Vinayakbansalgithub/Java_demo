@@ -388,6 +388,23 @@ current=current.right;
 
 			}
 	}
+	 
+	 
+	  void bottomView(BSTnode node) {
+			// TODO Auto-generated method stub
+			if(node==null){
+				return;
+			}
+			
+			if(node.left==null && node.right==null)
+			System.out.println(node.value+"   " );
+			
+			
+			bottomView(node.left);
+			bottomView(node.right); 
+			
+		}
+
 
 	public static void main(String[] args) {
 		BSTdemo obj = new BSTdemo();
@@ -411,8 +428,8 @@ current=current.right;
 		// obj.delete(6, obj.getParent());
 		// obj.delete(20,obj.getParent());
 
-		// obj.preOrder(obj.getParent());
-		// System.out.println(Arrays.toString(arrPreOrder));
+		obj.preOrder(obj.getParent());
+		 System.out.println(Arrays.toString(arrPreOrder));
 
 		// obj.postOrder(obj.getParent());
 		// System.out.println(Arrays.toString(arrPostOrder));
@@ -424,8 +441,11 @@ current=current.right;
 		//obj.leftViewUtil(obj.getParent(),0);
 		//obj.rightViewUtil(obj.getParent(),0);
 		//obj.level(obj.getParent());
-		obj.sprial(obj.getParent());
+	//	obj.sprial(obj.getParent());
 		
+		/*System.out.println("bottom view");
+		obj.bottomView(obj.getParent());
+		*/
 
 
 		
@@ -437,6 +457,7 @@ current=current.right;
 
 	}
 
+	
 	
 
 	

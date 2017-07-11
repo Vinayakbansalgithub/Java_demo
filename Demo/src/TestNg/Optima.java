@@ -123,6 +123,7 @@ public static void main(String[] args)  {
 			
 			//*[@id='monthCalendarTable']/table/tbody/tr[1]/td/div[1]/div/span
 			WebElement currentDate= driver.findElement(By.xpath(datepath));
+			
 			System.out.println("  date   "+currentDate.getText());
 
 			String ratepath="//*[@id='monthCalendarTable']/table/tbody/tr["+i+"]/td["+j+"]/div/div/span[@class='price ng-binding'][text()]";
