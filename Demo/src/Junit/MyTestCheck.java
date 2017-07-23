@@ -11,6 +11,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 
+
+
+
+abstract class Myabstractclass{
+	public  abstract void  met();
+}
 public class MyTestCheck {
 
 	Integer value;

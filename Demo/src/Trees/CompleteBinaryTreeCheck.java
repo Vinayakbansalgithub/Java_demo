@@ -1,7 +1,5 @@
 package Trees;
 
-import org.stringtemplate.v4.compiler.STParser.compoundElement_return;
-import org.stringtemplate.v4.compiler.STParser.template_return;
 
 class Comnode {
 	int value;
@@ -85,7 +83,9 @@ public class CompleteBinaryTreeCheck {
 			else {
 				h = (rDepth + 1);
 			}
-
+  
+			
+			System.out.println("depth for element  "+node.value+"   is  "+h);
 			return h;
 		}
 	}

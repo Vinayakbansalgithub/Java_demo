@@ -78,11 +78,7 @@ public class ReverseLinkList {
 			 prev=current;
 			 
 			 current=next;
-			 
-			 
-			 
-			 
-			 
+
 			
 		 }
 		 

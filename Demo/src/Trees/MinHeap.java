@@ -2,7 +2,7 @@ package Trees;
 
 import java.util.Arrays;
 
-public class Heap {
+public class MinHeap {
 public static void main(String[] args) {
 	int arr[]={1,3,6,5,9,8};
 	
@@ -75,7 +75,9 @@ System.out.println(Arrays.toString(sortedarray));
 			arr[largest]=arr[ii];
 			arr[ii]=temp;
 			
-	//	heapfy(arr,largest);
+			
+			// we recall heapfy to balance again according to max heap means all the parents greater then child.
+		heapfy(arr,largest);
 		
 
 		 }

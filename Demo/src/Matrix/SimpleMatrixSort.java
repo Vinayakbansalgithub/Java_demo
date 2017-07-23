@@ -2,6 +2,8 @@ package Matrix;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.PriorityQueue;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +21,7 @@ public class SimpleMatrixSort {
 			}
 
 			int temp;
-			for (int ii = 0; ii < arr.length; ii++) {
+		//	for (int ii = 0; ii < arr.length; ii++) {
 				for (int j = 1; j < arr.length; j++) {
 					if (sortedRow[j - 1] > sortedRow[j]) {
 						temp = sortedRow[j];
@@ -28,7 +30,7 @@ public class SimpleMatrixSort {
 
 					}
 				}
-			}
+			//}
 		//	System.out.println(Arrays.toString(sortedRow));
 
 			for (int zx = 0; zx < 3; zx++) {
@@ -73,7 +75,32 @@ public class SimpleMatrixSort {
 
 	
 	
-	
+ static void mergeKSortedArrays(int[][] arr, int totalSize) {
+		// TODO Auto-generated method stub
+		PriorityQueue<Integer> q = new PriorityQueue<Integer>(totalSize);
+		for(int i=0; i<arr.length; i++)
+		{
+			for(int j=0; j<arr[0].length; j++)
+			{
+				int number = arr[i][j];
+				q.offer(number);
+			}
+		}
+		
+		Iterator<Integer> itr = q.iterator();
+		System.out.println("Priority queues values are ");
+		
+		while(itr.hasNext())
+		{
+			System.out.println("Value: " + itr.next());
+		}
+		
+		while (!q.isEmpty()) {
+		    Integer i = q.poll();
+		    System.out.println(i);
+		}
+		
+	}
 
 	public static void main(String[] args) {
 		ArrayList<Integer> list= new ArrayList<Integer>();
@@ -103,6 +130,9 @@ public class SimpleMatrixSort {
 		sortrow(arr);
 
 		sortColumn(arr);
+		
+		int totalSize = arr[0].length * arr.length;
+		mergeKSortedArrays(arr,totalSize);
 		
 		System.out.println("-----------------------sorted row column--------------------------");
 

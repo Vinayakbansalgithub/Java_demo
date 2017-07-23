@@ -1,7 +1,32 @@
 package CollectionFramework;
 
 import java.util.Collections;
-
+class Overflow extends Exception{
+	 String errorMessage;
+	 
+	    public Overflow(String errorMessage)
+	    {
+	        this.errorMessage = errorMessage;
+	    }
+	    @Override
+	    public String toString()
+	    {
+	        return errorMessage;
+	    }
+}
+class Underflow extends Exception{
+	 String errorMessage;
+	 
+	    public Underflow(String errorMessage)
+	    {
+	        this.errorMessage = errorMessage;
+	    }
+	    @Override
+	    public String toString()
+	    {
+	        return errorMessage;
+	    }
+}
 public class StackToQueue <T> {
 	static Object[] s1 = new Object[5];
 	static Object[] s2 = new Object[5];
@@ -29,7 +54,7 @@ public class StackToQueue <T> {
 			throw new Underflow("underflow error");
 		}
 		T var=(T) s1[count-1];
-		s1[count-1]=null;
+		//s1[count-1]=null;
 		count--;
 		return var;
 	}
