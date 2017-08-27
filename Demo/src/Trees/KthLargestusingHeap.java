@@ -7,13 +7,13 @@ public class KthLargestusingHeap {
 public static void main(String[] args) {
 	
 	
-	Scanner scan= new Scanner(System.in);
+/*	Scanner scan= new Scanner(System.in);
 int val=scan.nextInt();
 	System.out.println(val);
 	Integer in=val;
 	
 	String str= new String(in.toString());
-	System.out.println(str.length());
+	System.out.println(str.length());*/
 	
 	
 	

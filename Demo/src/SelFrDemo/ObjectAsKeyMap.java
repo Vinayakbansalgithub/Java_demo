@@ -1,9 +1,11 @@
 package SelFrDemo;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import java.util.Set;
 
 class MyEmployee {
@@ -76,6 +78,11 @@ Iterator itr=hm.entrySet().iterator();
 	}
 
 	public static void main(String args[]) {
+		
+		
+		System.out.println(System.currentTimeMillis());
+Date date= new Date();
+System.out.println(date.getHours());
 		System.out.println("object as key ");
 		MyEmployee obj1 = new MyEmployee(1221, "vinayak");
 		MyEmployee obj2 = new MyEmployee(1222, "nitin");

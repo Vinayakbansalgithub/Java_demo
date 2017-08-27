@@ -1,25 +1,17 @@
-package Trees;
+package Graph;
 
 import java.util.Arrays;
 
-public class MinHeap {
-public static void main(String[] args) {
-	int arr[]={1,3,6,5,9,8};
-	
-	Max_heapfy(arr,1);
-	
-}
-
-
-
+public class HeapForPrims {
 
 static int length;
 static int sortedlength;
- public static void Max_heapfy(int[] arr, int i) {
+static int element;
+ public static int Max_heapfy(int[] arr, int i) {
 	// TODO Auto-generated method stub
 	
 	 int sortedarray[]= new int[6];
-for (int j = arr.length-1; j>=0  ; j--) {
+
 	
 
 length=arr.length;
@@ -33,20 +25,15 @@ System.out.println(Arrays.toString(arr));
 
 
 
-int element=arr[arr.length-1];
+element=arr[arr.length-1];
 System.out.println(element);
-int temp=arr[0];
-arr[0]=arr[length-1];
-arr[length-1]=temp;
 
 arr =Arrays.copyOf(arr, length-1);
 
-}
-
-System.out.println(Arrays.toString(sortedarray));
 
 
 
+return element;
  }
  static void heapfy(int[] arr, int ii) {
 	 int largest;
