@@ -33,6 +33,17 @@ public class EnumBasicDemo {
 	}
 
 	public static void main(String[] args) {
+		
+		
+		double a=63;
+		double b=64;
+		double c= a/b;
+		System.out.println(c*100);
+		c=c*100;
+		
+		double  calculated=Math.ceil(c);
+
+		
 		EnumBasicDemo firstDay = new EnumBasicDemo(Day.MONDAY);
 		firstDay.tellItLikeItIs();
 		EnumBasicDemo thirdDay = new EnumBasicDemo(Day.WEDNESDAY);

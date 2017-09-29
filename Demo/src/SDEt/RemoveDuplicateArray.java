@@ -1,6 +1,9 @@
 package SDEt;
-
-public class RemoveDuplicateArray {
+class privateclass{
+	
+	private privateclass(){}
+	}
+public class RemoveDuplicateArray  {
 	   public static int[] removeDuplicates(int[] input){
 		   
 		   
