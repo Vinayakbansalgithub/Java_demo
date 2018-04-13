@@ -1,4 +1,15 @@
 package SDEt;
+
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryUsage;
+import java.nio.file.FileAlreadyExistsException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 class Bnode{
 	int value;
 	Bnode left;
@@ -7,11 +18,6 @@ class Bnode{
 	Bnode(int value){
 		this.value=value;
 	}
-	
-	
-	
-	
-	
 	
 	
 }
@@ -201,6 +207,29 @@ if(head==null){
 
 
 public static void main(String[] args) {
+	
+	
+        try {
+        	int i=10/0;
+        	
+        } catch (ArithmeticException e) {
+           
+        	
+        	int j=10/0;
+        	
+        }
+       System.out.println("here");
+    
+   
+
+	
+	
+	
+     
+     
+     
+     
+	
 	BalancedBraces obj= new BalancedBraces();
 	obj.add(10,null);
 	obj.add(5,obj.getParent());

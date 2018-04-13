@@ -1,5 +1,8 @@
 package Sorting;
 
+
+
+// complexity n^2
 public class BubbleSort {
 	int size;
 	int[] arr;

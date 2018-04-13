@@ -77,6 +77,9 @@ static HashMap<String, Integer> map= new HashMap<String, Integer>();
 	public static void main(String... a) {
 		String arr[] = { "vinayak", "vinayakbansal", "vinaya", "vinay" };
 
+		
+		
+		
 		 commonPrefix(arr);
 
 	}

@@ -15,72 +15,71 @@ public static void main(String[] args) {
 
 static int length;
 static int sortedlength;
+
+static int[] sortedarray= new int[10];
+
  public static void Max_heapfy(int[] arr, int i) {
-	// TODO Auto-generated method stub
+	 
 	
-	 int sortedarray[]= new int[6];
-for (int j = arr.length-1; j>=0  ; j--) {
+		
+	 for (int j11 = arr.length-1; j11 >= 0; j11--) {
+	for (int j1 = j11; j1 >= 0; j1--) {
+		
+		heapfy(arr,j1);
+		
+			
+		
 	
-
-length=arr.length;
-
-for(int ii=length-1;ii>=0;ii--){
+	 }
 	
-	heapfy(arr,ii);
+	 sortedarray[j11]=arr[0];
+	 
+	 arr[0]=arr[arr.length-1];
+	 arr= Arrays.copyOf(arr, arr.length-1);
+	 
+	 
+	 
+	 }
+	 
+	
 }
-
-System.out.println(Arrays.toString(arr));
-
-
-
-int element=arr[arr.length-1];
-System.out.println(element);
-int temp=arr[0];
-arr[0]=arr[length-1];
-arr[length-1]=temp;
-
-arr =Arrays.copyOf(arr, length-1);
-
-}
-
-System.out.println(Arrays.toString(sortedarray));
-
-
-
- }
- static void heapfy(int[] arr, int ii) {
-	 int largest;
-	 int left=2*ii+1;
-	 int right=2*ii+2;
+ static void heapfy(int[] arr,int index){
+	 
+	 int left=index*2+1;
+	 int right=index*2+2;
+	 int highest=arr[index];
+	 int highestindex=0;
+	 
+	 if(left<arr.length&&arr[left]>highest){
+		 highest=arr[left];
+		 highestindex=left; 
+	 }
 	 
 	 
+	 if(right<arr.length&&arr[right]>highest){
+		 highest=arr[right];
+		 highestindex=right; 
+ 
+	 }
 	 
 	 
-	// TODO Auto-generated method stub
-	 if(left<length && arr[left]>arr[ii]){
-			largest=left;
-		}
-	 else{
-		 largest=ii;
+
+	 if(arr[index]!=highest){
+		 
+		 int temp=arr[index];
+		 arr[index]=arr[highestindex];
+		 arr[highestindex]=temp;
+		 
+		 
+		 // to make all left element smalll
+		 //heapfy( arr, highestindex);
 		 
 	 }
 	 
-		if(right<length && arr[right]>arr[largest]){
-			
-			largest=right;		}
-		
-		if(ii!=largest){
-			
-			int temp=arr[largest];
-			arr[largest]=arr[ii];
-			arr[ii]=temp;
-			
-			
-			// we recall heapfy to balance again according to max heap means all the parents greater then child.
-		heapfy(arr,largest);
-		
-
-		 }
-}
-
+	 
+	 
+	 
+	 
+	 
+ }
 }

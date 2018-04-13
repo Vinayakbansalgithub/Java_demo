@@ -1,9 +1,6 @@
 package SelFrDemo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 class Student{
@@ -80,6 +77,7 @@ public static void main(String[] args) {
 	 Student s2= new Student(102,"nitin");
 	 Student s3= new Student(103,"rachna");
 	 Student s4= new Student(104,"nasa");
+	 Student s5= new Student(101,"vinayak");
 
 	 HashMap<Student, String> map= new  HashMap<Student, String>();
 	map.put(s1, "bansal");
@@ -87,7 +85,7 @@ public static void main(String[] args) {
 	map.put(s3, "verma");
 	map.put(s4, "sunny");
 	
-	map.put(s1, "jagjeet");
+	map.put(s5, "jagjeet");
 	
 	 System.out.println("----values are----");
 	 

@@ -80,6 +80,11 @@ Iterator itr=hm.entrySet().iterator();
 	public static void main(String args[]) {
 		
 		
+		String s;
+		Integer i;
+		StringBuffer bb;
+		
+		
 		System.out.println(System.currentTimeMillis());
 Date date= new Date();
 System.out.println(date.getHours());

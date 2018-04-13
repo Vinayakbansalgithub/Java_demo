@@ -1,24 +1,35 @@
 package Sorting;
 
 public class InsertionSortAgain {
-	private void sort(int[] arr, int i) {
+	int arrSorted[];
+	int temp;
+	private void sort(int[] arr, int length) {
+		arrSorted= new int[length];
+		arrSorted[0]=arr[0];
 		
-		 int temp;
-
-		// TODO Auto-generated method stub
+		
 		for (int j = 1; j < arr.length; j++) {
 			
-			int counter=j;
-			
-			while (counter>0 && arr[counter]<arr[counter-1]   ) {
-
-				temp=arr[counter-1];
-				arr[counter-1]=arr[counter];
-				arr[counter]=temp;
-				counter--;
+			while(j>0 && arr[j]<arr[j-1]){
+				temp=arr[j];
+				arr[j]=arr[j-1];
+				arr[j-1]=temp;
+				j--;
+				
+				
 			}
+			
+			
+			
+			
 		}
-	}
+		
+		
+		
+		
+		
+		}
+	
 	
 	
 	public static void main(String[] args) {

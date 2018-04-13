@@ -4,62 +4,88 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 
-
+class Student
+{
+    String name;
+ 
+    int rollNo;
+ 
+    String department;
+ 
+    public Student(String name, int rollNo, String department)
+    {
+        this.name = name;
+ 
+        this.rollNo = rollNo;
+ 
+        this.department = department;
+    }
+ 
+    @Override
+    public int hashCode()
+    {
+        return rollNo;
+    }
+ 
+    @Override
+    public boolean equals(Object obj)
+    {
+        Student student = (Student) obj;
+ 
+        return (rollNo == student.rollNo);
+    }
+ 
+    @Override
+    public String toString()
+    {
+        return rollNo+", "+name+", "+department;
+    }
+}
 public class HashSetDemo {
 public static void main(String[] args) {
 	
 	
-	int array[]={1,2,3,4,5};
-	int rotration=4;
-	
-	
-	
-	for (int i = 0; i < rotration; i++) {
-		int val=array[0];
-		for (int j = 0; j < array.length-1; j++) {
-			
-		
-			array[j]=array[j+1];
-			
-			
-			
-		}
-		array[ array.length-1]=val;
-		
-		
-	}
-	
-	
-	System.out.println(Arrays.toString(array));
-	
-	
-	
-	
-	
-	
-	
-	
-	SortedSet<String> arr= new TreeSet<String>();
-	arr.add("vinayak");
-	arr.add("shobhit");
-	//arr.add("vinayak");
-	arr.add("kanchan");
-	
-	arr.add("abhinav");
-	arr.add("raju");
-	//arr.add("vinayak");
-	arr.add("zehan");
+	HashSet<Student> set = new HashSet<Student>();
+	 
+    //Adding elements to HashSet
 
-	Collections.synchronizedSet(arr);
-	Set<String> set= new HashSet<String>(arr);
-	System.out.println(set);
-	
-	Set<String> subSet =	arr.subSet("abhinav", "raju");
-	System.out.println(subSet);
+    set.add(new Student("Avinash", 121, "ECE"));
+
+    set.add(new Student("Bharat", 101, "EEE"));
+
+    set.add(new Student("Malini", 151, "Civil"));
+
+    set.add(new Student("Suresh", 200, "IT"));
+
+    set.add(new Student("Vikram", 550, "CS"));
+
+    set.add(new Student("Bharat", 301, "IT"));
+
+    set.add(new Student("Amit", 301, "IT"));           //duplicate element
+
+    set.add(new Student("Bhavya", 872, "ECE"));
+
+    set.add(new Student("Naman", 301, "CS"));        //duplicate element
+
+    set.add(new Student("Samson", 565, "Civil"));
+
+    //Iterating through HashSet
+
+    Iterator<Student> it = set.iterator();
+
+    while (it.hasNext())
+    {
+        Student student = (Student) it.next();
+        System.out.println(student.hashCode());
+
+        System.out.println(student);
 }
 }
+}
+

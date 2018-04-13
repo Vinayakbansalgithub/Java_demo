@@ -11,36 +11,30 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-class MyThread1 implements Runnable {
-	
-	public void run() {
-		try{
-		Thread.sleep(1000);
-		}catch(Exception e)
-		{ Thread.currentThread().interrupt();}
-		WebDriver driver = null;
-		driver = new FirefoxDriver();
-		driver.get("http://toolsqa.com/automation-practice-form/");
-				
-	//	driver.manage().window().setSize(new Dimension(685, 720));
-		Multiplescripts.Action(driver);
-		System.out.println("----------firefox ends-------------");
-	}
-}
+//class MyThread1 implements Runnable {
+//	
+//	public void run() {
+//		try{
+//		Thread.sleep(1000);
+//		}catch(Exception e)
+//		{ Thread.currentThread().interrupt();}
+//		WebDriver driver = null;
+//		driver = new FirefoxDriver();
+//		driver.get("http://toolsqa.com/automation-practice-form/");
+//				
+//	//	driver.manage().window().setSize(new Dimension(685, 720));
+//		Multiplescripts.Action(driver);
+//		System.out.println("----------firefox ends-------------");
+//	}
+//}
 
 class MyThread2 implements Runnable {
 	public void run() {
-		WebDriver driver = null;
-
-		System.setProperty("webdriver.chrome.driver",
-				"D:/Vinayak/workspace/asdasd/Driver/chromedriver.exe");
 		
 		
 		
 		
-		driver = new ChromeDriver();
-		driver.get("http://toolsqa.com/automation-practice-form/");
-		Dimension windowSize = driver.manage().window().getSize();
+		/*Dimension windowSize = driver.manage().window().getSize();
 		int targetWidth = (int) (windowSize.width / 2); // Half the screen
 															// width
 		driver.manage().window().setPosition(new Point(targetWidth, 0)); // Right
@@ -48,14 +42,14 @@ class MyThread2 implements Runnable {
 																			// of
 																			// screen
 		Multiplescripts.Action(driver);
-		System.out.println("----------chrome ends-------------");
+		System.out.println("----------chrome ends-------------");*/
 
 	}
 }
 
 public class Multiplescripts {
 
-	public static void Action(WebDriver driver) {
+	/*public static void Action(WebDriver driver) {
 
 		Select continent = new Select(driver.findElement(By.name("continents")));
 
@@ -92,15 +86,48 @@ public class Multiplescripts {
 		}
 
 		driver.quit();
-	}
+	}*/
 
 	public static void main(String[] args) throws InterruptedException {
 
-		MyThread1 m1 = new MyThread1();
+		
+		WebDriver driver = null;
+
+		System.setProperty("webdriver.chrome.driver",
+				"D:/workspace/Puresoftware_Automation/Automation/Automation_Framework_Puresoftware/driver/chromedriver.exe");
+		
+		
+		
+		
+		driver = new ChromeDriver();
+
+
+		//*[@id='search']/input
+		
+		
+		//driver.get("http://toolsqa.com/automation-practice-form/");
+		driver.get("https://www.w3schools.com/");
+	WebElement ee=	driver.findElement(By.xpath("html/body/div[5]/div/a[1]/i"));
+	
+	
+	
+		ee.click();	
+		WebElement eee=	driver.findElement(By.xpath(".//*[@id='___gcse_0']/div/div/form/table[1]/tbody/tr/td[1]"));
+
+		eee.click();
+		
+		
+		eee.sendKeys("selenium");
+		
+		
+		System.out.println("---------------------");
+		
+		
+	//	MyThread1 m1 = new MyThread1();
 		MyThread2 m2 = new MyThread2();
-		Thread t1 = new Thread(m1);
+	//	Thread t1 = new Thread(m1);
 		Thread t2 = new Thread(m2);
-		t1.start();
+//		t1.start();
 		//t1.interrupt();
 		t2.start();
 

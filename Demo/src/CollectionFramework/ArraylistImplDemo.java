@@ -45,6 +45,14 @@ public class ArraylistImplDemo<T> {
 	}
 public static void main(String[] args) {
 	
+	Integer k = 99;     // Autoboxing (Auto Boxing)
+       k++;   
+   	System.out.println(k);
+
+	Integer ii= new Integer(4);
+	ii++;
+	System.out.println(ii);
+	
 	ArraylistImplDemo<Integer> arr= new ArraylistImplDemo<Integer>();
 	arr.add(10);
 	arr.add(20);

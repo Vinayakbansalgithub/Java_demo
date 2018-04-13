@@ -2,8 +2,8 @@ package SDEt;
 
 public class SecondLargest {
 	
-	static int secondlargest=0;
-	static int largest=0;
+	static int secondlargest=Integer.MIN_VALUE;
+	static int largest=Integer.MIN_VALUE;
 	static int secondLargestcvalue(int[] arr) {
 		
 		
@@ -17,8 +17,8 @@ public class SecondLargest {
 				
 			}
 			
-		
-			if(largest!=arr[i] &&  largest>arr[i]){
+	
+			if(largest!=arr[i] &&  largest>arr[i] &&  arr[i]>secondlargest){
 				secondlargest=arr[i];
 				
 				
@@ -39,7 +39,7 @@ public class SecondLargest {
 return 0;		
 	}
 public static void main(String[] args) {
-	int arr[]={1,3,4,2,77,9,31,66,99,100};
+	int arr[]={1,3,4,2,77,9,31,66,101,101};
 	
 	secondLargestcvalue(arr);
 	

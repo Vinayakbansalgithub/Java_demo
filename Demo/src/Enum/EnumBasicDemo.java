@@ -1,6 +1,14 @@
 package Enum;
 
-public class EnumBasicDemo {
+
+class custom extends Exception{}
+class One{
+	
+	
+}
+
+
+public class EnumBasicDemo extends One {
 	enum Day {
 		SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
 	}
@@ -11,7 +19,7 @@ public class EnumBasicDemo {
 		this.day = day;
 	}
 
-	public void tellItLikeItIs() {
+	public void tellItLikeItIs() throws custom {
 		switch (day) {
 		case MONDAY: {
 			System.out.println("Mondays 1st day.");
@@ -32,7 +40,7 @@ public class EnumBasicDemo {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws custom {
 		
 		
 		double a=63;

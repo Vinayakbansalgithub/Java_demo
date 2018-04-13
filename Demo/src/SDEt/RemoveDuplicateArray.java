@@ -1,9 +1,50 @@
 package SDEt;
-class privateclass{
-	
-	private privateclass(){}
-	}
+
+
+
+// this works if the array is sorted
+
 public class RemoveDuplicateArray  {
+	
+	
+	
+	
+	
+	static void removeDuplicatesUnsorted(int[] arrayWithDuplicates)
+    {
+       
+         
+        //Assuming all elements in input array are unique
+         
+        int noOfUniqueElements = arrayWithDuplicates.length;
+         
+        //Comparing each element with all other elements
+         
+        for (int i = 0; i < noOfUniqueElements; i++) 
+        {
+            for (int j = i+1; j < noOfUniqueElements; j++)
+            {
+                //If any two elements are found equal
+                 
+                if(arrayWithDuplicates[i] == arrayWithDuplicates[j])
+                {
+                    //Replace duplicate element with last unique element
+                     
+                    arrayWithDuplicates[j] = arrayWithDuplicates[noOfUniqueElements-1];
+                     
+                    //Decrementing noOfUniqueElements
+                     
+                    noOfUniqueElements--;
+                     
+                    //Decrementing j
+                     
+                    j--;
+                
+            }
+	
+            }}}
+	
+	
 	   public static int[] removeDuplicates(int[] input){
 		   
 		   
@@ -37,10 +78,13 @@ public class RemoveDuplicateArray  {
 	    }
 	     
 	    public static void main(String a[]){
-	        int[] input1 = {2,3,3,6,8,8,9,10};
-	        int[] output = removeDuplicates(input1);
-	        for(int i:output){
+	        int[] input1 = {4, 3, 2, 4, 9, 2};
+	       // int[] output = removeDuplicates(input1);
+	        
+	        
+	        removeDuplicatesUnsorted(input1);
+	       /* for(int i:output){
 	            System.out.print(i+" ");
-	        }
+	        }*/
 	    }
 }

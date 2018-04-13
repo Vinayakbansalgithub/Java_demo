@@ -20,10 +20,14 @@ public class SeleniumAttributeFind {
 		try {
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
+			
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		driver.navigate().to("https://google.com");
+		
+		
 		// function to get names of all the links in the Page
 		getALLNameforObject("link");
 		// function to validate a particular object with particular text appears

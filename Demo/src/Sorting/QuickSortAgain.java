@@ -3,54 +3,59 @@ package Sorting;
 public class QuickSortAgain {
 	static int kth=2;
 
-	private void sort(int[] arr, int low, int high) {
-			if(low<=high){
-				 int pi= partition(arr,low,high);
-				 if(pi==kth)
-				 System.out.println(kth+"   smallest element is"+arr[pi]);
-				 
-				 else if(pi>kth)
-				 sort(arr,low,pi-1);
-				 
-				 else if(pi<kth)
-				 sort(arr,pi+1,high);
+	static void sort(int[] arr, int low, int high) {
+			
+		
+		if(low<high){
+		
+		int pi=partition(arr,low,high);
+		
+		sort(arr,0,pi-1);
+		sort(arr,pi+1,high);
+		}
 
-				 
-				 
-			}	
-			//System.out.println("first"+low);
+		
 	}
 	
 	
-	 int partition(int[] arr, int low, int high) {
-		// TODO Auto-generated method stub
-		 int pivot=arr[high];
-		 int temp;
-		 int count=low-1;
-		 for (int i = low; i < arr.length; i++) {
-			if(arr[i]<pivot){
-				count++;
-				temp=arr[i];
-				arr[i]=arr[count];
-				arr[count]=temp;
+	 static int partition(int[] arr, int low, int high) {
+		int pivot=arr[high];
+		int count=low-1;
+		
+		
+		for (int i = low; i < arr.length; i++) {
+			
+			if(arr[i]>pivot){
+				
 				
 				
 			}
-			 
-			 
+			else{
+				count++;
+				int temp=arr[count];
+				arr[count]=arr[i];
+				arr[i]=temp;
+				
+				
+				
+			}
+			
+			
+			
 		}
-		 
-		 temp=arr[count+1];
-			arr[count+1]=pivot;
-			arr[high]=temp;
-		 
-		 
-		return count+1;
+		
+
+		
+		
+		return count;
+		
+		
+
 	}
 
 
 	public static void main(String[] args) {
-		int arr[] = {10, 7, 8, 9, 1, 5,9,3 };
+		int arr[] = {6, 5, 11, 3, 8, 4,27,9,12 };
 		int len=arr.length;
 				
 		QuickSortAgain obj = new QuickSortAgain();

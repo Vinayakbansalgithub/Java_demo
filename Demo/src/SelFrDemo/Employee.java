@@ -32,6 +32,10 @@ public class Employee implements Serializable {
 	 * private Object readResolve() throws ObjectStreamException { return emp; }
 	 */
 
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public static Employee getInstance() {
 		/*
 		 * if(emp!= null){ throw new Error("Don't want any more instances"); }

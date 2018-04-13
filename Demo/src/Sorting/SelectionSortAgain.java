@@ -3,24 +3,29 @@ package Sorting;
 public class SelectionSortAgain {
 	
 	private void sort(int[] arr) {
-		int temp;
-		int min;;
-		int smallIndex = 0;
-		// TODO Auto-generated method stub
 		
-		
+			
+			
+			
 		for (int i = 0; i < arr.length; i++) {
-			min=arr[i];
-			for (int j = i+1; j < arr.length; j++) {
-				if(arr[j]<min){
-					min=arr[j];
-					smallIndex=j;
+			int smallest=arr[i];
+			int smallestIndex = i;
+			
+			for (int j = i; j < arr.length; j++) {
+				
+				if(arr[j]<smallest){
+					smallest=arr[j];
+				
+					smallestIndex=j;
 				}
 			}
-			temp = arr[i];
-			arr[i] = arr[smallIndex];
-			arr[smallIndex] = temp;
-
+			
+			
+			int temp=arr[i];
+			arr[i]=smallest;
+			arr[smallestIndex]=temp;
+			
+			
 			
 			
 		}
@@ -32,7 +37,7 @@ public class SelectionSortAgain {
 	
 	
 	public static void main(String[] args) {
-		int arr[] = { 5, 1, 12, 15, 16, 2, 12, 14, };
+		int arr[] = { 5, 2, 1, 3, 6, 4 };
 		SelectionSortAgain obj = new SelectionSortAgain();
 		obj.sort(arr);
 		for (int i = 0; i < arr.length; i++) {

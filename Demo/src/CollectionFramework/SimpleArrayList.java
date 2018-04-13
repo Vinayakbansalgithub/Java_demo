@@ -7,13 +7,33 @@ public static void main(String[] args) {
 	list.add("vinayak");
 	list.add("karan");
 	list.add("mehul");
+	list.add("vinayak");
+	list.add("karan");
+	list.add(2, "element");
+	list.add("happy");
+	list.remove("vinayak");
+	
+	
 	
 	Iterator itr=list.iterator();
+	
+	  while(itr.hasNext()){  
+		    
+		    System.out.println(itr.next());  
+		  }
+	
+	
 	for (String string : list) {
 		System.out.println(string);
 	}
-	
-	
+	Set<String> sett=new TreeSet<String>(list);  
+	 sett.add(null);  
+	  //sett.add(null);  
+
+	  
+		for (String string : sett) {
+			System.out.println(string+"---");
+		}
 	
 	HashMap<Integer, String> map= new HashMap<Integer, String>();
 	map.put(1, "vinayak");

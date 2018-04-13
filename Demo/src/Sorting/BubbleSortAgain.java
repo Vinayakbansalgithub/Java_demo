@@ -2,24 +2,23 @@ package Sorting;
 
 public class BubbleSortAgain {
 	
-	
+	int temp;
 	private void sort(int[] arr, int length) {
 		
-		 int temp;
-		 
-		 for (int j = 0; j < arr.length; j++) {
-			
-		
-		for (int i = 0; i < (arr.length-1)-j; i++) {
-			
-				if(arr[i]>arr[i+1]){
-
-				temp=arr[i+1];
-				arr[i+1]=arr[i];
-				arr[i]=temp;	
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 1; j < arr.length; j++) {
+				
+				
+				if(arr[j]<arr[j-1]){
+					temp=arr[j];
+				arr[j]=arr[j-1];
+				arr[j-1]=temp;
+				}
 			}
 		}
-	}
+		
+		
+	
 	}
 	public static void main(String[] args) {
 		int arr[] = {10, 7, 8, 9, 21, 14,7};

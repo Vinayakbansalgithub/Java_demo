@@ -83,6 +83,22 @@ public class QueueUsingLinklist {
 	
 	
 	public static void main(String[] args) {
+		
+		
+		
+		String s= new String("v");
+		String s1= new String("v");
+		
+		System.out.println(s==s1);
+		System.out.println(s.equals(s1));
+		final String str= new String("vinayak");
+		
+		/*System.out.println(str);
+		
+		str=str.concat(" bansal");*/
+		System.out.println(str);
+		
+		
 		QueueUsingLinklist obj = new QueueUsingLinklist();
 	
 		obj.enque(7);
