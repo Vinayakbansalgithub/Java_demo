@@ -32,7 +32,7 @@ if(charfound%2==1)
 }
 
 if(count>1){
-	System.out.println ("it can not form palindrom");
+	System.out.println ("it can not form palindrom string");
 	
 }else
 System.out.println("it can form palindrom");
