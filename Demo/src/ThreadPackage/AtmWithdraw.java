@@ -11,25 +11,33 @@ public class AtmWithdraw implements Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		while(money!=0){
-		if(balance()>0)
-			try {
-				withdraw();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		while(money>0){
+		try {
+			if(balance()>0){
+				try {
+					withdraw();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		else{
-			
-			System.out.println("new to earn more   "+Thread.currentThread().getName());
+			else{
+				
+				System.out.println("new to earn more   "+Thread.currentThread().getName());
+				break;
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
 	
 	}
 	
-	int balance(){
-		
+	int balance() throws InterruptedException{
+		Thread.sleep(500);
+
 		return money;
 	}
 	static void withdraw() throws InterruptedException{
@@ -38,7 +46,6 @@ public class AtmWithdraw implements Runnable {
 			 money=	money-10;	
 				
 				System.out.println("10 rs withdraw by "+Thread.currentThread().getName()+" ,current balance  "+money);
-				Thread.sleep(1000);
 			
 		 }
 		 
@@ -48,10 +55,10 @@ public class AtmWithdraw implements Runnable {
 public static void main(String[] args) throws InterruptedException {
 	
 	AtmWithdraw obj1= new AtmWithdraw();
-	AtmWithdraw obj2= new AtmWithdraw();
+	//AtmWithdraw obj2= new AtmWithdraw();
 	
 	Thread mehul= new Thread(obj1,"mehul");
-	Thread vinayak= new Thread(obj2,"vinayak");
+	Thread vinayak= new Thread(obj1,"vinayak");
 	
 	mehul.start();
 	vinayak.start();

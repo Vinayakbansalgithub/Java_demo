@@ -13,7 +13,7 @@ public class MergeSort {
 		this.arr=arr;
 		length=arr.length;
 		higherIndex=length-1;
-		divide(lowerIndex,higherIndex);
+		divide(0,higherIndex);
 		
 		
 	}

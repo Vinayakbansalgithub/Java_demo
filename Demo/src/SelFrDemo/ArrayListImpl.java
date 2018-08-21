@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class ArrayListImpl {
 	Object[] ObjSize;
-	int actSize = 0;
+	static int actSize = 0;
 
 	ArrayListImpl() {
 		ObjSize = new Object[10];
@@ -12,7 +12,6 @@ public class ArrayListImpl {
 
 	public static void main(String a[]) {
 		
-		System.out.println("return jQuery.active");
 
 		ArrayListImpl mal = new ArrayListImpl();
 		mal.add(new Integer(2));
@@ -22,7 +21,7 @@ public class ArrayListImpl {
 		mal.add(new Integer(27));
 		mal.add(new Integer(4));
 	
-		for (int i = 0; i < mal.size(); i++) {
+		for (int i = 0; i <actSize; i++) {
 			System.out.println("value stored in arraylist is" + mal.get(i));
 		}
 
@@ -39,7 +38,6 @@ public class ArrayListImpl {
 			System.out.println("value stored in arraylist is" + mal.get(i));
 		}
 
-		//mal.remove(2);
 
 		for (int i = 0; i < mal.size(); i++) {
 			System.out.println("value stored in arraylist is" + mal.get(i));
@@ -72,6 +70,8 @@ public class ArrayListImpl {
 	private void add(Object obj) {
 		if (ObjSize.length - actSize <= 5) {
 			increaseSize();
+			ObjSize[actSize++] = obj;
+
 		} else {
 
 			ObjSize[actSize++] = obj;

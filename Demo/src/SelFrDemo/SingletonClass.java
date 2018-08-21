@@ -9,20 +9,20 @@ public class SingletonClass   {
 
 	public static SingletonClass getInstance() {
 		
-	//	if (singleobject == null) {
+		if (singleobject == null) {  // Single Checked
 			System.out.println("-------singleobject   is  ----  "+singleobject);
-		//	synchronized (SingletonClass.class) {
-				if (singleobject == null) {
+			synchronized (SingletonClass.class) {
+				if (singleobject == null) {    // Double checked
 					
 					
 					
 					singleobject = new SingletonClass();
 					
-					System.out.println(singleobject);
+					System.out.println("--------------------->        "+singleobject);
 				}
-		//	}
+		}
 
-	//	}
+		}
 
 		return singleobject;
 	}

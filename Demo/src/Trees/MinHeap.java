@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class MinHeap {
 public static void main(String[] args) {
-	int arr[]={1,3,6,5,9,8};
+	int arr[]={11,3,0,2,1,11,5,9,0,6,5,9,8};
 	
-	Max_heapfy(arr,1);
+	Max_heapfy(arr);
 	
 }
 
@@ -16,39 +16,39 @@ public static void main(String[] args) {
 static int length;
 static int sortedlength;
 
-static int[] sortedarray= new int[10];
+static int[] sortedarray;
 
- public static void Max_heapfy(int[] arr, int i) {
-	 
+ public static void Max_heapfy(int[] arr) {
+	 sortedarray= new int[arr.length];
 	
 		
-	 for (int j11 = arr.length-1; j11 >= 0; j11--) {
-	for (int j1 = j11; j1 >= 0; j1--) {
+	 for (int i = arr.length-1; i >= 0; i--) {
+	for (int j = i; j >= 0; j--) {
 		
-		heapfy(arr,j1);
+		heapfy(arr,j);
 		
 			
 		
 	
 	 }
 	
-	 sortedarray[j11]=arr[0];
+	 sortedarray[i]=arr[0];
 	 
 	 arr[0]=arr[arr.length-1];
 	 arr= Arrays.copyOf(arr, arr.length-1);
 	 
 	 
-	 
 	 }
 	 
-	
+	 System.out.println(Arrays.toString(sortedarray));
+
 }
  static void heapfy(int[] arr,int index){
 	 
 	 int left=index*2+1;
 	 int right=index*2+2;
 	 int highest=arr[index];
-	 int highestindex=0;
+	 int highestindex=index;
 	 
 	 if(left<arr.length&&arr[left]>highest){
 		 highest=arr[left];
@@ -72,7 +72,7 @@ static int[] sortedarray= new int[10];
 		 
 		 
 		 // to make all left element smalll
-		 //heapfy( arr, highestindex);
+		 heapfy( arr, highestindex);
 		 
 	 }
 	 

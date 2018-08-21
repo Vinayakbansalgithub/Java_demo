@@ -10,6 +10,9 @@ public class ConsumerProducerProblem {
 
 	void Consume() throws InterruptedException {
 
+		
+		// here we are having class level locking because we have taken lock on static variable
+		
 		synchronized (queue) {
 
 			for (int i = 0; i < 10; i++) {

@@ -8,6 +8,7 @@ class Bucket<K, V> {
 	Bucket<K, V> next;
 
 	Bucket(K key, V value, Bucket<K, V> next) {
+		
 		this.key = key;
 		this.value = value;
 		this.next = next;
@@ -25,7 +26,7 @@ public class HashMapImpl<K, V> {
 	public void put(K key, V value) {
 		Bucket<K, V> prev = null;
 		int hash = hash(key);
-		System.out.println(hash);
+		//System.out.println(hash);
 		Bucket<K, V> bucket = new Bucket(key, value, null);
 		if (table[hash] == null)
 			table[hash] = bucket;
@@ -36,6 +37,8 @@ public class HashMapImpl<K, V> {
 			while (current != null) {
 				if (current.key.equals(bucket.key)) {
 					if(prev!=null){
+						
+					System.out.println("prev--------------------");
 						bucket.next=current.next;
 						prev.next=bucket;
 						return;
@@ -48,18 +51,18 @@ public class HashMapImpl<K, V> {
 					return;
 					}
 				}
-				System.out.println(current);
-				System.out.println(current.value);
+			//	System.out.println(current);
+				//System.out.println(current.value);
 				prev = current;
 				
 				current = current.next;
 			//	System.out.println(current.value);
 			//	System.out.println(current.next);
-				System.out.println(current);
+		//		System.out.println(current);
 			}
-			System.out.println(prev.value+"  "+prev.next);
+	//		System.out.println(prev.value+"  "+prev.next);
 			prev.next=bucket;
-			System.out.println(prev.value+"  "+prev.next);
+		//	System.out.println(prev.value+"  "+prev.next);
 		}
 	}
 
@@ -80,12 +83,17 @@ public class HashMapImpl<K, V> {
 	}
 
 	int hash(K key) {
-		return Math.abs(key.hashCode()) % 4;
+		
+		
+		int h= Math.abs(key.hashCode()) % 4;
+	System.out.println("with key   "+key+"  code   "+h);
+	return h;
 	}
 
 	public static void main(String[] args) {
 		HashMapImpl<Integer, String> hmap = new HashMapImpl<Integer, String>();
 		hmap.put(21, "vinayak");
+
 		hmap.put(21, "jira");
 
 		hmap.put(25, "sachin");
@@ -95,7 +103,7 @@ public class HashMapImpl<K, V> {
 		hmap.put(34, "vinayak");
 		hmap.put(67, "sachin");
 		hmap.put(91, "Mehul");
-		System.out.println(hmap.get(25));
+		System.out.println(hmap.get(21));
 
 	}
 }

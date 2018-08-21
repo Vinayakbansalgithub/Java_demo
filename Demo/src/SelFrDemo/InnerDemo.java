@@ -1,4 +1,12 @@
 package SelFrDemo;
+
+import java.io.IOError;
+import java.io.IOException;
+
+import org.bouncycastle.crypto.RuntimeCryptoException;
+
+import SelFrDemo.OuterClass.InnerClass;
+
 class OuterClass
 {
     class InnerClass
@@ -16,10 +24,57 @@ class OuterClass
     }
 }
 public class InnerDemo {
-    public static void main(String args[])
+	
+	static void Hello() throws IOException{
+		throw new IOException();
+	}
+	
+	
+	static void got() throws IOException{
+		
+		//Hello();
+		
+		try{
+		return;
+			
+		}
+		catch(Exception e){
+		//	return;
+		}
+		finally{
+		//return;
+		}
+		
+		System.out.println("here");
+		
+	}
+    public static void main(String args[]) throws Exception  
     {
-        OuterClass outer = new OuterClass();  //creating an instance of OuterClass
- 
+    	
+    	try{
+    		throw new RuntimeException(); 
+    		
+    	}catch(Exception e){
+    	//RuntimeException
+    	//finally{
+    
+    		throw new RuntimeException();
+    		
+    	}
+    	
+    	got();
+        /*OuterClass outer = new OuterClass();  //creating an instance of OuterClass
+        
+        
+System.out.println(true);
+        
+Object o = new Object() {
+public boolean equals(Object obj) {
+return true;
+}
+};
+
+        
         OuterClass.InnerClass inner = outer.new InnerClass();  //creating an instance of InnerClass
  
         System.out.println(inner.i);    //accessing non-static field of InnerClass
@@ -27,5 +82,5 @@ public class InnerDemo {
         System.out.println(OuterClass.InnerClass.j);    //static field can be accessed directly through class name
  
         inner.methodOne();     //accessing non-static method of InnerClass
-    }
-}
+    }*/
+}}

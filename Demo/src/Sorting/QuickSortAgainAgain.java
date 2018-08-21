@@ -4,12 +4,14 @@ public class QuickSortAgainAgain {
 	private void sort(int[] arr, int low, int high) {
 		// TODO Auto-generated method stub
 		
-		if(low<high){
-			int pi=partition(arr,low,high);
-			sort(arr,0,pi-1);
-			sort(arr,pi+1,high);
-			
-		}
+	if(low<high)
+	{
+		int middle=partition(arr, low, high);
+		
+		sort(arr,low,middle-1);
+		sort(arr,middle+1,high);
+		
+	}
 		
 	}
 	
@@ -17,29 +19,33 @@ public class QuickSortAgainAgain {
 	
 	
 	 int partition(int[] arr, int low, int high) {
-		 int head=low-1;
+		 
+		 
 		 int pivot=arr[high];
-		 int  temp;
-for (int i = low; i < arr.length-1; i++) {
-	 if(pivot>arr[i]){
-		  head++;
-		  temp=arr[i];		  
-		  arr[i]=arr[head];
-		  arr[head]=temp;
-				  
-		  
-		  
+		 int head=low,temp;
+		 
+		 for (int i = low; i < high; i++) {
+			
+			 if(arr[i]<pivot){
+				 temp=arr[i];
+					arr[i]=arr[head];
+					arr[head]=temp;
+					head++;
+			 }
+			 
+			 
+			 
+			 
+			 
+		}
+		 
+		 
+		 temp=arr[head];
+			arr[head]=pivot;
+			arr[high]=temp;
+		 return head;
+		 
 	 }
-}
-		temp=arr[head+1];
-		arr[head+1]=pivot;
-		arr[high]=temp;
-		 
-		 
-		 
-		return head+1;
-		
-	}
 
 
 

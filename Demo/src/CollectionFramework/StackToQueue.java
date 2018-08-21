@@ -83,7 +83,7 @@ public static void main(String[] args) throws Overflow,Underflow {
 	stack.enqueue("nandini");
 
 	stack.enqueue("mehul");
-	System.out.println(stack.peek());
+	System.out.println(stack.top());
 
 	stack.enqueue("monika");
 	stack.dequeue();

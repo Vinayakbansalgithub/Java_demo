@@ -10,10 +10,10 @@ public class RemoveDuplicateArray  {
 	
 	
 	
-	static void removeDuplicatesUnsorted(int[] arrayWithDuplicates)
+	static int removeDuplicatesUnsorted(int[] arrayWithDuplicates)
     {
        
-         
+         int last=0;
         //Assuming all elements in input array are unique
          
         int noOfUniqueElements = arrayWithDuplicates.length;
@@ -39,10 +39,14 @@ public class RemoveDuplicateArray  {
                     //Decrementing j
                      
                     j--;
+                    
+                    last=noOfUniqueElements;
                 
             }
 	
-            }}}
+            }}
+        
+    return last;}
 	
 	
 	   public static int[] removeDuplicates(int[] input){
@@ -82,9 +86,9 @@ public class RemoveDuplicateArray  {
 	       // int[] output = removeDuplicates(input1);
 	        
 	        
-	        removeDuplicatesUnsorted(input1);
-	       /* for(int i:output){
-	            System.out.print(i+" ");
-	        }*/
+	     int index=   removeDuplicatesUnsorted(input1);
+	        for(int i=0;i<index;i++){
+	            System.out.print(input1[i]+" ");
+	        }
 	    }
 }

@@ -8,21 +8,32 @@ public class InsertionSortAgain {
 		arrSorted[0]=arr[0];
 		
 		
-		for (int j = 1; j < arr.length; j++) {
+		
 			
-			while(j>0 && arr[j]<arr[j-1]){
-				temp=arr[j];
-				arr[j]=arr[j-1];
-				arr[j-1]=temp;
-				j--;
+		for (int i = 1; i < arr.length; i++) {
+			
+			int j=i-1;
+			
+			while(j>=0){
+				if(arr[j+1]<arr[j]){
+					
+					
+					temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+					j--;
+					
+				}
+				else j--;
 				
 				
 			}
 			
 			
+		}	
 			
 			
-		}
+		
 		
 		
 		
@@ -35,8 +46,8 @@ public class InsertionSortAgain {
 	public static void main(String[] args) {
 		
 
-	int arr[] = {23, 42, 4, 16, 8, 15};
-	int len=arr.length;
+		int arr[] = { 5, 11, 1, -5, 16,9, 2, 12, 14,3,-3,-3 };
+		int len=arr.length;
 			
 	InsertionSortAgain obj = new InsertionSortAgain();
 	obj.sort(arr,len-1);

@@ -6,15 +6,15 @@ import java.util.concurrent.ThreadPoolExecutor;
 
  class WorkerThreadd implements Runnable {
 	  
-    private String command;
+    private String job;
     
     public WorkerThreadd(String s){
-        this.command=s;
+        this.job=s;
     }
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName()+" Start. Command = "+command);
+        System.out.println(Thread.currentThread().getName()+" Start. Command = "+job);
         processCommand();
         System.out.println(Thread.currentThread().getName()+" End.");
     }
@@ -29,19 +29,19 @@ import java.util.concurrent.ThreadPoolExecutor;
 
     @Override
     public String toString(){
-        return this.command;
+        return this.job;
     }
 }
-public class ThreadPollDemo {
+public class ThreadPoolDemo {
 public static void main(String[] args) {
-	ThreadPollDemo obj= new ThreadPollDemo();
-	ExecutorService execute=  Executors.newFixedThreadPool(10);
+	//ThreadPollDemo obj= new ThreadPollDemo();
+	ExecutorService pool=  Executors.newFixedThreadPool(3);
 for (int i = 0; i < 10; i++) {
-	Runnable work= new WorkerThreadd("thread"+i);
-	execute.execute(work);
+	Runnable task= new WorkerThreadd("thread"+i);
+	pool.execute(task);
 }
-execute.shutdown();
-while (!execute.isTerminated()) {
+pool.shutdown();
+while (!pool.isTerminated()) {
 }
 System.out.println("Finished all threads");
 }

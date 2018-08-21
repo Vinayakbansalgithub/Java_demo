@@ -74,22 +74,26 @@ public class SimpleLinkList {
 	}
 
 	void reverse() {
-		// TODO Auto-generated method stub
-
-		SimpleNode prev = null;
-
+		
 		SimpleNode current = head;
-		SimpleNode next = null;
 
-		while (current != null) {
-			next = current.next;
-			current.next = prev;
-			prev = current;
-			current = next;
-
+		SimpleNode prev=null;
+		SimpleNode next=current.next;
+		
+		
+		while(next!=null){
+			current.next=prev;
+			prev=current;
+			current=next;
+			next= next.next;
+			
+			
+			
 		}
-		head = prev;
-
+		current.next=prev;
+		head=current;
+		
+		
 	}
 
 	public static void main(String[] args) {
@@ -100,9 +104,9 @@ public class SimpleLinkList {
 		obj.add(4);
 		obj.add(5);
 		obj.add(6);
-		obj.add(7);
+		/*obj.add(7);
 		obj.addAt(11, 2);
-		obj.delete(2);
+		obj.delete(2);*/
 
 		obj.reverse();
 

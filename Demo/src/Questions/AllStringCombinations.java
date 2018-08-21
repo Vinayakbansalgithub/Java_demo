@@ -1,5 +1,8 @@
 package Questions;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.NavigableMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -8,32 +11,27 @@ import org.apache.jasper.tagplugins.jstl.core.Choose;
 
 public class AllStringCombinations {
 	
-	private static void permutation(String str, int l, int r)
+	private static void permutation(String str, int start, int end)
     {
-        if (l == r){
-        	System.out.println("("+l+","+r+")");
+        if (start == end){
+        	System.out.println("("+start+","+end+")");
 
             System.out.println(str);
+            return;
 
         }else
         {
-            for (int i = l; i <= r; i++)
+            for (int i = start; i <= end; i++)
             {
-            	System.out.println("("+l+","+i+")");
-                str = swap(str,l,i);
-                permutation(str, l+1, r);
+            	System.out.println("("+start+","+i+")");
+                str = swap(str,start,i);
+                permutation(str, start+1, end);
               //  str = swap(str,l,i);
             }
         }
     }
  
-    /**
-     * Swap Characters at position
-     * @param a string value
-     * @param i position 1
-     * @param j position 2
-     * @return swapped string
-     */
+   
     public static String swap(String a, int i, int j)
     {
         char temp;
@@ -48,8 +46,7 @@ public static void main(String[] args) {
 	
 	
 	
-	
-	String input="MNN";
+	String input="abc";
 	int n = input.length();
 	permutation(input, 0, n-1);
 }

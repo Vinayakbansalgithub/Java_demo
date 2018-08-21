@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class FirstRepeatChar {
 	public static void main(String[] args) {
 		FirstRepeatChar obj = new FirstRepeatChar();
-		String word = "nandini";
+		String word = "vinayak";
 		
 		char[] ch = word.toCharArray();
 		

@@ -145,6 +145,9 @@ public class CircularLinkList {
 	}
 
 	
+	
+	
+	// divide the linklist in two half
 	 static void halfCircularLL(CirNode head) {
 			// TODO Auto-generated method stub
 		 CirNode headOne=head;
@@ -164,8 +167,8 @@ public class CircularLinkList {
 		 }
 		 
 		 
-		 System.out.println(headOne.data);
-		 System.out.println(headTwo.data);
+		 System.out.println("list one last element  "+headOne.data);
+		 System.out.println("list two last element  "+headTwo.data);
 		 
 		 CirNode headTwoLast= headTwo;
 		 
@@ -180,9 +183,11 @@ public class CircularLinkList {
 			tempTwo=tempTwo.next;
 			
 		}
+		
+		// the variable which has been locally defined will change
 		tempTwo.next=headTwo;
 			
-		
+
 		
 		CirNode one=headOne;
 		
@@ -195,7 +200,7 @@ public class CircularLinkList {
 		
 		
 		
-		System.out.println("---------------");
+		System.out.print("---------------");
 		do {
 			System.out.print(two.data+"  " );
 			two = two.next;

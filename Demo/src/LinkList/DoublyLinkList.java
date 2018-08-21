@@ -61,6 +61,8 @@ public class DoublyLinkList {
 			return head;
 		}
 		DoubleNode temp = head;
+	
+	
 		DoubleNode newNode = new DoubleNode(value);
 		while (temp.next != null) {
 			temp = temp.next;

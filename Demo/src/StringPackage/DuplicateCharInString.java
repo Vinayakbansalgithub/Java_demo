@@ -2,6 +2,7 @@ package StringPackage;
 
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -34,7 +35,14 @@ for (Entry<Character, Integer> set : entry) {
 		System.out.println("number of repeat char "+set.getKey() +" is "+set.getValue());
 	}
 }
+
+
+for(Map.Entry eee:hmap.entrySet()){
+	if((Integer)eee.getValue()>1){
+		System.out.println("number of repeat char "+eee.getKey() +" is "+eee.getValue());
+	}
 	
+}
 	
 	
 	

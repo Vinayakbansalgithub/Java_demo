@@ -9,10 +9,7 @@ import java.sql.Statement;
 
 public class JdbcPreparedStatement {
 	public static void main(String a[]){
-        int i=20;
-		if(i==20){
-			System.out.println("good"); 
-		}
+        
 		
 		
         Connection con = null;
@@ -28,7 +25,7 @@ public class JdbcPreparedStatement {
             pstmt.setString(1, "John");
             pstmt.setString(2, "Acc Dept");
             pstmt.setInt(3, 10000);
-            pstmt.executeUpdate();
+       int     effectedRows=  pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
             if(rs != null && rs.next()){
                 System.out.println("Generated Emp Id: "+rs.getInt(1));

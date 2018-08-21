@@ -71,23 +71,27 @@ public class ThreadYieldDemo {
 	
 		
 		
-		Producer1 p = new Producer1();
-		Customer1 con = new Customer1();
-		Merchent1 m = new Merchent1();
-		Seller1 s = new Seller1();
-		Thread c1 = new Thread(c);
-		Thread p2 = new Thread(p);
-		Thread con2 = new Thread(con);
-		Thread m2 = new Thread(m);
-		Thread s2 = new Thread(s);
-		c1.setPriority(Thread.MAX_PRIORITY);
-		p2.setPriority(Thread.MIN_PRIORITY);
-		System.out.println(p2);
-		c1.start();
-		p2.start();
-		con2.start();
+		Producer1 pt1 = new Producer1();
+		Customer1 ct1 = new Customer1();
+		Merchent1 mt1 = new Merchent1();
+		Seller1 st1 = new Seller1();
+		
+		Thread c2 = new Thread(ct1);
+		Thread p2 = new Thread(pt1);
+		Thread s2 = new Thread(st1);
+		Thread m2 = new Thread(mt1);
+		
+		
+		p2.setPriority(Thread.MAX_PRIORITY);
+		c2.setPriority(Thread.MIN_PRIORITY);
+	
+		
+		
+		c2.start();
 		m2.start();
 		s2.start();
+		p2.start();
+		
 	}
 
 }

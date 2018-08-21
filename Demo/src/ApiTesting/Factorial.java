@@ -15,12 +15,11 @@ public static void main(String[] args) {
  static int fact(int i) {
 	// TODO Auto-generated method stub
 	if(i==0){
-		return result;
+		return 1;
 		
 	}
 	
-	result=i*fact(i-1);
-	return result;
+return (i*fact(i-1));
 }
 static int result=1;
 static int count=0;

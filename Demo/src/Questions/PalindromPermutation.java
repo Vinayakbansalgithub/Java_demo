@@ -1,5 +1,7 @@
 package Questions;
 
+
+//Given a string, determine if a permutation of the string could form a palindrome.
 public class PalindromPermutation {
 	
 
@@ -8,7 +10,9 @@ public static void main(String[] args) {
 	String input="aabcbaa";
 	int n = input.length();
 int count=0;
-for (char i = 0; i <=128; i++) {
+
+
+for (char i = 97; i <=128; i++) {
 	//System.out.println(i);
 	
 	int charfound=0;

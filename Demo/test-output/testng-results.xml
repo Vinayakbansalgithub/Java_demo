@@ -2,22 +2,32 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="40" started-at="2018-04-01T14:24:30Z" finished-at="2018-04-01T14:24:30Z">
+  <suite name="Default suite" duration-ms="1858" started-at="2018-08-06T12:02:07Z" finished-at="2018-08-06T12:02:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="40" started-at="2018-04-01T14:24:30Z" finished-at="2018-04-01T14:24:30Z">
-      <class name="TestNg.Abc">
-        <test-method status="PASS" signature="Abc()[pri:0, instance:TestNg.Abc@64bf3bbf]" name="Abc" is-config="true" duration-ms="14" started-at="2018-04-01T19:54:30Z" finished-at="2018-04-01T19:54:30Z">
+    <test name="Default test" duration-ms="1858" started-at="2018-08-06T12:02:07Z" finished-at="2018-08-06T12:02:09Z">
+      <class name="TestNg.ExtentReporter">
+        <test-method status="PASS" signature="setup()[pri:0, instance:TestNg.ExtentReporter@49993335]" name="setup" is-config="true" duration-ms="1515" started-at="2018-08-06T17:32:07Z" finished-at="2018-08-06T17:32:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Abc -->
-      </class> <!-- TestNg.Abc -->
-      <class name="TestNg.TestNgConstructorCall">
-        <test-method status="PASS" signature="Xyz()[pri:0, instance:TestNg.TestNgConstructorCall@55d56113]" name="Xyz" duration-ms="14" started-at="2018-04-01T19:54:30Z" finished-at="2018-04-01T19:54:30Z">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="start()[pri:0, instance:TestNg.ExtentReporter@49993335]" name="start" is-config="true" duration-ms="30" started-at="2018-08-06T17:32:09Z" finished-at="2018-08-06T17:32:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Xyz -->
-      </class> <!-- TestNg.TestNgConstructorCall -->
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:TestNg.ExtentReporter@49993335]" name="test1" duration-ms="21" started-at="2018-08-06T17:32:09Z" finished-at="2018-08-06T17:32:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="closeTest()[pri:0, instance:TestNg.ExtentReporter@49993335]" name="closeTest" is-config="true" duration-ms="97" started-at="2018-08-06T17:32:09Z" finished-at="2018-08-06T17:32:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeTest -->
+        <test-method status="PASS" signature="close()[pri:0, instance:TestNg.ExtentReporter@49993335]" name="close" is-config="true" duration-ms="99" started-at="2018-08-06T17:32:09Z" finished-at="2018-08-06T17:32:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- TestNg.ExtentReporter -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -30,7 +30,7 @@ public class StringUniqueCharacters {
 	    {
 	    	
 	    	StringUniqueCharacters obj = new StringUniqueCharacters();
-	        String input = "acdbk";
+	        String input = "acddbk";
 	 
 	        if (obj.uniqueCharacters(input))
 	            System.out.println("The String " + input

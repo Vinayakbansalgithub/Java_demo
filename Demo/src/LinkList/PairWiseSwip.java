@@ -74,6 +74,10 @@ public class PairWiseSwip {
 	    
 	    public static void main(String[] args) {
 	    	 
+	    	
+	    	System.out.println('a'==(int)97.0);
+	    	
+	    	
 	        /* The constructed linked list is:
 	         1->2->3->4->5->6->7 */
 	    	PairWiseSwip list = new PairWiseSwip();
@@ -87,6 +91,11 @@ public class PairWiseSwip {
 	 
 	        System.out.println("Linked list before calling pairwiseSwap() ");
 	        list.printList(head);
+	        
+	        
+	        Node rt = list.swap(head);
+
+	        
 	        Node st = list.pairWiseSwap(head);
 	        System.out.println("");
 	        System.out.println("Linked list after calling pairwiseSwap() ");
@@ -100,6 +109,29 @@ public class PairWiseSwip {
 
 
 
+		 Node reverse(Node head) {
+			// TODO Auto-generated method stub
+			 Node prev=null;
+			 Node current=head;
+			 Node next= head.next;
+			 
+			 
+			 while(next!=null){
+				 
+				 current.next=prev;
+				 prev=current;
+				 current=next;
+				 next=next.next;
+				 
+				 
+				 
+			 } current.next=prev;
+			 prev=current;
+			 System.out.println(current);
+			 
+			 
+			return null;
+		}
 
 
 
@@ -108,4 +140,41 @@ public class PairWiseSwip {
 
 
 
-}
+		 Node swap(Node head) {
+			// TODO Auto-generated method stub
+			 Node prev=null;
+			 Node current=head;
+			 Node next= head.next;
+			 Node nextTonext= head.next.next;
+
+			 
+			 while(nextTonext!=null||nextTonext.next!=null){
+				 
+				
+				 next.next=current;
+				 current.next=prev;
+				 prev=next;
+				 
+				 current=nextTonext;
+				 next=nextTonext.next;
+				 nextTonext=next.next;
+				 
+				 
+			 }
+			 
+			 next.next=current;
+			 current.next=prev;
+			 prev=next;
+			 System.out.println(current);
+			 
+			 
+			return null;
+		
+
+
+
+
+
+
+
+}}

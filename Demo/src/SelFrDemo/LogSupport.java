@@ -1,4 +1,4 @@
-/*package SelFrDemo;
+package SelFrDemo;
 
 import org.apache.log4j.Logger;
 
@@ -31,4 +31,3 @@ public class LogSupport {
 	}
 
 }
-*/

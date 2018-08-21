@@ -6,7 +6,7 @@ public class DemonThread {
 	
 	int i=10;
 	
-	 private  int modify(Integer i)
+	 private  static int modify(Integer i)
 	    {
 	       // i = i + 1;
 		 i=20;
@@ -20,12 +20,12 @@ public class DemonThread {
 	{
 		 Integer i = new Integer(12);
 	        System.out.println(i);
-	      //  modify(i);
+	       modify(i);
 	        System.out.println(i);
 	        
 	        
 	        DemonThread dd= new DemonThread();
-	        dd.modify(i);
+	        modify(i);
 	        
 	        System.out.println(dd.i);
 		
