@@ -30,10 +30,10 @@ public static void main(String[] args) {
 	byte b= 127;
 	
 	Dog obj=new Dog();
-	int b[]={1,2,3,4,5,6,7};
-	obj.a(b);
+	int b1[]={1,2,3,4,5,6,7};
+	obj.a(b1);
 
-	System.out.println(Arrays.toString(b));
+	System.out.println(Arrays.toString(b1));
 	
 	List<Animal> list= new ArrayList<>();
 	list.add(new Dog());
