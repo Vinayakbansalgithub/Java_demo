@@ -1,7 +1,5 @@
 package ThreadPackage;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -24,6 +22,7 @@ public class ConsumerProducerProblem {
 
 				queue.remove("hello");
 				queue.notify();
+				queue.wait();
 
 			}
 
@@ -31,7 +30,7 @@ public class ConsumerProducerProblem {
 
 	}
 
-	synchronized void produce() throws InterruptedException {
+	 void produce() throws InterruptedException {
 		synchronized (queue) {
 
 			for (int i = 0; i < 10; i++) {
