@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ForkJoinPool;
 
-/*public class ConcurrentHashMapDemo {
+public class ConcurrentHashMapDemo {
 	public static void main(String[] args) {
 		// this will be based on number of cpu in the system run in parallel
 		System.out.println(ForkJoinPool.getCommonPoolParallelism());
@@ -17,7 +17,7 @@ import java.util.concurrent.ForkJoinPool;
 		cmap.put("vinayak", "noida");
 		cmap.put("kk", "kolkata");
 		cmap.put("raunak", "gurgaon");
-		cmap.put("harshal", "gandhinagar");
+		cmap.put("harshal", "london");
 
 		System.out.println("============normal iteration operation================");
 
@@ -70,4 +70,4 @@ import java.util.concurrent.ForkJoinPool;
 		}
 
 	}
-	}*/
+	}

@@ -29,6 +29,35 @@ public class HashCodeEqualsMain {
 
 		// Prints two objects
 		System.out.println(employees);
+		
+		
+		// same data
+		HashCodeEqualsEmployee e3 = new HashCodeEqualsEmployee();
+		HashCodeEqualsEmployee e4 = new HashCodeEqualsEmployee();
+          
+		
+		e3.setId(100);
+		e3.setFname("vinayak");
+		e3.setLname("bansal");
+		e3.setCity("firozabad");
+		e4.setId(100);
+		e4.setFname("nitin");
+		e4.setLname("kumar");
+		e4.setCity("Delhi");
+		
+        // comparing above created Objects. 
+        if(e3.hashCode() == e4.hashCode()) 
+        { 
+  
+            if(e3.equals(e4)) 
+                System.out.println("Both Objects are equal. "); 
+            else
+                System.out.println("Both Objects are not equal. "); 
+      
+        } 
+        else
+        System.out.println("Both Objects are not equal. ");  
+    
 
 	}
 }

@@ -6,7 +6,7 @@ public class EqualAndEqualsDemo {
 		String s2= new String("vinayak");
 		String 	s3="vinayak";
 		String s4="vinayak";
-		String st=s4.substring(8);
+		String st=s4.substring(7);
 		System.out.println("njfjh"+st+"jhdfhh");
 		System.out.println("----------Demo---------");
 
@@ -19,7 +19,7 @@ public class EqualAndEqualsDemo {
 		System.out.println(s4.hashCode());
 
 		System.out.println("s3 equals s4"+s3.equals(s4)); // true
-		System.out.println("s3 == s4"+s3==s4);		//false
+		System.out.println("s3 == s4"+s3==s4);		//false both are pointing to different obj
 		//s1="vinayak";
 		
 		s1=s2;
@@ -33,7 +33,7 @@ public class EqualAndEqualsDemo {
 		Object obj1= new Object();
 		Object obj2= new Object();
 		System.out.println(obj1==obj2); // false
-		System.out.println("objce t case equal "+obj1.equals(obj2)); // flase
+		System.out.println("objce t case equal "+obj1.equals(obj2)); // false
 		obj1=obj2;
 		System.out.println(obj1==obj2); //true
 		System.out.println(obj1.equals(obj2)); //true

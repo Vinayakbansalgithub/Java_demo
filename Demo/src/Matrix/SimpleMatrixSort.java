@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 public class SimpleMatrixSort {
 	static int[] sortedRow = new int[3];
 	static int[] sortedColumn = new int[3];
@@ -19,19 +16,9 @@ public class SimpleMatrixSort {
 			for (int z = 0; z < 3; z++) {
 				sortedRow[q++] = arr[i][z];
 			}
-
-			int temp;
-		//	for (int ii = 0; ii < arr.length; ii++) {
-				for (int j = 1; j < arr.length; j++) {
-					if (sortedRow[j - 1] > sortedRow[j]) {
-						temp = sortedRow[j];
-						sortedRow[j] = sortedRow[j - 1];
-						sortedRow[j - 1] = temp;
-
-					}
-				}
-			//}
-		//	System.out.println(Arrays.toString(sortedRow));
+			
+			
+			Arrays.parallelSort(sortedRow);
 
 			for (int zx = 0; zx < 3; zx++) {
 				arr[i][zx] = sortedRow[zx];
@@ -103,10 +90,6 @@ public class SimpleMatrixSort {
 	}
 
 	public static void main(String[] args) {
-		ArrayList<Integer> list= new ArrayList<Integer>();
-		WebDriver driver= new FirefoxDriver();
-		
-		
 		int[][] arr = new int[3][3];
 		int[] n = { 10, 1, 15, 25, 95, 15, 68, 11, 112 };
 		int z = 0;

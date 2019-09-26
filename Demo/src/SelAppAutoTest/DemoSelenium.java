@@ -17,156 +17,96 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DemoSelenium {
-	  void go() {
-		// TODO Auto-generated method stub
-System.out.println("hello");	
-
-	 }
+	 
 
 	public static void main(String[] args) throws Exception {
 		
 		//	WebDriver driver = null;
 
 		System.setProperty("webdriver.chrome.driver",
-				"D:/workspace/Puresoftware_Automation/Automation/Automation_Framework_Puresoftware/driver/chromedriver.exe");
+				"/Users/vinayakbansal/Downloads/chromedriver");
+		
+		driver.get("https://test.salesforce.com/");
+        
+//      driver.findElement(By.xpath("//*[@id=\"link-rail\"]/div/div/div[1]/nav/ul/li[2]/a")).click();
+      
+      Thread.sleep(5000);
+              
+      driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys("partner.reshma.kuntoji@philips.com.sysadmin");
+
+      driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("123Sales567@");
+
+      
+      driver.findElement(By.xpath("//*[@id=\"Login\"]")).click();
+      
+      Thread.sleep(5000);
+      
+      driver.navigate().to("https://philipsb2c--b2csit--c.cs105.visual.force.com/apex/B2C_PTP_ProductTestCreation?retURL=%2Fa36%2Fo&save_new=1&sfdc.override=1");
+      
+      Thread.sleep(5000);
+      
+//      driver.findElement(By.xpath("//*[@id=\"vf-myaccount-logon-form\"]/div[5]/div[2]/a")).click();
+      
+      driver.findElement(By.xpath("//*[@id=\"j_id0:ProductTestForm:j_id35:GIPGSection:j_id38:j_id42\"]")).sendKeys("test2019");
+      
+      WebElement frameElement=driver.findElement(By.xpath("//IFRAME[@title=\"Rich Text Editor, j_id0:ProductTestForm:j_id35:j_id65:j_id66:j_id70:textAreaDelegate_Test_Description__c\"]"));
+      driver.switchTo().frame(frameElement);
+      
+      driver.findElement(By.xpath("//*[@id=\"j_id0:ProductTestForm:j_id35:j_id65:j_id66:j_id70:textAreaDelegate_Test_Description__c_rta_body\"]")).sendKeys("TESTdATA");
+      
+      Thread.sleep(5000);
+      
+//      driver.findElement(By.cssSelector("#j_id0\\:ProductTestForm\\:j_id35\\:j_id93\\:selectListOutputPanelId\\:productTestTypeSelectList")).click();
+//      
+//      Select drop = new Select(driver.findElement(By.xpath("//*[@id=\"j_id0:ProductTestForm:j_id35:j_id93:selectListOutputPanelId:productTestTypeSelectList\"]")));
+//      drop.selectByVisibleText("Known Product Test");
+//      fruits.selectByIndex(1);
+      
+//      driver.findElement(By.xpath("//*[@id=\"j_id0:ProductTestForm:j_id35:j_id93:selectListOutputPanelId:productTestTypeSelectList\"]")).click();
+//      
+//      driver.findElement(By.xpath("//*[@id=\"j_id0:ProductTestForm:j_id35:j_id93:selectListOutputPanelId:productTestTypeSelectList\"]/option[3]")).click();
+//      
+      driver.findElement(By.cssSelector("a#j_id0\\:ProductTestForm\\:j_id35\\:productTypePanelId\\:j_id101\\:j_id103_lkwgt > img]")).click();
+      
+//      driver.findElement(By.xpath("//*[@id=\"WC_VFMyAccountRegistrationForm_FormInput_logonPassword_In_Register_1\"]")).sendKeys("F89URi9Jsdw");
+//      
+//      driver.findElement(By.xpath("//*[@id=\"loyalty-program-register\"]")).click();
+//      
+//      driver.findElement(By.xpath("//*[@id=\"buttoncreateaccount\"]")).click();
+      
+      String handle= driver.getWindowHandle();
+       
+      System.out.println(handle);
+
+      // Click on the Button "New Message Window"
+
+//      driver.findElement(By.name("New Message Window")).click();
+
+      // Store and Print the name of all the windows open                  
+
+      Set handles = driver.getWindowHandles();
+
+      System.out.println(handles);
+
+      // Pass a window handle to the other window
+
+      for (String handle1 : driver.getWindowHandles()) {
+
+       System.out.println(handle1);
+
+       driver.switchTo().window(handle1);
+
+       }
+      
+      WebElement frameElement1=driver.findElement(By.xpath("//FRAME[@id=\"resultsFrame\"]"));
+      driver.switchTo().frame(frameElement1);
+      
+      driver.findElement(By.xpath("//*[@id=\"col0\"]")).click();
 		
 		
 		
 		
 		
-		
-		ChromeDriver	driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		
-		
-	
-
-	// Storing the Application Url in the String variable
-	String url = "https://accounts.google.com/SignUp?hl=en-GB";
-
-	driver.get(url);
-	Thread.sleep(500); 
-	
-	
-	
-	
-	WebElement nameEle=driver.findElement(By.id("FirstName"));
-	
-	
-	
-	
-//	nameEle.sendKeys("Vinayak");
-	
-	Actions action = new Actions(driver);
-	action.keyDown(nameEle,Keys.SHIFT).sendKeys(nameEle,"vinayak").build().perform();
-	
-	action.click(nameEle);
-	
-	// reverse shift
-	action.keyDown(nameEle,Keys.SHIFT).build().perform();
-	Thread.sleep(500); 
-
-	WebElement src=driver.findElement(By.xpath(".//*[@id='link-signin']"));
-	Thread.sleep(1500); 
-
-	action.contextClick(src).build().perform();
-	
-	//action.contextClick(src).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).build().perform();
-	
-	/*Robot robot = new Robot();
-	robot.keyPress(KeyEvent.VK_DOWN);
-	robot.keyRelease(KeyEvent.VK_DOWN);
-	robot.keyPress(KeyEvent.VK_ENTER);
-	robot.keyRelease(KeyEvent.VK_ENTER);*/
-
-	
-	
-	Set<String> str=driver.getWindowHandles();
-//	action.sendKeys(nameEle,"t").build().perform();
-	Thread.sleep(1500); 
-
-	//action.sendKeys("w").build().perform();
-
-
-//	
-//	WebElement destination=driver.findElement(By.id("GmailAddress"));
-//	
-//	
-//	action.dragAndDrop(src, destination).build().perform();
-	
-	 driver.findElement(By.id("LastName")).sendKeys("bansal");
-	 driver.findElement(By.id("GmailAddress")).sendKeys("bansalvinayakpuresoftware");
-	 
-	driver.findElement(By.id("Passwd")).sendKeys("puresoft@123");
-	driver.findElement(By.id("PasswdAgain")).sendKeys("puresoft@123");
-
-	driver.findElement(By.id("BirthDay")).sendKeys("31");
-	driver.findElement(By.xpath(".//*[@id='BirthMonth']/div[1]")).click();
-	driver.findElement(By.xpath(".//*[@id=':a']/div[text()='October']")).click();
-
-	driver.findElement(By.xpath(".//*[@id='BirthYear']")).sendKeys("1993");
-	driver.findElement(By.xpath(".//*[@id='Gender']/div")).click();
-	driver.findElement(By.xpath(".//*[@id=':f']/div")).click();
-
-	driver.findElement(By.id("RecoveryPhoneNumber")).sendKeys("9582747112");
-
-
-
-
-	 Thread.sleep(2000);
-	WebElement next=driver.findElement(By.xpath(".//*[@id='submitbutton']"));
-	
-	
-	
-	next.click();
-
-	/* Set<String> s=driver.getWindowHandles();
-	 Object popup[]=s.toArray();
-	 driver.switchTo().window(popup[1].toString());*/
-
-	
-	
-	
-	
-	
-	
-/*	 Actions a=new Actions(driver);
-	 a.keyDown(Keys.CONTROL).sendKeys(Keys.END).build().perform();
-	Thread.sleep(2000)*/;
-	
-	
-	
-	 Thread.sleep(4000);
-	
-	/*driver.findElement(By.xpath(".//*[@id='tos-scroll-button']/div/img")).click();
-	driver.findElement(By.xpath(".//*[@id='tos-scroll-button']/div/img")).click();
-	
-	driver.findElement(By.xpath(".//*[@id='tos-scroll-button']/div/img")).click();
-	driver.findElement(By.xpath(".//*[@id='tos-scroll-button']/div/img")).click();
-	driver.findElement(By.xpath(".//*[@id='tos-scroll-button']/div/img")).click();*/
-	Thread.sleep(2000);
-	
-	
-	//
-	 driver.findElement(By.xpath(".//*[@id='header-text-div']")).click();
-
-	WebElement element= driver.findElement(By.xpath("(.//*[@id='tos-text']/div)[last()]"));
-	
-	//action.moveToElement(element);
-	
-	//WebElement ele=driver.findElement(By.xpath(".//*[@id='iagreebutton']"));
-	
-	
-	//((JavascriptExecutor) driver).executeScript("scroll(0,1900)", element);
-//	element.click();
-//	((JavascriptExecutor) driver).executeScript("javascript:window.scrollBy(0,1350)");
-
-	
-	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-
-	// js.executeScript("javascript:window.scrollBy(0,1350)"); 
-	 Thread.sleep(4000);
-	 driver.findElement(By.xpath(".//*[@id='iagreebutton']")).click();
 	}
 
 

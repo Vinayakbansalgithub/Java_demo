@@ -5,8 +5,6 @@ class LNode {
 	LNode next;
 
 	public LNode(int i) {
-		// TODO Auto-generated constructor stub
-
 		data = i;
 		next = null;
 
@@ -51,7 +49,7 @@ public class LoopInLinkList {
 		// TODO Auto-generated method stub
 		if (head == null) {
 			head = new LNode(i);
-			// System.out.println("head value is  "+head);
+			// System.out.println("head value is "+head);
 			return head;
 
 		}
@@ -83,19 +81,16 @@ public class LoopInLinkList {
 
 	}
 
-	 static LNode LoopStart(LNode slow, LNode val) {
+	static LNode LoopStart(LNode slow, LNode val) {
 		// TODO Auto-generated method stub
-		 
-		 while(slow!=val)
-		 {
-			 			 
-			 slow=slow.next;
-			 val=val.next;
-			 
-		 }
+
+		while (slow != val) {
+
+			slow = slow.next;
+			val = val.next;
+
+		}
 		return slow;
-		 
-		 
 
 	}
 
@@ -124,16 +119,16 @@ public class LoopInLinkList {
 		LNode val = obj.getHead();
 
 		LNode slow = IsLoop(val);
-		
-		if(slow!=null){
 
-			loopstartNode=LoopStart(slow, val);
-		}else{
+		if (slow != null) {
+
+			loopstartNode = LoopStart(slow, val);
+		} else {
 			System.out.println("no loop in list");
 		}
-	
-			System.out.println(" loop start node is  " + loopstartNode.data);
-		
+
+		System.out.println(" loop start node is  " + loopstartNode.data);
+
 	}
 
 }

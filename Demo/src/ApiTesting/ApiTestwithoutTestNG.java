@@ -86,9 +86,23 @@ public class ApiTestwithoutTestNG {
 		}
 
 	}
+    public enum comparisonType { stepcomparison, previousrun };
 
 	public static void main(String[] args) throws Exception {
 
+		System.out.println("kkkkkkkk");
+		
+		 String usd = "USD";
+	       
+	        //Enum to String using Enum.valueOf()
+		Enum myvalue= Enum.valueOf(comparisonType.class, "stepcomparison");
+		 
+		
+		
+		if (myvalue.equals(comparisonType.stepcomparison)) {
+            System.out.println("dddddddddd");
+        }
+		
 		ApiTestwithoutTestNG obj = new ApiTestwithoutTestNG();
 		obj.aptTesting();
 	}

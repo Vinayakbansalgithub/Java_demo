@@ -3,16 +3,32 @@ package CollectionFramework;
 import SelFrDemo.HashCodeEqualsEmployee;
 
 class Bucket<K, V> {
+	
+	
+	int hash;
 	K key;
 	V value;
 	Bucket<K, V> next;
+	
+	
 
-	Bucket(K key, V value, Bucket<K, V> next) {
-		
+	Bucket(int hash, K key, V value, Bucket<K, V> next) {
+		this.hash = hash;
 		this.key = key;
 		this.value = value;
 		this.next = next;
 	}
+	
+	@Override
+	public int hashCode() {
+	    int hash = 7;
+	    hash = 31 * hash + (int) hash;
+	    hash = 31 * hash + (key == null ? 0 : key.hashCode());
+	    hash = 31 * hash + (value == null ? 0 : value.hashCode());
+	    return hash;
+	}
+	
+	
 }
 
 public class HashMapImpl<K, V> {
@@ -20,90 +36,111 @@ public class HashMapImpl<K, V> {
 	Bucket<K, V>[] table;
 
 	HashMapImpl() {
-		table = new Bucket[4];
+		// initial size is 16
+		table = new Bucket[16];
 	}
 
 	public void put(K key, V value) {
 		Bucket<K, V> prev = null;
 		int hash = hash(key);
-		//System.out.println(hash);
-		Bucket<K, V> bucket = new Bucket(key, value, null);
-		if (table[hash] == null)
-			table[hash] = bucket;
+		int index = index(hash);
 
-		else {
-			
-			Bucket<K, V> current = table[hash];
+		// System.out.println(hash);
+		Bucket<K, V> bucket = new Bucket(hash, key, value, null);
+		if (table[index] == null) {
+			table[index] = bucket;
+		} else {
+			Bucket<K, V> current = table[index];
 			while (current != null) {
 				if (current.key.equals(bucket.key)) {
-					if(prev!=null){
-						
-					System.out.println("prev--------------------");
-						bucket.next=current.next;
-						prev.next=bucket;
+					if (prev != null) {
+						Bucket next = current.next;
+						prev.next = bucket;
+						prev.next.next = next;
 						return;
 					}
-					/*System.out.println(current.value+"  "+bucket.value);
-					System.out.println(current.next+"  "+bucket.next);*/
-					else{
-						bucket.next=current.next;
-					table[hash] = bucket;
-					return;
-					}
+//					/*
+//					 * System.out.println(current.value+"  "+bucket.value);
+//					 * System.out.println(current.next+"  "+bucket.next);
+//					 */
+//					else {
+//						// bucket.next = current;
+//						current.next = bucket;
+//						table[index] = current;
+//						return;
+//					}
+					// replace with new if key is same
+					Bucket next = current.next;
+					current = bucket;
+					current.next = next;
+//					table[index] = current;
+//					return;
 				}
-			//	System.out.println(current);
-				//System.out.println(current.value);
+				// System.out.println(current);
+				// System.out.println(current.value);
 				prev = current;
-				
 				current = current.next;
-			//	System.out.println(current.value);
-			//	System.out.println(current.next);
-		//		System.out.println(current);
+				// System.out.println(current.value);
+				// System.out.println(current.next);
+				// System.out.println(current);
 			}
-	//		System.out.println(prev.value+"  "+prev.next);
-			prev.next=bucket;
-		//	System.out.println(prev.value+"  "+prev.next);
+			// System.out.println(prev.value+" "+prev.next);
+			prev.next = bucket;
+			// System.out.println(prev.value+" "+prev.next);
 		}
 	}
 
 	public V get(K key) {
 		int hash = hash(key);
-		if(table[hash] == null){
-	         return null;
-	        }
-		Bucket<K, V> current = table[hash];
-		while(current!=null){
-		if(current.key.equals(key)){
-			return current.value;	
-			
+		int index = index(hash);
+		if (table[index] == null) {
+			return null;
 		}
-		current=current.next;
-	}
+		Bucket<K, V> current = table[index];
+		while (current != null) {
+
+			if (current.hash == hash)
+				if (current.key.equals(key)) {
+					return current.value;
+
+				}
+			current = current.next;
+		}
 		return null;
 	}
 
 	int hash(K key) {
-		
-		
-		int h= Math.abs(key.hashCode()) % 4;
-	System.out.println("with key   "+key+"  code   "+h);
-	return h;
+		int h = key.hashCode();
+		return h;
+	}
+
+	int index(int hash) {
+		int index = Math.abs(hash) % 16;
+		System.out.println("with key   " + hash + "  index   " + index);
+		return index;
 	}
 
 	public static void main(String[] args) {
 		HashMapImpl<Integer, String> hmap = new HashMapImpl<Integer, String>();
-		hmap.put(21, "vinayak");
+//		hmap.put(21, "vinayak");
+//
+//		hmap.put(21, "jira");
+//
+//		hmap.put(25, "sachin");
+//		hmap.put(25, "nandini");
 
-		hmap.put(21, "jira");
+		hmap.put(33, "deepak");
+//		hmap.put(34, "vinayak");
+//		hmap.put(67, "sachin");
+//		hmap.put(91, "Mehul");
+//		hmap.put(343, "Mehul");
+//		hmap.put(344, "vinayak");
+		hmap.put(673, "sachin");
+		hmap.put(673, "Mehul");
+		hmap.put(913, "Vinayak");
 
-		hmap.put(25, "sachin");
-		hmap.put(25, "nandini");
-
-		hmap.put(33, "Mehul");
-		hmap.put(34, "vinayak");
-		hmap.put(67, "sachin");
-		hmap.put(91, "Mehul");
-		System.out.println(hmap.get(21));
+		System.out.println("====get===");
+		System.out.println(hmap.get(913));
 
 	}
 }

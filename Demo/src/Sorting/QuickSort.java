@@ -31,8 +31,20 @@ public class QuickSort {
 		
 			return i+1;
 		}
+	 
+	 static int Log2n(int n) 
+	    { 
+	        return (n > 1) ? 1 + Log2n(n / 2) : 0; 
+	    } 
+	      
+	 
 	public static void main(String[] args) {
-		int arr[] = {10, 7, 8, 9, 11};
+		
+		int n = 512; 
+        System.out.println(Log2n(n)); 
+        
+       
+		int arr[] = {10, 7, 8, 9, 1, 5,9,3 };
 		int len=arr.length;
 				
 		QuickSort obj = new QuickSort();
