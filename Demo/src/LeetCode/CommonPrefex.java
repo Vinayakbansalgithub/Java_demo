@@ -17,11 +17,9 @@ static HashMap<String, Integer> map= new HashMap<String, Integer>();
 		StringBuffer buffer = new StringBuffer();
 
 		int index = 0;
-	
-
 			String one = arr[0];
 			arrone = one.toCharArray();
-
+		
 			for (int j =  1; j < arr.length; j++) {
 				
 				int count = 0;

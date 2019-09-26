@@ -7,7 +7,6 @@ import java.util.NavigableMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.apache.jasper.tagplugins.jstl.core.Choose;
 
 public class AllStringCombinations {
 	

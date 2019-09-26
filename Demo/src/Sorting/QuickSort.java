@@ -32,7 +32,7 @@ public class QuickSort {
 			return i+1;
 		}
 	public static void main(String[] args) {
-		int arr[] = {10, 7, 8, 9, 11};
+		int arr[] = {10, 7, 8, 9, 1, 5,9,3 };
 		int len=arr.length;
 				
 		QuickSort obj = new QuickSort();

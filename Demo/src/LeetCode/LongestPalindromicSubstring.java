@@ -8,8 +8,7 @@ class LongestPalindromicSubstring {
 	
 	static int[] arr;
 static String palindromstring;
-	static HashSet<Character> set = new HashSet<Character>();
-	static int counter;
+sx	static int counter;
 static int highestindex=0;
 static int highest;
 	static void longest(char[] str, int length) {
@@ -41,23 +40,20 @@ static int highest;
 			
 		
 	}
-		
-		
 		System.out.println(Arrays.toString(arr));
-		
-		
-		
-		int point=highest-highestindex;
-		
+		int start= highestindex-highest/2;
+			int end=highestindex+highest/2;	
 		palindromstring= new String(str);
 	
 		System.out.println("complete string is "+palindromstring);
-		System.out.println(	"  longest palandrome    "+palindromstring.substring(highestindex-point, highestindex+point).toString());
+		
+	
+		System.out.println("longest palandrome    "+palindromstring.substring(start, end+1).toString());
 		
 	}
 
 	public static void main(String[] args) {
-		String str = "abaxabaxabb";
+		String str = "bcabanxabbaxabbk";
 
 		char[] ch = str.toCharArray();
 		 LongestPalindromicSubstring.longest(ch, str.length());
