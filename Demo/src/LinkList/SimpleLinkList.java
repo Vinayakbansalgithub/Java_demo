@@ -164,6 +164,7 @@ public class SimpleLinkList {
 		obj.add(5);
 		obj.add(6);
 		obj.add(7);
+		obj.add(7);
 		// obj.addAt(11, 2);
 		// obj.delete(2);
 
