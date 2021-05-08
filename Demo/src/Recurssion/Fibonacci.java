@@ -7,13 +7,9 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Fibonacci {
-	
-	
+
 	static int arr[];
 
-	
-	
-	 
 	static void printFib(int i) {
 		// TODO Auto-generated method stub
 		arr = new int[i];
@@ -23,7 +19,7 @@ public class Fibonacci {
 		}
 		System.out.println(Arrays.toString(arr));
 	}
-	 
+
 	static int printFibAtIndex(int index) {
 		// base case
 		if (index == 1 || index == 0) {
@@ -35,13 +31,12 @@ public class Fibonacci {
 		return i + j;
 
 	}
-public static void main(String[] args) {
-	//	printFib(10);
-	System.out.println(printFibAtIndex(7));
 
-	// 0 1 1 2 3 5 8 13
-}
+	public static void main(String[] args) {
+		// printFib(10);
+		System.out.println(printFibAtIndex(7));
 
-
+		// 0 1 1 2 3 5 8 13
+	}
 
 }

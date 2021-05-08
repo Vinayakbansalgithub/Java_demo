@@ -77,7 +77,7 @@ public class DeadlockAccount {
 		Thread t1 = new Thread() {
 			@Override
 			public void run() {
-				for (int i = 0; i < 1000; i++) {
+				for (int i = 0; i < 10; i++) {
 					getLock(acc2Lock, acc1Lock);
 
 					System.out.println("in thread 1");
@@ -95,7 +95,7 @@ public class DeadlockAccount {
 			@Override
 			public void run() {
 
-				for (int i = 0; i < 1000; i++) {
+				for (int i = 0; i < 10; i++) {
 					getLock(acc2Lock, acc1Lock);
 
 					// TODO Auto-generated method stub

@@ -19,21 +19,21 @@ public class PairWiseSwip {
 		if (head == null || head.next == null) {
 			return null;
 		}
-		Node nextNode = null, current = null, prev = null, nextnextNode = null;
+		Node current = null, prev = null;
 		prev = head;
 
 		current = head.next;
 		head = current;
 
-		while (true) {
+		while (current != null) {
 
 			Node next = current.next;
 			current.next = prev;
 
-			if (next == null || next.next == null) {
-				prev.next = next;
-				break;
-			}
+//			if (next == null || next.next == null) {
+//				prev.next = next;
+//				break;
+//			}
 
 			prev.next = next.next;
 
@@ -42,6 +42,20 @@ public class PairWiseSwip {
 			current = prev.next;
 
 		}
+
+		if (current == null) {
+
+			Node temp = head;
+
+			while (temp.next != null) {
+				temp = temp.next;
+
+			}
+
+			temp.next = prev;
+
+		}
+
 		return head;
 	}
 
@@ -54,8 +68,6 @@ public class PairWiseSwip {
 	}
 
 	public static void main(String[] args) {
-
-		System.out.println('a' == (int) 97.0);
 
 		/*
 		 * The constructed linked list is: 1->2->3->4->5->6->7
@@ -72,7 +84,7 @@ public class PairWiseSwip {
 		System.out.println("Linked list before calling pairwiseSwap() ");
 		list.printList(head);
 
-		Node rt = list.swap(head);
+		// Node rt = list.swap(head);
 
 		Node st = list.pairWiseSwap(head);
 		System.out.println("");

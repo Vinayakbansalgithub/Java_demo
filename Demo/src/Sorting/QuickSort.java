@@ -1,103 +1,49 @@
-<<<<<<< HEAD
 package Sorting;
 
 public class QuickSort {
-	 void sort(int[] arr, int low, int high) {
-			// TODO Auto-generated method stub
-			 if(low<high){
-			 int pi= partition(arr,low,high);
-			 sort(arr,  0,  pi-1);
-			 sort(arr,  pi+1,  high);
+	int[] sort(int[] arr, int start, int end) {
 
-			 }
-			 
-		}
-	 int partition(int[] arr, int low, int high) {
-			// TODO Auto-generated method stub
-		 int i=low-1;
-		 int temp;
-		 int pivot= arr[high];
-		 for (int j = low; j < arr.length-1; j++) {
-			if(arr[j]<pivot){
-				i++;
-				temp=arr[j];
-				arr[j]=arr[i];
-				arr[i]=temp;
+		int pivot = (start + end) / 2;
+
+		int left = start;
+		int right = end;
+
+		if (right < left)
+			return arr;
+
+		while (left <= right) {
+
+			while (arr[left] < arr[pivot])
+				left++;
+
+			while (arr[right] > arr[pivot])
+				right--;
+
+			if (left <= right) {
+				int temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+				left++;
+				right--;
 			}
-			
+
 		}
-			temp=arr[i+1];
-			arr[i+1]=pivot;
-			arr[high]=temp;
-		
-			return i+1;
-		}
-	 
-	 static int Log2n(int n) 
-	    { 
-	        return (n > 1) ? 1 + Log2n(n / 2) : 0; 
-	    } 
-	      
-	 
+
+		sort(arr, start, right);
+		sort(arr, left, end);
+
+		return arr;
+
+	}
+
 	public static void main(String[] args) {
-		
-		int n = 512; 
-        System.out.println(Log2n(n)); 
-        
-       
-		int arr[] = {10, 7, 8, 9, 1, 5,9,3 };
-		int len=arr.length;
-				
+		int arr[] = { 10, 7, 8, 9, 1, 5, 9, 3 };
+		int len = arr.length;
+
 		QuickSort obj = new QuickSort();
-		obj.sort(arr,0,len-1);
-		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
+		int[] arrres = obj.sort(arr, 0, len - 1);
+		for (int i = 0; i < arrres.length; i++) {
+			System.out.println(arrres[i]);
 		}
 	}
 }
-=======
-package Sorting;
-
-public class QuickSort {
-	 void sort(int[] arr, int low, int high) {
-			// TODO Auto-generated method stub
-			 if(low<high){
-			 int pi= partition(arr,low,high);
-			 sort(arr,  0,  pi-1);
-			 sort(arr,  pi+1,  high);
-
-			 }
-			 
-		}
-	 int partition(int[] arr, int low, int high) {
-			// TODO Auto-generated method stub
-		 int i=low-1;
-		 int temp;
-		 int pivot= arr[high];
-		 for (int j = low; j < arr.length-1; j++) {
-			if(arr[j]<pivot){
-				i++;
-				temp=arr[j];
-				arr[j]=arr[i];
-				arr[i]=temp;
-			}
-			
-		}
-			temp=arr[i+1];
-			arr[i+1]=pivot;
-			arr[high]=temp;
-		
-			return i+1;
-		}
-	public static void main(String[] args) {
-		int arr[] = {10, 7, 8, 9, 1, 5,9,3 };
-		int len=arr.length;
-				
-		QuickSort obj = new QuickSort();
-		obj.sort(arr,0,len-1);
-		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
-		}
-	}
-}
->>>>>>> branch 'master' of https://github.com/Vinayakbansalgithub/Java_demo.git

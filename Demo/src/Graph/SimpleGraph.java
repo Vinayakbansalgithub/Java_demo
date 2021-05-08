@@ -1,98 +1,74 @@
 package Graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.Stack;
-import java.util.TreeSet;
-
-
-import Trees.MinHeap;
-
-
-
-
-
-
-
-
-
 
 class PrimsMinHeap {
 
-	static ArrayList<SimpleEdge> resultedge=new ArrayList<SimpleEdge>();
-	static Map<Integer,SimpleEdge> mapVertixEdge = new LinkedHashMap<Integer,SimpleEdge>();
+	static ArrayList<SimpleEdge> resultedge = new ArrayList<SimpleEdge>();
+	static Map<Integer, SimpleEdge> mapVertixEdge = new LinkedHashMap<Integer, SimpleEdge>();
 
+	int arr[] = new int[5];
 
+	int count = 0;
 
-int arr[]=new int[5];
+	void Min_heapfy(Map<Integer, Integer> heapmap, SimpleVertex simpleVertex) {
+		// TODO Auto-generated method stub
 
-int count=0;
+		for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
+			SimpleEdge node = simpleVertex.neighborhood.get(i);
+			heapmap.put(node.two.Vertexname, node.weight);
+			mapVertixEdge.put(node.two.Vertexname, node);
 
- void Min_heapfy(Map<Integer, Integer> heapmap, SimpleVertex simpleVertex) {
-	// TODO Auto-generated method stub
-	
-	 for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
-		 SimpleEdge node = simpleVertex.neighborhood.get(i);
-		 heapmap.put(node.two.Vertexname,node.weight);
-		 mapVertixEdge.put(node.two.Vertexname, node);
+		}
+		heapmap.remove(simpleVertex.Vertexname);
+
+		for (Integer v : heapmap.values()) {
+			arr[count++] = v;
+			System.out.println(v);
+		}
+
+		// arr = Arrays.copyOfRange(arr, 1, arr.length);
+		int edgeWeight = new HeapForPrims().Max_heapfy(arr, 1);
+
+		SimpleEdge removeedge = null;
+		Iterator<Entry<Integer, SimpleEdge>> it = mapVertixEdge.entrySet().iterator();
+		while (it.hasNext()) {
+			Entry<Integer, SimpleEdge> pair = it.next();
+			if (pair.getValue().weight == edgeWeight) {
+				resultedge.add(pair.getValue());
+				pair.getValue().EdgeVisited = true;
+				removeedge = pair.getValue();
+
+			}
+
+		}
+		while (mapVertixEdge.values().remove(removeedge))
+			;
+
+		Min_heapfy(heapmap, resultedge.get(resultedge.size() - 1).two);
 
 	}
-	 heapmap.remove(simpleVertex.Vertexname);
-	 
-	 for(Integer v : heapmap.values()) {
-		 arr[count++]=v;
-         System.out.println(v);
-     }
-	 
-	// arr = Arrays.copyOfRange(arr, 1, arr.length);
-	 int edgeWeight=new HeapForPrims().Max_heapfy (arr,1);
-	 
-	 SimpleEdge removeedge = null;
-	 Iterator<Entry<Integer, SimpleEdge>> it = mapVertixEdge.entrySet().iterator();
-	 while (it.hasNext()) {
-	     Entry<Integer, SimpleEdge> pair = it.next();
-	    if(pair.getValue().weight==edgeWeight){
-	    	 resultedge.add(pair.getValue());
-	    pair.getValue().EdgeVisited=true;
-	    removeedge=pair.getValue();
-
-	    }
-	    
-	 }
-	 while( mapVertixEdge.values().remove(removeedge) );	 
-	 
-	 Min_heapfy(heapmap,resultedge.get(resultedge.size()-1).two);
-	 
-}
-
 
 }
-
-
 
 class SimpleVertex {
 	int Vertexname;
 	ArrayList<SimpleEdge> neighborhood;
 	boolean isVisited = false;
-	boolean isAdded=false;
+	boolean isAdded = false;
 	SimpleVertex parent;
-	
 
 	public SimpleVertex(int name) {
 		// TODO Auto-generated constructor stub
 		this.Vertexname = name;
 		this.neighborhood = new ArrayList<SimpleEdge>();
-
 	}
 
 }
@@ -101,6 +77,7 @@ class SimpleEdge {
 	SimpleVertex one, two;
 	boolean EdgeVisited = false;
 	int weight;
+
 	public SimpleEdge(SimpleVertex vertexOne, SimpleVertex vertexTwo) {
 		// TODO Auto-generated constructor stub
 		one = vertexOne;
@@ -153,11 +130,11 @@ public class SimpleGraph {
 		allvertices.add(simpleVertex);
 	}
 
-	void addEdge(SimpleVertex vertexOne, SimpleVertex vertexTwo,int weight) {
+	void addEdge(SimpleVertex vertexOne, SimpleVertex vertexTwo, int weight) {
 		// TODO Auto-generated method stub
 
 		SimpleEdge edge = new SimpleEdge(vertexOne, vertexTwo);
-		edge.weight=weight;
+		edge.weight = weight;
 		// edgeList.add(edge);
 		// System.out.println(edge);
 		vertexOne.neighborhood.add(edge);
@@ -184,218 +161,163 @@ public class SimpleGraph {
 		}
 
 	}
-	
-	
-	
-	
-	
-	Queue<SimpleVertex> queue= new LinkedList<SimpleVertex>();
-	
-	
-	 void bfs(SimpleVertex simpleVertex) {
+
+	Queue<SimpleVertex> queue = new LinkedList<SimpleVertex>();
+
+	void bfs(SimpleVertex simpleVertex) {
 		// TODO Auto-generated method stub
-		 while (true) {
-				if (simpleVertex.isVisited == false) {
-					
-					if (simpleVertex.isAdded == false){ 
-						queue.add(simpleVertex);
-						simpleVertex.isAdded=true;
-					}
-					simpleVertex.isVisited = true;
-					System.out.print(simpleVertex.Vertexname + "   ");
-				
-					
-					 for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
-						 SimpleEdge node = simpleVertex.neighborhood.get(i);
-						 
-						 if(node.two.isAdded==false)
-						 queue.add(node.two);
-						 node.two.isAdded=true;
+		while (true) {
+			if (simpleVertex.isVisited == false) {
 
-					}						
-					 queue.poll();
-					if(!queue.isEmpty())
+				if (simpleVertex.isAdded == false) {
+					queue.add(simpleVertex);
+					simpleVertex.isAdded = true;
+				}
+				simpleVertex.isVisited = true;
+				System.out.print(simpleVertex.Vertexname + "   ");
+
+				for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
+					SimpleEdge node = simpleVertex.neighborhood.get(i);
+
+					if (node.two.isAdded == false)
+						queue.add(node.two);
+					node.two.isAdded = true;
+
+				}
+				queue.poll();
+				if (!queue.isEmpty())
 					bfs(queue.peek());
-				}
-				break;
 			}
-		 
-		 
-		 
-		 
-		
-	}
-	 
-	 
-	 
-	 static boolean flag=false;
-	 static int count=0;
-	 boolean isCycle(SimpleVertex simpleVertex,int length) {
-			// TODO Auto-generated method stub
-		 
-		 
-		 
-		 while (count!=length) {
-				if (simpleVertex.isVisited == false) {
-					simpleVertex.isVisited = true;
-					count++;
-					System.out.print(simpleVertex.Vertexname + "   ");
-					for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
-						
-						
-						SimpleEdge node = simpleVertex.neighborhood.get(i);
-						if(node.one.Vertexname==node.two.Vertexname){
-							
-							System.out.println("here ---------------");
-							flag=true;
-							break;
-						}
-						
-						
-
-
-						isCycle(node.two,length);
-					}
-
-				}else{
-					return true;
-			
-				
-				}}
-		return flag;
-		 
-		 
-			
+			break;
 		}
-	 
-	 
-	 
-	 
-	 static boolean flagUndirected=false;
 
-		 boolean isCycleUndirected(SimpleVertex simpleVertex, SimpleVertex parent) {
-			// TODO Auto-generated method stub\
-			 simpleVertex.parent=parent;
-			 
-			 while (true){
-					if (simpleVertex.isVisited == false) {
-						simpleVertex.isVisited = true;
-						System.out.print(simpleVertex.Vertexname + "   ");
-						for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
-							
-							
-							SimpleEdge node = simpleVertex.neighborhood.get(i);
-							node.EdgeVisited=true;
-							/*if(simpleVertex.isVisited==node.two.isVisited){
-								System.out.println("cycle present");
-								flagUndirected=true;
-								return flagUndirected;
-							}*/
-							
-							if(simpleVertex.parent != null && node.two.Vertexname == simpleVertex.parent.Vertexname)
-								System.out.println("skip");							
-							else if(node.two.isVisited==true){
-								System.out.println("Graph contains a cycle");
-								flagUndirected=true;
-							}
-							else{
-								isCycleUndirected(node.two,simpleVertex);
-							}
-							
-							
-							
-							
-							
-						}
+	}
 
+	static boolean flag = false;
+	static int count = 0;
+
+	boolean isCycle(SimpleVertex simpleVertex, int length) {
+		// TODO Auto-generated method stub
+
+		while (count != length) {
+			if (simpleVertex.isVisited == false) {
+				simpleVertex.isVisited = true;
+				count++;
+				System.out.print(simpleVertex.Vertexname + "   ");
+				for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
+
+					SimpleEdge node = simpleVertex.neighborhood.get(i);
+					if (node.one.Vertexname == node.two.Vertexname) {
+
+						System.out.println("here ---------------");
+						flag = true;
+						break;
 					}
-					
-			 break;
-			 }
-			return flagUndirected;
-			
-		 }
-			 
-			 
-			 
 
-		static Stack<Integer> topostack=new Stack<Integer>();
-      static   LinkedList<Integer> listset = new LinkedList<Integer>();
-        void topologicalSort() {
-				// TODO Auto-generated method stub
-				
-			  for (SimpleVertex vertice : allvertices) {
-				  
-				  if(vertice.isVisited==false){
-				  listset.add(vertice.Vertexname);
-				  topologicalSortUtil(vertice);
-			 
-				  
-				  }
-			}
-			  
-			  
-			}
-        
-        
-        void topologicalSortUtil(SimpleVertex simpleVertex){
-        	for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
-				
-				
-				SimpleEdge node = simpleVertex.neighborhood.get(i);
-				if(node.two.isVisited==false){
-					listset.add(node.two.Vertexname);
-					topologicalSortUtil(node.two);
+					isCycle(node.two, length);
 				}
-				
-				
 
+			} else {
+				return true;
 
-				
 			}
-        	if(!topostack.contains(listset.getLast())){
-        	 topostack.add(listset.getLast());
-        	allvertices.get(listset.getLast()).isVisited=true;
-        	}
-        	else if(!topostack.contains(simpleVertex.Vertexname))
-        	{
-        		 topostack.add(simpleVertex.Vertexname);
-             	allvertices.get(simpleVertex.Vertexname).isVisited=true;
-        	}
-        	
-        }
+		}
+		return flag;
 
-        
-        
-        
-        
-        
-    	static Map<Integer,Integer> map = new LinkedHashMap<Integer,Integer>();
-        static void primsMST(SimpleVertex simpleVertex, SimpleVertex parent,PrimsMinHeap heap) {
-    		// TODO Auto-generated method stub
-        	simpleVertex.parent=parent;
-        	
-        	
-  for (SimpleVertex vertice : allvertices) {
-				  
-				 
-					  map.put(vertice.Vertexname, Integer.MAX_VALUE);
-			
-			} 
-  
-  map.put(0, 0);
-  heap.Min_heapfy(map, simpleVertex);
-        	
-        	
-        	
-    	}
+	}
 
-    	
-        
-        
-        
-        
-        
+	static boolean flagUndirected = false;
+
+	boolean isCycleUndirected(SimpleVertex simpleVertex, SimpleVertex parent) {
+		// TODO Auto-generated method stub\
+		simpleVertex.parent = parent;
+
+		while (true) {
+			if (simpleVertex.isVisited == false) {
+				simpleVertex.isVisited = true;
+				System.out.print(simpleVertex.Vertexname + "   ");
+				for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
+
+					SimpleEdge node = simpleVertex.neighborhood.get(i);
+					node.EdgeVisited = true;
+					/*
+					 * if(simpleVertex.isVisited==node.two.isVisited){
+					 * System.out.println("cycle present"); flagUndirected=true; return
+					 * flagUndirected; }
+					 */
+
+					if (simpleVertex.parent != null && node.two.Vertexname == simpleVertex.parent.Vertexname)
+						System.out.println("skip");
+					else if (node.two.isVisited == true) {
+						System.out.println("Graph contains a cycle");
+						flagUndirected = true;
+					} else {
+						isCycleUndirected(node.two, simpleVertex);
+					}
+
+				}
+
+			}
+
+			break;
+		}
+		return flagUndirected;
+
+	}
+
+	static Stack<Integer> topostack = new Stack<Integer>();
+	static LinkedList<Integer> listset = new LinkedList<Integer>();
+
+	void topologicalSort() {
+		// TODO Auto-generated method stub
+
+		for (SimpleVertex vertice : allvertices) {
+
+			if (vertice.isVisited == false) {
+				listset.add(vertice.Vertexname);
+				topologicalSortUtil(vertice);
+
+			}
+		}
+
+	}
+
+	void topologicalSortUtil(SimpleVertex simpleVertex) {
+		for (int i = 0; i < simpleVertex.neighborhood.size(); i++) {
+
+			SimpleEdge node = simpleVertex.neighborhood.get(i);
+			if (node.two.isVisited == false) {
+				listset.add(node.two.Vertexname);
+				topologicalSortUtil(node.two);
+			}
+
+		}
+		if (!topostack.contains(listset.getLast())) {
+			topostack.add(listset.getLast());
+			allvertices.get(listset.getLast()).isVisited = true;
+		} else if (!topostack.contains(simpleVertex.Vertexname)) {
+			topostack.add(simpleVertex.Vertexname);
+			allvertices.get(simpleVertex.Vertexname).isVisited = true;
+		}
+
+	}
+
+	static Map<Integer, Integer> map = new LinkedHashMap<Integer, Integer>();
+
+	static void primsMST(SimpleVertex simpleVertex, SimpleVertex parent, PrimsMinHeap heap) {
+		// TODO Auto-generated method stub
+		simpleVertex.parent = parent;
+
+		for (SimpleVertex vertice : allvertices) {
+
+			map.put(vertice.Vertexname, Integer.MAX_VALUE);
+
+		}
+
+		map.put(0, 0);
+		heap.Min_heapfy(map, simpleVertex);
+
+	}
 
 	public static void main(String[] args) {
 		SimpleGraph graph = new SimpleGraph();
@@ -406,65 +328,48 @@ public class SimpleGraph {
 			graph.addVertex(vertex[i]);
 		}
 
-		
-	//directed
-	/*graph.addEdge(vertex[0], vertex[1]);
-	graph.addEdge(vertex[0], vertex[2]);
-	graph.addEdge(vertex[1], vertex[2]);
-	graph.addEdge(vertex[2], vertex[0]);
-	graph.addEdge(vertex[2], vertex[3]);
-	graph.addEdge(vertex[3], vertex[3]);*/
-		
-		
-		//undirected
-		/*graph.addEdge(vertex[0], vertex[1]);
-		graph.addEdge(vertex[1], vertex[0]);
-		graph.addEdge(vertex[0], vertex[5]);
-		graph.addEdge(vertex[5], vertex[0]);
-		
-		graph.addEdge(vertex[1], vertex[2]);
-		graph.addEdge(vertex[2], vertex[1]);
-		graph.addEdge(vertex[2], vertex[3]);
-		graph.addEdge(vertex[3], vertex[2]);
-		graph.addEdge(vertex[3], vertex[4]);
-		graph.addEdge(vertex[4], vertex[3]);*/
-		//condition
-		//graph.addEdge(vertex[4], vertex[1]);
-		//graph.addEdge(vertex[4], vertex[4]);
-		
-		
-		
-		
+		// directed
+		/*
+		 * graph.addEdge(vertex[0], vertex[1]); graph.addEdge(vertex[0], vertex[2]);
+		 * graph.addEdge(vertex[1], vertex[2]); graph.addEdge(vertex[2], vertex[0]);
+		 * graph.addEdge(vertex[2], vertex[3]); graph.addEdge(vertex[3], vertex[3]);
+		 */
+
+		// undirected
+		/*
+		 * graph.addEdge(vertex[0], vertex[1]); graph.addEdge(vertex[1], vertex[0]);
+		 * graph.addEdge(vertex[0], vertex[5]); graph.addEdge(vertex[5], vertex[0]);
+		 * 
+		 * graph.addEdge(vertex[1], vertex[2]); graph.addEdge(vertex[2], vertex[1]);
+		 * graph.addEdge(vertex[2], vertex[3]); graph.addEdge(vertex[3], vertex[2]);
+		 * graph.addEdge(vertex[3], vertex[4]); graph.addEdge(vertex[4], vertex[3]);
+		 */
+		// condition
+		// graph.addEdge(vertex[4], vertex[1]);
+		// graph.addEdge(vertex[4], vertex[4]);
+
 		// Topological sort
-		/*graph.addEdge(vertex[5], vertex[2]);
-		graph.addEdge(vertex[5], vertex[0]);
-		graph.addEdge(vertex[4], vertex[0]);
-		graph.addEdge(vertex[4], vertex[1]);
-		graph.addEdge(vertex[1], vertex[3]);
-		graph.addEdge(vertex[2], vertex[3]);
-*/
-		
-				// prim MST
-		graph.addEdge(vertex[0], vertex[1],10);
-		graph.addEdge(vertex[1], vertex[0],10);
-		graph.addEdge(vertex[1], vertex[2],40);
-		graph.addEdge(vertex[2], vertex[1],40);
-		graph.addEdge(vertex[0], vertex[2],30);
-		graph.addEdge(vertex[2], vertex[0],30);
-		graph.addEdge(vertex[0], vertex[3],15);
-		graph.addEdge(vertex[3], vertex[0],15);
-		graph.addEdge(vertex[3], vertex[2],50);
-		graph.addEdge(vertex[2], vertex[3],50);
-		
-		
-		
-		
-		
+		/*
+		 * graph.addEdge(vertex[5], vertex[2]); graph.addEdge(vertex[5], vertex[0]);
+		 * graph.addEdge(vertex[4], vertex[0]); graph.addEdge(vertex[4], vertex[1]);
+		 * graph.addEdge(vertex[1], vertex[3]); graph.addEdge(vertex[2], vertex[3]);
+		 */
+
+		// prim MST
+		graph.addEdge(vertex[0], vertex[1], 10);
+		graph.addEdge(vertex[1], vertex[0], 10);
+		graph.addEdge(vertex[1], vertex[2], 40);
+		graph.addEdge(vertex[2], vertex[1], 40);
+		graph.addEdge(vertex[0], vertex[2], 30);
+		graph.addEdge(vertex[2], vertex[0], 30);
+		graph.addEdge(vertex[0], vertex[3], 15);
+		graph.addEdge(vertex[3], vertex[0], 15);
+		graph.addEdge(vertex[3], vertex[2], 50);
+		graph.addEdge(vertex[2], vertex[3], 50);
 
 		for (int i = 0; i < vertex.length; i++) {
 			SimpleVertex vertexName = allvertices.get(i);
-			System.out.print("vertex  " + vertexName.Vertexname
-					+ "   has edges    ");
+			System.out.print("vertex  " + vertexName.Vertexname + "   has edges    ");
 
 			int len = vertexName.neighborhood.size();
 
@@ -477,52 +382,37 @@ public class SimpleGraph {
 		}
 
 		System.out.print("BFS  -----------");
-		//graph.dfs(vertex[3]);
-		
-	//	graph.bfs(vertex[2]);
-		
-		
-		
+		// graph.dfs(vertex[3]);
+
+		// graph.bfs(vertex[2]);
+
 		// directed cycle
 //	boolean cycle=	graph.isCycle(vertex[0],vertex.length);
-		
-		
+
 		// undirected cycle
-		//graph.isCycleUndirected(vertex[0],null);
-		
-	
-	// directed cycle print
+		// graph.isCycleUndirected(vertex[0],null);
+
+		// directed cycle print
 //System.out.println("cycle  "+cycle);
 
-			
-			//undirected cycle print
-		//	System.out.println("cycle  "+flagUndirected);
+		// undirected cycle print
+		// System.out.println("cycle "+flagUndirected);
 		System.out.println();
-		
-		
-		
-		
+
 		// topological sort code
-		//System.out.println("topological sort");
-	
-		/*graph.topologicalSort();
-			
-			while (!topostack.isEmpty()) {
-		
-				System.out.print("  "+topostack.pop());
-			}*/
-		
-		
-		PrimsMinHeap heap= new PrimsMinHeap();
-		primsMST(vertex[0],null,heap);
-			
-			
+		// System.out.println("topological sort");
+
+		/*
+		 * graph.topologicalSort();
+		 * 
+		 * while (!topostack.isEmpty()) {
+		 * 
+		 * System.out.print("  "+topostack.pop()); }
+		 */
+
+		PrimsMinHeap heap = new PrimsMinHeap();
+		primsMST(vertex[0], null, heap);
 
 	}
-
-	 
-	
-
-	
 
 }

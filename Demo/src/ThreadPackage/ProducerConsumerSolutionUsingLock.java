@@ -15,44 +15,44 @@ public class ProducerConsumerSolutionUsingLock {
 
 	// lock and condition variables
 	private final Lock aLock = new ReentrantLock();
-	private final Condition added = aLock.newCondition();
-	private final Condition remove = aLock.newCondition();
+	private final Condition isEmpty = aLock.newCondition();
+	private final Condition isFull = aLock.newCondition();
 
 	public void put() throws InterruptedException {
 
-		for (int i = 0; i < 10; i++) {
-
-			Thread.sleep(300);
-			aLock.lock();
-			try {
+		aLock.lock();
+		try {
+			for (int i = 0; i < 10; i++) {
 				while (queue.size() == CAPACITY) {
 					System.out.println(Thread.currentThread().getName() + " : Buffer is full, waiting");
-					remove.await();
+					isFull.await();
 				}
 
 				int number = theRandom.nextInt();
-				boolean isAdded = queue.offer(number);
+				boolean isAdded = queue.add(number);
 				if (isAdded) {
 					System.out.printf("%s added %d into queue %n", Thread.currentThread().getName(), number);
 					// signal consumer thread that, buffer has element now
-					System.out.println(
-							Thread.currentThread().getName() + " : Signalling that buffer is no more empty now");
-					added.signal();
+					// System.out.println(Thread.currentThread().getName() + " : Signalling that buffer is no more empty now");
+					isEmpty.signal();
+					isFull.await();
 				}
-			} finally {
-				aLock.unlock();
 			}
+		} finally {
+			aLock.unlock();
+
 		}
 	}
 
 	public void get() throws InterruptedException {
-		for (int i = 0; i < 10; i++) {
 
-			aLock.lock();
-			try {
+		aLock.lock();
+		try {
+			for (int i = 0; i < 10; i++) {
 				while (queue.size() == 0) {
-					System.out.println(Thread.currentThread().getName() + " : Buffer is empty, waiting");
-					added.await();
+					// System.out.println(Thread.currentThread().getName() + " : Buffer is empty,
+					// waiting");
+					isEmpty.await();
 				}
 
 				Integer value = queue.poll();
@@ -60,14 +60,19 @@ public class ProducerConsumerSolutionUsingLock {
 					System.out.printf("%s consumed %d from queue %n", Thread.currentThread().getName(), value);
 
 					// signal producer thread that, buffer may be empty now
-					System.out.println(Thread.currentThread().getName() + " : Signalling that buffer may be empty now");
-					remove.signal();
+					// System.out.println(Thread.currentThread().getName() + " : Signalling that
+					// buffer may be empty now");
+					isFull.signal();
+					isEmpty.await();
+
 				}
 
-			} finally {
-				aLock.unlock();
 			}
+		} finally {
+			// System.out.println("get unlock ");
+			aLock.unlock();
 		}
+
 	}
 
 	public static void main(String[] args) {
@@ -88,6 +93,7 @@ public class ProducerConsumerSolutionUsingLock {
 			}
 		}
 		;
+
 		class Producer extends Thread {
 			@Override
 			public void run() {

@@ -1,85 +1,51 @@
 package ArrayQuestions;
 
 public class PrintSpiralMatrix {
-	
+
 	static void spiralPrint(int r, int c, int[][] a) {
-		
-		
-		int rowStart=0;
-		int rowEnd=r;
-		int columnStrat=0;
-		int columnEnd=c;
-		
-		
-		
-		
-		while(rowStart<rowEnd && columnStrat<columnEnd) {
-			
-			
-			for (int i = columnStrat; i < columnEnd; i++) {
-				
-				System.out.println(a[rowStart][i]);
-				
-			}
-			
-			rowStart++;
-			
-			
 
-			for (int i = rowStart; i < rowEnd; i++) {
-				
-				System.out.println(a[i][columnEnd-1]);
-				
+		int rowStart = 0;
+		int rowEnd = r;
+		int columnStart = 0;
+		int columnEnd = c;
+		int pos = 0;
+		while (rowStart <= rowEnd && columnStart <= columnEnd) {
+			if (pos == 0) {
+				for (int i = columnStart; i <= columnEnd; i++) {
+					System.out.println(a[rowStart][i]);
+				}
+				rowStart++;
 			}
-			
-			columnEnd--;
-			
-		
-			
-	if(rowStart<rowEnd)
-	for (int i = columnEnd-1; i >= columnStrat; i--) {
-		
+			if (pos == 1) {
+				for (int i = rowStart; i <= rowEnd; i++) {
+					System.out.println(a[i][columnEnd]);
+				}
+				columnEnd--;
+			}
 
-				
-				System.out.println(a[rowEnd-1][i]);
-				
+			if (pos == 2) {
+				for (int i = columnEnd; i >= columnStart; i--) {
+					System.out.println(a[rowEnd][i]);
+				}
+				rowEnd--;
 			}
-			
-			rowEnd--;
-			
-			
-			
-			
-			if(rowStart<rowEnd)
-	
-	for (int i = rowEnd-1; i >= rowStart; i--) {
-				
-				System.out.println(a[i][columnStrat]);
-				
+
+			if (pos == 3) {
+				for (int i = rowEnd; i >= rowStart; i--) {
+					System.out.println(a[i][columnStart]);
+				}
+				columnStart++;
 			}
-			
-	columnStrat++;
-			
-			
-			
-			
+			pos = (pos + 1) % 4;
 		}
-		
-		
-		
-	} 
-	
-	public static void main(String[] args) 
-    { 
-        int R = 4; 
-        int C = 7; 
-        int a[][] = { { 1, 2, 3, 4, 5, 6 ,1}, 
-                      { 7, 8, 9, 10, 11, 12,1 }, 
-                      { 13, 14, 15, 16, 17, 18,1 } ,
-                      
-                      { 19, 20, 21, 22, 23, 24 ,1} }; 
-        spiralPrint(R, C, a); 
-    }
+	}
 
-	
+	public static void main(String[] args) {
+		int R = 4;
+		int C = 6;
+		int a[][] = { { 1, 2, 3, 4, 5, 6 }, { 7, 8, 9, 10, 11, 12 }, { 13, 14, 15, 16, 17, 18 },
+				{ 19, 20, 21, 22, 23, 24 } };
+		spiralPrint(R - 1, C - 1, a);
+	}
+
 }

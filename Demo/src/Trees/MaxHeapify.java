@@ -2,57 +2,58 @@ package Trees;
 
 import java.util.Arrays;
 
-
-// we are making it min heap
+// in max heap smallest element is on the top
 public class MaxHeapify {
 	// 16 14 10 8 7 9 3 2 4 1
 
-    public static int[] Arr = {1,3,6 ,14, 10 ,8,2,67 };
-    public static int counter = 0;
+	public static int[] Arr = { 1, 3, 6, 14, 10, 2 };
+	public static int counter = 0;
+	
+	static int[] sortedarray;
 
-    public static void main(String[] args) {
-        int kk;
-        for (kk = Arr.length -1; kk >= 0; kk--) {
-            heapMin(Arr, kk);
-    }
+	public static void main(String[] args) {
+		
+		sortedarray = new int[Arr.length];
+		
+		for (int i = Arr.length - 1; i >= 0; i--) {
+		
+		for (int kk = i; kk >= 0; kk--) {
+			heapMax(Arr, kk);
+		}
 
-        System.out.println(Arrays.toString(Arr));
+		sortedarray[i] = Arr[0];
+	
+		Arr[0] = Arr[Arr.length - 1];
+		Arr = Arrays.copyOf(Arr, Arr.length - 1);
 
+	}
 
+	System.out.println(Arrays.toString(sortedarray));
 
-    }
+	}
 
-    public static void heapMin(int[] Arr, int i) {
+	public static void heapMax(int[] Arr, int index) {
 
-        int lowest = 0;
-        int left = 2*i+1;
-        int right = 2*i + 2;
-        if (((left < Arr.length) && (Arr[left] < Arr[i]))) {
-        	
-        	// swap(i, left);
-        	 lowest = left;
-        	 
-        } else {
-        	lowest = i;
-        }
+		int highest = Arr[index];
+		int highestIndex = index;
+		int left = 2 * index + 1;
+		int right = 2 * index + 2;
+		if (left < Arr.length && Arr[left] > highest) {
+			highestIndex = left;
+			highest = Arr[left];
+		} 
+		if (right < Arr.length && Arr[right] > highest) {
+			highestIndex = right;
+			highest = Arr[right];
+		}
+		if (Arr[index] != highest) {
+			int temp = Arr[index];
+			Arr[index] = Arr[highestIndex];
+			Arr[highestIndex] = temp;
 
-        if (((right < Arr.length) && (Arr[lowest] > Arr[right]))) {
-        	lowest = right;
-        	//swap(i, right);        	
-        }
-        if (lowest != i) {
-            swap(i, lowest);
+			heapMax(Arr, highestIndex);
+		}
+	}
 
-
-            heapMin(Arr, lowest);
-        }
-    }
-
-    private static void swap(int i, int lowest) {
-        int t = Arr[i];
-        Arr[i] = Arr[lowest];
-        Arr[lowest] = t;
-
-    }
-
+	
 }

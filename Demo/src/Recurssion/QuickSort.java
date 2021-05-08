@@ -12,6 +12,8 @@ public class QuickSort {
 		while (left > right) {
 			return;
 		}
+		
+		// male pivot in the middle
 		while (left <= right) {
 
 			while (arr[left] < arr[pivot]) {
@@ -37,7 +39,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 20, 0, 30, 50, 60, 5, 80, 25 };
+		int arr[] = { 10, 5, 14, 6 ,8 };
 		sort(arr, 0, arr.length - 1);
 		System.out.println(Arrays.toString(arr));
 

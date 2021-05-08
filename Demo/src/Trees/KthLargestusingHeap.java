@@ -33,6 +33,12 @@ int arr[]={1,3,6,5,2,4};
 		for (int j = arr.length-1; j >=0 ; j--) {
 			makeheap(arr,j);		
 		}
+		
+		
+		if(ii==2)
+		System.out.println("nth largest number is "+arr[0]);
+
+		
 	//	System.out.println(Arrays.toString(arr));
 		sortedarray[k++]=arr[0];
 		int temp=arr[arr.length-1];
@@ -48,7 +54,6 @@ int arr[]={1,3,6,5,2,4};
 	
 	System.out.println(Arrays.toString(sortedarray));
 	
-	//System.out.println("nth largest number is "+arr[0]);
 	
 }
 

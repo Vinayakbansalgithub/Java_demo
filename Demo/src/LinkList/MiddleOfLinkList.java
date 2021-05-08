@@ -127,7 +127,7 @@ public class MiddleOfLinkList {
 		obj.add(975);
 
 		// obj.getTotal();
-//		obj.getMiddle();
+		//obj.getMiddle();
 		obj.getMiddleUsingTwoPointer();
 
 		Mnode val = obj.getHead();

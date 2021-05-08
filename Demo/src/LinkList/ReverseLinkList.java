@@ -37,7 +37,6 @@ class Rnode {
 
 public class ReverseLinkList {
 	Rnode head;
-	static int totalnode;
 
 	public Rnode getHead() {
 		return head;
@@ -51,7 +50,7 @@ public class ReverseLinkList {
 		// TODO Auto-generated method stub
 		if (head == null) {
 			head = new Rnode(i);
-			// System.out.println("head value is  "+head);
+			// System.out.println("head value is "+head);
 			return head;
 
 		}
@@ -64,76 +63,114 @@ public class ReverseLinkList {
 		return head;
 
 	}
-	
-	  void reverse(Rnode a) {
-		// TODO Auto-generated method stub 
-		 Rnode prev=null;
-		 Rnode current=head;
-		 Rnode next=null;
-		
-		 while(current !=null){
-			
-			 next=current.next;
-			 current.next=prev;
-			 prev=current;
-			 
-			 current=next;
 
-			
-		 }
-		 
-		 while(prev!=null){
-				System.out.println(" value is  "+prev.data);
-				prev=prev.next;
-			}
-		 
-		 
+	void reverse(Rnode a) {
+		// TODO Auto-generated method stub
+		Rnode prev = null;
+		Rnode current = head;
+		Rnode next = null;
+
+		while (current != null) {
+
+			next = current.next;
+			current.next = prev;
+			prev = current;
+
+			current = next;
+
+		}
+
+		while (prev != null) {
+			System.out.println(" value is  " + prev.data);
+			prev = prev.next;
+		}
+
 	}
 
 	public static void main(String[] args) {
 		ReverseLinkList obj = new ReverseLinkList();
-		Rnode  a=obj.add(3);
+		Rnode a = obj.add(3);
 		obj.add(5);
 		obj.add(30);
 		obj.add(65);
 		obj.add(67);
-		
-		
-		//obj.reverse(a);
-		
-		obj.reverseAgain(a);
-		
-		
-		
+
+		// obj.reverseData();
+		obj.reversePointers();
 	}
 
-	private void reverseAgain(Rnode a) {
-		// TODO Auto-generated method stub
-		
-		Rnode prev=null;
-		Rnode curr=a;
-		Rnode next=a;
-		
-		
-		while(next!=null){
-			next=curr.next;
-			curr.next=prev;
-			prev=curr;
-			curr=next;
-			
-			
+	int size() {
+		Rnode temp = getHead();
+
+		int counter = 0;
+
+		while (temp.next != null) {
+
+			counter++;
+
+			temp = temp.next;
+
 		}
-				
-		
-		 while(prev!=null){
-				System.out.println(" value is  "+prev.data);
-				prev=prev.next;
-			}
-		
-		
-		
-		
+		return counter;
+
 	}
 
-	
+	Rnode getNodeAt(int index) {
+		Rnode temp = getHead();
+		for (int i = 0; i < index; i++) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+
+	void reverseData() {
+		// TODO Auto-generated method stub
+
+		int size = size();
+		int start = 0;
+		int end = size;
+
+		while (start < end) {
+
+			Rnode left = getNodeAt(start);
+			Rnode right = getNodeAt(end);
+
+			int temp = right.data;
+
+			right.data = left.data;
+			left.data = temp;
+
+			start++;
+			end--;
+		}
+
+		Rnode temp = head;
+		while (temp != null) {
+			System.out.println(temp.data);
+			temp = temp.next;
+		}
+
+	}
+
+	void reversePointers() {
+		// TODO Auto-generated method stub
+
+		Rnode prev = getHead();
+		Rnode curr = prev.next;
+
+		while (curr != null) {
+
+			Rnode ahead = curr.next;
+
+			curr.next = prev;
+			prev = curr;
+			curr = ahead;
+
+		}
+
+
+		System.out.println("ghh");
+
+	}
+
 }

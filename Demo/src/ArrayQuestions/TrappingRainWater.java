@@ -4,7 +4,7 @@ public class TrappingRainWater {
 	
 	
 	
-	static int arr[] = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}; 
+	static int arr[] = new int[]{1, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}; 
     
     // Method for maximum amount of water 
     static int findWater(int n) {		 

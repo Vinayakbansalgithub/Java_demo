@@ -83,11 +83,13 @@ public class SimpleLinkList {
 		while (left < right) {
 			Node l = getNodeAt(left);
 			Node r = getNodeAt(right);
-			left++;
-			right--;
+			
 			int temp = r.value;
 			r.value = l.value;
 			l.value = temp;
+			
+			left++;
+			right--;
 
 		}
 		Node temp = head;
@@ -169,8 +171,8 @@ public class SimpleLinkList {
 		// obj.delete(2);
 
 		// obj.reverse();
-		// obj.reverseData(obj.size());
-		 reversePointers(obj.size());
+		obj.reverseData(obj.size());
+		reversePointers(obj.size());
 
 		getMid();
 

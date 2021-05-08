@@ -71,14 +71,12 @@ public class MirrorTree {
 		if(parent==null){
 			return parent  ;
 		}
-		
-		Mirrornode lefttemp=	mirror(parent.left);
-		Mirrornode righttemp=	mirror(parent.right);
-		
-		
-		if(lefttemp==null && righttemp==null)
-				return parent ;
 		else{
+		mirror(parent.left);
+		mirror(parent.right);
+		
+		
+	
 			Mirrornode temp=parent.left;
 			parent.left=parent.right;
 			parent.right=temp;

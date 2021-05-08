@@ -1,51 +1,42 @@
 package Recurssion;
 
 public class SubsetWithgivenSum {
-	//Print All Subsets of a given set
-	
-	static int givenSum=8;
-	
-	 public static void printAllSubsets(int[] array) {
-	  int[] subset = new int[array.length];
-	  helper(array,subset,0);
-	 }
-	 
-	 private static void helper(int[] array,int[] subset,int i) {
-	  if(i==array.length)
-	   print(subset);
-	  else {
-	   subset[i]=0;
-	   helper(array, subset, i+1);
-	   subset[i]=array[i];
-	   helper(array,subset,i+1);
-	  }
-	 }
-	 
-	 private static void print(int[] subset) {
-		 int sum=0;
-		 for (int i : subset)
-			    sum += i;
-		 
-		 if(sum!=givenSum)
-			 return;
-		 
-		 System.out.println("subset is");
-		 
-	   boolean flag=false; 
-	   for(int i:subset) {
-	    if(i!=0) {
-	     flag=true;
-	     System.out.print(i+",");
-	    }
-	   }
-	   if(!flag)
-	    System.out.print("-");
-	   System.out.println();
-	 }
-	 
-	 public static void main(String[] args) {
-	  int[] arr = {1,2,7,5};
-	  printAllSubsets(arr);
-	 }
+	// Returns true if there is a subset 
+    // of set[] with sum equal to given sum 
+    static boolean isSubsetSum(int set[], int si,
+                               int ei, int sum) 
+    { 
+        // Base Cases 
+        if (sum == 0) 
+            return true; 
+        if (ei == 0) 
+            return false; 
+  
+        // If last element is greater than 
+        // sum, then ignore it 
+        if (set[ei - 1] > sum) 
+            return isSubsetSum(set,si, ei - 1, sum); 
+  
+        /* else, check if sum can be obtained  
+        by any of the following 
+            (a) including the last element 
+            (b) excluding the last element */
+        return isSubsetSum(set, si,ei - 1, sum) 
+            || isSubsetSum(set,si, ei - 1, sum - set[ei - 1]); 
+    } 
+  
+    /* Driver program to test above function */
+    public static void main(String args[]) 
+    { 
+        int set[] = { 3, 34, 4, 12, 5, 2 }; 
+        int sum = 9; 
+        int n = set.length; 
+        if (isSubsetSum(set,0, n, sum) == true) 
+            System.out.println("Found a subset"
+                               + " with given sum"); 
+        else
+            System.out.println("No subset with"
+                               + " given sum"); 
+    } 
 	 
 }

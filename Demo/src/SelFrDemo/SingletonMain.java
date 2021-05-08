@@ -22,8 +22,8 @@ public class SingletonMain implements Runnable {
 		// TODO Auto-generated method stub
 		
         try {
-			startSignal.await();
-		} catch (InterruptedException e) {
+        	  startSignal.countDown();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -50,9 +50,10 @@ public static void main(String[] args) throws InterruptedException {
 //	
 //	mehul.start();
 //	vinayak.start();
-    startSignal.countDown();
+  
 
-	
+	startSignal.await();
+
 	
 //	vinayak.join();
 	

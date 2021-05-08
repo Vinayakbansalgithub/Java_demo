@@ -68,7 +68,7 @@ public class LoopInLinkList {
 
 		LNode slow = head, fast = head;
 
-		while (slow != null || fast != null) {
+		while (slow != null && fast != null) {
 
 			slow = slow.next;
 			fast = fast.next.next;
@@ -84,13 +84,21 @@ public class LoopInLinkList {
 	static LNode LoopStart(LNode slow, LNode val) {
 		// TODO Auto-generated method stub
 
-		while (slow != val) {
+		LNode value;
+		
+		while (slow.next != val.next) {
 
 			slow = slow.next;
 			val = val.next;
 
 		}
-		return slow;
+		
+		value=slow.next;
+		slow.next=null;
+		
+		System.out.println(" loop remove node is  " + getHead());
+		
+		return value;
 
 	}
 

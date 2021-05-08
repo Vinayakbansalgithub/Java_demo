@@ -2,22 +2,37 @@ package Recurssion;
 
 public class PalindromCheck {
 public static void main(String[] args) {
-	int a[] = { 11,22,33,22,11 };
+	String a = "helleh";
 	
-	boolean b=check(a);
+	boolean b=check(a, 0, a.length()-1);
+	System.out.println(b);
 }
 
- static boolean check(int[] a) {
+ static boolean check(String a, int start, int end) {
+	 
+	 
+	 
+	 if(a.length() == 0 || a.length() == 1)
+         return true; 
+	 
 	// TODO Auto-generated method stub
+	 boolean result = false;
 	 
 	 
-	 for (int i = 0; i < a.length/2; i++) {
-		
-		 if(a[i]!=a[a.length-i-1])
-return false;		 
-	}
-
- 
- return true;
+	 if(end<start)
+		 return true;
+	 
+	 if(a.charAt(start)==a.charAt(end)) {
+		 
+		 result =  check(a, start+1,end-1);
+		 
+		 
+	 }else
+		return false;
+	 
+	
+	 
+	 
+	return result;
  }
 }

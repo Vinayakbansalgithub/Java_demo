@@ -25,8 +25,9 @@ public class ProducerConsumerProblemWaitNotify {
 	}
 
 	void produce() throws InterruptedException {
-		synchronized (queue) {
+	
 				for (int i = 0; i < 10; i++) {
+					synchronized (queue) {
 				System.out.println("in producer");
 				queue.add("food");
 				queue.notify(); 

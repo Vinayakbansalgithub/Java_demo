@@ -2,7 +2,6 @@ package Trees;
 
 import java.util.Stack;
 
-import org.stringtemplate.v4.compiler.STParser.andConditional_return;
 
 class AnchesterNode {
 	int value;

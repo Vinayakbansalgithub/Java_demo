@@ -1,87 +1,70 @@
 package Sorting;
 
+import java.util.Arrays;
+
 public class MergeSort {
-	int arr[];
-	int length;
-	int lowerIndex=0;
-	int higherIndex;
-	int middleIndex;
-	int L[], R[];
+	private static int[] sort(int[] arr, int start, int end) {
+		// TODO Auto-generated method stub
+		// System.out.println(Arrays.toString(arr));
 
-	public void sort(int[] arr) {
-		// TODO Auto-generated method stub
-		this.arr=arr;
-		length=arr.length;
-		higherIndex=length-1;
-		divide(0,higherIndex);
-		
-		
-	}
-	
-	public void divide(int lowerIndex, int higherIndex) {
-		// TODO Auto-generated method stub
-		if(lowerIndex<higherIndex){
-			int middleIndex = (lowerIndex + higherIndex) / 2;
-		divide(lowerIndex, middleIndex);
-		divide(middleIndex+1, higherIndex);
-		merge(lowerIndex,middleIndex,higherIndex);
+		System.out.println("start: " + start + "  end:" + end);
+
+		int mid = (end + start) / 2;
+
+		if (start == end) {
+			int[] arrtemp = new int[1];
+			arrtemp[0] = arr[start];
+			return arrtemp;
 		}
+
+		int[] temp1 = sort(arr, start, mid);
+		// System.out.println(Arrays.toString(temp1));
+
+		int[] temp2 = sort(arr, mid + 1, end);
+		// System.out.println(Arrays.toString(temp2));
+
+		return merge(temp1, temp2);
+
 	}
 
-	public void merge(int lowerIndex, int middleIndex, int higherIndex) {
-		// TODO Auto-generated method stub
+	static int[] merge(int[] arr1, int[] arr2) {
+		int[] finalArr = new int[arr1.length + arr2.length];
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		while (i < arr1.length && j < arr2.length) {
 
-		int n1 = middleIndex - lowerIndex + 1;
-		int n2 = higherIndex - middleIndex;
-
-		L = new int[n1];// initilize array
-		R = new int[n2];
-		for (int i = 0; i < n1; i++) {
-			L[i]=arr[i+lowerIndex];
-		}
-		for (int j = 0; j < n2; j++) {
-			R[j]=arr[j+middleIndex+1];
-		}
-		// Initial indexes of first and second subarrays
-				int i = 0, j = 0;
-				int k = lowerIndex;
-		while (i<n1 && j<n2) {
-			if (L[i] <= R[j]) {
-				arr[k] = L[i];
+			if (arr1[i] < arr2[j]) {
+				finalArr[k] = arr1[i];
+				k++;
 				i++;
+
 			} else {
-				arr[k] = R[j];
+				finalArr[k] = arr2[j];
+				k++;
 				j++;
 			}
-			k++;
-			
+
 		}
-		/* Copy remaining elements of L[] if any */
-		while (i < n1) {
-			arr[k] = L[i];
+		while (i < arr1.length) {
+			finalArr[k] = arr1[i];
+			k++;
 			i++;
-			k++;
 		}
-
-		/* Copy remaining elements of L[] if any */
-		while (j < n2) {
-			arr[k] = R[j];
+		while (j < arr2.length) {
+			finalArr[k] = arr2[j];
+			k++;
 			j++;
-			k++;
 		}
 
+		return finalArr;
 	}
 
 	public static void main(String[] args) {
-		int arr[]={38,27,43,3,9,82,10};
-		
-		MergeSort obj= new MergeSort();
-		obj.sort(arr);
 
-		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
-		}
+		int arr[] = { 50, 40, 30, 20, 10 };
+		int[] arrresult = sort(arr, 0, arr.length - 1);
+		System.out.println(Arrays.toString(arrresult));
+
 	}
-
-
 }

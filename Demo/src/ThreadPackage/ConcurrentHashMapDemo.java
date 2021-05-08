@@ -10,10 +10,7 @@ import java.util.concurrent.ForkJoinPool;
 
 public class ConcurrentHashMapDemo {
 	public static void main(String[] args) {
-		// this will be based on number of cpu in the system run in parallel
-		System.out.println(ForkJoinPool.getCommonPoolParallelism());
 		ConcurrentHashMap<String, String> cmap = new ConcurrentHashMap<String, String>();
-		cmap.clear();
 		cmap.put("vinayak", "noida");
 		cmap.put("kk", "kolkata");
 		cmap.put("raunak", "gurgaon");
@@ -24,21 +21,19 @@ public class ConcurrentHashMapDemo {
 		Set set = cmap.entrySet();
 		Iterator itr = set.iterator();
 		while (itr.hasNext()) {
-
 			Map.Entry e = (Entry) itr.next();
 			cmap.put("anshul", "pune");
-			System.out.println("key is  " + e.getKey() + "   value is  "
-					+ e.getValue());
+			System.out.println("key is  " + e.getKey() + "   value is  "+ e.getValue());
 		}
 
 		System.out.println("============foreach operation================");
-		cmap.forEach(1, (key, value) -> System.out.printf(
+		cmap.forEach((key, value) -> System.out.printf(
 				"key: %s; value: %s; thread: %s\n", key, value, Thread
 						.currentThread().getName()));
 		System.out.println("============search operation================");
 
 		String result = cmap.search(1, (key, value) -> {
-			System.out.println(Thread.currentThread().getName());
+			//System.out.println(Thread.currentThread().getName());
 			if ("vinayak".equals(key)) {
 				return value;
 			}

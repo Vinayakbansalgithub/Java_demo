@@ -2,7 +2,13 @@ package Recurssion;
 
 import java.util.Arrays;
 
-public class GetPermutation {
+interface He{
+	
+	String s="";
+}
+
+
+public class GetPermutation implements He{
 
 	static String[] getper(String str) {
 		// TODO Auto-generated method stub
@@ -26,7 +32,7 @@ public class GetPermutation {
 		}
 		
 		for (int i = 0; i < rr.length; i++) {
-			System.out.println("for value:" + rr[i] + " inserting:" + str.charAt(0));
+			System.out.println("for value:" + rr[i] + " inserting:" + c);
 			for (int j = 0; j <= rr[i].length(); j++) {
 				result[k] = rr[i].substring(0, j) + c + rr[i].substring(j);
 				k++;

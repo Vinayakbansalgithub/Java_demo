@@ -2,12 +2,12 @@ package ThreadPackage;
 
 public class AtmWithdraw implements Runnable {
 
-	
-	static int money=100;
+	static Integer money=100;
 	static{
 		
 		System.out.println("total amount  "+money);
 	}
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -23,7 +23,7 @@ public class AtmWithdraw implements Runnable {
 			}
 			else{
 				
-				System.out.println("new to earn more   "+Thread.currentThread().getName());
+				System.out.println("need to earn more   "+Thread.currentThread().getName());
 				break;
 			}
 		} catch (InterruptedException e) {
@@ -42,7 +42,7 @@ public class AtmWithdraw implements Runnable {
 	}
 	static void withdraw() throws InterruptedException{
 	
-		 synchronized (AtmWithdraw.class) {
+		 synchronized (money) {
 			 money=	money-10;	
 				
 				System.out.println("10 rs withdraw by "+Thread.currentThread().getName()+" ,current balance  "+money);

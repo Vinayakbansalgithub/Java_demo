@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class RemoveConsecutiveDuplicates {
 
-	static String convert(String str, String string, String output) {
+	static String convert(String str, String output) {
 		// base case
 		if (str.length() == 1) {
 			output += str;
@@ -21,11 +21,11 @@ public class RemoveConsecutiveDuplicates {
 			while (!str.isEmpty() && c == str.charAt(0)) {
 				str = str.substring(1);
 			}
-			output = convert(str, "", output);
+			output = convert(str, output);
 
 		} else {
 			output += str.charAt(0);
-			output = convert(str.substring(1), "", output);
+			output = convert(str.substring(1), output);
 
 		}
 		return output;
@@ -36,7 +36,7 @@ public class RemoveConsecutiveDuplicates {
 //		Scanner scanner = new Scanner(System.in);
 //		String str = scanner.nextLine().trim();
 
-		String output = convert("aaaaaaaaaaaaaaaaaaabc", "", "");
+		String output = convert("aaaaaaaaaaaaaaaaaaabc",  "");
 		System.out.println(output);
 	}
 }

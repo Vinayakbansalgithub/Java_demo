@@ -2,51 +2,78 @@ package ThreadPackage;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class BlockingQueueImpl {
 
-	private List queue = new LinkedList();
-	//default
-	private int limit = 10;
+	private List<Object> queue = new LinkedList();
+	// default
+	private int limit = 3;
 
 	public BlockingQueueImpl(int limit) {
 		this.limit = limit;
 	}
 
-	public synchronized void put(Object item) throws InterruptedException {
+	public synchronized void put(Object item) {
 		while (this.queue.size() == this.limit) {
-			wait();
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		System.out.println("adding using"+Thread.currentThread().getName());
 		this.queue.add(item);
+		System.out.println("added using "+Thread.currentThread().getName());
+
 		if (this.queue.size() == 1) {
 			notifyAll();
 		}
 	}
 
-	public synchronized Object take() throws InterruptedException {
+	public synchronized void take() {
 		while (this.queue.size() == 0) {
-			wait();
+			System.out.println("need to wait on "+Thread.currentThread().getName());
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		if (this.queue.size() == this.limit) {
+
+		this.queue.remove(0);
+		System.out.println("removed using "+Thread.currentThread().getName());
+
+		if (this.queue.size() == 0) {
 			notifyAll();
 		}
 
-		return this.queue.remove(0);
 	}
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 
 		BlockingQueueImpl obj = new BlockingQueueImpl(3);
-		obj.put(1);
-		obj.put(1);
-		obj.put(1);
-		System.out.println("====");
-		obj.take();
-		obj.put(1);
-		obj.take();
 
-		obj.put(1);
-		System.out.println("====");
+		ExecutorService es = Executors.newCachedThreadPool();
+
+		es.execute(() -> {obj.take();});
+		es.execute(() -> {obj.take();});
+
+		es.execute(() -> {obj.put(1);});
+		es.execute(() -> {obj.put(1);});
+
+		es.execute(() -> {obj.take();});
+		es.execute(() -> {obj.put(1);});
+		
+		es.execute(() -> {obj.take();});
+		es.execute(() -> {obj.put(1);});
+
+
 
 	}
 

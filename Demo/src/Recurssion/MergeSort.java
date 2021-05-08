@@ -4,17 +4,6 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-//	static int[] getArr(int[] arr, int start, int end) {
-//
-//		try {
-//			return Arrays.copyOfRange(arr, start, end + 1);
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			return Arrays.copyOfRange(arr, start, end);
-//		}
-//
-//	}
-
 	private static int[] sort(int[] arr, int start, int end) {
 		// TODO Auto-generated method stub
 		// System.out.println(Arrays.toString(arr));
@@ -28,7 +17,6 @@ public class MergeSort {
 			arrtemp[0] = arr[start];
 			return arrtemp;
 		}
-
 
 		int[] temp1 = sort(arr, start, mid);
 		// System.out.println(Arrays.toString(temp1));
@@ -73,6 +61,10 @@ public class MergeSort {
 		return finalArr;
 	}
 
+	
+	
+	
+	
 	public static void main(String[] args) {
 
 		int arr[] = { 50, 40, 30, 20, 10 };
