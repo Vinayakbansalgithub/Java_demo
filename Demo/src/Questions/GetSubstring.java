@@ -32,9 +32,35 @@ public class GetSubstring {
 	}
 
 	public static void main(String[] args) {
-		String[] output = convert("123", 0, 2);
-		System.out.println(output.length);
+//		String[] output = convert("123", 0, 2);
+//		System.out.println(output.length);
+//
+//		System.out.println(Arrays.toString(output));
+//		
+		
+		convert2("123","");
+		
+		
 
-		System.out.println(Arrays.toString(output));
+	}
+
+	private static void convert2(String ques, String ans) {
+		// TODO Auto-generated method stub
+		
+		
+		if(ques.length()==0) {
+			System.out.println(ans);
+			return;
+		}
+		
+		
+			
+			char ch= ques.charAt(0);
+			convert2(ques.substring(1),ans+ch);
+			
+			convert2(ques.substring(1),ans+"");
+		
+	
+		
 	}
 }

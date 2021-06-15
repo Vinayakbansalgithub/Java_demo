@@ -8,7 +8,7 @@ public class KthLargestusingHeap {
 
 		int arr[] = { 1, 2, 3, 4, 5, 6 };
 		// max heap means biggest number on the top
-		Max_heap(arr, 4);
+		Max_heap(arr, 1);
 	}
 
 	static void Max_heap(int[] arr, int klarget) {
@@ -18,8 +18,10 @@ public class KthLargestusingHeap {
 		for (int ii = arr.length - 1; ii >= 0; ii--) {
 
 			for (int j = arr.length - 1; j >= 0; j--) {
-				//makeheapMax(arr, j);
-				makeheapMin(arr, j);
+				makeheapMax(arr, j);
+				//makeheapMin(arr, j);
+				
+				System.out.println(Arrays.toString(arr));
 
 			}
 

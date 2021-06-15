@@ -21,7 +21,7 @@ public class Thread100Times extends Thread {
 				System.out.println(Thread.currentThread()+"every 10 seconds");
 			
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(100);
 				
 				System.out.println("-------------------------");
 			} catch (InterruptedException e) {

@@ -2,14 +2,14 @@ package Questions;
 
 import java.util.Scanner;
 
-public class LastOccurenceOfElement {
-	private static int getIndex(int[] arr, int start, int end, int element) {
+public class	AllFirstLastlOccurenceOfElement {
+	private static int getLastIndex(int[] arr, int start, int end, int element) {
 
 		if (start == arr.length) {
 			return -1;
 		}
 
-		int index = getIndex(arr, start + 1, end, element);
+		int index = getLastIndex(arr, start + 1, end, element);
 
 		if (index == -1) {
 
@@ -78,9 +78,9 @@ public class LastOccurenceOfElement {
 
 		int arr[] = { 1, 2, 3, 4, 5, 1 };
 
-		// int lastIndex = getIndex(arr, 0, arr.length -1,1);
+		int lastIndex = getLastIndex(arr, 0, arr.length -1,1);
 
-		//int findIndex = getIndexfirst(arr, 0, arr.length - 1, 1);
+		int findIndex = getIndexfirst(arr, 0, arr.length - 1, 3);
 		
 		int[] arrall=getIndexAll(arr, 0, arr.length - 1, 1,0);
 

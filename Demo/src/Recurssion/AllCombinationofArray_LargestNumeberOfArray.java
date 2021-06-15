@@ -17,18 +17,14 @@ public class AllCombinationofArray_LargestNumeberOfArray {
 	}
 
 	public static void main(String[] args) {
-//		int arr[] = { 9, 34, 8 };
-//		int n = arr.length;
-//		AllCombinationofArray_LargestNumeberOfArray permutation = new AllCombinationofArray_LargestNumeberOfArray();
-//		permutation.permute(arr, 0, n -1);
-//		System.out.println("number is " + max);
+		int arr[] = { 9, 34, 8 };
+		int n = arr.length;
+		AllCombinationofArray_LargestNumeberOfArray permutation = new AllCombinationofArray_LargestNumeberOfArray();
+		permutation.permute(arr, 0, n -1);
+		System.out.println("number is " + max);
 		
 		
-		
-		String originalInput = "58";
-		String encodedString = Base64.getEncoder().encodeToString(originalInput.getBytes());
-		encodedString=encodedString+"uYy5teXNxbA==";
-		System.out.println(encodedString);
+	
 
 	}
 

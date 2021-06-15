@@ -69,7 +69,7 @@ public class SingletonMain {
 
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		// System.out.println(Singleton.getInstance());
+		//System.out.println(Singleton.getInstance());
 
 		ExecutorService es = Executors.newFixedThreadPool(5);
 

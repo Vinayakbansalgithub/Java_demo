@@ -1,4 +1,5 @@
 package GeneralTopics;
+//https://medium.com/@n0rdy/immutable-classes-in-java-76635df0356d
 
 class Address {
 	String city;

@@ -1,14 +1,15 @@
 package Sorting;
 
+import java.util.Arrays;
+
 public class QuickSort {
 	int[] sort(int[] arr, int start, int end) {
 
 		int pivot = (start + end) / 2;
-
 		int left = start;
 		int right = end;
 
-		if (right < left)
+		if (left == right || end == 0 || right < left)
 			return arr;
 
 		while (left <= right) {
@@ -20,12 +21,16 @@ public class QuickSort {
 				right--;
 
 			if (left <= right) {
+
 				int temp = arr[left];
 				arr[left] = arr[right];
 				arr[right] = temp;
+				
 				left++;
 				right--;
 			}
+
+			System.out.println(Arrays.toString(arr));
 
 		}
 
@@ -37,7 +42,7 @@ public class QuickSort {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = { 10, 7, 8, 9, 1, 5, 9, 3 };
+		int arr[] = { 10, 7, 8, 9, 1, 5, 9, 3, 1 };
 		int len = arr.length;
 
 		QuickSort obj = new QuickSort();

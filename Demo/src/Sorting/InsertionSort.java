@@ -13,6 +13,8 @@ public class InsertionSort {
 		int value = arr[start];
 
 		int j = start;
+		
+		System.out.println("j is "+j);
 
 		while (j > 0) {
 			if (arr[j - 1] > value) {
@@ -31,7 +33,7 @@ public class InsertionSort {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 5, 11, 1, -5, 16, 9, 2, 12, 14, 3 };
+		int arr[] = { 50,40,30,20,10};
 		InsertionSort obj = new InsertionSort();
 		obj.sort(arr, 0, arr.length);
 		for (int i = 0; i < arr.length; i++) {

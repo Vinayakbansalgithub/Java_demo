@@ -3,34 +3,35 @@ package Recurssion;
 public class IMPKnapSackProblem {
 
 	public static void main(String[] args) {
-		int[] wt = { 1, 3, 4, 5 };
+//		  int price[] = new int[] { 60, 100, 120 };
+//	        int wt[] = new int[] { 10, 20, 30 };
+//	      int W = 50;    
+	        
+	        int price[] = new int[] {1, 5, 8, 9, 10, 17, 17, 20}; 
+	        
+	        
+	        int wt[] = new int[] {1, 2, 3, 4, 5, 6, 7, 8}; 
+	        int W = 8;
 
-		int[] price = { 1, 5, 5, 7 };
-
-		int capacity = 7;
-
-		System.out.println(profitFun(wt, price, 0, capacity));
+		System.out.println(profitFun(wt, price, wt.length - 1, W));
 	}
 
-	static int profitFun(int[] wt, int[] price, int vi, int capacity) {
+	static int profitFun(int[] wt, int[] price, int size, int w) {
 		// TODO Auto-generated method stub
 
-		if (capacity == 0 || vi == wt.length) {
+		if (w == 0 || 0 == size) {
 			return 0;
 		}
 
-		// exclude
-		int e = profitFun(wt, price, vi + 1, capacity);
+		if (wt[size] <= w) {
+			int i = price[size] +profitFun(wt, price, size - 1, w - wt[size]);
+			int e = profitFun(wt, price, size - 1, w);
+			return Math.max(i, e);
 
-		// include
-		int i = 0;
-
-		if (capacity >= wt[vi])
-			i = profitFun(wt, price, vi + 1, capacity - wt[vi]) + price[vi];
-
-		int ans = Math.max(e, i);
-
-		return ans;
+		} else {
+			int e = profitFun(wt, price, size - 1, w);
+			return e;
+		}
 
 	}
 }

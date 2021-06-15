@@ -63,35 +63,37 @@ public class HashMapImplementation<K, V> {
 		}
 
 	}
-
-	LinkedList<K> bucket = new LinkedList<>();
 	// default size
-	int BucketSize = 16;
+	int BucketSize = 10;
 	Node<K, V> table[] = new Node[BucketSize];
 
 	private void put(K key, V value) {
 		// TODO Auto-generated method stub
 		int hash = hashCode(key);
-		int index = getBucketIndex(hash);
+		int index = getTableIndex(hash);
 		System.out.println("index in put  " + index + "  for key " + key);
 
 		if (table[index] != null) {
 			System.out.println("collision at index " + index);
 
 			Node<K, V> node = table[index];
-			boolean keyFound = false;
 			while (node != null) {
 				if (node.getKey() == key) {
-					keyFound = true;
+					// same key need to replace value
+					node.value = value;
+					return;
+
 				}
 				node = node.nextNode;
 			}
-			if (keyFound)
-				System.out.println("key " + key + "not found in hashtable, use double hashing here");
-
-			
+			// NEED TO PUT VALUE IN LIST
 			node = table[index];
+			while (node.nextNode != null) {
+				node = node.nextNode;
+			}
 			node.nextNode = new Node(hash, key, value, null);
+
+			System.out.println(table[index]);
 
 		} else {
 			table[index] = new Node(hash, key, value, null);
@@ -99,7 +101,7 @@ public class HashMapImplementation<K, V> {
 
 	}
 
-	int getBucketIndex(int hash) {
+	int getTableIndex(int hash) {
 		// TODO Auto-generated method stub
 		int loc = hash % BucketSize;
 		return loc;
@@ -116,7 +118,7 @@ public class HashMapImplementation<K, V> {
 	void get(K key) {
 		// TODO Auto-generated method stub
 		int hash = hashCode(key);
-		int index = getBucketIndex(hash);
+		int index = getTableIndex(hash);
 		System.out.println("index in get" + index);
 		Node<K, V> node = table[index];
 		while (node.hash != hash) {
@@ -132,13 +134,22 @@ public class HashMapImplementation<K, V> {
 
 		HashMapImplementation<Integer, String> map = new HashMapImplementation<>();
 		map.put(1, "Vinayak");
+
+		map.put(11, "ajay");
+
+		map.put(21, "kanchan");
+
+		map.put(1, "ajay");
 		map.put(2, "Mehul");
 		map.put(3, "harshit");
 		map.put(18, "Anshul");
 		map.put(18, "kk");
 		map.put(19, "hhh");
 
-		map.get(18);
+		//map.get(18);
+		map.get(21);
+
+		System.out.println(map);
 
 	}
 

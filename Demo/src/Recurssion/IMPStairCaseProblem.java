@@ -11,6 +11,8 @@ public class IMPStairCaseProblem {
 			return 1;
 		}
 
+		
+		// koving out form starecase
 		if (start > finalStep) {
 			return 0;
 		}

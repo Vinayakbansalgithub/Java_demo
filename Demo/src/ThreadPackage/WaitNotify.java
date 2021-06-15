@@ -40,6 +40,8 @@ public class WaitNotify {
 	public static void main(String[] args) {
 		Thread t1 = new Thread(new OddEvenNumberPrinterThread());
 		Thread t2 = new Thread(new OddEvenNumberPrinterThread());
+		t1.setName("000");
+		t2.setName("111");
 		t1.start(); // ------> 1
 		t2.start(); // ------> 1
 	}

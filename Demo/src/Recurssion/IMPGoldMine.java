@@ -1,35 +1,81 @@
 package Recurssion;
 
+import java.util.Iterator;
+
 public class IMPGoldMine {
+//
+//	private static int getMaxGoldAtLevel(int[][] gold, int r, int c) {
+//		// TODO Auto-generated method stub
+//
+//		if (c == 4)
+//			return 0;
+//
+//		if (r == -1 || r == 4)
+//			return 0;
+//
+//		int aa = getMaxGoldAtLevel(gold, r - 1, c + 1);
+//		int bb = getMaxGoldAtLevel(gold, r, c + 1);
+//		int cc = getMaxGoldAtLevel(gold, r + 1, c + 1);
+//
+//		return Math.max(Math.max(aa, bb), cc) + gold[r][c];
+//
+//	}
+//
+//	static int getMaxGold(int[][] gold, int m, int n) {
+//		// TODO Auto-generated method stub
+//		int max = 0;
+//
+//		for (int i = 0; i < m; i++) {
+//			int res = getMaxGoldAtLevel(gold, i, 0);
+//			if (res > max)
+//				max = res;
+//
+//		}
+//		return max;
+//	}
 
-	private static int getMaxGoldAtLevel(int[][] gold, int r, int c) {
-		// TODO Auto-generated method stub
+	private static void getMaxGoldAtLevel(int[][] arr, int r, int c) {
 
-		if (c == 4)
-			return 0;
+		int[][] dp = new int[r][c];
 
-		if (r == -1 || r == 4)
-			return 0;
+		for (int j = arr.length - 1; j >= 0; j--) {
 
-		int aa = getMaxGoldAtLevel(gold, r - 1, c + 1);
-		int bb = getMaxGoldAtLevel(gold, r, c + 1);
-		int cc = getMaxGoldAtLevel(gold, r + 1, c + 1);
+			for (int i = arr.length - 1; i >= 0; i--) {
 
-		return Math.max(Math.max(aa, bb), cc) + gold[r][c];
+				if (j == arr.length - 1) {
+					dp[i][j] = arr[i][j];
+				} else if (i == arr.length - 1) {
 
-	}
+					int r1 = dp[i][j + 1];
 
-	static int getMaxGold(int[][] gold, int m, int n) {
-		// TODO Auto-generated method stub
-		int max = 0;
+					int r2 = dp[i - 1][j + 1];
 
-		for (int i = 0; i < m; i++) {
-			int res = getMaxGoldAtLevel(gold, i, 0);
-			if (res > max)
-				max = res;
+					dp[i][j] = arr[i][j] + Math.max(r1, r2);
 
+				} else if (i == 0) {
+
+					int r1 = dp[i][j + 1];
+
+					int r2 = dp[i + 1][j + 1];
+
+					dp[i][j] = arr[i][j] + Math.max(r1, r2);
+
+				} else {
+
+					int r1 = dp[i][j + 1];
+
+					int r2 = dp[i + 1][j + 1];
+
+					int r3 = dp[i - 1][j + 1];
+
+					dp[i][j] = arr[i][j] + Math.max(Math.max(r1, r2), r3);
+				}
+
+			}
 		}
-		return max;
+
+		System.out.println(dp);
+
 	}
 
 	public static void main(String arg[]) {
@@ -38,8 +84,7 @@ public class IMPGoldMine {
 
 		int m = 4, n = 4;
 
-		int res = getMaxGold(gold, m, n);
-		System.out.println(res);
+		getMaxGoldAtLevel(gold, m, n);
 	}
 
 }

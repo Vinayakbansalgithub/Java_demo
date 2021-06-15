@@ -5,6 +5,27 @@ interface MobileAlertState
     public void alert(AlertStateContext ctx);
 }
   
+
+class Vibration implements MobileAlertState 
+{
+  @Override
+  public void alert(AlertStateContext ctx) 
+  {
+       System.out.println("vibration...");
+  }
+
+}
+
+class Silent implements MobileAlertState
+{
+  @Override
+  public void alert(AlertStateContext ctx) 
+  {
+      System.out.println("silent...");
+  }
+
+}
+
 class AlertStateContext 
 {
     private MobileAlertState currentState;
@@ -24,26 +45,7 @@ class AlertStateContext
         currentState.alert(this);
     }
 }
-  
-class Vibration implements MobileAlertState 
-{
-    @Override
-    public void alert(AlertStateContext ctx) 
-    {
-         System.out.println("vibration...");
-    }
-  
-}
-  
-class Silent implements MobileAlertState
-{
-    @Override
-    public void alert(AlertStateContext ctx) 
-    {
-        System.out.println("silent...");
-    }
-  
-}
+
   
 class StatePattern 
 {

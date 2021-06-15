@@ -2,33 +2,45 @@ package Recurssion;
 
 public class IMPLongestPalendromicSubSequence {
 	public static void main(String[] args) {
-		String str = "acdcga";
+		String str = "agbcba";
 
-		int res = getLCS(str, 0, str.length() - 1);
+		StringBuilder input = new StringBuilder();
+
+		input.append(str);
+		String strRev = input.reverse().toString();
+
+		int res = getLPS(str, strRev, str.length(), strRev.length());
 
 		System.out.println(res);
 
 	}
 
-	static int getLCS(String str, int start, int end) {
-		// TODO Auto-generated method stub
+	static int getLPS(String str1, String str2, int n1, int n2) {
 
-		
-		if (start == end) {
-			return 1;
-		}
-		
-		
-		int result;
+		// base
+		if (n1 == 0 || n2 == 0)
+			return 0;
 
-		if (str.charAt(start) == str.charAt(end)) {
-			result = getLCS(str, start + 1, end - 1) + 2;
+		char s1 = str1.charAt(0);
+		char s2 = str2.charAt(0);
+
+		String ros1 = str1.substring(1);
+		String ros2 = str2.substring(1);
+
+		int length = 0;
+		if (s1 == s2) {
+
+			length = getLPS(ros1, ros2, n1 - 1, n2 - 1) + 1;
+
 		} else {
-			int o1 = getLCS(str, start + 1, end);
-			int o2 = getLCS(str, start, end - 1);
-			result = Math.max(o1, o2);
+
+			int c1 = getLPS(str1, ros2, n1, n2 - 1);
+			int c2 = getLPS(ros1, str2, n1 - 1, n2);
+
+			length = Math.max(c1, c2);
 		}
 
-		return result;
+		return length;
+		// TODO Auto-generated method stub
 	}
 }

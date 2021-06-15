@@ -4,18 +4,7 @@ interface PaymentAlgo {
 	void Algorithm();
 }
 
-class PaymentAlgoContext {
-	private PaymentAlgo _strategy;
 
-	public PaymentAlgoContext(PaymentAlgo strategy) {
-		_strategy = strategy;
-		}
-
-	
-	public void ContextInterface() {
-		_strategy.Algorithm();
-	}
-}
 
 class CODStrategy implements PaymentAlgo {
 	public void Algorithm() {
@@ -34,6 +23,21 @@ class DebitCardStrategy implements PaymentAlgo {
 		System.out.println("payment is DebitCard");
 	}
 }
+
+
+class PaymentAlgoContext {
+	private PaymentAlgo _strategy;
+
+	public PaymentAlgoContext(PaymentAlgo strategy) {
+		_strategy = strategy;
+		}
+
+	
+	public void ContextInterface() {
+		_strategy.Algorithm();
+	}
+}
+
 
 public class StrategyPatternCustomer {
 	public static void main(String[] args) {

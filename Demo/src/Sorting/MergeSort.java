@@ -7,21 +7,16 @@ public class MergeSort {
 		// TODO Auto-generated method stub
 		// System.out.println(Arrays.toString(arr));
 
-		System.out.println("start: " + start + "  end:" + end);
-
-		int mid = (end + start) / 2;
+		int mid = (start + end) / 2;
 
 		if (start == end) {
-			int[] arrtemp = new int[1];
-			arrtemp[0] = arr[start];
-			return arrtemp;
+			int temparr[] = new int[1];
+			temparr[0] = arr[start];
+			return temparr;
 		}
 
 		int[] temp1 = sort(arr, start, mid);
-		// System.out.println(Arrays.toString(temp1));
-
 		int[] temp2 = sort(arr, mid + 1, end);
-		// System.out.println(Arrays.toString(temp2));
 
 		return merge(temp1, temp2);
 
@@ -62,7 +57,7 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 50, 40, 30, 20, 10 };
+		int arr[] = { 50, 40, 30, 20, 10,33 };
 		int[] arrresult = sort(arr, 0, arr.length - 1);
 		System.out.println(Arrays.toString(arrresult));
 

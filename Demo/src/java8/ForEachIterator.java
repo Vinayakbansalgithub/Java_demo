@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class ForEachIterator {
+private static List<Integer> list;
+
 public static void main(String[] args) {
 	List<Integer> list= new ArrayList<Integer>();
 	for (int i = 0; i < 10;i++) {
@@ -21,6 +23,9 @@ public static void main(String[] args) {
 		}
 		
 	});
+	
+	
+	list.forEach((a)->System.out.println("value is "+a));
 	
 }
 }

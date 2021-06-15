@@ -68,7 +68,7 @@ public class ConcurrentHashMapImplementation<K, V> {
 
 	}
 
-	LinkedList<K> bucket = new LinkedList<>();
+	//LinkedList<K> bucket = new LinkedList<>();
 	// default initialCapacity
 	int initialCapacity = 16;
 	Node<K, V> Segment[] = new Node[initialCapacity];

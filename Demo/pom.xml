@@ -85,5 +85,43 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- basic spring dependency -->
+		<!-- spring-context – defines the actual Spring Injection Container and 
+			has a small number of dependencies: spring-core, spring-expression, spring-aop, 
+			and spring-beans. These augment the container by enabling support for some 
+			of the core Spring technologies: the Core Spring utilities, the Spring Expression 
+			Language (SpEL), the Aspect-Oriented Programming support and the JavaBeans 
+			mechanism. -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.3.3</version>
+		</dependency>
+
+		<!-- We can have only one method annotated with @PostConstruct annotation. 
+			This annotation is part of Common Annotations API and it’s part of JDK module 
+			javax.annotation-api. So if you are using this annotation in Java 9 or above, 
+			you will have to explicitly add this jar to your project. If you are using 
+			maven, then below dependency should be added to it. -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
 	</dependencies>
 </project>

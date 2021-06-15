@@ -29,7 +29,7 @@ public class SelectionSort {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = { 5, 2, 1, 3, 6, 4 };
+		int arr[] = { 5, 4, 3, 2, 1, 0 };
 		SelectionSort obj = new SelectionSort();
 		int[] arrRes = obj.sort(arr, 0, arr.length - 1);
 		for (int i = 0; i < arr.length; i++) {

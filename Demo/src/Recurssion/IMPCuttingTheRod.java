@@ -1,5 +1,7 @@
 package Recurssion;
 
+
+// do from knapsack
 public class IMPCuttingTheRod {
 	
  static int maxProfit(int[] cost, int length) {
@@ -11,7 +13,7 @@ public class IMPCuttingTheRod {
 	 
 	 int profit=cost[length-1];
 	 for (int i = 0; i < length; i++) {
-		 int temp= cost[i]+maxProfit(cost, length-i-1);
+		 int temp= cost[i]+maxProfit(cost, length-1-i);
 		 if(temp>profit)
 			 profit=temp;
 	}

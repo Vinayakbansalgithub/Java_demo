@@ -10,7 +10,7 @@ public class MathsDemo {
 	
 public static void main(String[] args) {
 	MathsDemo obj= new MathsDemo();
-	MathsOperation add=(int a, int b)->a+b;
+	MathsOperation add=( a,  b)->a+b;
 	MathsOperation sub=(int a, int b)->a-b;
 
 	MathsOperation mul=(int a, int b)->a*b;

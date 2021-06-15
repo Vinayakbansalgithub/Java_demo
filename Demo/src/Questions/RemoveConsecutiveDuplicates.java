@@ -1,7 +1,5 @@
 package Questions;
 
-import java.util.Scanner;
-
 public class RemoveConsecutiveDuplicates {
 
 	static String convert(String str, String output) {
@@ -36,7 +34,7 @@ public class RemoveConsecutiveDuplicates {
 //		Scanner scanner = new Scanner(System.in);
 //		String str = scanner.nextLine().trim();
 
-		String output = convert("aaaaaaaaaaaaaaaaaaabc",  "");
+		String output = convert("aaaaaaaaaaaaaaaaaaabc", "");
 		System.out.println(output);
 	}
 }

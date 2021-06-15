@@ -14,9 +14,9 @@ public class WhySyncNeeded {
 	 void  inc() {
 		//synchronized (this) {
 			
-			lock.lock();
+			//lock.lock();
 			counter=counter+1;
-			lock.unlock();	
+			//lock.unlock();	
 		//}
 		
 	}
@@ -31,7 +31,7 @@ public static void main(String[] args) throws InterruptedException {
 
 	
 	
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	System.out.println("value is "+obj.counter);
 }
 }
