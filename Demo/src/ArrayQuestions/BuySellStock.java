@@ -1,47 +1,58 @@
 package ArrayQuestions;
 
+
+
+// leetCode 121,122
 public class BuySellStock {
 
 	static void buySell(int[] arr) {
 
-		int buyAt = 0;
-		int sellAt = 0;
-
-		int buyAtLow = 0;
-		int sellAtTop = 0;
-
-		int max = 0;
+		int lsf = Integer.MAX_VALUE;
+		int op = 0;
+		int pist = 0;
 
 		for (int i = 0; i < arr.length; i++) {
-			buyAt = arr[i];
-			sellAt = arr[i];
 
-			for (int j = i + 1; j < arr.length; j++) {
-				int currentPrice = arr[j];
-
-				if (currentPrice > sellAt) {
-					sellAt = currentPrice;
-
-				}
-
+			if (arr[i] < lsf) {
+				lsf = arr[i];
+			}
+			pist = arr[i] - lsf;
+			if (pist > op) {
+				op = pist;
 			}
 
-			if (max < sellAt - buyAt) {
-				max = sellAt - buyAt;
-				buyAtLow = buyAt;
-				sellAtTop = sellAt;
-			}
 		}
-
-		System.out.println("buy at" + buyAtLow);
-		System.out.println("sell at" + sellAtTop);
-
+		System.out.println("total profit " + op);
 	}
 
 	public static void main(String[] args) {
 		int arr[] = new int[] { 100, 200, 70, 100, 300, 200, 500 };
 		buySell(arr);
 
+		buySellInfiniteTransactions(arr);
+
+	}
+
+	private static void buySellInfiniteTransactions(int[] arr) {
+		// TODO Auto-generated method stub
+
+		int bd = 0;
+		int sd = 0;
+		int profit = 0;
+
+		for (int i = 1; i < arr.length; i++) {
+
+			if (arr[i] > arr[i - 1]) {
+				sd++;
+			} else {
+				profit += arr[sd] - arr[bd];
+				bd = i;
+				sd = i;
+			}
+
+		}
+		profit += arr[sd] - arr[bd];
+		System.out.println("profit is " + profit);
 	}
 
 }

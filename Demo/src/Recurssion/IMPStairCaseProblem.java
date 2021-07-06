@@ -11,7 +11,6 @@ public class IMPStairCaseProblem {
 			return 1;
 		}
 
-		
 		// koving out form starecase
 		if (start > finalStep) {
 			return 0;
@@ -19,9 +18,8 @@ public class IMPStairCaseProblem {
 
 		int count = 0;
 		for (int stepsAtonce = 1; stepsAtonce <= maxStepsAllowed; stepsAtonce++) {
-
 			int temp = stepWays(start + stepsAtonce, maxStepsAllowed, finalStep, Path + " " + stepsAtonce);
-			count = count + temp;
+			count += temp;
 		}
 		return count;
 	}

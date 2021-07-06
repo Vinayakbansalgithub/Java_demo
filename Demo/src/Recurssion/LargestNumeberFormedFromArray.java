@@ -3,15 +3,15 @@ package Recurssion;
 import java.util.Arrays;
 import java.util.Base64;
 
-public class AllCombinationofArray_LargestNumeberOfArray {
+public class LargestNumeberFormedFromArray {
 
 	static int max = 0;
 
 	int arrayToInt(int[] arr) {
-		
+
 		StringBuilder s = new StringBuilder();
 		for (int i : arr) {
-			s.append(i); 
+			s.append(i);
 		}
 		return Integer.parseInt(s.toString()); // parse integer out of the string
 	}
@@ -19,12 +19,9 @@ public class AllCombinationofArray_LargestNumeberOfArray {
 	public static void main(String[] args) {
 		int arr[] = { 9, 34, 8 };
 		int n = arr.length;
-		AllCombinationofArray_LargestNumeberOfArray permutation = new AllCombinationofArray_LargestNumeberOfArray();
-		permutation.permute(arr, 0, n -1);
+		LargestNumeberFormedFromArray permutation = new LargestNumeberFormedFromArray();
+		permutation.permute(arr, 0, n - 1);
 		System.out.println("number is " + max);
-		
-		
-	
 
 	}
 
@@ -35,7 +32,7 @@ public class AllCombinationofArray_LargestNumeberOfArray {
 				max = arrayToInt(arr);
 		} else {
 			for (int i = l; i <= r; i++) {
-				
+
 				arr = swap(arr, i, l);
 				permute(arr, l + 1, r);
 				arr = swap(arr, i, l);

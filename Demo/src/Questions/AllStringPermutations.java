@@ -1,7 +1,5 @@
 package Questions;
 
-import java.util.Iterator;
-
 public class AllStringPermutations {
 
 	private static void permutation(String str, int start, int end) {
@@ -45,7 +43,6 @@ public class AllStringPermutations {
 
 			char ch= str.charAt(i);
 			String ros=str.substring(0,i)+str.substring(i+1);
-			
 			permutation2(ros,asf+ch);
 		}
 
@@ -53,9 +50,9 @@ public class AllStringPermutations {
 
 	public static void main(String[] args) {
 
-		String input = "abcd";
+		String input = "abc";
 		int n = input.length();
-		permutation(input, 0, n - 1);
+		//permutation(input, 0, n - 1);
 
 		permutation2(input, "");
 	}

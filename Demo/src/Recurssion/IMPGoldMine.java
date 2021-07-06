@@ -42,10 +42,13 @@ public class IMPGoldMine {
 
 			for (int i = arr.length - 1; i >= 0; i--) {
 
+				
+				// last col
 				if (j == arr.length - 1) {
 					dp[i][j] = arr[i][j];
 				} else if (i == arr.length - 1) {
 
+					// last row
 					int r1 = dp[i][j + 1];
 
 					int r2 = dp[i - 1][j + 1];
@@ -53,6 +56,7 @@ public class IMPGoldMine {
 					dp[i][j] = arr[i][j] + Math.max(r1, r2);
 
 				} else if (i == 0) {
+					// first row
 
 					int r1 = dp[i][j + 1];
 

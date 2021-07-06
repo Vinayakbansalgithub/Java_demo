@@ -12,6 +12,5 @@ public class MissingNumberOfArray {
 		    num_sum += i;
 		   }
 		       System.out.print( expected_num_sum - num_sum);
-			   System.out.print("\n");
 		  }
 }

@@ -2,7 +2,7 @@ package Questions;
 
 import java.util.Scanner;
 
-public class	AllFirstLastlOccurenceOfElement {
+public class AllFirstLastlOccurenceOfElement {
 	private static int getLastIndex(int[] arr, int start, int end, int element) {
 
 		if (start == arr.length) {
@@ -20,9 +20,7 @@ public class	AllFirstLastlOccurenceOfElement {
 			}
 
 		}
-
 		return index;
-
 	}
 
 	private static int getIndexfirst(int[] arr, int start, int end, int element) {
@@ -43,33 +41,29 @@ public class	AllFirstLastlOccurenceOfElement {
 
 	private static int[] getIndexAll(int[] arr, int start, int end, int element, int count) {
 
-		
-		
-		if(start== arr.length) {
-			int[] arrtemp= new int[count];
+		if (start == arr.length) {
+			int[] arrtemp = new int[count];
 			return arrtemp;
 		}
-		
+
 		int index[];
-		if(arr[start]==element) {
-			
-			index=getIndexAll(arr,start+1,end,element,count+1);
-			
-		}else {
-			index=getIndexAll(arr,start+1,end,element,count);
+		if (arr[start] == element) {
+
+			index = getIndexAll(arr, start + 1, end, element, count + 1);
+
+		} else {
+			index = getIndexAll(arr, start + 1, end, element, count);
 		}
-		
-		if(arr[start]==element) {
-			
-			index[count]=start;
+
+		if (arr[start] == element) {
+
+			index[count] = start;
 			count--;
 		}
 
-		
 		return index;
 	}
-	
-	
+
 	public static void main(String[] args) throws Exception {
 
 //		Scanner scanner = new Scanner(System.in);
@@ -78,11 +72,11 @@ public class	AllFirstLastlOccurenceOfElement {
 
 		int arr[] = { 1, 2, 3, 4, 5, 1 };
 
-		int lastIndex = getLastIndex(arr, 0, arr.length -1,1);
+		int lastIndex = getLastIndex(arr, 0, arr.length - 1, 1);
 
 		int findIndex = getIndexfirst(arr, 0, arr.length - 1, 3);
-		
-		int[] arrall=getIndexAll(arr, 0, arr.length - 1, 1,0);
+
+		int[] arrall = getIndexAll(arr, 0, arr.length - 1, 1, 0);
 
 		System.out.println(arrall);
 

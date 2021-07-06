@@ -30,29 +30,13 @@ public class TripletSumGivenValue {
 	/* Driver code */
 	public static void main(String[] args) {
 		
-		
-		
-		
-		String url="https://localhost:8443/";
-		String overrideUrlFrom="localhost:8443";
-		String overrideUrlTo="f64967a65192.ngrok.io";
-
-		String urlHeader = url.substring(0, url.indexOf("://"));
-		System.out.printf("urlHeader:::"+ urlHeader);
-        url = url.substring(url.indexOf("://") + 3);
-        overrideUrlFrom = overrideUrlFrom.substring(overrideUrlFrom.indexOf("://") + 3);
-        overrideUrlTo = overrideUrlTo.substring(overrideUrlTo.indexOf("://") + 3);
-
-        url = url.replace(overrideUrlFrom, overrideUrlTo);
-        url = urlHeader + "://" + url ;
-        
-        System.out.printf("Final url:::"+ url);
+	
 		
 		
 		int A[] = { 1, 4, 45, 6, 10, 8 };
 		int sum = 22;
 		int arr_size = A.length;
 
-		//find3Numbers(A, arr_size, sum);
+		find3Numbers(A, arr_size, sum);
 	}
 }

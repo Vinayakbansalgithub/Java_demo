@@ -1,35 +1,29 @@
 package ArrayQuestions;
 
 public class KadanesAlgorithm {
-	public static void main (String[] args) 
-    { 
-        int [] a = {-2, -3, 4, -1, -2, 1, 5, -3}; 
-        System.out.println("Maximum contiguous sum is " + 
-                                       maxSubArraySum(a)); 
-    }
+	public static void main(String[] args) {
+		int[] a = { -2, -3, 4, -1, -2, 1, 5, -3 };
+		System.out.println("Maximum contiguous sum is " + maxSubArraySum(a));
+	}
 
-	 static int maxSubArraySum(int[] a) {
+	static int maxSubArraySum(int[] arr) {
 		// TODO Auto-generated method stub
-		 
-		 
-		 int maxSofar = 0, maxEndHere=0;
-		 
-		 for (int i = 0; i < a.length; i++) {
-			 
-			 maxEndHere = maxEndHere+a[i];
-			 
-			 if(maxEndHere>maxSofar) {
-				 maxSofar=maxEndHere;
-				 
-				 
-			 }
-			 
-			 if(maxEndHere<0)
-				 maxEndHere=0;
-			
+
+		int currentSum = 0, overAllSum = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+
+			if (currentSum >= 0) {
+				currentSum += arr[i];
+			} else {
+				currentSum = arr[i];
+			}
+
+			if (currentSum > overAllSum)
+				overAllSum = currentSum;
+
 		}
-		 
-		 
-		return maxSofar;
-	} 
+
+		return overAllSum;
+	}
 }

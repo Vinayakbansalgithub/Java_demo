@@ -1,41 +1,34 @@
 package ArrayQuestions;
 
+
+//https://www.youtube.com/watch?v=Ofl4KgFhLsM&ab_channel=TECHDOSE
 public class SubarrayWithGivenSum {
 
 	static void findSubarrays(int[] arr, int sum) {
 		// TODO Auto-generated method stub
-		int add = 0;
+		int currentSum = 0;
 
-		for (int i = 0; i < arr.length; i++) {
-			int arrstart = i;
-			int arrend = i;
-			add = arr[i];
+		int arrstart = 0;
+		int arrend = 0;
 
-			for (int j = i + 1; j < arr.length; j++) {
-
-				if (sum == add) {
-
-					for (int k = arrstart; k <= arrend; k++) {
-						System.out.print("  " + arr[k]);
-					}
-					System.out.println();
-					System.out.println("*===============*");
-
-				}
-
-				add = add + arr[j];
+		for (int j = 0; j < arr.length; j++) {
+			currentSum += arr[j];
+			if (currentSum < sum) {
 
 				arrend++;
-
+			} else if (currentSum > sum) {
+				currentSum = currentSum - arr[arrstart];
+				arrstart++;
 			}
 
 		}
+		System.out.println("start from " + arrstart + " end at " + arrend);
 
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 3, 4, -7, 3, 3, 1, -4 };
-		int sum = 0;
+		int[] arr = { 1, 4, 20, 3, 10, 5 };
+		int sum = 33;
 
 		findSubarrays(arr, sum);
 	}

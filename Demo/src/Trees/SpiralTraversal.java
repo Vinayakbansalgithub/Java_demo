@@ -51,9 +51,8 @@ public class SpiralTraversal {
 			arr[counter] = root.data;
 			root.printed = true;
 			counter++;
-			
 
-		}else{
+		} else {
 			arr[counter] = root.data;
 			counter++;
 			root.printed = true;
@@ -65,50 +64,41 @@ public class SpiralTraversal {
 		SpiralNode temp1 = null;
 		SpiralNode temp2 = null;
 
-			while (i < h-1) {
-				i++;
-				flag = !flag;
-				
-if(flag == true){
-	
-	
-	
-	SpiralNode val=root;
-	temp1=root.right;
-	
-	
-				for (int k = 0; k< Math.pow(2, i); k++) {
-					
-				
+		while (i < h - 1) {
+			i++;
+			flag = !flag;
+
+			if (flag == true) {
+
+				SpiralNode val = root;
+				temp1 = root.right;
+
+				for (int k = 0; k < Math.pow(2, i); k++) {
 
 					printSpiral(root.right);
 					k++;
 					printSpiral(root.left);
-k++;
-root=temp2;
+					k++;
+					root = temp2;
 
 				}
-				 root=val.left;
-}
-if(flag == false){
-	temp2=root.left;
-	for (int l = 0; l< Math.pow(2, i); l++) {
+				root = val.left;
+			}
+			if (flag == false) {
+				temp2 = root.left;
+				for (int l = 0; l < Math.pow(2, i); l++) {
 
 					printSpiral(root.left);
 					l++;
 					printSpiral(root.right);
-l++;
-root=temp1;
+					l++;
+					root = temp1;
 				}
-	
-root=root.right;
-}
 
-			
-			
+				root = root.right;
 			}
-			
-			
+
+		}
 
 	}
 
@@ -121,20 +111,17 @@ root=root.right;
 		tree.root.left.right = new SpiralNode(6);
 		tree.root.right.left = new SpiralNode(5);
 		tree.root.right.right = new SpiralNode(4);
-		
+
 		tree.root.left.left.left = new SpiralNode(7);
 		tree.root.left.left.right = new SpiralNode(6);
 		tree.root.left.right.left = new SpiralNode(5);
 		tree.root.left.right.right = new SpiralNode(4);
-	
-		
-		
+
 		tree.root.right.right.right = new SpiralNode(9);
 		tree.root.right.right.left = new SpiralNode(12);
 		tree.root.right.left.left = new SpiralNode(16);
-		tree.root.right.left.right= new SpiralNode(18);
+		tree.root.right.left.right = new SpiralNode(18);
 
-		
 		System.out.println("Spiral order traversal of Binary Tree is ");
 
 		int hight = maxDepth(tree.root);

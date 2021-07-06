@@ -85,19 +85,19 @@ public class LoopInLinkList {
 		// TODO Auto-generated method stub
 
 		LNode value;
-		
+
 		while (slow.next != val.next) {
 
 			slow = slow.next;
 			val = val.next;
 
 		}
-		
-		value=slow.next;
-		slow.next=null;
-		
+
+		value = slow.next;
+		slow.next = null;
+
 		System.out.println(" loop remove node is  " + getHead());
-		
+
 		return value;
 
 	}

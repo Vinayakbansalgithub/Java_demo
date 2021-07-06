@@ -5,7 +5,9 @@ import java.util.Arrays;
 public class CatalnNumber {
 public static void main(String[] args) {
 	
-	int n= 8;
+	
+	// for n 4 use 5 because we have 0
+	int n= 5;
 	
 	int arr[]=new int[n];
 	
@@ -14,7 +16,6 @@ public static void main(String[] args) {
 	
 	for (int i = 2; i < arr.length; i++) {
 		
-		arr[i]=0;
 		
 		for (int j = 0; j < i; j++) {
 			

@@ -10,7 +10,7 @@ public class GetSubstring {
 
 		if (input.isEmpty()) {
 			String strblank[] = new String[1];
-			strblank[0]="";
+			strblank[0] = "";
 			return strblank;
 		}
 		char charToConsider = input.charAt(0);
@@ -24,7 +24,7 @@ public class GetSubstring {
 			k++;
 		}
 		for (int i = 0; i < resultArr.length; i++) {
-			finalArr[k] = charToConsider+resultArr[i];
+			finalArr[k] = charToConsider + resultArr[i];
 			k++;
 		}
 
@@ -37,30 +37,26 @@ public class GetSubstring {
 //
 //		System.out.println(Arrays.toString(output));
 //		
+
 		
-		convert2("123","");
-		
-		
+		// main & easy
+		convert2("123", "");
 
 	}
 
+	// main
 	private static void convert2(String ques, String ans) {
 		// TODO Auto-generated method stub
-		
-		
-		if(ques.length()==0) {
+
+		if (ques.length() == 0) {
 			System.out.println(ans);
 			return;
 		}
-		
-		
-			
-			char ch= ques.charAt(0);
-			convert2(ques.substring(1),ans+ch);
-			
-			convert2(ques.substring(1),ans+"");
-		
-	
-		
+
+		char ch = ques.charAt(0);
+		convert2(ques.substring(1), ans + ch);
+
+		convert2(ques.substring(1), ans + "");
+
 	}
 }

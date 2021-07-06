@@ -4,8 +4,6 @@ interface PaymentAlgo {
 	void Algorithm();
 }
 
-
-
 class CODStrategy implements PaymentAlgo {
 	public void Algorithm() {
 		System.out.println("payment is COD");
@@ -24,20 +22,17 @@ class DebitCardStrategy implements PaymentAlgo {
 	}
 }
 
-
 class PaymentAlgoContext {
 	private PaymentAlgo _strategy;
 
 	public PaymentAlgoContext(PaymentAlgo strategy) {
 		_strategy = strategy;
-		}
+	}
 
-	
 	public void ContextInterface() {
 		_strategy.Algorithm();
 	}
 }
-
 
 public class StrategyPatternCustomer {
 	public static void main(String[] args) {
@@ -57,7 +52,6 @@ public class StrategyPatternCustomer {
 //    Interface Interface that has defined methods needed for all algorithms.
 //    
 //    ConcreteStrategy classes inheriting from the Interface interface that implement specific algorithms.
-
 
 //
 //
@@ -81,12 +75,3 @@ public class StrategyPatternCustomer {
 //You can isolate the implementation details of an algorithm from the code that uses it.
 //You can replace inheritance with composition.
 //Open/Closed Principle. You can introduce new strategies without having to change the context.
-
-
-
-
-
-
-
-
-

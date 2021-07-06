@@ -152,6 +152,7 @@ public class ReverseLinkList {
 
 	}
 
+	// easy
 	void reversePointers() {
 		// TODO Auto-generated method stub
 
@@ -167,9 +168,6 @@ public class ReverseLinkList {
 			curr = ahead;
 
 		}
-
-
-		System.out.println("ghh");
 
 	}
 
