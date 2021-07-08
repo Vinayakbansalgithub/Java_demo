@@ -382,12 +382,11 @@ public class Graph {
 			topSortUtil(key, stack, visited);
 		}
 
-		
 		System.out.println(stack);
-		
+
 	}
 
-	private void topSortUtil(String vertex, LinkedList<String> stack,HashMap<String, Boolean> visited) {
+	private void topSortUtil(String vertex, LinkedList<String> stack, HashMap<String, Boolean> visited) {
 		visited.put(vertex, true);
 		ArrayList<String> nbrs = new ArrayList<String>(this.vtces.get(vertex).nbrsDirected.keySet());
 		for (String nbr : nbrs) {

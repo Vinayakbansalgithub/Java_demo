@@ -41,6 +41,7 @@ public class HashMapImpl<K, V> {
 
 		// System.out.println(hash);
 		Bucket<K, V> bucket = new Bucket(hash, key, value, null);
+		
 		if (table[index] == null) {
 			table[index] = bucket;
 		} else {

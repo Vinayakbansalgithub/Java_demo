@@ -1,3 +1,5 @@
+
+
 package ArrayQuestions;
 
 
@@ -7,16 +9,19 @@ public class BuySellStock {
 
 	static void buySell(int[] arr) {
 
-		int lsf = Integer.MAX_VALUE;
+		
+		// buying price
+		int bp = Integer.MAX_VALUE;
 		int op = 0;
+		// price if sell today
 		int pist = 0;
 
 		for (int i = 0; i < arr.length; i++) {
 
-			if (arr[i] < lsf) {
-				lsf = arr[i];
+			if (arr[i] < bp) {
+				bp = arr[i];
 			}
-			pist = arr[i] - lsf;
+			pist = arr[i] - bp;
 			if (pist > op) {
 				op = pist;
 			}
@@ -26,7 +31,7 @@ public class BuySellStock {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = new int[] { 100, 200, 70, 100, 300, 200, 500 };
+		int arr[] = new int[] { 100, 200, 70, 100, 300, 200, 500 ,100};
 		buySell(arr);
 
 		buySellInfiniteTransactions(arr);

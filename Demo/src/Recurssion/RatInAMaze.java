@@ -31,6 +31,7 @@ public class RatInAMaze {
 				if (!endProg) {
 					temp[r][c] = 0;
 					visited[r][c] = false;
+					
 				}
 
 			}

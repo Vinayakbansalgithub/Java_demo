@@ -66,7 +66,7 @@ public class InvesioninArrayMerge {
     // Driver code 
     public static void main(String[] args) 
     { 
-        int[] arr = { 1, 2, 3, 4, 5 }; 
+        int[] arr = { 1, 2, 3, 4, 5 ,1}; 
   
        mergeSortAndCount(arr, 0, arr.length - 1); 
        System.out.println(swaps);
