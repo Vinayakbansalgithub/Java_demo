@@ -26,7 +26,6 @@ public class IMPKnapSackProblem {
 			int i = price[size] + profitFun(wt, price, size - 1, w - wt[size]);
 			int e = profitFun(wt, price, size - 1, w);
 			return Math.max(i, e);
-
 		} else {
 			int e = profitFun(wt, price, size - 1, w);
 			return e;

@@ -91,13 +91,9 @@ class AdapterCharger implements Device {
 }
 
 public class AdapterPattern {
-	public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public static void main(String[] args)
+			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 
-		
-		
-		
-
-	    
 		Sockit sockit = new NorthAmericanSwitch();
 		AdapterCharger adapter = new AdapterCharger(sockit);
 		adapter.device("laptop");

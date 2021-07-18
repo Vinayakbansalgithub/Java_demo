@@ -1,9 +1,16 @@
 package Arrays;
 
+
+
+
+// revisit
+
 //https://www.youtube.com/watch?v=IiAsqfjhZnY&ab_channel=Pepcoding
 public class CountNumberOfWaysPartitionSetIntoKSubsets {
 
-	// Driver program
+	
+	// teams and players
+	
 	public static void main(String args[]) {
 		countDP(4, 3);
 

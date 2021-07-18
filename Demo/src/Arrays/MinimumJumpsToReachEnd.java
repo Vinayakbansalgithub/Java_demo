@@ -1,7 +1,14 @@
 package Arrays;
 
 public class MinimumJumpsToReachEnd {
+	
+	
+	// revisit
 
+	
+	// covered in jump game
+	
+	
 	public static void main(String[] args) {
 		// int arr[] = new int[] { 2, 1, 3, 2, 3, 4, 5, 1, 2, 8 };
 

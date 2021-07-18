@@ -113,7 +113,6 @@ public class NextLargestElement {
 			} else if (!stack.isEmpty() && stack.peek() >= arr[i]) {
 				while (!stack.isEmpty()) {
 					stack.pop();
-
 					if (stack.isEmpty()) {
 						list.add(-1);
 
@@ -163,6 +162,8 @@ public class NextLargestElement {
 
 	}
 
+	
+	// NGLI
 	private static void StockSpanProblem(int[] arr) {
 		// TODO Auto-generated method stub
 
@@ -227,6 +228,7 @@ public class NextLargestElement {
 
 	}
 
+	// check in NGRI if value not found add length+1 not -1
 	private static void NSRI(int[] arr) {
 		// TODO Auto-generated method stub
 
@@ -286,12 +288,16 @@ public class NextLargestElement {
 		list.stream().forEach(s -> System.out.print(s + " "));
 		stack.clear();
 		list.clear();
+
+		System.out.println();
 		System.out.println("stock span problem");
 
 		StockSpanProblem(arr);
 		for (int i = 0; i <= list.size() - 1; i++) {
 			System.out.print(i - list.get(i) + " ");
 		}
+
+		System.out.println("========");
 		stackPair.clear();
 		System.out.println();
 		System.out.println("======   histogram");
@@ -307,6 +313,8 @@ public class NextLargestElement {
 
 		for (int j = 0; j <= arr.length - 1; j++) {
 
+			
+			// -1 is to get hight if left is 1 and right is 5 the 5-1 -1 =3 (inbetween)
 			if ((listRight.get(j) - listLeft.get(j) - 1) * arr[j] > area)
 				area = (listRight.get(j) - listLeft.get(j) - 1) * arr[j];
 
@@ -315,8 +323,7 @@ public class NextLargestElement {
 
 		System.out.println("area is " + area);
 		System.out.println("=======");
-		
-		
+
 		int arr2D[][] = { { 0, 1, 1, 0 }, { 1, 1, 1, 1 }, { 1, 1, 1, 1 }, { 1, 1, 0, 0 } };
 
 		int h[] = arr2D[0];

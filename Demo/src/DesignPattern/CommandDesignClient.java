@@ -23,7 +23,7 @@ class Order implements Command {
 	}
 }
 
-class Waiter {
+class Waiter implements Command {
 	private Order order;
 
 	public Waiter(Order ord) {
@@ -64,10 +64,8 @@ public class CommandDesignClient {
 //A class Waiter (invoker)
 //A class Chef (receiver)
 
-
 //Remember the command pattern chain of events goes like this,
 //the client -> the invoker -> the concrete command -> the receiver.
-
 
 // https://bikas-katwal.medium.com/design-pattern-command-design-pattern-simplified-d3f062bfd5c7
 // https://rahman-sameeha.medium.com/commanding-attention-the-design-pattern-61b6aaa21f12

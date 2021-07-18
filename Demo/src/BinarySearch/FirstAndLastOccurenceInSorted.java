@@ -154,7 +154,7 @@ public class FirstAndLastOccurenceInSorted {
 		int res1 = bs(arrNew, 0, res - 1, 4);
 		int res2 = bs(arrNew, res, arrNew.length - 1, 4);
 
-		System.out.println("element is  " + Math.max(res1, res2));
+		System.out.println("element index  " + Math.max(res1, res2));
 
 		//   floor ceil pending 
 		

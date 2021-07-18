@@ -12,8 +12,9 @@ public class BuySellStock {
 		
 		// buying price
 		int bp = Integer.MAX_VALUE;
+		// overall profit
 		int op = 0;
-		// price if sell today
+		// profit if sell today
 		int pist = 0;
 
 		for (int i = 0; i < arr.length; i++) {
@@ -41,7 +42,10 @@ public class BuySellStock {
 	private static void buySellInfiniteTransactions(int[] arr) {
 		// TODO Auto-generated method stub
 
+		
+		// buying date
 		int bd = 0;
+		// selling date
 		int sd = 0;
 		int profit = 0;
 

@@ -18,7 +18,6 @@ public class AllStringPermutationsUnique {
 
 			if(map.get(c)>0) {
 			map.put(c, map.get(c) - 1);
-
 			permutation(str, map, asf + c);
 			map.put(c, map.get(c) + 1);
 			}

@@ -21,6 +21,8 @@ public class TripletSumGivenValue {
 				}
 				s.add(A[j]);
 			}
+			
+			System.out.println();
 		}
 
 		// If we reach here, then no triplet was found
@@ -29,10 +31,7 @@ public class TripletSumGivenValue {
 
 	/* Driver code */
 	public static void main(String[] args) {
-		
-	
-		
-		
+
 		int A[] = { 1, 4, 45, 6, 10, 8 };
 		int sum = 22;
 		int arr_size = A.length;

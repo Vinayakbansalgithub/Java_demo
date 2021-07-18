@@ -2,11 +2,17 @@ package StackandQueue;
 
 import java.util.Stack;
 
+//https://www.youtube.com/watch?v=KAH2VlReNKQ&t=391s&ab_channel=ProgrammingTutorials
+
 public class MinStack extends Stack<Integer> {
 
 	static Stack<Integer> minStack1 = new Stack<Integer>();
+	
+	
+	
 
-	int min = -1;
+
+	
 	int max = -1;
 
 	void push1(int x) {
@@ -32,16 +38,15 @@ public class MinStack extends Stack<Integer> {
 	}
 
 	static Stack<Integer> minStack2 = new Stack<Integer>();
-
+	int min = -1;
+	
 	void push2(int x) {
 		if (minStack2.isEmpty()) {
 			minStack2.push(x);
 			min = x;
-			max = x;
 		} else if (x > min) {
 			minStack2.push(x);
-			if (x > max)
-				max = x;
+
 		} else if (x < min) {
 			minStack2.push((2 * x) - min);
 			min = x;
@@ -54,10 +59,12 @@ public class MinStack extends Stack<Integer> {
 			return -1;
 		} else if (minStack2.peek() >= min) {
 			return minStack2.pop();
-			
+
 		} else if (minStack2.peek() < min) {
-			minStack2.pop();
-			return min;
+			int oldmin = min;
+			int value = minStack2.pop();
+			min = 2 * min - value;
+			return oldmin;
 		}
 		return -1;
 
@@ -73,15 +80,6 @@ public class MinStack extends Stack<Integer> {
 
 	}
 
-	int getMax2() {
-
-		if (minStack2.isEmpty()) {
-			return -1;
-		}
-
-		return max;
-
-	}
 
 	public static void main(String[] args) {
 		MinStack stack = new MinStack();
@@ -112,9 +110,7 @@ public class MinStack extends Stack<Integer> {
 
 		System.out.println(min2);
 
-		int max2 = stack.getMax2();
-
-		System.out.println(max2);
+		
 	}
 
 }

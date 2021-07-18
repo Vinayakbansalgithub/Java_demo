@@ -158,22 +158,7 @@ public class BinarySearchTree {
 		}
 
 	}
-
-	static int depth(Node root) {
-		// TODO Auto-generated method stub
-		if (root == null) {
-			return 0;
-		}
-		int leftdepth = depth(root.left);
-		int rightdepth = depth(root.right);
-
-		if (leftdepth > rightdepth)
-			return leftdepth + 1;
-		else
-			return rightdepth + 1;
-
-	}
-
+	
 	private static void Zigzag(Node root, int depth) {
 
 		boolean leftToRight = true;
@@ -185,7 +170,21 @@ public class BinarySearchTree {
 
 	}
 
-	static int result123;
+	static int depth(Node root) {
+		// TODO Auto-generated method stub
+		if (root == null) {
+			return 0;
+		}
+		int leftdepth = depth(root.left);
+		int rightdepth = depth(root.right);
+		
+		return Math.max(leftdepth, rightdepth)+1;
+
+	}
+
+
+
+	static int diameter;
 
 	static int diameter(Node root, int result) {
 		// TODO Auto-generated method stub
@@ -201,7 +200,7 @@ public class BinarySearchTree {
 
 		if (Math.max(temp, answer) > result) {
 			result = Math.max(temp, answer);
-			result123 = result;
+			diameter = result;
 		}
 
 		return temp;
@@ -261,6 +260,8 @@ public class BinarySearchTree {
 		if (root == null)
 			return;
 
+		
+		// update only when level is greater then expected level
 		if (!map.containsKey(dist) || map.get(dist).level > level) {
 			// update value and level for current distance
 			map.put(dist, new Pair(root.key, level));
@@ -392,6 +393,10 @@ public class BinarySearchTree {
 		tree.Postorder(tree.root);
 		System.out.println();
 		int depth = depth(tree.root);
+		
+		
+		System.out.println("depth is "+depth);
+		
 		System.out.println("level");
 
 		levelTreversal(tree.root, depth, true);
@@ -403,7 +408,7 @@ public class BinarySearchTree {
 
 		diameter(tree.root, Integer.MIN_VALUE);
 
-		System.out.println("diameter is " + result123);
+		System.out.println("diameter is " + diameter);
 
 		leftView(tree.root);
 

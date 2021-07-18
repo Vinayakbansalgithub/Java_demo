@@ -42,14 +42,12 @@ public class MergeKSortedArrays {
 		}
 
 		while (queue.size() > 0) {
-
 			Pair pair = queue.remove();
 			System.out.println("  " + pair.val);
 			pair.colIndex += 1;
 
 			if (pair.colIndex < lists.get(pair.rowIndex).size())
 				queue.add(new Pair(lists.get(pair.rowIndex).get(pair.colIndex), pair.rowIndex, pair.colIndex));
-
 		}
 
 	}

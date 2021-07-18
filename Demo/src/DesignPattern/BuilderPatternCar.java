@@ -113,7 +113,7 @@ public class BuilderPatternCar {
 
 	// Builder Class
 	public static class BuilderPatternCarBuilder {
-final String brand;
+		final String brand;
 		String name;
 		final int year;
 		Engine engine;
@@ -181,16 +181,14 @@ final String brand;
 	public static void main(String[] args) {
 		Engine engine = new Engine("ivtec", 98, 4);
 		BuilderPatternCarBuilder builderObj = new BuilderPatternCar.BuilderPatternCarBuilder("Honda", 2011, engine);
-		//builderObj.setName("city");
+		// builderObj.setName("city");
 		BuilderPatternCar car = builderObj.build();
 		System.out.println(car);
-		//car.setBrand("BMW");
+		// car.setBrand("BMW");
 		System.out.println(car);
-
 
 	}
 }
-
 
 //Use the Builder pattern to get rid of a “telescopic constructor”.
 //Pizza(int size) { ... }
@@ -203,7 +201,3 @@ final String brand;
 //The Builder pattern lets you construct products step-by-step. You could defer execution of some steps without breaking the final product. You can even call steps recursively, which comes in handy when you need to build an object tree.
 //
 //A builder doesn’t expose the unfinished product while running construction steps. This prevents the client code from fetching an incomplete result.
-
-
-
-

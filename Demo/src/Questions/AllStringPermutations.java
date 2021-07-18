@@ -29,21 +29,19 @@ public class AllStringPermutations {
 		return String.valueOf(charArray);
 	}
 
-	
-	
 	// easy to understand
 	private static void permutation2(String str, String asf) {
-		
-	if(str.length()==0) {
-		System.out.println(asf);
-		return;
-	}
 
-		for (int i = 0; i <= str.length()-1; i++) {
+		if (str.length() == 0) {
+			System.out.println(asf);
+			return;
+		}
 
-			char ch= str.charAt(i);
-			String ros=str.substring(0,i)+str.substring(i+1);
-			permutation2(ros,asf+ch);
+		for (int i = 0; i <= str.length() - 1; i++) {
+
+			char ch = str.charAt(i);
+			String ros = str.substring(0, i) + str.substring(i + 1);
+			permutation2(ros, asf + ch);
 		}
 
 	}
@@ -52,7 +50,7 @@ public class AllStringPermutations {
 
 		String input = "abc";
 		int n = input.length();
-		//permutation(input, 0, n - 1);
+		// permutation(input, 0, n - 1);
 
 		permutation2(input, "");
 	}

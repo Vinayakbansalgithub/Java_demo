@@ -11,7 +11,7 @@ public class IMPStairCaseProblem {
 			return 1;
 		}
 
-		// koving out form starecase
+		// moving out form staircase
 		if (start > finalStep) {
 			return 0;
 		}

@@ -5,15 +5,6 @@ import java.util.Scanner;
 
 public class KthLargestusingHeap {
 	public static void main(String[] args) {
-
-		/*
-		 * Scanner scan= new Scanner(System.in);
-		 *  int val=scan.nextInt()
-		 * System.out.println(val); Integer in=val;
-		 * 
-		 * String str= new String(in.toString()); System.out.println(str.length());
-		 */
-
 		int arr[] = { 1, 3, 6, 5, 2, 4 };
 		// max heap means biggest number on the top
 		Max_heap(arr, 4);
@@ -69,7 +60,6 @@ public class KthLargestusingHeap {
 
 		if (j != largest) {
 			int temp = arr[j];
-
 			arr[j] = arr[largest];
 			arr[largest] = temp;
 

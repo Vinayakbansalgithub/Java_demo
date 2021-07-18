@@ -2,8 +2,6 @@ package Arrays;
 
 import java.util.Arrays;
 
-
-
 /*Chocolate Distribution Problem
 
 
@@ -33,8 +31,6 @@ public class CandyDistributibutionMaxDiff {
 		}
 
 		Arrays.parallelSort(arr);
-		
-		
 
 		System.out.println(Arrays.toString(arr));
 

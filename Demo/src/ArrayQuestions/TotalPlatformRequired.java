@@ -2,6 +2,9 @@ package ArrayQuestions;
 
 import java.util.Arrays;
 
+
+
+// same as meeting room questions
 public class TotalPlatformRequired {
 
 	// Returns minimum number of platforms reqquired 

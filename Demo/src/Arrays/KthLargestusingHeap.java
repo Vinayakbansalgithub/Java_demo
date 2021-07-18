@@ -19,8 +19,7 @@ public class KthLargestusingHeap {
 
 			for (int j = arr.length - 1; j >= 0; j--) {
 				makeheapMax(arr, j);
-				//makeheapMin(arr, j);
-				
+				// makeheapMin(arr, j);
 				System.out.println(Arrays.toString(arr));
 
 			}
@@ -33,7 +32,6 @@ public class KthLargestusingHeap {
 			int temp = arr[arr.length - 1];
 			arr[arr.length - 1] = arr[0];
 			arr[0] = temp;
-
 			arr = Arrays.copyOf(arr, arr.length - 1);
 
 			// System.out.println(Arrays.toString(arr));
@@ -72,8 +70,6 @@ public class KthLargestusingHeap {
 		}
 
 	}
-	
-	
 
 	static void makeheapMin(int[] arr, int j) {
 		// TODO Auto-generated method stub

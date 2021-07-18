@@ -1,4 +1,5 @@
 package Arrays;
+
 // https://www.youtube.com/watch?v=gmu0RA5_zxs&t=256s&ab_channel=NickWhite
 // right rotate array
 // leetcode 189
@@ -22,8 +23,6 @@ public class ImpRotateArrayKtimes {
 //		// reverse all
 //		reverse(arr, 0, arr.length - 1);
 //		
-		
-		
 
 		// for right rotation
 
