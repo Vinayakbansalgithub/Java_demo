@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class LongestSubStringWithoutRepeating {
 	public static void main(String[] args) {
-		String data = "geeksforgeeksabcgfds";
+		String data = "geeksforgeeksabcdfghi";
 
 		int ans = findWindow(data);
 		System.out.println(ans);
@@ -23,11 +23,11 @@ public class LongestSubStringWithoutRepeating {
 		while (true) {
 
 			// add
-			while (i < data.length()) {
+			while (i < data.length() - 1) {
 
-				if (i >= data.length() - 1) {
-					break;
-				}
+//				if (i >= data.length() - 1) {
+//					break;
+//				}
 				i++;
 
 				char ch = data.charAt(i);
@@ -42,7 +42,7 @@ public class LongestSubStringWithoutRepeating {
 					// break if count is more then 1
 					break;
 				} else {
-					dataMap.put(data.charAt(i), 1);
+					// dataMap.put(data.charAt(i), 1);
 					currentMax = i - j;
 					if (ans < currentMax) {
 						ans = currentMax;
@@ -53,9 +53,9 @@ public class LongestSubStringWithoutRepeating {
 
 			while (j < i) {
 
-				if ((i >= data.length() - 1)) {
-					break;
-				}
+				// if ((i >= data.length() - 1)) {
+				// break;
+				// }
 
 				j++;
 				char ch = data.charAt(j);
@@ -66,6 +66,8 @@ public class LongestSubStringWithoutRepeating {
 
 				System.out.println(rr == 1);
 
+				// suppose we have 2 ee then we remove one and consider substring from another
+				// one
 				if (rr == 1) {
 					break;
 				}
@@ -77,7 +79,7 @@ public class LongestSubStringWithoutRepeating {
 			}
 
 		}
-		return currentMax;
+		return ans;
 
 	}
 }
