@@ -7,11 +7,13 @@ public class JumpGame {
 		int reached = 0;
 		for (int i = 0; i <= reached; i++) {
 
+			if (reached == (arr[i] + i)) {
+				System.out.println("not found");
+				return false;
+			}
 			reached = Math.max(reached, arr[i] + i);
-
 			if (reached >= arr.length) {
-				
-				System.out.println("min jump "+i);
+				System.out.println("min jump " + i);
 				return true;
 			}
 		}
@@ -19,10 +21,9 @@ public class JumpGame {
 	}
 
 	public static void main(String[] args) {
-		//int arr[] = new int[] { 1, 1, 2, 0, 2, 1, 0, 0, 1, 3 };
-		
-		
-		int arr[] = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+		int arr[] = new int[] { 1, 1, 2, 0, 2, 1, 0, 0, 1, 3 };
+
+		// int arr[] = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 		boolean res = jump(arr);
 		System.out.println(res);
 	}

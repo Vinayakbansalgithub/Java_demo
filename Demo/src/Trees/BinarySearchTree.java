@@ -31,7 +31,6 @@ public class BinarySearchTree {
 	class Node {
 		int key;
 		Node left, right;
-		int hd;
 
 		public Node(int item) {
 			key = item;
@@ -127,6 +126,18 @@ public class BinarySearchTree {
 		Preorder(node.right);
 	}
 
+	static int depth(Node root) {
+		// TODO Auto-generated method stub
+		if (root == null) {
+			return 0;
+		}
+		int leftdepth = depth(root.left);
+		int rightdepth = depth(root.right);
+
+		return Math.max(leftdepth, rightdepth) + 1;
+
+	}
+
 	static void levelTreversal(Node node, int depth, boolean leftToRight) {
 		// TODO Auto-generated method stub
 
@@ -158,7 +169,7 @@ public class BinarySearchTree {
 		}
 
 	}
-	
+
 	private static void Zigzag(Node root, int depth) {
 
 		boolean leftToRight = true;
@@ -169,20 +180,6 @@ public class BinarySearchTree {
 		}
 
 	}
-
-	static int depth(Node root) {
-		// TODO Auto-generated method stub
-		if (root == null) {
-			return 0;
-		}
-		int leftdepth = depth(root.left);
-		int rightdepth = depth(root.right);
-		
-		return Math.max(leftdepth, rightdepth)+1;
-
-	}
-
-
 
 	static int diameter;
 
@@ -260,7 +257,6 @@ public class BinarySearchTree {
 		if (root == null)
 			return;
 
-		
 		// update only when level is greater then expected level
 		if (!map.containsKey(dist) || map.get(dist).level > level) {
 			// update value and level for current distance
@@ -393,10 +389,9 @@ public class BinarySearchTree {
 		tree.Postorder(tree.root);
 		System.out.println();
 		int depth = depth(tree.root);
-		
-		
-		System.out.println("depth is "+depth);
-		
+
+		System.out.println("depth is " + depth);
+
 		System.out.println("level");
 
 		levelTreversal(tree.root, depth, true);
@@ -420,7 +415,6 @@ public class BinarySearchTree {
 		System.out.println();
 
 		System.out.println("top view");
-		tree.root.hd = 0;
 
 		// System.out.println("vertical view");
 //		for (Entry<Integer, LinkedList<Integer>> entry : map.entrySet()) {
@@ -430,7 +424,7 @@ public class BinarySearchTree {
 
 		System.out.println();
 		System.out.println("top view");
-		topView(tree.root, map, tree.root.hd, 0);
+		topView(tree.root, map, 0, 0);
 		for (Entry<Integer, Pair> entry : map.entrySet()) {
 			System.out.print(entry.getValue() + "  ");
 
@@ -441,7 +435,7 @@ public class BinarySearchTree {
 		map.clear();
 
 		System.out.println("bottom view");
-		bottomView(tree.root, map, tree.root.hd, 0);
+		bottomView(tree.root, map, 0, 0);
 		for (Entry<Integer, Pair> entry : map.entrySet()) {
 			System.out.print(entry.getValue() + "  ");
 
@@ -480,6 +474,22 @@ public class BinarySearchTree {
 		}
 
 		System.out.println("LCS is " + listPath2.get(i + 1));
+
+		boolean res = hasPathSum(tree.root, 155);
+		System.out.println("has path " + res);
+
+	}
+
+	private static boolean hasPathSum(Node root, int sum) {
+		// TODO Auto-generated method stub
+
+		if (root == null) {
+			return false;
+		} else if (root.left == null && root.right == null && sum - root.key == 0) {
+			return true;
+		} else {
+			return hasPathSum(root.left, sum - root.key) || hasPathSum(root.right, sum - root.key);
+		}
 
 	}
 

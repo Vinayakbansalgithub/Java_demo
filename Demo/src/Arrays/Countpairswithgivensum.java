@@ -21,8 +21,6 @@ public class Countpairswithgivensum {
 		System.out.printf("Count of pairs is :::" + count);
 	}
 
-	
-	
 	// complexity is O(n)
 	public static void getPairsCountHash(int[] arr, int sum) {
 

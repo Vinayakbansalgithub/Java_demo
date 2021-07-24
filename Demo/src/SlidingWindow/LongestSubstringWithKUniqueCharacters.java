@@ -3,6 +3,9 @@ package SlidingWindow;
 import java.util.HashMap;
 import java.util.Map;
 
+
+//904. Fruit Into Baskets
+
 public class LongestSubstringWithKUniqueCharacters {
 
 	static void findSubstring(String str, int size) {
@@ -50,8 +53,9 @@ public class LongestSubstringWithKUniqueCharacters {
 	}
 
 	public static void main(String[] args) {
-		String s = "aabacbebebe";
-		int size = 3;
+		//String s = "aabacbebebe";
+		String s = "12322";
+		int size = 2;
 		findSubstring(s, size);
 	}
 }

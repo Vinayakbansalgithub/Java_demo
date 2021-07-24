@@ -19,31 +19,24 @@ public class TwoSum {
 
 		return new int[] {};
 	}
-	
-	
+
 	static int[] funMap(int arr[], int sum) throws Exception {
 
-		HashMap<Integer, Integer> map= new HashMap<Integer, Integer>();
-		
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
 		for (int i = 0; i < arr.length; i++) {
-			
-			
-			int complement=sum-arr[i];
-			
-			
-			if(map.containsKey(complement)) {
-				System.out.println("adding "+complement);
-				return new int[] {complement, arr[i] };
+
+			int complement = sum - arr[i];
+
+			if (map.containsKey(complement)) {
+				System.out.println("adding " + complement);
+				return new int[] { complement, arr[i] };
 			}
-			
-			
-			
+
 			map.put(arr[i], i);
-			
+
 		}
-		
-		
-		
+
 		throw new Exception("not found");
 	}
 
@@ -55,9 +48,8 @@ public class TwoSum {
 		int res[] = fun(arr, sum);
 
 		System.out.println(Arrays.toString(res));
-		
-		
-		int ress[] =funMap(arr, sum);
+
+		int ress[] = funMap(arr, sum);
 		System.out.println(Arrays.toString(ress));
 
 	}

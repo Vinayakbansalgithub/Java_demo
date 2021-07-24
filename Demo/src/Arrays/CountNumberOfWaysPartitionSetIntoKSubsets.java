@@ -1,28 +1,22 @@
 package Arrays;
 
-
-
-
-// revisit
-
 //https://www.youtube.com/watch?v=IiAsqfjhZnY&ab_channel=Pepcoding
 public class CountNumberOfWaysPartitionSetIntoKSubsets {
 
-	
 	// teams and players
-	
+
 	public static void main(String args[]) {
 		countDP(4, 3);
 
 	}
 
-	static char[] countDP(int i, int j) {
+	static char[] countDP(int people, int teams) {
 		// TODO Auto-generated method stub
 
-		int dp[][] = new int[j + 1][i + 1];
+		int dp[][] = new int[teams + 1][people + 1];
 
-		for (int t = 1; t <= j; t++) {
-			for (int p = 1; p <= i; p++) {
+		for (int t = 1; t <= teams; t++) {
+			for (int p = 1; p <= people; p++) {
 
 				if (t == p)
 					dp[t][p] = 1;
@@ -35,7 +29,7 @@ public class CountNumberOfWaysPartitionSetIntoKSubsets {
 
 		}
 
-		System.out.println("ans " + dp[j][i]);
+		System.out.println("ans " + dp[teams][people]);
 
 		return null;
 	}

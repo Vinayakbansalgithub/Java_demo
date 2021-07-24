@@ -7,12 +7,7 @@ import java.util.Stack;
 public class MinStack extends Stack<Integer> {
 
 	static Stack<Integer> minStack1 = new Stack<Integer>();
-	
-	
-	
 
-
-	
 	int max = -1;
 
 	void push1(int x) {
@@ -39,7 +34,7 @@ public class MinStack extends Stack<Integer> {
 
 	static Stack<Integer> minStack2 = new Stack<Integer>();
 	int min = -1;
-	
+
 	void push2(int x) {
 		if (minStack2.isEmpty()) {
 			minStack2.push(x);
@@ -80,7 +75,6 @@ public class MinStack extends Stack<Integer> {
 
 	}
 
-
 	public static void main(String[] args) {
 		MinStack stack = new MinStack();
 
@@ -110,7 +104,6 @@ public class MinStack extends Stack<Integer> {
 
 		System.out.println(min2);
 
-		
 	}
 
 }

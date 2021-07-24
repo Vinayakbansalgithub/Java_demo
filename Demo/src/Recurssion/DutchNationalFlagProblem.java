@@ -1,7 +1,5 @@
 package Recurssion;
 
-import java.util.Arrays;
-
 // main
 public class DutchNationalFlagProblem {
 

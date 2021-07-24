@@ -1,15 +1,11 @@
-
-
 package ArrayQuestions;
-
-
 
 // leetCode 121,122
 public class BuySellStock {
 
+	// single transaction
 	static void buySell(int[] arr) {
 
-		
 		// buying price
 		int bp = Integer.MAX_VALUE;
 		// overall profit
@@ -31,18 +27,9 @@ public class BuySellStock {
 		System.out.println("total profit " + op);
 	}
 
-	public static void main(String[] args) {
-		int arr[] = new int[] { 100, 200, 70, 100, 300, 200, 500 ,100};
-		buySell(arr);
-
-		buySellInfiniteTransactions(arr);
-
-	}
-
 	private static void buySellInfiniteTransactions(int[] arr) {
 		// TODO Auto-generated method stub
 
-		
 		// buying date
 		int bd = 0;
 		// selling date
@@ -62,6 +49,14 @@ public class BuySellStock {
 		}
 		profit += arr[sd] - arr[bd];
 		System.out.println("profit is " + profit);
+	}
+
+	public static void main(String[] args) {
+		int arr[] = new int[] { 100, 200, 70, 100, 300, 200, 500, 100 };
+		buySell(arr);
+
+		buySellInfiniteTransactions(arr);
+
 	}
 
 }

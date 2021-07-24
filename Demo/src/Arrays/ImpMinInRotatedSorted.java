@@ -20,7 +20,7 @@ public class ImpMinInRotatedSorted {
             return arr[mid+1]; 
   
         // Check if mid itself is minimum element 
-        if (mid > low && arr[mid] < arr[mid - 1]) 
+        if (mid > low && arr[mid] < arr[mid - 1] &&  arr[mid] < arr[mid + 1]) 
             return arr[mid]; 
   
         // Decide whether we need to go to left half or right half 

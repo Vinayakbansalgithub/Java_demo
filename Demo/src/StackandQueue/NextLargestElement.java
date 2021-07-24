@@ -162,7 +162,6 @@ public class NextLargestElement {
 
 	}
 
-	
 	// NGLI
 	private static void StockSpanProblem(int[] arr) {
 		// TODO Auto-generated method stub
@@ -312,8 +311,6 @@ public class NextLargestElement {
 		int area = 0;
 
 		for (int j = 0; j <= arr.length - 1; j++) {
-
-			
 			// -1 is to get hight if left is 1 and right is 5 the 5-1 -1 =3 (inbetween)
 			if ((listRight.get(j) - listLeft.get(j) - 1) * arr[j] > area)
 				area = (listRight.get(j) - listLeft.get(j) - 1) * arr[j];
@@ -387,7 +384,7 @@ public class NextLargestElement {
 		listRight.clear();
 
 		for (int j = 0; j < h.length; j++) {
-			if (arr2D[3][j] > 0) {
+			if (arr2D[3][j] == 0) {
 				h[j] = 0;
 			} else
 				h[j] += arr2D[3][j];

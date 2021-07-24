@@ -30,7 +30,7 @@ public class CandyDistributibutionMaxDiff {
 			return -1;
 		}
 
-		Arrays.parallelSort(arr);
+		Arrays.sort(arr);
 
 		System.out.println(Arrays.toString(arr));
 
