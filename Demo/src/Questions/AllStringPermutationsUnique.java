@@ -2,6 +2,7 @@ package Questions;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import SelFrDemo.strictfpDemo;
 
@@ -28,8 +29,15 @@ public class AllStringPermutationsUnique {
 
 	public static void main(String[] args) {
 
-		String input = "aab";
-		int n = input.length();
+		
+		Scanner s= new Scanner(System.in);
+		
+		String input=s.nextLine();
+		
+		//String input = "aab";
+		
+		int n=s.nextInt();
+		//int n = input.length();
 
 		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 

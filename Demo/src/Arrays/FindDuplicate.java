@@ -12,6 +12,7 @@ public class FindDuplicate {
 		}
 		int slow = arr[0];
 		int fast = arr[0];
+		
 		do {
 			slow = arr[slow];
 			fast = arr[arr[fast]];

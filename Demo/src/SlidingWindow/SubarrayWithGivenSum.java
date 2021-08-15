@@ -43,8 +43,12 @@ public class SubarrayWithGivenSum {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 1, 9, 20, 3, 10, 5, 3, 5, 5, 5, 5, 5, 5 ,-5,5};
-		int sum = 38;
+		//int[] arr = { 1, 9, 20, 3, 10, 5, 3, 5, 5, 5, 5, 5, 5 ,-5,5};
+		
+		int arr[] = {2,8,-3,-5,2,-4,6,1,2,1,-3,4};
+
+		int sum = 0;
+				//38;
 
 		findSubarrays(arr, sum);
 	}

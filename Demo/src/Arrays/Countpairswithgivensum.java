@@ -47,6 +47,7 @@ public class Countpairswithgivensum {
 		int sum = 6;
 		getPairsCount(arr, sum);
 		getPairsCountHash(arr, sum);
+		
 
 	}
 }

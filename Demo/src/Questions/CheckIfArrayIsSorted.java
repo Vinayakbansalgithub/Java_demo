@@ -13,7 +13,7 @@ public class CheckIfArrayIsSorted {
 		if (start >= end) {
 			return true;
 		}
-		if (arr[start] < arr[start + 1]) {
+		if (arr[start] <= arr[start + 1]) {
 			result = isSorted(arr, start + 1, end);
 		} 
 		
@@ -38,6 +38,7 @@ public class CheckIfArrayIsSorted {
 		
 		boolean result = isSorted(arr, 0, arr.length - 1);
 		
+		System.out.println("result is "+result);
 
 	}
 

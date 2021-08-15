@@ -1,5 +1,8 @@
 package Questions;
 
+
+
+// pending
 public class CountPalindromicSubstrings {
 	public static void main(String[] args) {
 		String str = "abccb";

@@ -76,7 +76,7 @@ public class SortAMatrix {
 		int c = 3;
 		int a[][] = { { 1, 4, 7 }, { 2, 3, 6 }, { 9, 8, 7 } };
 		a = sort(r, c, a);
-		search(a, r, c, 3);
+		search(a, r, c, 6);
 
 	}
 

@@ -36,6 +36,10 @@ public class GetSubsequence {
 		ArrayList<String> s = getSubSequence(str);
 
 		System.out.println(s);
+		
+		
+		
+		
 
 	}
 

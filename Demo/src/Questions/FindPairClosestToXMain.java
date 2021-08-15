@@ -1,5 +1,7 @@
 package Questions;
 
+
+// pending
 public class FindPairClosestToXMain {
 	public static void main(String[] args) {
 		int array[] = { -40, -5, 1, 3, 6, 7, 8, 20 };

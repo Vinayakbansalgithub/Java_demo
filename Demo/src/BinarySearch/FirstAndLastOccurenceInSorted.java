@@ -133,14 +133,15 @@ public class FirstAndLastOccurenceInSorted {
 
 	public static void main(String[] args) {
 		int[] arr = { 2, 4, 10, 10, 10, 18, 20 };
+
 		int res = bs(arr, 0, arr.length - 1, 180);
 		System.out.println(res);
 
 		int firstRes = firstOccurence(arr, 0, arr.length - 1, 10);
-		System.out.println(res);
+		System.out.println("firstRes "+firstRes);
 
 		int lastRes = LastOccurence(arr, 0, arr.length - 1, 18);
-		System.out.println(res);
+		System.out.println("lastRes "+lastRes);
 
 		System.out.println("count " + (lastRes - firstRes));
 
@@ -151,12 +152,11 @@ public class FirstAndLastOccurenceInSorted {
 
 		// we know the index of smallest element, by that array left to it is sorted and
 		// array right to it is sorted, apply bs
-		int res1 = bs(arrNew, 0, res - 1, 4);
-		int res2 = bs(arrNew, res, arrNew.length - 1, 4);
+		int res1 = bs(arrNew, 0, res - 1, 2);
+		int res2 = bs(arrNew, res, arrNew.length - 1, 2);
 
 		System.out.println("element index  " + Math.max(res1, res2));
 
-		//   floor ceil pending 
 		
 
 	}

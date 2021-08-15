@@ -1,11 +1,13 @@
 package Recurssion;
 
 import java.util.ArrayList;
-import java.util.List;
 
+
+
+
+// pending
 public class GetBoardPath {
  static ArrayList<String> getPath(int start, int end) {
-		// TODO Auto-generated method stub
 	 ArrayList<String> result=new ArrayList<>();
 	 if(start==end) {
 		 ArrayList<String> br=new ArrayList<>();

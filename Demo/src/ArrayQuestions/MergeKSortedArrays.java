@@ -16,6 +16,8 @@ class Pair implements Comparable<Pair> {
 		this.colIndex = colIndex;
 	}
 
+	
+	// order asc
 	@Override
 	public int compareTo(Pair o) {
 		// TODO Auto-generated method stub

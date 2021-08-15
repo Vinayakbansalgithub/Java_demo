@@ -25,7 +25,7 @@ public class FirstNegativeNumberInEveryWindowOfSizeK {
 			} else if (arrend - arrstart + 1 == size) {
 
 				if (list.isEmpty()) {
-					System.out.println(" 0");
+					System.out.println("0");
 				} else {
 					System.out.println(" " + list.get(0));
 				}

@@ -2,6 +2,10 @@ package Questions;
 
 import java.util.Scanner;
 
+
+
+
+
 public class StarBetweenDuplicate {
 
 	static String convert(String str, String output) {

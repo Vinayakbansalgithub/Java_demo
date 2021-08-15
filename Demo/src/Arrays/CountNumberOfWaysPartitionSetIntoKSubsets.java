@@ -6,7 +6,7 @@ public class CountNumberOfWaysPartitionSetIntoKSubsets {
 	// teams and players
 
 	public static void main(String args[]) {
-		countDP(4, 3);
+		countDP(3, 2);
 
 	}
 
@@ -22,8 +22,10 @@ public class CountNumberOfWaysPartitionSetIntoKSubsets {
 					dp[t][p] = 1;
 				else if (t > p)
 					dp[t][p] = 0;
-				else
-					dp[t][p] = dp[t - 1][p - 1] + dp[t][p - 1] * t;
+				else {
+					dp[t][p] = dp[t][p-1]*t+dp[t-1][p-1];
+
+				}
 
 			}
 
@@ -34,3 +36,6 @@ public class CountNumberOfWaysPartitionSetIntoKSubsets {
 		return null;
 	}
 }
+
+
+

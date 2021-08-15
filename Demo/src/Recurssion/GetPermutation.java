@@ -2,13 +2,9 @@ package Recurssion;
 
 import java.util.Arrays;
 
-interface He{
-	
-	String s="";
-}
 
-
-public class GetPermutation implements He{
+// from all string permutations
+public class GetPermutation {
 
 	static String[] getper(String str) {
 		// TODO Auto-generated method stub

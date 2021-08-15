@@ -67,7 +67,7 @@ public class FirstLastOccurenceOfData {
 
 	public static void main(String[] args) throws Exception {
 
-		//int arrUnsorted[] = { 1, 2, 13, 14, 14, 15 };
+		// int arrUnsorted[] = { 1, 2, 13, 14, 14, 15 };
 		int arr[] = { 3, 8, 1, 8, 8, 15 };
 
 		System.out.println(findFirst(arr, 0, 15));

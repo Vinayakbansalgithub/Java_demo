@@ -7,10 +7,9 @@ import java.util.PriorityQueue;
 public class MettingRooms {
 	public static void main(String[] args) {
 
-		// int lectures[][] = { { 5, 10 }, { 0, 30 }, { 15, 20 } };
+		 int lectures[][] = { { 5, 10 }, { 0, 30 }, { 15, 20 } };
 
-		int lectures[][] = { { 900, 910 }, { 940, 1200 }, { 950, 1120 }, { 1100, 1130 }, { 1500, 1900 },
-				{ 1800, 2000 } };
+		//int lectures[][] = { { 900, 910 }, { 940, 1200 }, { 950, 1120 }, { 1100, 1130 }, { 1500, 1900 }, { 1800, 2000 } };
 
 		int n = lectures.length;
 
@@ -40,8 +39,6 @@ public class MettingRooms {
 			}
 
 		}
-
 		return pq.size();
-
 	}
 }

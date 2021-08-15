@@ -6,7 +6,8 @@ public class JumpGame {
 	static boolean jump(int[] arr) {
 		int reached = 0;
 		for (int i = 0; i <= reached; i++) {
-
+			
+			// it means what we can reach before is same after this step also
 			if (reached == (arr[i] + i)) {
 				System.out.println("not found");
 				return false;

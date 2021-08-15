@@ -40,7 +40,7 @@ public class GetSubstring {
 
 		
 		// main & easy
-		convert2("123", "");
+		convert2("abc", "");
 
 	}
 
@@ -49,7 +49,7 @@ public class GetSubstring {
 		// TODO Auto-generated method stub
 
 		if (ques.length() == 0) {
-			System.out.println(ans);
+			System.out.println("="+ans);
 			return;
 		}
 

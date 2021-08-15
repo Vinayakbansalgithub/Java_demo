@@ -1,6 +1,10 @@
 package Questions;
 
 //Given a string, determine if a permutation of the string could form a palindrome.
+
+
+// pending
+//LeetCode 266.
 public class PalindromPermutation {
 
 	public static void main(String[] args) {

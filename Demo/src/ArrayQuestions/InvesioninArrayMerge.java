@@ -1,7 +1,5 @@
 package ArrayQuestions;
 
-import java.util.Arrays;
-
 public class InvesioninArrayMerge {
 	static int swaps = 0;
 
@@ -13,11 +11,15 @@ public class InvesioninArrayMerge {
 		int k = 0;
 
 		while (i < arr1.length && j < arr2.length) {
-			if (arr1[i] <= arr2[j])
-				finalArr[k++] = arr1[i++];
-			else {
-				finalArr[k++] = arr2[j++];
-				swaps += arr1.length-i;
+			if (arr1[i] <= arr2[j]) {
+				finalArr[k] = arr1[i];
+				k++;
+				i++;
+			} else {
+				finalArr[k] = arr2[j];
+				k++;
+				j++;
+				swaps += arr1.length - i;
 
 			}
 		}
@@ -63,7 +65,7 @@ public class InvesioninArrayMerge {
 
 	// Driver code
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 3, 4, 5, 1 };
+		int[] arr = { 1, 20, 6, 7, 5, 8, 11, 3 };
 
 		mergeSortAndCount(arr, 0, arr.length - 1);
 		System.out.println(swaps);

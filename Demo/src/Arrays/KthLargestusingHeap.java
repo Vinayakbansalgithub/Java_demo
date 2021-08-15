@@ -8,14 +8,17 @@ public class KthLargestusingHeap {
 
 		int arr[] = { 1, 2, 3, 4, 5, 6 };
 		// max heap means biggest number on the top
-		Max_heap(arr, 1);
+		Max_heap(arr, 2);
 	}
 
 	static void Max_heap(int[] arr, int klarget) {
 		// TODO Auto-generated method stub
 		int sortedarray[] = new int[arr.length];
 		int k = 0;
-		for (int ii = arr.length - 1; ii >= 0; ii--) {
+		//for (int ii = arr.length - 1; ii >= 0; ii--) {
+			
+			for (int ii = 0;ii< arr.length; ii++) {
+
 
 			for (int j = arr.length - 1; j >= 0; j--) {
 				makeheapMax(arr, j);
@@ -24,7 +27,7 @@ public class KthLargestusingHeap {
 
 			}
 
-			if (k + 1 == klarget)
+			if (ii + 1 == klarget)
 				System.out.println("kth : " + arr[0]);
 
 			// System.out.println(Arrays.toString(arr));

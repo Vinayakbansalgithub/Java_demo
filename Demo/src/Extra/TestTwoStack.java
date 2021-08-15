@@ -1,4 +1,4 @@
-package Arrays;
+package Extra;
 
 public class TestTwoStack {
 

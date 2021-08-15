@@ -28,8 +28,7 @@ public class BuySellStock {
 	}
 
 	private static void buySellInfiniteTransactions(int[] arr) {
-		// TODO Auto-generated method stub
-
+		
 		// buying date
 		int bd = 0;
 		// selling date
@@ -47,6 +46,7 @@ public class BuySellStock {
 			}
 
 		}
+		// for last day
 		profit += arr[sd] - arr[bd];
 		System.out.println("profit is " + profit);
 	}

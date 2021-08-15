@@ -1,10 +1,10 @@
 package Questions;
 
 import java.util.HashMap;
-
+// from sliding window
 public class LongestSubStringWithoutRepeating {
 	public static void main(String[] args) {
-		String data = "geeksforgeeksabcdfghi";
+		String data = "pwwkew";
 
 		int ans = findWindow(data);
 		System.out.println(ans);

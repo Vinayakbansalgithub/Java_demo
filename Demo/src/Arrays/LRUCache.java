@@ -60,22 +60,13 @@ public class LRUCache {
 
 	public static void main(String[] args) {
 
-		String str = "//div[1]/FORM[@dir=\"ltr\"]/span[2]/SPAN[@data-max=\"MM \\\\/ YY0\"]/INPUT[@placeholder=\"MM \\\\/ YY\"]";
-		System.out.println(str);
-
-		if (str.contains("\\")) {
-			str = str.replaceAll("\\\\", "");
-		}
-
-		System.out.println(str);
-
-//		LRUCache ca = new LRUCache(4);
-//		ca.refer(1);
-//		ca.refer(2);
-//		ca.refer(3);
-//		ca.refer(1);
-//		ca.refer(4);
-//		ca.refer(5);
-//		ca.display();
+		LRUCache ca = new LRUCache(4);
+		ca.refer(1);
+		ca.refer(2);
+		ca.refer(3);
+		ca.refer(1);
+		ca.refer(4);
+		ca.refer(5);
+		ca.display();
 	}
 }

@@ -1,11 +1,10 @@
 package Arrays;
 
 
-
-// revisit
+//leet 26
 
 // for unsorted array we can use hashmap
-public class RemoveDuplicates {
+public class RemoveDuplicatesFormSortedArray {
 	// Function to remove duplicate elements
 	// This function returns new size of modified
 	// array.
@@ -33,7 +32,7 @@ public class RemoveDuplicates {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = { 1, 2, 2, 3, 4, 4, 4, 5, 5,2 };
+		int arr[] = { 1, 2, 2, 3, 4, 4, 4, 5, 5 };
 		int n = arr.length;
 
 		n = removeDuplicates(arr, n);

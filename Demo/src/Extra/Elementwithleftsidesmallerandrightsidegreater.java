@@ -1,4 +1,4 @@
-package ArrayQuestions;
+package Extra;
 
 public class Elementwithleftsidesmallerandrightsidegreater {
 

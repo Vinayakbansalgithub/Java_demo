@@ -33,6 +33,9 @@ public class SubarraywithZeroSum {
 		}
 
 		
+		
+		
+		System.out.println("total subarrays are "+count);
 		if(count>1)
 			return true;
 		// We reach here only when there is

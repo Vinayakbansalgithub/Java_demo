@@ -1,4 +1,4 @@
-package Questions;
+package dp;
 
 public class Robbers {
 	static int max(int[] arr) {
@@ -24,3 +24,7 @@ public class Robbers {
 
 	}
 }
+
+
+
+//2 7 11 11 12

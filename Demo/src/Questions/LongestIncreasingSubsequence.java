@@ -3,6 +3,8 @@ package Questions;
 import java.util.Arrays;
 import java.util.Iterator;
 
+
+// from dp
 public class LongestIncreasingSubsequence {
 
 	public static void main(String[] args) {
@@ -26,8 +28,6 @@ public class LongestIncreasingSubsequence {
 	}
 
 	private static int[] findLIS(int[] arr) {
-		// TODO Auto-generated method stub
-
 		int dp[] = new int[arr.length];
 		dp[0] = 1;
 

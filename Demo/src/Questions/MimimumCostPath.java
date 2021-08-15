@@ -1,7 +1,6 @@
 package Questions;
 
-import java.util.Iterator;
-
+// Leetcode #64
 public class MimimumCostPath {
 
 	public static void main(String args[]) {
