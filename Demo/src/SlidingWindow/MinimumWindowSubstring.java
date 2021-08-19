@@ -41,6 +41,7 @@ public class MinimumWindowSubstring {
 				if ((arrend - arrstart + 1) < min)
 					min = arrend - arrstart + 1;
 
+				// remove the character
 				if (!map.containsKey(str.charAt(arrstart))) {
 					arrstart++;
 				} else if (map.containsKey(str.charAt(arrstart)) && map.get(str.charAt(arrstart)) < 0) {
@@ -50,7 +51,6 @@ public class MinimumWindowSubstring {
 					map.put(str.charAt(arrstart), map.get(str.charAt(arrstart)) + 1);
 					arrstart++;
 					count++;
-
 				}
 
 			}

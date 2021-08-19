@@ -9,6 +9,11 @@ import java.io.Serializable;
 
 public class Employee implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", company=" + company + ", SalaryInLac=" + SalaryInLac + "]";
+	}
+
 	private static final long serialVersionUID = 5532986058120048988L;
 
 	public volatile static Employee emp;

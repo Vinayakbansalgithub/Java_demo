@@ -1,5 +1,7 @@
 package dp;
 
+
+//KnapSackProblem variation  0/1
 public class EqualSumPartition {
 
 	static boolean[][] dp;

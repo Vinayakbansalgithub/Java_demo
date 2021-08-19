@@ -12,20 +12,22 @@ public class MaximumofAllSubarraysOfSizeK {
 		int arrstart = 0;
 		int arrend = 0;
 
-		int max = 0;
+		int max = Integer.MIN_VALUE;
 
 		Queue<Integer> queue = new LinkedList<Integer>();
 
 		while (arrend < arr.length) {
 
-			if (arr[arrend] > max)
+			if (arr[arrend] > max) {
 				queue.add(arr[arrend]);
+				max=	arr[arrend] ;
+			}
 
 			if (arrend - arrstart + 1 < size) {
 				arrend++;
 			} else if (arrend - arrstart + 1 == size) {
 
-				System.out.println(" " + queue.peek());
+				System.out.println(" " + max);
 
 				if (queue.peek() == arr[arrstart]) {
 					queue.poll();
@@ -39,7 +41,7 @@ public class MaximumofAllSubarraysOfSizeK {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 1, -9, -20, 3, -3, 5, -1 };
+		int[] arr = { 8, 5, 10, 7, 9, 4, 15, 12, 90, 13};
 		int size = 4;
 
 		findSubarrays(arr, size);

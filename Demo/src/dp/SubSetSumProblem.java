@@ -1,5 +1,8 @@
 package dp;
 
+
+
+// KnapSackProblem variation  0/1
 public class SubSetSumProblem {
 
 	static boolean[][] dp;
@@ -7,7 +10,7 @@ public class SubSetSumProblem {
 	public static void main(String[] args) {
 
 		int num[] = new int[] {3, 34, 4, 12, 5, 2};
-		int sum = 30;
+		int sum = 4;
 
 		dp = new boolean[num.length + 1][sum + 1];
 

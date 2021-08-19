@@ -24,12 +24,6 @@ public class SubarrayWithGivenSum {
 			if (currentSum == sum) {
 				System.out.println("start is " + arrstart + "  end is " + arrend);
 
-				int cSum = 0;
-				for (int i = arrstart; i <= arrend; i++) {
-					cSum += arr[i];
-				}
-
-				System.out.println("======= " + cSum);
 				if ((arrend - arrstart + 1) > maxLength)
 					maxLength = arrend - arrstart + 1;
 			}
@@ -45,10 +39,9 @@ public class SubarrayWithGivenSum {
 	public static void main(String[] args) {
 		//int[] arr = { 1, 9, 20, 3, 10, 5, 3, 5, 5, 5, 5, 5, 5 ,-5,5};
 		
-		int arr[] = {2,8,-3,-5,2,-4,6,1,2,1,-3,4};
+		int arr[] = {1, 4, 20, 3, 10, 5};
 
-		int sum = 0;
-				//38;
+		int sum = 33;
 
 		findSubarrays(arr, sum);
 	}
