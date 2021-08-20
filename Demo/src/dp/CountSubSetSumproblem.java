@@ -11,8 +11,8 @@ public class CountSubSetSumproblem {
 
 	public static void main(String[] args) {
 
-		int num[] = new int[] {1, 2, 3};
-		int sum = 5;
+		int num[] = new int[] {2,3,6,7};
+		int sum = 7;
 
 		dp = new int[num.length + 1][sum + 1];
 

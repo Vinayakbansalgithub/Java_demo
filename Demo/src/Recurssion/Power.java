@@ -3,60 +3,34 @@ package Recurssion;
 public class Power {
 	// (n) time
 	static double printPower(double value, int power) {
-		if (power == 0) {
-			return 1;
-		}
-		if (power == 1) {
-			return value;
-		}
-		double result;
-		if (power < 0) {
-			result = 1 / printPower(value, -power);
-		} else {
-			result = printPower(value, power - 1);
+
+		long tempPower = power;
+
+		if (tempPower < 0) {
+			tempPower = -1 * tempPower;
 		}
 
-		if (power % 2 == 0) {
-			result = result * result;
-			return result;
-		} else {
-			result = result * value;
-			return result;
-		}
-	}
+		double result = 1.0;
 
-	// log(n) time
-	static double printPowerLogTime(double value, int power) {
-		if (power == 0) {
-			return 1;
+		while (tempPower > 0) {
+
+			if (tempPower % 2 == 0) {
+				value = value * value;
+				tempPower = tempPower / 2;
+			} else {
+				result = result * value;
+				tempPower = tempPower - 1;
+			}
 		}
 
 		if (power < 0) {
-			printPower(1 / value, -power);
+			result = 1 / result;
 		}
-		double result = 0;
-		
-		if (power < 0) {
-			result = 1 / printPowerLogTime(value, -power);
-		} else {
-			result = printPowerLogTime(value, power - 1);
-		}
-		//result = printPowerLogTime(value, power / 2);
-
-		if (power % 2 == 0) {
-			result = result * result;
-			return result;
-		} else {
-			result = result * result;
-			result = result * value;
-			return result;
-		}
-
+		return result;
 	}
 
 	public static void main(String[] args) {
 		System.out.println(printPower(2, -2));
-		System.out.println(printPowerLogTime(2, -2));
 
 	}
 
