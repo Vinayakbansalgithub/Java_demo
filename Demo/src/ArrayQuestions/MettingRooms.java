@@ -31,7 +31,7 @@ public class MettingRooms {
 
 			int[] curr = lectures[i];
 
-			if (prev[1] > curr[0]) {
+			if (prev[1] >= curr[0]) {
 				pq.add(prev);
 				pq.add(curr);
 			} else {

@@ -3,9 +3,12 @@ package Questions;
 import java.util.HashMap;
 import java.util.Iterator;
 
+
+//128. Longest Consecutive Sequence
+
 public class LongestConsecutiveSequence {
 	public static void main(String[] args) {
-		int arr[] = { 10, 5, 9, 1, 11, 8, 6, 15, 3, 12, 2 };
+		int arr[] = { 100,4,200,1,3,2 };
 		find(arr);
 	}
 

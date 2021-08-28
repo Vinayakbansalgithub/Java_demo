@@ -1,31 +1,37 @@
 package Arrays;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 
 public class SingleNumber {
 	public static void main(String[] args) {
 
-		int arr[] = new int[] { 1, 2, 5, 2, 1, 6, 7, 7 };
+		int arr[] = new int[] { 1, 2, 5, 2, 1, 6, 7, 7, 2 };
 		find(arr);
 	}
 
 	static void find(int[] arr) {
 		// TODO Auto-generated method stub
 
-		HashSet<Integer> set = new HashSet<Integer>();
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
 		for (int i = 0; i < arr.length; i++) {
 
-			if (set.contains(arr[i])) {
-				set.remove(arr[i]);
+			if (map.containsKey(arr[i])) {
+				map.put(arr[i], map.get(arr[i]) + 1);
 			} else
-				set.add(arr[i]);
+				map.put(arr[i], 1);
 		}
 
-		Iterator<Integer> itr = set.iterator();
+		Iterator<Integer> itr = map.keySet().iterator();
 		while (itr.hasNext()) {
-			System.out.println(itr.next());
+
+			int key = itr.next();
+
+			if (map.get(key) == 1)
+				System.out.println(key);
 
 		}
 	}

@@ -1,10 +1,11 @@
 package Questions;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+//127. Word Ladder
 
 class Type {
 	String value;
@@ -20,8 +21,7 @@ class Type {
 	public String toString() {
 		return "Type [value=" + value + ", index=" + index + "]";
 	}
-	
-	
+
 }
 
 public class WordLadder {
@@ -35,7 +35,7 @@ public class WordLadder {
 		wordList.add("dog");
 		wordList.add("lot");
 		wordList.add("cog");
-		int res=find(beginWord, endWord, wordList);
+		int res = find(beginWord, endWord, wordList);
 		System.out.println(res);
 	}
 
@@ -51,20 +51,19 @@ public class WordLadder {
 		while (!queue.isEmpty()) {
 			Type temp = queue.poll();
 			System.out.println(temp);
+			
 			for (int i = 0; i < wordList.size(); i++) {
 
 				if (isAdjacent(wordList.get(i), temp.value)) {
 
-					queue.add(new Type(wordList.get(i), temp.index+1));
+					queue.add(new Type(wordList.get(i), temp.index + 1));
 					wordList.remove(wordList.get(i));
-					
-					
 
 				}
 
 			}
-			
-			if(endWord.equals(temp.value))
+
+			if (endWord.equals(temp.value))
 				return temp.index;
 		}
 
@@ -86,6 +85,6 @@ public class WordLadder {
 
 		}
 
-		return count > 1?false:true;
+		return count > 1 ? false : true;
 	}
 }

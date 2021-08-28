@@ -1,5 +1,6 @@
 package Questions;
 // complexity O(n)
+// pending
 public class StringUniqueCharacters {
 	 boolean uniqueCharacters(String str)
 	    {

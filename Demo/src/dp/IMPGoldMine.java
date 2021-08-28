@@ -6,44 +6,15 @@ import java.util.Iterator;
 // leet 1219. Path with Maximum Gold
 
 public class IMPGoldMine {
-//
-//	private static int getMaxGoldAtLevel(int[][] gold, int r, int c) {
-//		// TODO Auto-generated method stub
-//
-//		if (c == 4)
-//			return 0;
-//
-//		if (r == -1 || r == 4)
-//			return 0;
-//
-//		int aa = getMaxGoldAtLevel(gold, r - 1, c + 1);
-//		int bb = getMaxGoldAtLevel(gold, r, c + 1);
-//		int cc = getMaxGoldAtLevel(gold, r + 1, c + 1);
-//
-//		return Math.max(Math.max(aa, bb), cc) + gold[r][c];
-//
-//	}
-//
-//	static int getMaxGold(int[][] gold, int m, int n) {
-//		// TODO Auto-generated method stub
-//		int max = 0;
-//
-//		for (int i = 0; i < m; i++) {
-//			int res = getMaxGoldAtLevel(gold, i, 0);
-//			if (res > max)
-//				max = res;
-//
-//		}
-//		return max;
-//	}
+
 
 	private static void getMaxGoldAtLevel(int[][] arr, int r, int c) {
 
 		int[][] dp = new int[r][c];
 
-		for (int j = arr.length - 1; j >= 0; j--) {
+		for (int i = arr.length - 1; i >= 0; i--) {
 
-			for (int i = arr.length - 1; i >= 0; i--) {
+			for (int j = arr.length - 1; j >= 0; j--) {
 
 				
 				// last col

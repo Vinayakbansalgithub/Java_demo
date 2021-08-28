@@ -1,6 +1,5 @@
 package Arrays;
 
-
 //leet 26
 
 // for unsorted array we can use hashmap
@@ -13,7 +12,7 @@ public class RemoveDuplicatesFormSortedArray {
 			return n;
 
 		// To store index of next unique element
-		int j = 0;
+		int index = 0;
 
 		// Doing same as done in Method 1
 		// Just maintaining another updated index i.e. j
@@ -21,14 +20,14 @@ public class RemoveDuplicatesFormSortedArray {
 
 			System.out.println("considering " + arr[i] + "  and " + arr[i + 1]);
 			if (arr[i] != arr[i + 1]) {
-				arr[j] = arr[i];
-				j++;
+				arr[index] = arr[i];
+				index++;
 			}
 		}
 
-		arr[j] = arr[n - 1];
-		j++;
-		return j;
+		arr[index] = arr[n - 1];
+		index++;
+		return index;
 	}
 
 	public static void main(String[] args) {

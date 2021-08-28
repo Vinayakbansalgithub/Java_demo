@@ -12,9 +12,7 @@ public class ImpMinInRotatedSorted {
 		// imp remember this case
 
 		if (high < low) {
-
 			return arr[0];
-
 		}
 
 		// If there is only one element left

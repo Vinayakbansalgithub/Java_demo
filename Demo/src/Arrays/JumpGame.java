@@ -14,7 +14,7 @@ public class JumpGame {
 			}
 			reached = Math.max(reached, arr[i] + i);
 			if (reached >= arr.length) {
-				System.out.println("min jump " + i);
+				System.out.println("min no of jump " + i);
 				return true;
 			}
 		}

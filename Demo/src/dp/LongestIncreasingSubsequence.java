@@ -1,20 +1,22 @@
 package dp;
 
 import java.util.Arrays;
-import java.util.Iterator;
+
+// linear dp
 
 public class LongestIncreasingSubsequence {
 
 	public static void main(String[] args) {
 		int arr[] = { 10, 22, 9, 33, 21, 50, 41, 49, 80, 1 };
-		int res1[] = findLIS(arr);
+		int res = findLIS(arr);
 
-		System.out.println(Arrays.toString(res1));
+		System.out.println(res);
 	}
 
-	private static int[] findLIS(int[] arr) {
+	private static int findLIS(int[] arr) {
 		// TODO Auto-generated method stub
 
+		int oMax = 0;
 		int dp[] = new int[arr.length];
 		dp[0] = 1;
 
@@ -31,7 +33,9 @@ public class LongestIncreasingSubsequence {
 				}
 			}
 			dp[i] = max + 1;
+
+			oMax = Math.max(oMax, dp[i]);
 		}
-		return dp;
+		return oMax;
 	}
 }

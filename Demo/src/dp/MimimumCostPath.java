@@ -1,4 +1,4 @@
-package Questions;
+package dp;
 
 // Leetcode #64
 public class MimimumCostPath {

@@ -183,21 +183,21 @@ public class BinarySearchTree {
 
 	static int diameter;
 
-	static int diameter(Node root, int result) {
+	static int diameter(Node root) {
 		// TODO Auto-generated method stub
 		if (root == null) {
 			return 0;
 		}
 
-		int leftdepth = diameter(root.left, result);
-		int rightdepth = diameter(root.right, result);
+		int leftdepth = diameter(root.left);
+		int rightdepth = diameter(root.right);
 
 		int temp = Math.max(leftdepth, rightdepth) + 1;
 		int answer = leftdepth + rightdepth + 1;
 
-		if (Math.max(temp, answer) > result) {
-			result = Math.max(temp, answer);
-			diameter = result;
+		if (Math.max(temp, answer) > diameter) {
+			 
+			diameter = Math.max(temp, answer);
 		}
 
 		return temp;
@@ -401,7 +401,7 @@ public class BinarySearchTree {
 
 		Zigzag(tree.root, depth);
 
-		diameter(tree.root, Integer.MIN_VALUE);
+		diameter(tree.root);
 
 		System.out.println("diameter is " + diameter);
 

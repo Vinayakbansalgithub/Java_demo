@@ -1,9 +1,11 @@
 package Questions;
 
 
-// pending
-public class FindPairClosestToXMain {
+
+public class FindPairClosestToX {
 	public static void main(String[] args) {
+		
+		// sorted array
 		int array[] = { -40, -5, 1, 3, 6, 7, 8, 20 };
 		findPairWithClosestToXBruteForce(array, 5);
 		findPairWithClosestToX(array, 5);

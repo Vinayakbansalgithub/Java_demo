@@ -9,9 +9,7 @@ public class LongestCommonSubString {
 
 	static int[][] dp;
 
-	
-	
-	static int max=0;
+	static int max = 0;
 
 	static void getLCSTopDown(String str1, String str2, int l1, int l2) {
 		// TODO Auto-generated method stub
@@ -22,9 +20,9 @@ public class LongestCommonSubString {
 
 				if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
 					dp[i][j] = 1 + dp[i - 1][j - 1];
-					
-					if(dp[i][j]>max) {
-						max=dp[i][j];
+
+					if (dp[i][j] > max) {
+						max = dp[i][j];
 					}
 				} else {
 
@@ -38,15 +36,50 @@ public class LongestCommonSubString {
 
 	}
 
+	static int maxLength;
+
+	static int getLCS(String str1, String str2, int n1, int n2) {
+
+		// base
+		if (n1 == 0 || n2 == 0)
+			return 0;
+
+		if (dp[n1][n2] != -1)
+			return dp[n1][n2];
+
+		char s1 = str1.charAt(n1 - 1);
+		char s2 = str2.charAt(n2 - 1);
+
+		int length = 0;
+		if (s1 == s2) {
+			length = getLCS(str1, str2, n1 - 1, n2 - 1) + 1;
+			dp[n1][n2] = length;
+
+			maxLength = Math.max(length, maxLength);
+		} else {
+			length = 0;
+			dp[n1][n2] = length;
+
+			maxLength = Math.max(length, maxLength);
+
+		}
+
+		return maxLength;
+	}
+
 	public static void main(String[] args) {
 		String str1 = "GeeksforGeeks";
-		String str2 = "GeeksQuiz";
+		String str2 = "Gerkkks";
 		dp = new int[str1.length() + 1][str2.length() + 1];
 
-//		int res = getLCS(str1, str2, str1.length(), str2.length());
-//		System.out.println(res);
+		for (int i = 0; i < dp.length; i++) {
+			Arrays.fill(dp[i], -1);  
+		}
 
-		 getLCSTopDown(str1, str2, str1.length(), str2.length());
+		int res = getLCS(str1, str2, str1.length(), str2.length());
+		System.out.println(res);
+
+		getLCSTopDown(str1, str2, str1.length(), str2.length());
 
 	}
 

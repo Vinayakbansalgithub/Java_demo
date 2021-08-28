@@ -40,8 +40,8 @@ public class MaximumProductSubarrayContigious {
 	}
 
 	public static void main(String[] args) {
-		//int[] arr = { -3, 2, -4, 6, 0, -8, 5 };
-		int[] arr = { -2,-2,0};
+		int[] arr = { -3, 2, -4, 6, 0, -8, 5 };
+		//int[] arr = { -2,-2,0};
 
 		System.out.println(maxProduct(arr));
 

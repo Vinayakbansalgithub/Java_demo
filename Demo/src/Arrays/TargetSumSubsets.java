@@ -2,7 +2,7 @@ package Arrays;
 
 import java.util.LinkedList;
 
-// \\\\\\\\\\\\\\
+// 
 public class TargetSumSubsets {
 	public static void main(String[] args) {
 

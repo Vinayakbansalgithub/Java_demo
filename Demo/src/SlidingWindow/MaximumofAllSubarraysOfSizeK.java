@@ -19,9 +19,10 @@ public class MaximumofAllSubarraysOfSizeK {
 		while (arrend < arr.length) {
 
 			if (arr[arrend] > max) {
-				queue.add(arr[arrend]);
 				max=	arr[arrend] ;
 			}
+			queue.add(arr[arrend]);
+
 
 			if (arrend - arrstart + 1 < size) {
 				arrend++;

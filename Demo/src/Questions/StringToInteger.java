@@ -2,6 +2,8 @@ package Questions;
 
 import java.util.Scanner;
 
+
+// pending
 public class StringToInteger {
 	static int convert(String str, int output) {
 		if (str.isEmpty()) {

@@ -19,7 +19,7 @@ public class SubarrayWithGivenSum {
 			}
 
 			if (currentSum == sum) {
-				System.out.println("start is " + arrstart + "  end is " + (arrend-1));
+				System.out.println("start is " + arrstart + "  end is " + (arrend));
 				break;
 			}
 
@@ -35,7 +35,7 @@ public class SubarrayWithGivenSum {
 
 	public static void main(String[] args) {
 		int[] arr = { 1, 9, 20, 3, 10, 5, 99 };
-		int sum = 38;
+		int sum =38;
 
 		findSubarrays(arr, sum);
 	}

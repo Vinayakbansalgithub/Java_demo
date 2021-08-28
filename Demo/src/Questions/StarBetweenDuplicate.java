@@ -3,9 +3,7 @@ package Questions;
 import java.util.Scanner;
 
 
-
-
-
+// pending
 public class StarBetweenDuplicate {
 
 	static String convert(String str, String output) {

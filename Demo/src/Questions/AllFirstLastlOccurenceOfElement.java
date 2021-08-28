@@ -1,7 +1,5 @@
 package Questions;
 
-import java.util.Scanner;
-
 public class AllFirstLastlOccurenceOfElement {
 	private static int getLastIndex(int[] arr, int start, int end, int element) {
 

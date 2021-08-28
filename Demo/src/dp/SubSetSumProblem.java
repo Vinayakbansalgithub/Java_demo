@@ -3,6 +3,9 @@ package dp;
 
 
 // KnapSackProblem variation  0/1
+
+
+//any subset witrh given sum
 public class SubSetSumProblem {
 
 	static boolean[][] dp;

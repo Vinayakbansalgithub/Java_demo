@@ -40,7 +40,6 @@ public class MergeKSortedArrays {
 
 		for (int i = 0; i < lists.size(); i++) {
 			queue.add(new Pair(lists.get(i).get(0), i, 0));
-
 		}
 
 		while (queue.size() > 0) {

@@ -2,6 +2,7 @@ package dp;
 
 import java.util.Scanner;
 
+// 91
 public class DecodeWays {
 
 	static int find(String str) {
@@ -18,14 +19,16 @@ public class DecodeWays {
 				dp[i] = dp[i - 1];
 			} else if (str.charAt(i - 1) != '0' && str.charAt(i) == '0') {
 
-				if (Integer.parseInt(str.substring(i - 1, i + 1)) <= 26) {
+				if (str.charAt(i - 1) == '1' || str.charAt(i - 1) == '2') {
 					dp[i] = i >= 2 ? dp[i - 2] : 1;
+				} else {
+					dp[i] = 0;
 				}
 
 			} else {
 
 				if (Integer.parseInt(str.substring(i - 1, i + 1)) <= 26) {
-					dp[i] =  dp[i - 1]+(i >= 2 ? dp[i - 2] : 1 );
+					dp[i] = dp[i - 1] + (i >= 2 ? dp[i - 2] : 1);
 				} else {
 					dp[i] = dp[i - 1];
 
@@ -34,7 +37,7 @@ public class DecodeWays {
 			}
 
 		}
-		return dp[str.length()-1];
+		return dp[str.length() - 1];
 
 	}
 
