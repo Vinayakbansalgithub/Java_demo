@@ -3,9 +3,11 @@ package dp;
 import java.util.Arrays;
 
 //https://www.youtube.com/watch?v=3KPVNz_KUGM&ab_channel=KashishMehndiratta
+
+// redo
 public class PerfectSquare {
 	public static void main(String[] args) {
-		int result = find(12);
+		int result = find(4);
 
 		System.out.println(result);
 	}

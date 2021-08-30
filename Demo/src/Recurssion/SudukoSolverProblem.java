@@ -1,6 +1,5 @@
 package Recurssion;
 
-
 // GFG solution
 public class SudukoSolverProblem {
 

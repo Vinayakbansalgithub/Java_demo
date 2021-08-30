@@ -72,12 +72,12 @@ public class LongestCommonSubString {
 		String str2 = "Gerkkks";
 		dp = new int[str1.length() + 1][str2.length() + 1];
 
-		for (int i = 0; i < dp.length; i++) {
-			Arrays.fill(dp[i], -1);  
-		}
-
-		int res = getLCS(str1, str2, str1.length(), str2.length());
-		System.out.println(res);
+//		for (int i = 0; i < dp.length; i++) {
+//			Arrays.fill(dp[i], -1);  
+//		}
+//
+//		int res = getLCS(str1, str2, str1.length(), str2.length());
+//		System.out.println(res);
 
 		getLCSTopDown(str1, str2, str1.length(), str2.length());
 

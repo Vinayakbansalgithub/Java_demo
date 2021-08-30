@@ -227,7 +227,7 @@ public class NextLargestElement {
 
 	}
 
-	// check in NGRI if value not found add length+1 not -1
+	// check in NGRI if value not found add arr.length not -1
 	private static void NSRI(int[] arr) {
 		// TODO Auto-generated method stub
 

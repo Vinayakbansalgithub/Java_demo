@@ -1,6 +1,5 @@
 package dp;
 
-
 //KnapSackProblem variation  0/1
 public class EqualSumPartition {
 
@@ -54,7 +53,6 @@ public class EqualSumPartition {
 				if (num[i - 1] <= j) {
 					dp[i][j] = dp[i - 1][j - num[i - 1]] || dp[i - 1][j];
 				} else {
-
 					dp[i][j] = dp[i - 1][j];
 				}
 

@@ -12,7 +12,7 @@ public class MinimumCoinProblem {
 
 	public static void main(String[] args) {
 
-		int num[] = new int[] { 2,3,5};
+		int coins[] = new int[] { 2,3,5};
 		int sum = 7;
 
 //		dp = new int[num.length + 1][sum + 1];
@@ -43,9 +43,9 @@ public class MinimumCoinProblem {
 
 		dp[0] = 1;
 
-		for (int i = 0; i < num.length; i++) {
-			for (int j = num[i]; j < dp.length; j++) {
-				dp[j] += dp[j - num[i]];
+		for (int i = 0; i < coins.length; i++) {
+			for (int j = coins[i]; j < dp.length; j++) {
+				dp[j] += dp[j - coins[i]];
 			}
 
 		}

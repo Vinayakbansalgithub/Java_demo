@@ -2,7 +2,6 @@ package dp;
 
 public class TileAFloor {
 
-	// floor is n*2 and tile is 2*1
 
 	public static void main(String[] args) {
 		int result = find(6);
@@ -12,6 +11,8 @@ public class TileAFloor {
 
 		System.out.println(result);
 	}
+
+	// floor is n*2 and tile is 2*1
 
 	static int find(int n) {
 		// TODO Auto-generated method stub

@@ -44,6 +44,8 @@ public class UniquePaths {
 		for (int r = 0; r < m.length; r++) {
 			for (int c = 0; c < m[r].length; c++) {
 
+				
+				// 0 is obstical
 				if (m[r][c] == 0) {
 					dp[r][c] = 0;
 				} else if (r == 0 && c == 0) {

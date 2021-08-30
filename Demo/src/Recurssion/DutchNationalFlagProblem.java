@@ -39,11 +39,7 @@ public class DutchNationalFlagProblem {
 
 	}
 
-	public static void swap(int[] arr, int i, int j) {
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	}
+	
 
 	/* Utility function to print array arr[] */
 	static void printArray(int arr[], int arr_size) {
