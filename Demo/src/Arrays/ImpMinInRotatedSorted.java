@@ -24,8 +24,12 @@ public class ImpMinInRotatedSorted {
 
 		// Check if element (mid+1) is minimum element. Consider
 		// the cases like {3, 4, 5, 1, 2}
-		if (mid < high && arr[mid + 1] < arr[mid])
+		if (arr[mid + 1] < arr[mid])
 			return arr[mid + 1];
+		
+		
+//		if (mid < high && arr[mid + 1] < arr[mid])
+//			return arr[mid + 1];
 
 		// Check if mid itself is minimum element
 		if (mid > low && arr[mid] < arr[mid - 1] && arr[mid] < arr[mid + 1])

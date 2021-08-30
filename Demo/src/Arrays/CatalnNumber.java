@@ -6,7 +6,7 @@ public class CatalnNumber {
 	public static void main(String[] args) {
 
 		// for n 4 use 5 because we have 0
-		int n = 5;
+		int n = 3;
 
 		int arr[] = new int[n];
 

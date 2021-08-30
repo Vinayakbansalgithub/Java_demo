@@ -39,9 +39,8 @@ public class SubarrayWithGivenSum {
 	public static void main(String[] args) {
 		//int[] arr = { 1, 9, 20, 3, 10, 5, 3, 5, 5, 5, 5, 5, 5 ,-5,5};
 		
-		int arr[] = {1, 4, 20, 3, 10, 5};
-
-		int sum = 33;
+		int[] arr = { 1, 9, 20, 3, 10, 5, 99 };
+		int sum =38;
 
 		findSubarrays(arr, sum);
 	}

@@ -16,7 +16,6 @@ class Pair implements Comparable<Pair> {
 		this.colIndex = colIndex;
 	}
 
-	
 	// order asc
 	@Override
 	public int compareTo(Pair o) {
@@ -56,12 +55,12 @@ public class MergeKSortedArrays {
 	public static void main(String[] args) {
 
 		ArrayList<Integer> l1 = new ArrayList<Integer>();
-		l1.add(10);
+		l1.add(24);
 		l1.add(30);
 		l1.add(60);
 
 		ArrayList<Integer> l2 = new ArrayList<Integer>();
-		l2.add(20);
+		l2.add(10);
 		l2.add(40);
 		l2.add(70);
 
