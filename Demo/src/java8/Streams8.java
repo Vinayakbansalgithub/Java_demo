@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Streams8 {
@@ -55,9 +56,7 @@ public class Streams8 {
 			}
 
 			// constructors, getter/setters
-			
-			
-			
+
 		}
 
 		// stream work directly on collections and for array we have to use arrys.stream
@@ -68,6 +67,9 @@ public class Streams8 {
 			System.out.println(integer);
 		}
 
+		int arr[] = { 1, 2, 3 };
+		List<Integer> s = IntStream.of(arr).boxed().collect(Collectors.toList());
+
 		// 3 apple, 2 banana, others 1
 		List<Item> items = Arrays.asList(new Item("apple", 10, new BigDecimal("9.99")),
 				new Item("banana", 20, new BigDecimal("19.99")), new Item("orang", 10, new BigDecimal("29.99")),
@@ -75,7 +77,6 @@ public class Streams8 {
 				new Item("apple", 10, new BigDecimal("9.99")), new Item("banana", 10, new BigDecimal("19.99")),
 				new Item("apple", 20, new BigDecimal("9.99")));
 
-		
 		// count on attribute
 		Map<String, Long> counting = items.stream()
 				.collect(Collectors.groupingBy(Item::getName, Collectors.counting()));

@@ -2,6 +2,13 @@ package ThreadPackage;
 
 import java.util.concurrent.Phaser;
 
+
+//similar construct to the CountDownLatch that allows us to coordinate execution of threads. 
+//In comparison to the CountDownLatch, it has some additional functionality.
+//
+//The Phaser is a barrier on which the dynamic number of threads need to wait before continuing execution.
+//In the CountDownLatch that number cannot be configured dynamically 
+//and needs to be supplied when we're creating the instance.
 class PhaserThread implements Runnable {
 
 	Phaser ph;

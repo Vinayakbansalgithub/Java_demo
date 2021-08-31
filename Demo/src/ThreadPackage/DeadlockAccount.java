@@ -5,6 +5,14 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+
+
+//The ReentrantLock class implements the Lock interface which is used to enhance the multithreading. 
+//It provides the capability to avoid the use of synchronization to maintain the database consistency so 
+//that the waiting time of the threads can be reduced. 
+//Thread owns the ReentrantLock which is intended to perform the write operation on some particular data.
+
+
 class Account {
 
 	int balance = 1000;

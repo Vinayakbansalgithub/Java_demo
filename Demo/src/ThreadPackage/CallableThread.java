@@ -10,9 +10,8 @@ import java.util.concurrent.Future;
 
 public class CallableThread {
 	public static void main(String[] args) {
-		//ExecutorService executor = Executors.newCachedThreadPool();
+		// ExecutorService executor = Executors.newCachedThreadPool();
 		ExecutorService executor = Executors.newFixedThreadPool(4);
-
 
 		Future<Integer> future = executor.submit(new Callable<Integer>() {
 
@@ -37,11 +36,8 @@ public class CallableThread {
 				System.out.println("Finished.");
 
 				return duration;
-				
-				
-				
-			
-							}
+
+			}
 
 		});
 
@@ -55,7 +51,7 @@ public class CallableThread {
 			IOException ex = (IOException) e.getCause();
 			System.out.println(ex.getMessage());
 		}
-		
+
 		System.out.println("kkkk");
 
 	}

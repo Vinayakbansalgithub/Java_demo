@@ -1,12 +1,21 @@
 package ThreadPackage;
 
 import java.util.Collection;
+
+
+
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+
+//CyclicBarriers are used in programs in which we have a fixed number of threads that must wait
+//for each other to reach a common point before continuing execution.
+//
+//The barrier is called cyclic because it can be re-used after the waiting threads are released.
 
 class PassengerThread extends Thread {
 	private int duration;

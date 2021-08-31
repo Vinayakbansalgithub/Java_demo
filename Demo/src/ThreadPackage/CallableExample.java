@@ -22,9 +22,9 @@ public class CallableExample implements Callable<String> {
 		Callable<T> wrappedMethod = () -> {
 			return task.call();
 		};
-		 ExecutorService executor = Executors.newSingleThreadExecutor();
-	        Future<T> future = executor.submit(wrappedMethod);
-	        return future;
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		Future<T> future = executor.submit(wrappedMethod);
+		return future;
 	}
 
 	public static void main(String args[]) throws InterruptedException, ExecutionException {
@@ -39,17 +39,11 @@ public class CallableExample implements Callable<String> {
 		Future<String> threadNameResult = executor.submit(mycall);
 
 		System.out.println(threadNameResult.get());
-		
-		
-		
-		CallableExample obj= new CallableExample();
-	      Future<ArrayList<String>> mylistFuture= obj.wrap(()->new ArrayList<String>());
+
+		CallableExample obj = new CallableExample();
+		Future<ArrayList<String>> mylistFuture = obj.wrap(() -> new ArrayList<String>());
 
 		System.out.println(mylistFuture.get().size());
-		
-		
-		
-		
 
 		// create a list to hold the Future object associated with Callable
 		List<Future<String>> list = new ArrayList<Future<String>>();
@@ -70,10 +64,7 @@ public class CallableExample implements Callable<String> {
 				e.printStackTrace();
 			}
 		}
-		
-		
-		
-		
+
 		// shut down the executor service now
 		executor.shutdown();
 	}

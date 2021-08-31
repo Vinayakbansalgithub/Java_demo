@@ -15,8 +15,8 @@ public class ProducerConsumerSolutionUsingLock {
 
 	// lock and condition variables
 	private final Lock aLock = new ReentrantLock();
-	private final Condition isEmpty = aLock.newCondition();
-	private final Condition isFull = aLock.newCondition();
+	private final Condition remove = aLock.newCondition();
+	private final Condition add = aLock.newCondition();
 
 	public void put() throws InterruptedException {
 
@@ -25,7 +25,7 @@ public class ProducerConsumerSolutionUsingLock {
 			for (int i = 0; i < 10; i++) {
 				while (queue.size() == CAPACITY) {
 					System.out.println(Thread.currentThread().getName() + " : Buffer is full, waiting");
-					isFull.await();
+					add.await();
 				}
 
 				int number = theRandom.nextInt();
@@ -34,8 +34,8 @@ public class ProducerConsumerSolutionUsingLock {
 					System.out.printf("%s added %d into queue %n", Thread.currentThread().getName(), number);
 					// signal consumer thread that, buffer has element now
 					// System.out.println(Thread.currentThread().getName() + " : Signalling that buffer is no more empty now");
-					isEmpty.signal();
-					isFull.await();
+					remove.signal();
+					add.await();
 				}
 			}
 		} finally {
@@ -52,7 +52,7 @@ public class ProducerConsumerSolutionUsingLock {
 				while (queue.size() == 0) {
 					// System.out.println(Thread.currentThread().getName() + " : Buffer is empty,
 					// waiting");
-					isEmpty.await();
+					remove.await();
 				}
 
 				Integer value = queue.poll();
@@ -62,8 +62,8 @@ public class ProducerConsumerSolutionUsingLock {
 					// signal producer thread that, buffer may be empty now
 					// System.out.println(Thread.currentThread().getName() + " : Signalling that
 					// buffer may be empty now");
-					isFull.signal();
-					isEmpty.await();
+					add.signal();
+					remove.await();
 
 				}
 
