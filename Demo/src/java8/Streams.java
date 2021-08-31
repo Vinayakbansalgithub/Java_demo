@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 class Student {
@@ -94,7 +95,7 @@ public class Streams {
 
 		System.out.println("----uniqueStd");
 
-		// remember whit below our list change form Student object to int
+		// remember with below our list change form Student object to int
 		List<Integer> uniqueStd = Stream.of(s1, s2, s3, s4, s5).map(obj -> obj.getStd()).distinct()
 				.collect(Collectors.toList());
 		uniqueStd.stream().forEach(System.out::println);
@@ -176,7 +177,7 @@ public class Streams {
 		Stream.of(s1, s2, s3, s4, s5).parallel().forEach(obj -> obj.setNationality("IND"));
 		System.out.println(s1);
 
-		// set some value for each element
+		// get some value for each element
 		List<Student> ninethStudents = Stream.of(s1, s2, s3, s4, s5).filter(obj -> obj.getStd() == 9)
 				.collect(Collectors.toList());
 		System.out.println(ninethStudents);
@@ -192,9 +193,15 @@ public class Streams {
 		Student[] newStudentList = Stream.of(s1, s2, s3, s4, s5).toArray(Student[]::new);
 
 		System.out.println("--IntStream.range--");
+		IntStream intStream = IntStream.of(10, 20, 30);
 
-		Optional<Student> s = Stream.of(s1, s2, s3, s4, s5).filter(obj -> obj.getStd() == 9).findAny();
-		System.out.println(s.get());
+		System.out.println(intStream.min());
+		intStream = IntStream.of(10, 20, 30);
+
+		System.out.println("total is "+intStream.count());
+		IntStream.range(0, 6).forEach(System.out::println);
+
+		
 
 	}
 }

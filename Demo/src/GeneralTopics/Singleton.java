@@ -1,42 +1,14 @@
-package DesignPattern;
+package GeneralTopics;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-class Singleton {
 
-	// Eager
-//	private static final Singleton instance = new Singleton();
 
-// static block
-//	private static Singleton instance ;
-//	static {
-//		instance = new Singleton();
-//	}
-
-//	Singleton() {
-//	}
-
-//	static Singleton getInstance() {
-//		return instance;
-//	}
-
-	// lazy
-//	private static Singleton instance;
-//
-//	static Singleton getInstance() {
-//		if (instance == null) {
-//			instance = new Singleton();
-//		}
-//		return instance;
-//	}
-
-	// double check thread Safe
+public class Singleton {
+	
 	private static Singleton instance;
 
 	static Singleton getInstance() {
@@ -52,20 +24,6 @@ class Singleton {
 		System.out.println("instance by thread " + Thread.currentThread().getName() + " is " + instance);
 		return instance;
 	}
-
-//	static class BillPushWay {
-//		private static final Singleton instance = new Singleton();
-//
-//	}
-//
-//	static Singleton getInstance() {
-//
-//		return BillPushWay.instance;
-//	}
-
-}
-
-public class SingletonMain {
 
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 

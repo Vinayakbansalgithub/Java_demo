@@ -1,6 +1,19 @@
 package GeneralTopics;
 //https://medium.com/@n0rdy/immutable-classes-in-java-76635df0356d
 
+
+
+//immutable
+//
+//
+//
+//removing setters;
+//adding all args constructor;
+//marking the class as final to protect it from being extended;
+//initializing all non-primitive mutable fields via constructor by performing a deep copy;
+//performing cloning of the returned non-primitive mutable object in getter methods;
+//marking all class fields as final (optional step).
+
 class Address {
 	String city;
 	String country;
