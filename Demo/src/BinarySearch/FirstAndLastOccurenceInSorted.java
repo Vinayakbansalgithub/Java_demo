@@ -141,7 +141,7 @@ public class FirstAndLastOccurenceInSorted {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 20,2, 4, 10, 10, 10, 18 };
+		int[] arr = { 20,28, 4, 10, 10, 10, 18 };
 
 		int res = bs(arr, 0, arr.length - 1, 10);
 		System.out.println(res);
@@ -160,6 +160,8 @@ public class FirstAndLastOccurenceInSorted {
 
 		
 		int min=findMin(arr, 0, arr.length - 1);
+		
+		System.out.println("min element is "+min);
 		
 		 firstRes = firstOccurence(arr, 0, arr.length - 1, min);
 

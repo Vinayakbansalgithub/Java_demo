@@ -147,22 +147,22 @@ public class BinarySearchTree {
 
 	}
 
-	static void printlevel(Node node, int depth, boolean leftToRight) {
+	static void printlevel(Node node, int level, boolean leftToRight) {
 		// TODO Auto-generated method stub
 
 		if (node == null)
 			return;
 
-		if (depth == 1) {
+		if (level == 1) {
 			System.out.print(node.key + "   ");
-		} else if (depth > 1) {
+		} else if (level > 1) {
 
 			if (leftToRight) {
-				printlevel(node.left, depth - 1, leftToRight);
-				printlevel(node.right, depth - 1, leftToRight);
+				printlevel(node.left, level - 1, leftToRight);
+				printlevel(node.right, level - 1, leftToRight);
 			} else {
-				printlevel(node.right, depth - 1, leftToRight);
-				printlevel(node.left, depth - 1, leftToRight);
+				printlevel(node.right, level - 1, leftToRight);
+				printlevel(node.left, level - 1, leftToRight);
 
 			}
 

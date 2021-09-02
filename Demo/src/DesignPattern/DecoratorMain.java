@@ -12,7 +12,7 @@ class ThinCrust extends Pizza {
 	@Override
 	String description() {
 		// TODO Auto-generated method stub
-		return "thin crust pizza are usually soft and are rich is flavours buy the way invented in France ";
+		return "thin crust pizza are usually soft and are rich is flavours, by the way invented in France ";
 	}
 
 	@Override

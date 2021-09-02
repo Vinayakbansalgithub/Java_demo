@@ -1,4 +1,4 @@
-package Recurssion;
+package Questions;
 
 // main
 public class DutchNationalFlagProblem {
@@ -38,8 +38,6 @@ public class DutchNationalFlagProblem {
 		}
 
 	}
-
-	
 
 	/* Utility function to print array arr[] */
 	static void printArray(int arr[], int arr_size) {
