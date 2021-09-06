@@ -2,7 +2,6 @@ package Trees;
 
 import java.util.Arrays;
 
-import org.apache.poi.hslf.usermodel.RichTextRun;
 
 class HightNode {
 	int value;

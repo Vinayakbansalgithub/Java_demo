@@ -2,7 +2,6 @@ package Trees;
 
 import java.util.Stack;
 
-
 class AnchesterNode {
 	int value;
 	AnchesterNode left, right;
@@ -23,113 +22,107 @@ class AnchesterNode {
 	}
 
 }
-public class AllAncestor {
-static AnchesterNode parent,current,root;
 
-	
+public class AllAncestor {
+	static AnchesterNode parent, current, root;
+
 	public static AnchesterNode getParent() {
 		return parent;
 	}
-public static void setParent(AnchesterNode parent) {
-	AllAncestor.parent = parent;
+
+	public static void setParent(AnchesterNode parent) {
+		AllAncestor.parent = parent;
 	}
 
-	
-
- void add(int value, AnchesterNode node) {
+	void add(int value, AnchesterNode node) {
 		// TODO Auto-generated method stub
-	 
-	
-		if(node==null){
-			node=new AnchesterNode(value);
-			parent=node;
+
+		if (node == null) {
+			node = new AnchesterNode(value);
+			parent = node;
 			return;
-			
-		}current =node;
-		 if(current.value>value){
-			if(current.left==null)
-				current.left=new  AnchesterNode(value);
-			
-			else{
-				add(value,current.left);
-				
-			}
-			
-			
-			}
-		else{
-			if(current.right==null)
-				current.right=new  AnchesterNode(value);
-			
-			else{
-				add(value,current.right);
-				
-			}
-			
-			
+
 		}
-		
-		
-		
+		current = node;
+		if (current.value > value) {
+			if (current.left == null)
+				current.left = new AnchesterNode(value);
+
+			else {
+				add(value, current.left);
+
+			}
+
+		} else {
+			if (current.right == null)
+				current.right = new AnchesterNode(value);
+
+			else {
+				add(value, current.right);
+
+			}
+
+		}
+
 	}
- static void call(AnchesterNode node,int value){
-	 System.out.println("ansestor of "+value + "are :"+node.value);
-	 while(node.value==value){
-		 
-		 
-		
-	 }
-	 
- }
- static boolean flag=false;
-  static void AnchersterOf(AnchesterNode node,int value) {
+
+	static void call(AnchesterNode node, int value) {
+		System.out.println("ansestor of " + value + "are :" + node.value);
+		while (node.value == value) {
+
+		}
+
+	}
+
+	static boolean flag = false;
+
+	static void AnchersterOf(AnchesterNode node, int value) {
 		// TODO Auto-generated method stub
-	  if(node==null)
-		  return ;
-	  
-	  if(node.value==value){
-	
-		  flag=true;
-		  return;
-	  }
-	  
-	 if(flag==false){
-	  AnchersterOf(node.left,value);
-		AnchersterOf(node.right,value);
+		if (node == null)
+			return;
 
-	  if(flag==true){
-			AnchersterOf(node,value);
-			System.out.println(node.value);
-	  } /*if(flag==true)
-	  System.out.println(node.value);*/
-	
-	 }
-	 
-	
-	 
+		if (node.value == value) {
 
-	  
+			flag = true;
+			return;
+		}
+
+		if (flag == false) {
+			AnchersterOf(node.left, value);
+			AnchersterOf(node.right, value);
+
+			if (flag == true) {
+				AnchersterOf(node, value);
+				System.out.println(node.value);
+			} /*
+				 * if(flag==true) System.out.println(node.value);
+				 */
+
+		}
+
 	}
-  static Stack<Integer> stack= new Stack<Integer>();
-   static void usingStack(AnchesterNode node, int value) {
+
+	static Stack<Integer> stack = new Stack<Integer>();
+
+	static void usingStack(AnchesterNode node, int value) {
 		// TODO Auto-generated method stub
-	   if(node==null)
-			  return ;
-		  
-		  if(node.value==value){
-		
-			  flag=true;
-			  stack.push(node.value);
-		  }
-		  else if(flag==false){
-			  stack.push(node.value);
-		  }
-		  usingStack(node.left,value);
+		if (node == null)
+			return;
 
-		  usingStack(node.right,value);
-if(flag==false)
-		  stack.pop();
+		if (node.value == value) {
+
+			flag = true;
+			stack.push(node.value);
+		} else if (flag == false) {
+			stack.push(node.value);
+		}
+		usingStack(node.left, value);
+
+		usingStack(node.right, value);
+		if (flag == false)
+			stack.pop();
 	}
+
 	public static void main(String[] args) {
 		AllAncestor obj = new AllAncestor();
 		obj.add(15, null);
@@ -144,14 +137,13 @@ if(flag==false)
 		obj.add(7, obj.getParent());
 		obj.add(28, obj.getParent());
 		obj.add(-1, obj.getParent());
-	
-		AnchersterOf(parent,7);
+
+		AnchersterOf(parent, 7);
 		System.out.println("=============using stack===========");
-	//	usingStack(parent,19);
-		
+		// usingStack(parent,19);
+
 //	System.out.println(stack);
-		
-		}
-	
-	
+
+	}
+
 }

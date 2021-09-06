@@ -1,4 +1,5 @@
 package LinkList;
+
 class ReversePairNode {
 
 	int value;
@@ -9,6 +10,11 @@ class ReversePairNode {
 		this.value = value;
 		next = null;
 
+	}
+
+	@Override
+	public String toString() {
+		return "ReversePairNode [value=" + value + ", next=" + next + "]";
 	}
 
 }
@@ -33,46 +39,43 @@ public class ReverseaLinkedListinGroupsofGivenSize {
 		}
 
 	}
-public static ReversePairNode reverseinGroup(ReversePairNode head, int k)
-{
-	// base case
-	if (head == null) {
-		return null;
+
+	public static ReversePairNode reverseinGroup(ReversePairNode head, int k) {
+		// base case
+		if (head == null) {
+			return null;
+		}
+
+		// start with current node
+		ReversePairNode current = head;
+
+		// reverse next k nodes
+		ReversePairNode prev = null;
+		int count = 0;
+
+		// Iterate through the list and move/insert each node to the
+		// front of the result list (like a push of the node)
+		while (current != null && count++ < k) {
+			// tricky: note the next node
+			ReversePairNode next = current.next;
+
+			// move the current node onto the result
+			current.next = prev;
+
+			// update previous to current node
+			prev = current;
+
+			// move to next node in the list
+			current = next;
+		}
+
+		// recur for remaining nodes
+		head.next = reverseinGroup(current, k);
+
+		// important - return previous (to link every group of k nodes)
+		return prev;
 	}
 
-	// start with current node
-	ReversePairNode current = head;
-
-	// reverse next k nodes
-	ReversePairNode prev = null;
-	int count = 0;
-
-	// Iterate through the list and move/insert each node to the
-	// front of the result list (like a push of the node)
-	while (current != null && count++ < k)
-	{
-		// tricky: note the next node
-		ReversePairNode next = current.next;
-
-		// move the current node onto the result
-		current.next = prev;
-
-		// update previous to current node
-		prev = current;
-
-		// move to next node in the list
-		current = next;
-	}
-
-	// recur for remaining nodes
-	head.next = reverseinGroup(current, k);
-
-	// important - return previous (to link every group of k nodes)
-	return prev;}
-		
-		
-	
-	
 	public static void main(String[] args) {
 
 		ReverseaLinkedListinGroupsofGivenSize obj = new ReverseaLinkedListinGroupsofGivenSize();
@@ -83,11 +86,9 @@ public static ReversePairNode reverseinGroup(ReversePairNode head, int k)
 		obj.add(5);
 		obj.add(6);
 		obj.add(7);
-		obj.add(8);
-		obj.add(9);
+		
 
-
-		head =obj.reverseinGroup(head,3);
+		head = obj.reverseinGroup(head, 2);
 
 		while (head != null) {
 
@@ -96,6 +97,5 @@ public static ReversePairNode reverseinGroup(ReversePairNode head, int k)
 		}
 
 	}
-	
 
 }

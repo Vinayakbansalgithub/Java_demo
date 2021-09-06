@@ -1,67 +1,106 @@
 package Questions;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 
 // 202. Happy Number
 
 public class HappyNumbers {
 
-	static boolean find(int num) {
+//	static boolean find(int num) {
+//
+//		HashSet<Integer> set = new HashSet<>();
+//
+//		while (num != 1) {
+//
+//			int sum = 0;
+//			int temp = num;
+//			while (temp != 0) {
+//				sum += (temp % 10)*(temp % 10);
+//				temp /= 10;
+//
+//			}
+//			num = sum;
+//			
+//			
+//			if(!set.contains(num)) {
+//				set.add(num);
+//			}else
+//				return false;
+//			
+//
+//		}
+//		
+//		return true;
+//
+//	}
+//	
+	
+	static String find(List<Integer> list) {
 
-		HashSet<Integer> set = new HashSet<>();
+		if (list.size() == 1) {
+			return "YES";
+		}
 
-		while (num != 1) {
+		int num1;
+		int num2;
 
-			int sum = 0;
-			int temp = num;
-			while (temp != 0) {
-				sum += (temp % 10)*(temp % 10);
-				temp /= 10;
+		boolean even = false;
+
+		int sum = 0;
+
+		for (int i = 0; i < list.size(); i++) {
+
+			if (list.size() == 1) {
+				return "YES";
+			}
+
+			if (list.get(i) % 2 == 0) {
+				even = true;
+			}
+
+			for (int j = i + 1; j < list.size(); j++) {
+				if (list.size() == 1) {
+					return "YES";
+				}
+
+				if (list.get(j) % 2 == 0 && even) {
+					sum = list.get(i) + list.get(j);
+					list.remove(i);
+					list.remove(j);
+					list.add(sum);
+
+// remove element from array
+				} else if (list.get(j) % 2 == 1 && !even) {
+					sum = list.get(i) + list.get(j);
+					list.remove(i);
+					list.remove(j);
+					list.add(sum);
+
+				}
 
 			}
-			num = sum;
-			
-			
-			if(!set.contains(num)) {
-				set.add(num);
-			}else
-				return false;
-			
 
 		}
-		
-		return true;
 
+		return "NO";
 	}
 
 	public static void main(String[] args) {
 		
-		String s="NUsjwCjctF​​​​​​​\n"
-				+ "\n"
-				+ "Rita Price_update\n"
-				+ "Farmers Insurance\n"
-				+ "26856 Hwy 189\n"
-				+ "Lake Arrowhead, CA 92352\n"
-				+ "License Number: 0544472\n"
-				+ "909-337-2518 (Office)\n"
-				+ "909-336-6989 (Fax)\n"
-				+ "rprice@FarmersagentUAT.com\n"
-				+ "http://www.farmersagent.com/rprice ";
-		s="";
-		
-		s=s.replace("\n", "");
-		s=s.trim();
-		String t="NUsjwCjctF​​​​​​​Rita Price_updateFarmers Insurance26856 Hwy 189Lake Arrowhead, CA 92352License Number: 0544472909-337-2518 (Office)909-336-6989 (Fax)rprice@FarmersagentUAT.com​​​​​​​http://www.farmersagent.com/rprice  ";
-		t=t.replace("\n", "");
-		t=t.trim();
-		
-		System.out.println(s);
-		System.out.println(t);
-		
-		
-		int num = 18;
-		boolean res=find(num);
-		System.out.println(res);
+		List<Integer> list = new ArrayList<>();
+
+		list.add(1);
+		list.add(2);
+		list.add(3);
+
+		System.out.print("00000   " + list);
+		find(list);
+//		
+//		int num = 18;
+//		boolean res=find(num);
+//		System.out.println(res);
 	}
 }

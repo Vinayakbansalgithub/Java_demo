@@ -5,7 +5,6 @@ class Rnode {
 	Rnode next;
 
 	public Rnode(int i) {
-		// TODO Auto-generated constructor stub
 
 		data = i;
 		next = null;

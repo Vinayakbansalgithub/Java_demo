@@ -1,22 +1,24 @@
 package LinkList;
 
 // leetcode 21
-public class MergeTwoSortedLinkedList {
+public class FlattenLinkedList {
 	Node head; // head of list
 
 	/* Linked list Node */
 	class Node {
 		int data;
 		Node next;
+		Node right;
 
 		Node(int data) {
 			this.data = data;
 			next = null;
+			right = null;
 		}
 
 		@Override
 		public String toString() {
-			return "Node [data=" + data + ", next=" + next + "]";
+			return "Node [data=" + data + ", next=" + next + ", right=" + right + "]";
 		}
 
 	}
@@ -73,19 +75,26 @@ public class MergeTwoSortedLinkedList {
 	}
 
 	public static void main(String[] args) {
-		MergeTwoSortedLinkedList L = new MergeTwoSortedLinkedList();
+		FlattenLinkedList L = new FlattenLinkedList();
 
 		L.head = L.push(10);
 		L.head = L.push(20);
 		L.head = L.push(30);
 		L.head = L.push(40);
 
-		MergeTwoSortedLinkedList L2 = new MergeTwoSortedLinkedList();
+		FlattenLinkedList L2 = new FlattenLinkedList();
 
 		L2.head = L2.push(25);
 		L2.head = L2.push(35);
 
-		MergeTwoSortedLinkedList LMerge = new MergeTwoSortedLinkedList();
+		FlattenLinkedList L3 = new FlattenLinkedList();
+
+		L3.head = L3.push(125);
+		L3.head = L3.push(135);
+
+		L.head.right = L2.head;
+		L2.head.right = L3.head;
+		FlattenLinkedList LMerge = new FlattenLinkedList();
 
 		Node res = LMerge.merge(L.head, L2.head);
 

@@ -1,5 +1,7 @@
 package LinkList;
 
+
+// same as ReverseaLinkedListinGroupsofGivenSize
 public class PairWiseSwip {
 	static Node head;
 

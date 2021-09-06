@@ -30,9 +30,11 @@ public class GasSatation {
 			if (Currentcost < 0) {
 				Currentcost = 0;
 				startIndex = startIndex + 1;
-
+				list.clear();
 			} else {
-				list.add(index);
+				boolean isAdd = list.add(index);
+				if (!isAdd)
+					return -1;
 			}
 			index++;
 			index = index % gas.length;
@@ -44,9 +46,14 @@ public class GasSatation {
 	}
 
 	public static void main(String[] args) {
-		int[] gas = { 5, 1, 2, 3, 4 };
+//		int[] gas = { 5, 1, 2, 3, 4 };
+//		int[] cost = { 4, 4, 1, 5, 1 };
 
-		int[] cost = { 4, 4, 1, 5, 1 };
+//		int[] gas = { 1,2,3,4,5};
+//		int[] cost = { 3,4,5,1,2 };
+
+		int[] gas = { 2, 3, 4 };
+		int[] cost = { 3, 4, 3 };
 
 		int index = find(gas, cost);
 		System.out.println(index);
