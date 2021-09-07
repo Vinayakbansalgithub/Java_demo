@@ -122,9 +122,9 @@ public class HashMapImplementation<K, V> {
 		System.out.println("index in get" + index);
 		Node<K, V> node = table[index];
 		while (node.hash != hash) {
-			System.out.println("both hash are equal " + hash);
 			node = node.nextNode;
 		}
+		System.out.println("both hash are equal " + hash);
 		if (node.key == key)
 			System.out.println("value we look for is " + node.getValue());
 
@@ -134,18 +134,14 @@ public class HashMapImplementation<K, V> {
 
 		HashMapImplementation<Integer, String> map = new HashMapImplementation<>();
 		map.put(1, "Vinayak");
-
 		map.put(11, "ajay");
-
 		map.put(21, "kanchan");
-
 		map.put(1, "ajay");
 		map.put(2, "Mehul");
 		map.put(3, "harshit");
 		map.put(18, "Anshul");
 		map.put(18, "kk");
 		map.put(19, "hhh");
-
 		//map.get(18);
 		map.get(21);
 
