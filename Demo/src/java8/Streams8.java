@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -67,8 +68,14 @@ public class Streams8 {
 			System.out.println(integer);
 		}
 
-		int arr[] = { 1, 2, 3 };
+		int arr[] = { 1, 2, 3, 4, 5 };
 		List<Integer> s = IntStream.of(arr).boxed().collect(Collectors.toList());
+		
+		
+		OptionalDouble avg=IntStream.of(arr).average();
+		System.out.println("avg is "+avg.getAsDouble());
+		
+		
 
 		// 3 apple, 2 banana, others 1
 		List<Item> items = Arrays.asList(new Item("apple", 10, new BigDecimal("9.99")),

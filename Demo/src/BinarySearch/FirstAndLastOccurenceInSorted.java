@@ -101,7 +101,7 @@ public class FirstAndLastOccurenceInSorted {
 		return -1;
 
 	}
-	
+
 	static int findMin(int arr[], int low, int high) {
 		// This condition is needed to handle the case when array
 		// is not rotated at all
@@ -124,8 +124,7 @@ public class FirstAndLastOccurenceInSorted {
 		// the cases like {3, 4, 5, 1, 2}
 		if (arr[mid + 1] < arr[mid])
 			return arr[mid + 1];
-		
-		
+
 //		if (mid < high && arr[mid + 1] < arr[mid])
 //			return arr[mid + 1];
 
@@ -140,9 +139,26 @@ public class FirstAndLastOccurenceInSorted {
 			return findMin(arr, mid + 1, high);
 	}
 
-	public static void main(String[] args) {
-		int[] arr = { 20,28, 4, 10, 10, 10, 18 };
+	static int findPivot(int arr[], int low, int high) {
+		// base cases
+		if (high < low)
+			return -1;
+		if (high == low)
+			return low;
 
+		/* low + (high - low)/2; */
+		int mid = (low + high) / 2;
+		if (mid < high && arr[mid] > arr[mid + 1])
+			return mid + 1;
+		if (mid > low && arr[mid] < arr[mid - 1])
+			return mid;
+		if (arr[low] >= arr[mid])
+			return findPivot(arr, low, mid - 1);
+		return findPivot(arr, mid + 1, high);
+	}
+
+	public static void main(String[] args) {
+		int arr[] = { 5, 6, 7, 8, 9, 10, 10, 2, 3 };
 		int res = bs(arr, 0, arr.length - 1, 10);
 		System.out.println(res);
 
@@ -155,22 +171,18 @@ public class FirstAndLastOccurenceInSorted {
 		System.out.println("count " + (lastRes - firstRes));
 
 		// index of smallest element return the number of rotations
-		//int[] arrNew = { 10, 10, 18, 2, 2, 4, 10 };
-		//int[] arrNew = { 10, 11,12 };
+		// int[] arrNew = { 10, 10, 2, 3, 3, 4, 10 };
+		// int[] arrNew = { 10, 11,12 };
 
-		
-		int min=findMin(arr, 0, arr.length - 1);
-		
-		System.out.println("min element is "+min);
-		
-		 firstRes = firstOccurence(arr, 0, arr.length - 1, min);
+		int min = findMin(arr, 0, arr.length - 1);
+		System.out.println("min element is " + min);
 
-	
+		int minIndex = findPivot(arr, 0, arr.length - 1);
 
 		// we know the index of smallest element, by that array left to it is sorted and
 		// array right to it is sorted, apply bs
-		int res1 = bs(arr, 0, firstRes - 1, min);
-		int res2 = bs(arr, firstRes, arr.length - 1, min);
+		int res1 = bs(arr, 0, minIndex - 1, min);
+		int res2 = bs(arr, minIndex, arr.length - 1, 3);
 
 		System.out.println("element index  " + Math.max(res1, res2));
 
