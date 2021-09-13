@@ -1,64 +1,53 @@
 package DesignPattern;
 
-interface MobileAlertState 
-{
-    public void alert(AlertStateContext ctx);
+interface MobileAlertState {
+	public void alert(AlertStateContext ctx);
 }
-  
 
-class Vibration implements MobileAlertState 
-{
-  @Override
-  public void alert(AlertStateContext ctx) 
-  {
-       System.out.println("vibration...");
-  }
+class Vibration implements MobileAlertState {
+	@Override
+	public void alert(AlertStateContext ctx) {
+		System.out.println("vibration...");
+	}
 
 }
 
-class Silent implements MobileAlertState
-{
-  @Override
-  public void alert(AlertStateContext ctx) 
-  {
-      System.out.println("silent...");
-  }
+class Silent implements MobileAlertState {
+	@Override
+	public void alert(AlertStateContext ctx) {
+		System.out.println("silent...");
+	}
 
 }
 
-class AlertStateContext 
-{
-    private MobileAlertState currentState;
-  
-    public AlertStateContext() 
-    {
-        currentState = new Vibration();
-    }
-  
-    public void setState(MobileAlertState state) 
-    {
-        currentState = state;
-    }
-  
-    public void alert() 
-    {
-        currentState.alert(this);
-    }
+class AlertStateContext {
+	private MobileAlertState currentState;
+
+	public AlertStateContext() {
+
+		// default state
+		currentState = new Vibration();
+	}
+
+	public void setState(MobileAlertState state) {
+		currentState = state;
+	}
+
+	public void alert() {
+		currentState.alert(this);
+	}
 }
 
-  
-class StatePattern 
-{
-    public static void main(String[] args) 
-    {
-        AlertStateContext stateContext = new AlertStateContext();
-        stateContext.alert();
-        stateContext.alert();
-        stateContext.setState(new Silent());
-        stateContext.alert();
-        stateContext.alert();
-        stateContext.alert();        
-    }
+class StatePattern {
+	public static void main(String[] args) {
+		AlertStateContext stateContext = new AlertStateContext();
+		stateContext.alert();
+		stateContext.alert();
+		stateContext.setState(new Silent());
+		stateContext.alert();
+		stateContext.alert();
+		stateContext.alert();
+	}
 }
 
 //
@@ -92,9 +81,4 @@ class StatePattern
 //Open/Closed Principle. Introduce new states without changing existing state classes or the context.
 //Simplify the code of the context by eliminating bulky state machine conditionals.
 
-
 //  say parsing>initilizing>executing>reportcollection
-
-
-
-

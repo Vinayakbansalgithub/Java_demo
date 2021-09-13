@@ -2,10 +2,14 @@ package DesignPattern;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+
+// creational design pattern
 @Getter
 @Setter
 @ToString
@@ -29,8 +33,7 @@ class Book implements Cloneable {
 	public String toString() {
 		return "Book [id=" + id + ", name=" + name + ", author=" + author + "]";
 	}
-	
-	
+
 }
 
 @Getter
@@ -51,7 +54,6 @@ public class PrototypePatternLibrary {
 			Book book = new Book(Long.valueOf(i), "Book-" + i, "Author-" + i);
 			this.books.add(book);
 		}
-
 	}
 
 	@Override
@@ -62,10 +64,6 @@ public class PrototypePatternLibrary {
 	@Override
 	protected PrototypePatternLibrary clone() throws CloneNotSupportedException {
 		PrototypePatternLibrary libCopy = new PrototypePatternLibrary(null);
-//		for (Book book : this.getBooks()) {
-//			libCopy.getBooks().add(book.clone());
-//		}
-
 		for (Book book : this.books) {
 			libCopy.books.add(book.clone());
 		}

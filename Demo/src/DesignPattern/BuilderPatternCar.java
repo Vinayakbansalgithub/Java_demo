@@ -113,57 +113,59 @@ public class BuilderPatternCar {
 
 	// Builder Class
 	public static class BuilderPatternCarBuilder {
-		final String brand;
+		String brand;
 		String name;
-		final int year;
+		int year;
 		Engine engine;
-
 		String Sterio;
 
 		public String getSterio() {
 			return Sterio;
 		}
 
-//		public void setSterio(String sterio) {
-//			Sterio = sterio;
-//		}
+		public BuilderPatternCarBuilder setSterio(String sterio) {
+			Sterio = sterio;
+			return this;
+
+		}
 
 		public String getBrand() {
 			return brand;
 		}
 
-//		public void setBrand(String brand) {
-//			this.brand = brand;
-//		}
 
 		public String getName() {
 			return name;
 		}
 
-//		public void setName(String name) {
-//			this.name = name;
-//		}
+		public BuilderPatternCarBuilder setName(String name) {
+			this.name = name;
+			return this;
+
+		}
 
 		public int getYear() {
 			return year;
 		}
 
-//		public void setYear(int year) {
-//			this.year = year;
-//		}
+		public BuilderPatternCarBuilder setYear(int year) {
+			this.year = year;
+			return this;
+
+		}
 
 		public Engine getEngine() {
 			return engine;
 		}
 
-//		public void setEngine(Engine engine) {
-//			this.engine = engine;
-//		}
-
-		BuilderPatternCarBuilder(String brand, int year, Engine engine) {
-			this.brand = brand;
-			this.year = year;
+		public BuilderPatternCarBuilder setEngine(Engine engine) {
 			this.engine = engine;
+			return this;
+		}
+
+		BuilderPatternCarBuilder(String brand) {
+			this.brand = brand;
+			
 		}
 
 		public BuilderPatternCar build() {
@@ -180,12 +182,14 @@ public class BuilderPatternCar {
 
 	public static void main(String[] args) {
 		Engine engine = new Engine("ivtec", 98, 4);
-		BuilderPatternCarBuilder builderObj = new BuilderPatternCar.BuilderPatternCarBuilder("Honda", 2011, engine);
+		BuilderPatternCarBuilder builderObj1 = new BuilderPatternCar.BuilderPatternCarBuilder("Honda");
 		// builderObj.setName("city");
-		BuilderPatternCar car = builderObj.build();
-		System.out.println(car);
-		// car.setBrand("BMW");
-		System.out.println(car);
+		BuilderPatternCar car1 = builderObj1.build();
+		System.out.println(car1);
+		BuilderPatternCarBuilder builderObj2 = new BuilderPatternCar.BuilderPatternCarBuilder("BMW");
+		builderObj2.setEngine(engine);
+		BuilderPatternCar car2 = builderObj2.build();
+		System.out.println(car2);
 
 	}
 }

@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Queue;
 
-interface ISubject {
+// which is also the subject
+interface IObservable {
 
 	public void register(IObserver obj);
 
@@ -16,12 +19,13 @@ interface ISubject {
 
 }
 
-class MessageServer implements ISubject {
+// An observable is an object which notifies observers about the changes in its state
+class KafkaServer implements IObservable {
 
 	public List<IObserver> clients;
 	String message;
 
-	public MessageServer() {
+	public KafkaServer() {
 		this.clients = new ArrayList<IObserver>();
 		message = "";
 	}
@@ -37,62 +41,58 @@ class MessageServer implements ISubject {
 		clients.remove(client);
 	}
 
+	// here it is updating observers about changes
 	@Override
 	public void notifyObservers(String new_message) {
 		for (IObserver client : clients) {
-			client.updateListener(new_message);
+			client.update(new_message);
 		}
-	}
-
-	public void postMessage(String new_message) {
-		this.message = new_message;
-		notifyObservers(this.message);
 	}
 
 }
 
 interface IObserver {
 
-	public void updateListener(String payload);
+	public void update(String payload);
 
-	public void registerToSubject(ISubject sub);
 }
 
-class ClientObserver implements IObserver {
+//class ClientObserver implements IObserver {
+class FunctionizeRuntimeServer implements IObserver {
 
 	public Queue<String> message_queue;
-	private ISubject message_server;
 	String id;
 
-	public ClientObserver(String id) {
+	public FunctionizeRuntimeServer(String id) {
 		this.id = id;
 		message_queue = new LinkedList<>();
 	}
 
+	/* This is the onUpdateListner for every Client */
 	@Override
-	public void updateListener(String message) {
-		/* This is the onUpdateListner for every Client */
+	public void update(String message) {
 		message_queue.add(message);
+		System.out.println("Message : " + message + " has been received by Runtime observer");
 	}
 
+}
+
+//class ClientObserver implements IObserver {
+class FunctionizeUIServer implements IObserver {
+
+	public Queue<String> message_queue;
+	String id;
+
+	public FunctionizeUIServer(String id) {
+		this.id = id;
+		message_queue = new LinkedList<>();
+	}
+
+	/* This is the onUpdateListner for every Client */
 	@Override
-	public void registerToSubject(ISubject subject) {
-		message_server = subject;
-	}
-
-	// When your device gets connected to the server, call this function
-	public void onConnect() {
-
-		if (!message_queue.isEmpty()) {
-
-			Iterator<String> iter = message_queue.iterator();
-			while (iter.hasNext()) {
-				System.out.println(id + " recieved " + iter.next()); // send messages to the device via MQTT
-			}
-
-			message_queue.clear();
-		}
-
+	public void update(String message) {
+		message_queue.add(message);
+		System.out.println("Message : " + message + " has been received by UI observer");
 	}
 
 }
@@ -100,32 +100,20 @@ class ClientObserver implements IObserver {
 public class ObserverPattern {
 	public static void main(String[] args) {
 
-		MessageServer server = new MessageServer();
-
-		// for DEMO, instantiating device connections locally
-		ClientObserver device1 = new ClientObserver("device1");
-		device1.registerToSubject(server);
-
-		ClientObserver device2 = new ClientObserver("device2");
-		device2.registerToSubject(server);
-
-		ClientObserver device3 = new ClientObserver("device3");
-		device3.registerToSubject(server);
-
-		server.register(device1);
-		server.register(device2);
-		server.register(device3);
-
-		server.postMessage("Hi Groupmates");
-		server.postMessage("How are you?");
-
-		device1.onConnect();
-		device2.onConnect();
-		device3.onConnect();
+		KafkaServer server = new KafkaServer();
+		FunctionizeUIServer ui = new FunctionizeUIServer("php node");
+		FunctionizeRuntimeServer runtime = new FunctionizeRuntimeServer("spring app");
+		server.register(ui);
+		server.register(runtime);
+		server.notifyObservers("test has been completed");
 
 	}
 
 }
+
+//When to use this pattern?
+//You should consider using this pattern in your application when multiple objects are dependent on the state 
+//of one object as it provides a neat and well tested design for the same.
 
 //Subject: This class provides an interface for registering and deregistering observers. 
 //This has a list of observers that has registered with it.

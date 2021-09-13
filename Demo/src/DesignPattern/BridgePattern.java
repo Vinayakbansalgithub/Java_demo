@@ -1,9 +1,12 @@
 package DesignPattern;
 
+
+// abstraction
 interface Assistance {
 	void wakeVia();
 }
 
+//Refine abstraction
 class GoogleAssistance implements Assistance {
 
 	@Override
@@ -13,7 +16,7 @@ class GoogleAssistance implements Assistance {
 	}
 
 }
-
+//Refine abstraction
 class SiriAssistance implements Assistance {
 
 	@Override
@@ -32,10 +35,12 @@ class AlexaAssistance implements Assistance {
 	}
 }
 
+//abstraction
 interface Charger {
 	void type();
 }
 
+//Refine abstraction
 class Wired implements Charger {
 
 	@Override
@@ -46,6 +51,7 @@ class Wired implements Charger {
 
 }
 
+//Refine abstraction
 class Wireless implements Charger {
 
 	@Override
@@ -56,6 +62,8 @@ class Wireless implements Charger {
 
 }
 
+
+//Implementor for bridge pattern
 abstract class AbstractPhone {
 	Assistance assistance;
 	Charger charger;
@@ -69,6 +77,8 @@ abstract class AbstractPhone {
 	abstract void basicFeatures();
 }
 
+
+//Concrete implementation
 class Nokia extends AbstractPhone {
 
 	Assistance assistance;
@@ -90,6 +100,8 @@ class Nokia extends AbstractPhone {
 
 }
 
+
+//Concrete implementation
 class Samsung extends AbstractPhone {
 	Assistance assistance;
 	Charger charger;
@@ -110,6 +122,8 @@ class Samsung extends AbstractPhone {
 
 }
 
+
+//Concrete implementation
 class Vivo extends AbstractPhone {
 
 	Assistance assistance;
@@ -125,7 +139,7 @@ class Vivo extends AbstractPhone {
 
 	@Override
 	void basicFeatures() {
-		System.out.println("Vivo basic feature is it will always have great camara");
+		System.out.println("Vivo always have great camara");
 		assistance.wakeVia();
 		charger.type();
 	}

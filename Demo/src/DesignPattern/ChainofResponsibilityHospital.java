@@ -1,5 +1,7 @@
 package DesignPattern;
 
+
+// pending
 enum Specialties {
 	Heart, Lungs, Oesophagus, Chest, Veins, Arteries, Head, Neck, Voice, Ear, Nose, Kidney, Bladder
 }

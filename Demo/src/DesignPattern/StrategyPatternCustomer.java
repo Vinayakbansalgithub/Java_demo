@@ -49,6 +49,8 @@ public class StrategyPatternCustomer {
 //    The Context class, which has a very similar operation as in the State pattern, stores the object of the algorithm class, 
 //    overwrites it and changes it when we want to act on another algorithm.
 //    
+//	  strategy pattern dosenot have defalut state 
+//
 //    Interface Interface that has defined methods needed for all algorithms.
 //    
 //    ConcreteStrategy classes inheriting from the Interface interface that implement specific algorithms.
