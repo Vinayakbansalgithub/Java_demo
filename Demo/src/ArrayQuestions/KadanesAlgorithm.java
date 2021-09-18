@@ -9,7 +9,7 @@ public class KadanesAlgorithm {
 	static int maxSubArraySum(int[] arr) {
 		// TODO Auto-generated method stub
 
-		int currentSum = 0, overAllSum = 0;
+		int currentSum = 0, overAllSum =  0;
 
 		for (int i = 0; i < arr.length; i++) {
 

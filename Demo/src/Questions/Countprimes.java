@@ -15,8 +15,6 @@ public class Countprimes {
 	}
 
 	static void count(int n) {
-		// TODO Auto-generated method stub
-
 		boolean[] arr = new boolean[n + 1];
 		Arrays.fill(arr, true);
 		arr[0] = false;

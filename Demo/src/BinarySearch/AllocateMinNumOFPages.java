@@ -2,8 +2,28 @@ package BinarySearch;
 
 public class AllocateMinNumOFPages {
 
+	private static boolean isValid(int[] arr, int k, int mid) {
+
+		int number = 1;
+		int sum = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+
+			if (sum > mid) {
+				number++;
+				sum = arr[i];
+
+			}
+		}
+
+		if (number == k)
+			return true;
+
+		return false;
+	}
+
 	private static void getMinPages(int[] arr, int k) {
-		// TODO Auto-generated method stub
 
 		// get Max value
 
@@ -36,28 +56,6 @@ public class AllocateMinNumOFPages {
 
 		System.out.println("min number of pages are " + possibleAnswer);
 
-	}
-
-	private static boolean isValid(int[] arr, int k, int mid) {
-		// TODO Auto-generated method stub
-
-		int number = 1;
-		int sum = 0;
-
-		for (int i = 0; i <= arr.length - 1; i++) {
-			sum += arr[i];
-
-			if (sum > mid) {
-				number++;
-				sum = arr[i];
-
-			}
-		}
-
-		if (number == k)
-			return true;
-
-		return false;
 	}
 
 	public static void main(String[] args) {

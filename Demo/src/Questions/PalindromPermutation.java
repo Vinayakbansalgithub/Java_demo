@@ -8,20 +8,7 @@ import java.util.Map;
 public class PalindromPermutation {
 
 	public static void main(String[] args) {
-		
-		
-//		String s="ohsVIolONT​​​​​​​Rita Price_updateFarmers Insurance26856 Hwy 189Lake Arrowhead, CA 92352License Number: 0544472909-337-2518 (Office)909-336-6989 (Fax)rprice@FarmersagentUAT.comhttp://www.farmersagent.com/rprice";
-//		String t="ohsVIolONTRita Price_updateFarmers Insurance26856 Hwy 189Lake Arrowhead, CA 92352License Number: 0544472909-337-2518 (Office)909-336-6989 (Fax)rprice@FarmersagentUAT.comhttp://www.farmersagent.com/rprice";
-//		
-//		
-//		s = s.replaceAll("[\\p{Cf}]", "");
-//		t = t.replaceAll("[\\p{Cf}]", "");
-//
-//		
-		
-//		System.out.println(s.equalsIgnoreCase(t));
-		
-		
+
 		String str = "aabcbaa";
 		int count = 0;
 

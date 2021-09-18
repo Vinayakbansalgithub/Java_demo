@@ -9,7 +9,7 @@ public class MergeIntervels {
 
 		// int lectures[][] = { { 5, 10 }, { 0, 30 }, { 15, 20 } };
 
-		int intervel[][] = { { 1, 3 }, { 8, 10 }, { 15, 18 } , { 2, 6 }};
+		int intervel[][] = { { 1, 3 }, { 8, 10 }, { 15, 18 }, { 2, 6 } };
 
 		int n = intervel.length;
 

@@ -55,7 +55,6 @@ public class RotateMatrix90 {
 		int C = 3;
 		int arr[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 
-		
 		System.out.println("given matrix");
 		for (int i = 0; i < R; i++) {
 			for (int j = 0; j < C; j++) {
@@ -64,10 +63,10 @@ public class RotateMatrix90 {
 			System.out.println();
 
 		}
-		
+
 		for (int i = 0; i < 2; i++) {
 			transpose(R, C, arr);
-		System.out.println("matrix after 180");
+			System.out.println("matrix after 180");
 
 		}
 	}

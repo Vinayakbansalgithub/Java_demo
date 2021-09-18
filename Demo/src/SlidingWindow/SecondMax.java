@@ -2,7 +2,6 @@ package SlidingWindow;
 
 public class SecondMax {
 	static void findSubarrays(String[] arr, int size) {
-		// TODO Auto-generated method stub
 		long[] array = new long[arr.length];
 		for (int i = 0; i < arr.length; i++) {
 			array[i] = Long.parseLong(arr[i]);
@@ -37,7 +36,7 @@ public class SecondMax {
 	}
 
 	public static void main(String[] args) {
-		String[] arr = { };
+		String[] arr = {};
 		int size = arr.length;
 		findSubarrays(arr, size);
 	}

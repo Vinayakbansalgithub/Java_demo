@@ -27,12 +27,12 @@ public class UniquePaths {
 	public static void main(String[] args) {
 
 		int res = find(3, 7);
-		System.out.println("unique path "+res);
+		System.out.println("unique path " + res);
 
 		int M[][] = new int[][] { { 1, 1, 1 }, { 1, 0, 1 }, { 1, 1, 1 } };
 
-		res=count(M);
-		System.out.println("unique path with obsticals "+res);
+		res = count(M);
+		System.out.println("unique path with obsticals " + res);
 
 	}
 
@@ -44,7 +44,6 @@ public class UniquePaths {
 		for (int r = 0; r < m.length; r++) {
 			for (int c = 0; c < m[r].length; c++) {
 
-				
 				// 0 is obstical
 				if (m[r][c] == 0) {
 					dp[r][c] = 0;
@@ -61,7 +60,7 @@ public class UniquePaths {
 			}
 		}
 
-		return dp[m.length-1][m[0].length-1];
+		return dp[m.length - 1][m[0].length - 1];
 
 	}
 

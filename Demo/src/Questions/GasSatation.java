@@ -1,17 +1,16 @@
 package Questions;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
+//134. Gas Station
 public class GasSatation {
-	private static int find(int[] gas, int[] cost) {
-		// TODO Auto-generated method stub
+	private static int find(int[] gas, int[] gasNeeded) {
 
 		int gasTotal = 0;
 
-		for (int i = 0; i < cost.length; i++) {
-			gasTotal += gas[i] - cost[i];
+		for (int i = 0; i < gasNeeded.length; i++) {
+			gasTotal += gas[i] - gasNeeded[i];
 		}
 
 		if (gasTotal < 0)
@@ -25,7 +24,7 @@ public class GasSatation {
 
 		while (list.size() < gas.length) {
 
-			Currentcost += gas[index] - cost[index];
+			Currentcost += gas[index] - gasNeeded[index];
 
 			if (Currentcost < 0) {
 				Currentcost = 0;
@@ -33,8 +32,10 @@ public class GasSatation {
 				list.clear();
 			} else {
 				boolean isAdd = list.add(index);
-				if (!isAdd)
-					return -1;
+				if (!isAdd) {
+					System.out.println("alread moved here");
+					return startIndex;
+				}
 			}
 			index++;
 			index = index % gas.length;
@@ -46,14 +47,11 @@ public class GasSatation {
 	}
 
 	public static void main(String[] args) {
-//		int[] gas = { 5, 1, 2, 3, 4 };
-//		int[] cost = { 4, 4, 1, 5, 1 };
+		int[] gas = { 5, 1, 2, 3, 4 };
+		int[] cost = { 4, 4, 1, 5, 1 };
 
-//		int[] gas = { 1,2,3,4,5};
-//		int[] cost = { 3,4,5,1,2 };
-
-		int[] gas = { 2, 3, 4 };
-		int[] cost = { 3, 4, 3 };
+//		int[] gas = { 1, 2, 3, 4, 5 };
+//		int[] cost = { 3, 4, 5, 1, 2 };
 
 		int index = find(gas, cost);
 		System.out.println(index);

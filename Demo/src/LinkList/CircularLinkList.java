@@ -199,8 +199,6 @@ public class CircularLinkList {
 		list.add(4);
 		list.add(5);
 
-		
-
 		printlist(head);
 		System.out.println();
 

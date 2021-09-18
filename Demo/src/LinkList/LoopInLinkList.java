@@ -81,15 +81,15 @@ public class LoopInLinkList {
 
 	}
 
-	static LNode LoopStart(LNode slow, LNode val) {
+	static LNode LoopStart(LNode slow, LNode head) {
 		// TODO Auto-generated method stub
 
 		LNode value;
 
-		while (slow.next != val.next) {
+		while (slow.next != head.next) {
 
 			slow = slow.next;
-			val = val.next;
+			head = head.next;
 
 		}
 

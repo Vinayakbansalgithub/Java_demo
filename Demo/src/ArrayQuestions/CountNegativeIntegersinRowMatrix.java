@@ -10,7 +10,7 @@ public class CountNegativeIntegersinRowMatrix {
 		int rowEnd = r;
 		int columnEnd = c;
 		while (rowStart < rowEnd) {
-			while (columnEnd > 0 && a[rowStart][columnEnd - 1] > 0) {
+			while (columnEnd > 0 && a[rowStart][columnEnd - 1] >= 0) {
 				columnEnd--;
 			}
 			count = count + columnEnd;

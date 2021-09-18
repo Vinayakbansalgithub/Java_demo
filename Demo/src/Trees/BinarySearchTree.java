@@ -6,6 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import Trees.BinarySearchTree.Node;
+
 import java.util.Queue;
 
 class Pair {
@@ -196,7 +199,7 @@ public class BinarySearchTree {
 		int answer = leftdepth + rightdepth + 1;
 
 		if (Math.max(temp, answer) > diameter) {
-			 
+
 			diameter = Math.max(temp, answer);
 		}
 
@@ -360,6 +363,39 @@ public class BinarySearchTree {
 		return false;
 	}
 
+	private static boolean hasPathSum(Node root, int sum) {
+		// TODO Auto-generated method stub
+
+		if (root == null) {
+			return false;
+		} else if (root.left == null && root.right == null && sum - root.key == 0) {
+			return true;
+		} else {
+			return hasPathSum(root.left, sum - root.key) || hasPathSum(root.right, sum - root.key);
+		}
+
+	}
+
+	private static boolean validBST(Node root, Integer low, Integer high) {
+		// TODO Auto-generated method stub
+
+		if (root == null) {
+			return true;
+		} else if (root.left != null && root.key < low) {
+			return false;
+		} else if (root.right != null && root.key > low) {
+			return false;
+		}
+
+		return validBST(root.left, low, root.key) && validBST(root.right, root.key, high);
+
+	}
+
+	static boolean isValidBST(Node root) {
+
+		return validBST(root, null, null);
+	}
+
 	// Driver Program to test above functions
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
@@ -475,21 +511,12 @@ public class BinarySearchTree {
 
 		System.out.println("LCS is " + listPath2.get(i + 1));
 
+		
+		// pending
 		boolean res = hasPathSum(tree.root, 155);
 		System.out.println("has path " + res);
 
-	}
-
-	private static boolean hasPathSum(Node root, int sum) {
-		// TODO Auto-generated method stub
-
-		if (root == null) {
-			return false;
-		} else if (root.left == null && root.right == null && sum - root.key == 0) {
-			return true;
-		} else {
-			return hasPathSum(root.left, sum - root.key) || hasPathSum(root.right, sum - root.key);
-		}
+		System.out.println("is valid bst " + isValidBST(tree.root));
 
 	}
 

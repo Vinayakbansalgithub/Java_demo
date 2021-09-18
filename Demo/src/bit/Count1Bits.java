@@ -1,5 +1,6 @@
 package bit;
 
+// leetcode 191
 public class Count1Bits {
 	public static void main(String[] args) {
 
@@ -13,9 +14,11 @@ public class Count1Bits {
 
 			if ((num & mask) != 0) {
 				count++;
+				System.out.println("pp");
 			}
 
 			mask = (mask << 1);
+			System.out.println("--");
 		}
 
 		System.out.println(count);

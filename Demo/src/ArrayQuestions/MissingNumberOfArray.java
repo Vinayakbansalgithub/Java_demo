@@ -1,16 +1,29 @@
 package ArrayQuestions;
 
 public class MissingNumberOfArray {
+
+	public static int find(int[] arr, int n) {
+
+		int ExpetedSum = n  * ((n + 1) / 2);
+
+		int currSum = 0;
+		for (int i : arr) {
+			currSum += i;
+		}
+
+		int num = ExpetedSum - currSum;
+
+		return num;
+	}
+
 	public static void main(String[] args) {
 
-		   int total_num;
-		   int[] numbers = new int[]{1,2,3,5};
-		   total_num = 5;
-		   int expected_num_sum = total_num * ((total_num + 1) / 2);
-		   int num_sum = 0;
-		   for (int i: numbers) {
-		    num_sum += i;
-		   }
-		       System.out.print( expected_num_sum - num_sum);
-		  }
+		int[] numbers = new int[] { 1, 2, 3, 5 };
+		int total_num = 5;
+
+		int res = find(numbers, total_num);
+		System.out.println(res);
+
+	}
+
 }

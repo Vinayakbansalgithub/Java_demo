@@ -32,9 +32,33 @@ public class RemoveNthfromEndLinkList {
 
 		System.out.println(obj.head);
 
-		Node res = obj.removeFromEnd(2);
-		System.out.println(res);
+//		Node res = obj.removeFromEnd1(2);
+//		System.out.println(res);
 
+		Node res = obj.removeFromEnd2(2);
+		System.out.println(res);
+	}
+
+	Node removeFromEnd2(int n) {
+
+		Node temp = head;
+
+		Node fast = temp;
+		Node slow = temp;
+
+		for (int i = 0; i < n; i++) {
+			fast = fast.next;
+		}
+
+		while (fast.next != null) {
+			fast = fast.next;
+			slow = slow.next;
+
+		}
+
+		slow.next = slow.next.next;
+
+		return temp;
 	}
 
 	Node removeFromEnd(int n) {

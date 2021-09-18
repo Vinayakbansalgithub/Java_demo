@@ -50,11 +50,11 @@ public class WordLadder {
 
 		while (!queue.isEmpty()) {
 			Type temp = queue.poll();
-			System.out.println(temp);
-			
+
 			for (int i = 0; i < wordList.size(); i++) {
 
 				if (isAdjacent(wordList.get(i), temp.value)) {
+
 
 					queue.add(new Type(wordList.get(i), temp.index + 1));
 					wordList.remove(wordList.get(i));
@@ -80,8 +80,8 @@ public class WordLadder {
 			if (s1.charAt(i) != s2.charAt(i)) {
 				count++;
 			}
-			if (count > 1)
-				return false;
+//			if (count > 1)
+//				return false;
 
 		}
 

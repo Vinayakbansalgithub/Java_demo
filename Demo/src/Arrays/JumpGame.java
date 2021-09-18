@@ -1,6 +1,7 @@
 package Arrays;
 
 //55. Jump Game
+// min number of jumps
 public class JumpGame {
 
 	static boolean jump(int[] arr) {

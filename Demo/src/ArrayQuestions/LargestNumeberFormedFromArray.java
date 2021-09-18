@@ -14,11 +14,11 @@ public class LargestNumeberFormedFromArray {
 		int arr[] = { 9, 34, 33, 2, 8 };
 		int n = arr.length;
 		LargestNumeberFormedFromArray permutation = new LargestNumeberFormedFromArray();
-		permutation.permute(arr, 0, n - 1);
+		permutation.find(arr, 0, n - 1);
 		System.out.println("number is " + Arrays.toString(arr));
 	}
 
-	private void permute(int arr[], int start, int end) {
+	 void find(int arr[], int start, int end) {
 
 		for (int i = start; i < end; i++) {
 			for (int j = i + 1; j <= end; j++) {

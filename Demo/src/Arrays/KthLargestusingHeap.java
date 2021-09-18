@@ -7,46 +7,34 @@ public class KthLargestusingHeap {
 	public static void main(String[] args) {
 
 		int arr[] = { 1, 2, 3, 4, 5, 6 };
-		// max heap means biggest number on the top
-		Max_heap(arr, 2);
+		Max_heap(arr, 4);
 	}
 
 	static void Max_heap(int[] arr, int klarget) {
-		// TODO Auto-generated method stub
-		int sortedarray[] = new int[arr.length];
-		int k = 0;
-		//for (int ii = arr.length - 1; ii >= 0; ii--) {
-			
-			for (int ii = 0;ii< arr.length; ii++) {
 
+		int initialLength = arr.length;
+
+		for (int i = 1; i <= initialLength; i++) {
 
 			for (int j = arr.length - 1; j >= 0; j--) {
 				makeheapMax(arr, j);
-				// makeheapMin(arr, j);
-				System.out.println(Arrays.toString(arr));
 
 			}
+			System.out.println(Arrays.toString(arr));
 
-			if (ii + 1 == klarget)
-				System.out.println("kth : " + arr[0]);
-
-			// System.out.println(Arrays.toString(arr));
-			sortedarray[k++] = arr[0];
-			int temp = arr[arr.length - 1];
-			arr[arr.length - 1] = arr[0];
-			arr[0] = temp;
+			if (i == klarget) {
+				System.out.println("element is " + arr[0]);
+			}
+			arr[0] = arr[arr.length - 1];
 			arr = Arrays.copyOf(arr, arr.length - 1);
-
-			// System.out.println(Arrays.toString(arr));
 
 		}
 
-		System.out.println(Arrays.toString(sortedarray));
-
 	}
 
+	// max heap means biggest number on the top
+
 	static void makeheapMax(int[] arr, int j) {
-		// TODO Auto-generated method stub
 
 		int largest;
 		int left = j * 2 + 1;
@@ -54,7 +42,6 @@ public class KthLargestusingHeap {
 
 		if (left < arr.length && arr[left] > arr[j]) {
 			largest = left;
-
 		} else {
 			largest = j;
 		}

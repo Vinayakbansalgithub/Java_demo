@@ -6,8 +6,7 @@ public class IsSubsequence {
 		boolean res = find("hello", "hlo");
 		System.out.println(res);
 
-		String big = "rabbbit";
-		String small = "rabbit";
+
 
 	}
 

@@ -12,7 +12,9 @@ public class SubarrayWithGivenSum {
 		int currentSum = 0;
 		int maxLength = 0;
 
-		while (arrstart <= arrend && arrend < arr.length) {
+		// while (arrstart <= arrend && arrend < arr.length) {
+
+		while (arrend < arr.length) {
 
 			currentSum += arr[arrend];
 
@@ -37,10 +39,10 @@ public class SubarrayWithGivenSum {
 	}
 
 	public static void main(String[] args) {
-		//int[] arr = { 1, 9, 20, 3, 10, 5, 3, 5, 5, 5, 5, 5, 5 ,-5,5};
-		
+		// int[] arr = { 1, 9, 20, 3, 10, 5, 3, 5, 5, 5, 5, 5, 5 ,-5,5};
+
 		int[] arr = { 1, 9, 20, 3, 10, 5, 99 };
-		int sum =38;
+		int sum = 38;
 
 		findSubarrays(arr, sum);
 	}

@@ -4,8 +4,8 @@ public class ExtractIthbit {
 	public static void main(String[] args) {
 
 		int i = 6;
-		//int i = 22;
-		int n = 5;
+		// int i = 22;
+		int n = 4;
 
 		int mask = 1 << (n - 1);
 
@@ -22,3 +22,6 @@ public class ExtractIthbit {
 		}
 	}
 }
+
+
+//110

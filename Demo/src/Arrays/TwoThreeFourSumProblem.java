@@ -17,10 +17,10 @@ public class TwoThreeFourSumProblem {
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 
 		for (int i = startIndex; i < arr.length; i++) {
+			ArrayList<Integer> current = new ArrayList<>();
 
 			int complement = sum - arr[i];
 
-			ArrayList<Integer> current = new ArrayList<>();
 			if (set.contains(complement)) {
 
 				current.add(complement);
@@ -38,7 +38,6 @@ public class TwoThreeFourSumProblem {
 
 	static ArrayList<ArrayList<Integer>> threeSum(int arr[], int sum, int startIndex) {
 
-		Set<Integer> set = new HashSet<>();
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 
 		for (int i = startIndex; i < arr.length; i++) {
@@ -47,10 +46,9 @@ public class TwoThreeFourSumProblem {
 
 			for (ArrayList<Integer> superList : resOfTowSum) {
 
-				int currSum = arr[i];
-				for (Integer value : superList) {
-					currSum += value;
-				}
+				Integer currSum = arr[i];
+				currSum += superList.stream().reduce(0, (a, b) -> a + b);
+
 				if (currSum == sum) {
 					superList.add(arr[i]);
 					list.add(superList);
@@ -65,7 +63,6 @@ public class TwoThreeFourSumProblem {
 
 	static ArrayList<ArrayList<Integer>> fourSum(int arr[], int sum, int startIndex) {
 
-		Set<Integer> set = new HashSet<>();
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 
 		for (int i = startIndex; i < arr.length; i++) {
@@ -74,10 +71,9 @@ public class TwoThreeFourSumProblem {
 
 			for (ArrayList<Integer> superList : resOfThreeSum) {
 
-				int currSum = arr[i];
-				for (Integer value : superList) {
-					currSum += value;
-				}
+				Integer currSum = arr[i];
+				currSum += superList.stream().reduce(0, (a, b) -> a + b);
+
 				if (currSum == sum) {
 					superList.add(arr[i]);
 					list.add(superList);
@@ -91,38 +87,26 @@ public class TwoThreeFourSumProblem {
 	}
 
 	public static void main(String[] args) {
-		
-		String normalizedFoundValue="500,00";
-		
-		 String regex = "(^[0-9,]*$)";
-         Pattern p = Pattern.compile(regex);
-         Matcher m = p.matcher(normalizedFoundValue);
-         if ( m.find()) {
-        	 System.out.println(normalizedFoundValue + " is a valid integer number");
-        	 normalizedFoundValue=normalizedFoundValue.replaceAll(",", "");
-             System.out.println("updated normalizedFoundValue "+ normalizedFoundValue);
-             
-         }else
-        	 System.out.println("not foumd");
-             
-             
 
-//		int arr1[] = { 0, -1, 2, -3, 1 };
-//		int sum1 = -2;
-//		System.out.println("given sum is " + sum1);
-//		ArrayList<ArrayList<Integer>> res1 = twoSum(arr1, sum1, 0);
-//		System.out.println("two sum is " + res1);
-//
-//		int arr2[] = { 1, 4, 45, 6, 10, 8 };
-//		int sum2 = 22;
-//
-//		ArrayList<ArrayList<Integer>> res2 = threeSum(arr2, sum2, 0);
-//		System.out.println("three sum is " + res2);
-//
-//		int arr3[] = { 1, 4, 45, 6, 10, 8 };
-//		int sum3 = 23;
-//
-//		ArrayList<ArrayList<Integer>> res3 = fourSum(arr3, sum3, 0);
-//		System.out.println("three sum is " + res3);
+		int arr1[] = { 0, -1, 2, -3, 1, -3 };
+		int sum1 = -2;
+		System.out.println("given sum is " + sum1);
+		ArrayList<ArrayList<Integer>> res1 = twoSum(arr1, sum1, 0);
+		System.out.println("two sum is " + res1);
+
+		int arr2[] = { 1, 4, 45, 6, 10, 8 };
+		int sum2 = 22;
+		System.out.println("given sum is " + sum2);
+
+		ArrayList<ArrayList<Integer>> res2 = threeSum(arr2, sum2, 0);
+		System.out.println("three sum is " + res2);
+
+		int arr3[] = { 1, 4, 45, 6, 10, 8 };
+		int sum3 = 23;
+
+		System.out.println("given sum is " + sum3);
+
+		ArrayList<ArrayList<Integer>> res3 = fourSum(arr3, sum3, 0);
+		System.out.println("fore sum is " + res3);
 	}
 }

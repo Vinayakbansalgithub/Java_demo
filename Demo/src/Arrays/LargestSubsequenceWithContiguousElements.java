@@ -2,20 +2,22 @@ package Arrays;
 
 import java.util.HashSet;
 
+
+//128. Longest Consecutive Sequence
+
 public class LargestSubsequenceWithContiguousElements {
 	// Returns length of the longest
 	// consecutive subsequence
-	static int findLongestConseqSubseq(int arr[], int n) {
+	static int findLongestConseqSubseq(int arr[]) {
 		HashSet<Integer> S = new HashSet<Integer>();
 		int ans = 0;
 
-		// Hash all the array elements
-		for (int i = 0; i < n; ++i)
+		for (int i = 0; i < arr.length; ++i)
 			S.add(arr[i]);
 
 		// check each possible sequence from the start
 		// then update optimal length
-		for (int i = 0; i < n; ++i) {
+		for (int i = 0; i < S.size(); ++i) {
 			// if current element is the starting
 			// element of a sequence
 			if (!S.contains(arr[i] - 1)) {
@@ -39,7 +41,7 @@ public class LargestSubsequenceWithContiguousElements {
 		// { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 
 		// { 1, 9, 3, 10, 4, 20, 2 };
-		int n = arr.length;
-		System.out.println("Length of the Longest consecutive subsequence is " + findLongestConseqSubseq(arr, n));
+
+		System.out.println("Length of the Longest consecutive subsequence is " + findLongestConseqSubseq(arr));
 	}
 }

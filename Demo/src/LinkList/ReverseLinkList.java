@@ -63,29 +63,6 @@ public class ReverseLinkList {
 
 	}
 
-	void reverse(Rnode a) {
-		// TODO Auto-generated method stub
-		Rnode prev = null;
-		Rnode current = head;
-		Rnode next = null;
-
-		while (current != null) {
-
-			next = current.next;
-			current.next = prev;
-			prev = current;
-
-			current = next;
-
-		}
-
-		while (prev != null) {
-			System.out.println(" value is  " + prev.data);
-			prev = prev.next;
-		}
-
-	}
-
 	public static void main(String[] args) {
 		ReverseLinkList obj = new ReverseLinkList();
 		Rnode a = obj.add(3);
@@ -155,17 +132,23 @@ public class ReverseLinkList {
 	void reversePointers() {
 		// TODO Auto-generated method stub
 
-		Rnode prev = getHead();
-		Rnode curr = prev.next;
+		Rnode prev = null;
+		Rnode current = head;
+		Rnode next = null;
 
-		while (curr != null) {
+		while (current != null) {
 
-			Rnode ahead = curr.next;
+			next = current.next;
+			current.next = prev;
+			prev = current;
 
-			curr.next = prev;
-			prev = curr;
-			curr = ahead;
+			current = next;
 
+		}
+
+		while (prev != null) {
+			System.out.println(" value is  " + prev.data);
+			prev = prev.next;
 		}
 
 	}

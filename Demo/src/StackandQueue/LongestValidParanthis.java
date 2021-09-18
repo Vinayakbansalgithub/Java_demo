@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class LongestValidParanthis {
 	public static void main(String[] args) {
-		String str = "";
+		String str = ")()";
 		find(str);
 	}
 
@@ -13,8 +13,8 @@ public class LongestValidParanthis {
 		Stack<Character> sChar = new Stack<>();
 		Stack<Integer> iChar = new Stack<>();
 		iChar.add(-1);
-		
-		int length=0;
+
+		int length = 0;
 
 		for (int i = 0; i < str.length(); i++) {
 
@@ -22,25 +22,21 @@ public class LongestValidParanthis {
 				sChar.add(str.charAt(i));
 				iChar.add(i);
 			} else {
-				
+
 				if (!sChar.isEmpty() && str.charAt(i) == ')') {
 					sChar.pop();
 					iChar.pop();
-					
-					length=Math.max(length, i-iChar.peek());
-				}else {
+
+					length = Math.max(length, i - iChar.peek());
+				} else {
 					iChar.add(i);
 				}
-				
-				
+
 			}
 
 		}
-		
-		
-		System.out.println("====="+length);
+
+		System.out.println("=====" + length);
 	}
-	
+
 }
-
-

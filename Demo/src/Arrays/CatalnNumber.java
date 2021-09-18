@@ -6,7 +6,7 @@ public class CatalnNumber {
 	public static void main(String[] args) {
 
 		// for n 4 use 5 because we have 0
-		int n = 3;
+		int n = 6;
 
 		int arr[] = new int[n];
 
@@ -19,7 +19,6 @@ public class CatalnNumber {
 				arr[i] += arr[j] * arr[i - j - 1];
 
 			}
-			System.out.println("arr[]"+arr[i]);
 
 		}
 

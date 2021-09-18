@@ -1,5 +1,6 @@
 package Recurssion;
 
+// freshworks
 public class Power {
 	// (n) time
 	static double printPower(double value, int power) {

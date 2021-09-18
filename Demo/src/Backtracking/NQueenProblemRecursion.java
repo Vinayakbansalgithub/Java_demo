@@ -1,6 +1,7 @@
 package Backtracking;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class NQueenProblemRecursion {
 
@@ -10,7 +11,7 @@ public class NQueenProblemRecursion {
 		int tempcol = col;
 		// upper rows
 		while (temprow > -1) {
-			if (board[temprow][col]) {
+			if (board[temprow][tempcol]) {
 				return false;
 			}
 			temprow--;
@@ -40,35 +41,26 @@ public class NQueenProblemRecursion {
 		return true;
 	}
 
-	static int print(boolean[][] board, int row) {
+	static int find(boolean[][] board, int row, int col) {
 		int count = 0;
-		
-		
+
 		// base case
-		if (row >= board[0].length) {
+		if (row >= board.length) {
+			
+			Stream.of(board).map(Arrays::toString).forEach(System.out::println);
+			System.out.println("-----------");
+
+			// if we go out of board means we find a solution
 			return 1;
 		}
-//
-//		if (row >= board[0].length) {
-//
-//			for (int i = 0; i < board.length; i++) {
-//				for (int j = 0; j < board[i].length; j++) {
-//					System.out.print(board[i][j] == true ? "T" + "  " : "F" + "  ");
-//				}
-//				System.out.println();
-//			}
-//
-//			System.out.println("*----------*");
-//			return 1;
-//		}
 
-		for (int col = 0; col < board[row].length; col++) {
+		for (int c = 0; c < board[row].length; c++) {
 
-			if (isSafe(board, row, col)) {
-				board[row][col] = true;
+			if (isSafe(board, row, c)) {
+				board[row][c] = true;
 
-				count = count + print(board, row + 1);
-				board[row][col] = false;
+				count = count + find(board, row + 1, c + 1);
+				board[row][c] = false;
 
 			}
 		}
@@ -78,16 +70,8 @@ public class NQueenProblemRecursion {
 	public static void main(String[] args) {
 
 		boolean board[][] = new boolean[4][4];
-		System.out.println("total arrangements possible: " + print(board, 0));
-		
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board[i].length; j++) {
-				System.out.print(board[i][j] == true ? "T" + "  " : "F" + "  ");
-			}
-			System.out.println();
-		}
+		System.out.println("total arrangements possible: " + find(board, 0, 0));
 
-		System.out.println("*----------*");
 	}
 
 }

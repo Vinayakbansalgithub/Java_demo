@@ -12,32 +12,27 @@ public class ImpRotateArrayKtimes {
 		int k = 3;
 
 		// for left rotation
-
-		// reverse first k
-//		reverse(arr, 0, k - 1);
-//
-//		// reverse rest
-//
-//		reverse(arr, k, arr.length - 1);
-//
-//		// reverse all
-//		reverse(arr, 0, arr.length - 1);
-//		
-
-		// for right rotation
-
-		// reverse all
-		reverse(arr, 0, arr.length - 1);
-
-		// reverse first k
 		reverse(arr, 0, k - 1);
-
-		// reverse rest
-
 		reverse(arr, k, arr.length - 1);
+		reverse(arr, 0, arr.length - 1);
 
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println("value " + arr[i]);
+		}
+
+		int arr2[] = { 10, 20, 30, 40, 50, 60, 70 };
+
+		k = 3;
+
+		// for right rotation
+		reverse(arr2, 0, arr.length - 1);
+		reverse(arr2, 0, k - 1);
+		reverse(arr2, k, arr.length - 1);
+
+		
+		System.out.println("==================");
+		for (int i = 0; i < arr2.length; i++) {
+			System.out.println("value " + arr2[i]);
 		}
 
 	}

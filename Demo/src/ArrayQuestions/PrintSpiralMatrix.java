@@ -15,22 +15,17 @@ public class PrintSpiralMatrix {
 					System.out.println(a[rowStart][i]);
 				}
 				rowStart++;
-			}
-			if (pos == 1) {
+			} else if (pos == 1) {
 				for (int i = rowStart; i <= rowEnd; i++) {
 					System.out.println(a[i][columnEnd]);
 				}
 				columnEnd--;
-			}
-
-			if (pos == 2) {
+			} else if (pos == 2) {
 				for (int i = columnEnd; i >= columnStart; i--) {
 					System.out.println(a[rowEnd][i]);
 				}
 				rowEnd--;
-			}
-
-			if (pos == 3) {
+			} else if (pos == 3) {
 				for (int i = rowEnd; i >= rowStart; i--) {
 					System.out.println(a[i][columnStart]);
 				}

@@ -7,28 +7,28 @@ public class BuySellStock {
 	static void buySell(int[] arr) {
 
 		// buying price
-		int bp = Integer.MAX_VALUE;
+		int bp = arr[0];
 		// overall profit
-		int op = 0;
+		int profit = 0;
 		// profit if sell today
 		int pist = 0;
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 1; i < arr.length; i++) {
 
 			if (arr[i] < bp) {
 				bp = arr[i];
 			}
 			pist = arr[i] - bp;
-			if (pist > op) {
-				op = pist;
+			if (pist > profit) {
+				profit = pist;
 			}
 
 		}
-		System.out.println("total profit " + op);
+		System.out.println("total profit " + profit);
 	}
 
 	private static void buySellInfiniteTransactions(int[] arr) {
-		
+
 		// buying date
 		int bd = 0;
 		// selling date
@@ -37,7 +37,7 @@ public class BuySellStock {
 
 		for (int i = 1; i < arr.length; i++) {
 
-			if (arr[i] > arr[i - 1]) {
+			if (arr[i] > arr[sd]) {
 				sd++;
 			} else {
 				profit += arr[sd] - arr[bd];

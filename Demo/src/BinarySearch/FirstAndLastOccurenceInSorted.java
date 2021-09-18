@@ -75,25 +75,29 @@ public class FirstAndLastOccurenceInSorted {
 
 	}
 
-	static int NumberOfTimesRotatedeSortedArray(int arr[], int start, int end) {
+	static int indexOfMin(int arr[], int start, int end) {
 
 		if (start <= end) {
 			int mid = start + (end - start) / 2;
 			int index = 0;
 
-			// 10 9 9
-			if (arr[mid] < arr[mid - 1] && arr[mid] <= arr[mid + 1]) {
+			// base
+			if (start == end)
+				return end;
+
+			if (start < mid && mid < end && arr[mid] <= arr[mid - 1] && arr[mid] > arr[mid + 1]) {  // 10 10 9
+				return mid + 1;
+			} else if (start < mid && mid < end && arr[mid] > arr[mid - 1] && arr[mid] >= arr[mid + 1]) {  // 9 10 10
+				return mid - 1;
+			} else if (start < mid && mid < end && arr[mid] < arr[mid - 1] && arr[mid] < arr[mid + 1]) {  // 9 10 11
 				return mid;
-			} else if (arr[start] < arr[mid]) { // 10 11 12
-				start = mid + 1;
-				if (start == arr.length)
-					start = 0;
-				index = NumberOfTimesRotatedeSortedArray(arr, start, end);
-			} else if (arr[mid] < arr[end]) { // 9 10 11
+			} else if (arr[mid] < arr[end]) {
 				end = mid - 1;
-				if (end == -1)
-					end = arr.length - 1;
-				index = NumberOfTimesRotatedeSortedArray(arr, start, end);
+				index = indexOfMin(arr, start, end);
+			} else {
+				start = mid + 1;
+				index = indexOfMin(arr, start, end);
+
 			}
 
 			return index;
@@ -102,89 +106,34 @@ public class FirstAndLastOccurenceInSorted {
 
 	}
 
-	static int findMin(int arr[], int low, int high) {
-		// This condition is needed to handle the case when array
-		// is not rotated at all
-
-		// or first elemnt is smallest case where high is -1
-		// imp remember this case
-
-		if (high < low) {
-			return arr[0];
-		}
-
-		// If there is only one element left
-		if (high == low)
-			return arr[low];
-
-		// Find mid
-		int mid = (low + high) / 2;
-
-		// Check if element (mid+1) is minimum element. Consider
-		// the cases like {3, 4, 5, 1, 2}
-		if (arr[mid + 1] < arr[mid])
-			return arr[mid + 1];
-
-//		if (mid < high && arr[mid + 1] < arr[mid])
-//			return arr[mid + 1];
-
-		// Check if mid itself is minimum element
-		if (mid > low && arr[mid] < arr[mid - 1] && arr[mid] < arr[mid + 1])
-			return arr[mid];
-
-		// Decide whether we need to go to left half or right half
-		if (arr[high] > arr[mid])
-			return findMin(arr, low, mid - 1);
-		else
-			return findMin(arr, mid + 1, high);
-	}
-
-	static int findPivot(int arr[], int low, int high) {
-		// base cases
-		if (high < low)
-			return -1;
-		if (high == low)
-			return low;
-
-		/* low + (high - low)/2; */
-		int mid = (low + high) / 2;
-		if (mid < high && arr[mid] > arr[mid + 1])
-			return mid + 1;
-		if (mid > low && arr[mid] < arr[mid - 1])
-			return mid;
-		if (arr[low] >= arr[mid])
-			return findPivot(arr, low, mid - 1);
-		return findPivot(arr, mid + 1, high);
-	}
-
 	public static void main(String[] args) {
-		int arr[] = { 5, 6, 7, 8, 9, 10, 10, 2, 3 };
-		int res = bs(arr, 0, arr.length - 1, 10);
-		System.out.println(res);
+		int[] arr = { 2, 1 };
+//		int res = bs(arr, 0, arr.length - 1, 10);
+//		System.out.println(res);
 
-		int firstRes = firstOccurence(arr, 0, arr.length - 1, 10);
-		System.out.println("firstRes " + firstRes);
-
-		int lastRes = LastOccurence(arr, 0, arr.length - 1, 18);
-		System.out.println("lastRes " + lastRes);
-
-		System.out.println("count " + (lastRes - firstRes));
+//		int firstRes = firstOccurence(arr, 0, arr.length - 1, 10);
+//		System.out.println("firstRes " + firstRes);
+//
+//		int lastRes = LastOccurence(arr, 0, arr.length - 1, 18);
+//		System.out.println("lastRes " + lastRes);
+//
+//		System.out.println("count " + (lastRes - firstRes));
 
 		// index of smallest element return the number of rotations
 		// int[] arrNew = { 10, 10, 2, 3, 3, 4, 10 };
 		// int[] arrNew = { 10, 11,12 };
 
-		int min = findMin(arr, 0, arr.length - 1);
-		System.out.println("min element is " + min);
+		int indexOfMin = indexOfMin(arr, 0, arr.length - 1);
+		System.out.println("noOfTimes " + indexOfMin);
 
-		int minIndex = findPivot(arr, 0, arr.length - 1);
+		System.out.println("min is ---- " + arr[indexOfMin]);
 
-		// we know the index of smallest element, by that array left to it is sorted and
-		// array right to it is sorted, apply bs
-		int res1 = bs(arr, 0, minIndex - 1, min);
-		int res2 = bs(arr, minIndex, arr.length - 1, 3);
+		// search in a rotated sorted array
+		int value = 1;
+		int res1 = bs(arr, 0, indexOfMin - 1, value);
+		int res2 = bs(arr, indexOfMin, arr.length - 1, value);
 
-		System.out.println("element index  " + Math.max(res1, res2));
+		System.out.println(" index  for element " + value + " is  " + Math.max(res1, res2));
 
 	}
 }

@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Stack;
 
+
+//A person can perform at most activities
 public class ActivitySelectionProblem {
 	public static void main(String[] args) {
 

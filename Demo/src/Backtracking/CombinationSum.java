@@ -9,12 +9,12 @@ public class CombinationSum {
 	static int[][] dp;
 
 	public static void main(String[] args) {
-		int wt[] = new int[] { 2, 3, 6, 7 };
-		int W = 7;
+		int arr[] = new int[] { 2, 3, 6, 7 };
+		int target = 7;
 
 		Stack<Integer> stack = new Stack<Integer>();
 
-		sum(wt, 0, W, stack);
+		sum(arr, 0, target, stack);
 
 		System.out.println("============================");
 
@@ -35,7 +35,6 @@ public class CombinationSum {
 		}
 
 		if (target < 0) {
-
 			return;
 		}
 

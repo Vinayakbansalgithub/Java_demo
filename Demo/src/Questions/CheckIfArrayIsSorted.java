@@ -1,8 +1,5 @@
 package Questions;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CheckIfArrayIsSorted {
@@ -15,8 +12,8 @@ public class CheckIfArrayIsSorted {
 		}
 		if (arr[start] <= arr[start + 1]) {
 			result = isSorted(arr, start + 1, end);
-		} 
-		
+		}
+
 		return result;
 
 	}
@@ -34,13 +31,10 @@ public class CheckIfArrayIsSorted {
 			index++;
 		}
 
-		
-		
 		boolean result = isSorted(arr, 0, arr.length - 1);
-		
-		System.out.println("result is "+result);
+
+		System.out.println("result is " + result);
 
 	}
 
-	
 }

@@ -2,6 +2,7 @@ package Questions;
 
 import java.util.HashSet;
 
+// 36 leetcode
 public class IsValidSudoko {
 	public static void main(String[] args) {
 		char arr[][] = { { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
@@ -26,7 +27,7 @@ public class IsValidSudoko {
 				if (curr != '.') {
 					boolean r1 = set.add(curr + " in row " + i);
 					boolean r2 = set.add(curr + " in col " + j);
-					boolean r3 = set.add(curr + " in box " + i / 3 + " and col " + j / 2);
+					boolean r3 = set.add(curr + " in box " + i / 3 + " and col " + j / 3);
 					if (!r1 || !r2 || !r3) {
 
 						return false;

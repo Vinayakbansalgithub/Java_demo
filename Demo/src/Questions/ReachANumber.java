@@ -1,6 +1,5 @@
 package Questions;
 
-// pending
 // leetcode 754
 public class ReachANumber {
 	public static int reachNumber(int target) {
