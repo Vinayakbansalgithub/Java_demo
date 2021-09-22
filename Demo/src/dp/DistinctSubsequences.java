@@ -42,6 +42,8 @@ public class DistinctSubsequences {
 		return dp[t.length()][s.length()];
 	}
 
+	
+	// easy
 	static int findSubsequenceCount(String S, String T, int k, int l) {
 
 		if (l == 0) {

@@ -1,15 +1,14 @@
 package LinkList;
+
+// 138. Copy List with Random Pointer
 class Cnode {
 	int data;
 	Cnode next,random;
 
 	public Cnode(int i) {
-		// TODO Auto-generated constructor stub
-
 		data = i;
 		next = null;
 		random =null;
-
 	}
 
 	public int getData() {
@@ -34,7 +33,7 @@ class Cnode {
 	}
 
 }
-public class CloneLinklistRandom {
+public class PendingCloneLinklistRandom {
 	
 	Cnode head;
 
@@ -47,7 +46,7 @@ public class CloneLinklistRandom {
 	}
 
 	Cnode add(int i) {
-		// TODO Auto-generated method stub
+		
 		if (head == null) {
 			head = new Cnode(i);
 			// System.out.println("head value is  "+head);
@@ -65,7 +64,7 @@ public class CloneLinklistRandom {
 	}
 	
 	public static void main(String[] args) {
-		CloneLinklistRandom obj = new CloneLinklistRandom();
+		PendingCloneLinklistRandom obj = new PendingCloneLinklistRandom();
 
 		Cnode a1 = obj.add(1);
 		Cnode a2 = obj.add(2);
@@ -82,9 +81,8 @@ public class CloneLinklistRandom {
 		a4.random=a2;
 		a5.random=a4;
 		
-		
-		
-		CloneLinklistRandom obj2 = new CloneLinklistRandom();
+
+		PendingCloneLinklistRandom obj2 = new PendingCloneLinklistRandom();
 
 		Cnode c1 = obj2.add(1);
 		Cnode c2 = obj2.add(2);

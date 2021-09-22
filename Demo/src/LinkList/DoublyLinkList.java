@@ -2,6 +2,8 @@ package LinkList;
 
 class DoubleNode {
 	Object value;
+	DoubleNode prev;
+	DoubleNode next;
 
 	public Object getValue() {
 		return value;
@@ -27,14 +29,11 @@ class DoubleNode {
 		this.next = next;
 	}
 
-	DoubleNode prev;
-	DoubleNode next;
-
 	public DoubleNode(Object value) {
 		// TODO Auto-generated constructor
 		this.value = value;
-		//next=null;
-		 //prev=null;
+		// next=null;
+		// prev=null;
 	}
 
 }
@@ -56,13 +55,12 @@ public class DoublyLinkList {
 		if (head == null) {
 			DoubleNode n1 = new DoubleNode(value);
 			head = n1;
-			head.prev=null;
-			head.next=null;
+			head.prev = null;
+			head.next = null;
 			return head;
 		}
 		DoubleNode temp = head;
-	
-	
+
 		DoubleNode newNode = new DoubleNode(value);
 		while (temp.next != null) {
 			temp = temp.next;
@@ -82,7 +80,6 @@ public class DoublyLinkList {
 		temp.prev = newNode;
 		temp = newNode;
 		head = temp;
-
 		return head;
 	}
 
@@ -105,9 +102,8 @@ public class DoublyLinkList {
 			temp = temp.next;
 		}
 		if (temp.next == null) {
-			System.out.println("there is no index  " + index
-					+ "  so placeing value " + value
-					+ " at current last place ");
+			System.out.println(
+					"there is no index  " + index + "  so placeing value " + value + " at current last place ");
 			DoubleNode newNode = new DoubleNode(value);
 			temp.next = newNode;
 			newNode.prev = temp;
@@ -165,68 +161,57 @@ public class DoublyLinkList {
 		nextNode.prev = temp;
 		return head;
 	}
-	 int search(Object value) {
+
+	int search(Object value) {
 		// TODO Auto-generated method stub
-		DoubleNode temp=head;
-		int counter=0;
-		
-		 while(temp!=null){
-			if(temp.value!=value){
-			 temp=temp.next;
+		DoubleNode temp = head;
+		int counter = 0;
 
-			 counter++;
-			} 
-		 }
-		
-		 return counter;
-	}
-	 
-	 private void getMiddleusingPointer() {
-			// TODO Auto-generated method stub
-		 
-			DoubleNode fastpointer = head;
-			DoubleNode temp = head;
+		while (temp != null) {
+			if (temp.value != value) {
+				temp = temp.next;
 
-			DoubleNode slowpointer = head;
-			
-			while(temp.next!=null){
-			temp=	temp.next;
+				counter++;
 			}
-			slowpointer=temp;
-		 
-		/*	while(first!=last)
-			{
-				first=first.next;
-				last=last.prev;
-				
-			}*/
-			
-			while(fastpointer!=null && fastpointer.next!=null ){
-				
-				fastpointer=fastpointer.next.next;
-				slowpointer=slowpointer.prev;
-				
-			}
-			
-			System.out.println("middle node is "+slowpointer.getValue());
-			
-			
-			
-			
-			
 		}
+
+		return counter;
+	}
+
+	private void getMiddleusingPointer() {
+		// TODO Auto-generated method stub
+
+		DoubleNode fastpointer = head;
+		DoubleNode temp = head;
+
+		DoubleNode slowpointer = head;
+
+		while (temp.next != null) {
+			temp = temp.next;
+		}
+		slowpointer = temp;
+
+		while (fastpointer != null && fastpointer.next != null) {
+
+			fastpointer = fastpointer.next.next;
+			slowpointer = slowpointer.prev;
+
+		}
+
+		System.out.println("middle node is " + slowpointer.getValue());
+
+	}
 
 	public static void main(String[] args) {
 		DoublyLinkList obj = new DoublyLinkList();
 		DoubleNode dn1 = obj.add(3);
 		DoubleNode dn2 = obj.add(5);
-	//	DoubleNode dn3 = obj.add(71);
+		// DoubleNode dn3 = obj.add(71);
 		DoubleNode dn11 = obj.add(30);
 		DoubleNode dn21 = obj.add(65);
 		DoubleNode dn31 = obj.add(67);
 		obj.getMiddleusingPointer();
-		
-		
+
 		DoubleNode dn22 = obj.addatIndex(1, 51);
 		DoubleNode dn222 = obj.deleteFirst();
 		DoubleNode dn2222 = obj.deleteFirst();
@@ -239,10 +224,9 @@ public class DoublyLinkList {
 		DoubleNode dn44 = obj.addFirst(91);
 		DoubleNode dn555 = obj.addFirst(111);
 		int dn55555 = obj.search(13);
-		System.out.println("found at index "+dn55555);
+		System.out.println("found at index " + dn55555);
 		DoubleNode dn6 = obj.add(13);
-		
-		
+
 		DoubleNode itr = dn6;
 
 		while (itr != null) {
@@ -252,9 +236,5 @@ public class DoublyLinkList {
 		}
 
 	}
-
-	
-
-	
 
 }

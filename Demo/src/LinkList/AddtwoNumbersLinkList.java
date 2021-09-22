@@ -106,20 +106,15 @@ public class AddtwoNumbersLinkList {
 	public static void main(String[] args) {
 		AddtwoNumbersLinkList obj = new AddtwoNumbersLinkList();
 
-		obj.add(9);
-		obj.add(9);
-		obj.add(9);
-		obj.add(9);
-		obj.add(9);
-		obj.add(9);
-		obj.add(9);
-
+		obj.add(2);
+		obj.add(4);
+		obj.add(3);
+	
 		AddtwoNumbersLinkList obj2 = new AddtwoNumbersLinkList();
 
-		obj2.add(9);
-		obj2.add(9);
-		obj2.add(9);
-		obj2.add(9);
+		obj2.add(5);
+		obj2.add(6);
+		obj2.add(4);
 
 		add(obj.head, obj2.head);
 

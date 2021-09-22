@@ -21,15 +21,18 @@ public class MimimumCostPath {
 
 				if (x == cost.length - 1 && y == cost[x].length - 1) {
 					dp[x][y] = cost[x][y];
-				} else if (x == cost.length - 1) {
-
+				}
+				// last row can take data only from right
+				else if (x == cost.length - 1) {
 					dp[x][y] = cost[x][y] + dp[x][y + 1];
-
-				} else if (y == cost[x].length - 1) {
+				}
+				// last col can take data only from down
+				else if (y == cost[x].length - 1) {
 
 					dp[x][y] = cost[x][y] + dp[x + 1][y];
 
 				} else {
+					// both down and right data
 					dp[x][y] = Math.min(dp[x + 1][y], dp[x][y + 1]) + cost[x][y];
 				}
 

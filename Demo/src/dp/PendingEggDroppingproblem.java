@@ -2,7 +2,7 @@ package dp;
 
 import java.util.Scanner;
 
-public class EggDroppingproblem {
+public class PendingEggDroppingproblem {
 
 	static int eggDrop(int e, int f) {
 

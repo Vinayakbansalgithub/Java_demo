@@ -38,6 +38,49 @@ public class DecodeWays {
 
 	}
 
+	static int count = 0;
+
+	
+	// easy
+	static int findRecurssion(String str) {
+
+		rec(str);
+		System.out.println("---------");
+		return count;
+
+	}
+
+	static void rec(String str) {
+
+		if (str.startsWith("0")) {
+			return;
+		} else if (str.length() == 1) {
+			count++;
+			return;
+		} else {
+
+			for (int i = 0; i < str.length(); i++) {
+
+				int value = Integer.parseInt(str.substring(0, i + 1));
+
+				System.out.println(value + " call");
+
+				if (value >= 1 && value <= 26) {
+
+					System.out.println(str.substring(i + 1));
+
+					// System.out.println(value);
+					rec(str.substring(i + 1));
+
+					System.out.println();
+				}
+
+			}
+
+		}
+
+	}
+
 	public static void main(String[] args) {
 
 		// 1234
@@ -45,7 +88,7 @@ public class DecodeWays {
 		Scanner scan = new Scanner(System.in);
 
 		String input = scan.nextLine();
-		int res = find(input);
+		int res = findRecurssion(input);
 		System.out.println(res);
 	}
 

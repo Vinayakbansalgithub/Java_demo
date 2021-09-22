@@ -1,6 +1,6 @@
 package LinkList;
 
-// leetcode 21
+// https://www.geeksforgeeks.org/flattening-a-linked-list/
 public class FlattenLinkedList {
 	Node head; // head of list
 
@@ -23,7 +23,7 @@ public class FlattenLinkedList {
 
 	}
 
-	Node merge(Node a, Node b) {
+	static Node merge(Node a, Node b) {
 		// if first linked list is empty then second
 		// is the answer
 		if (a == null)
@@ -47,7 +47,25 @@ public class FlattenLinkedList {
 			return b;
 		}
 
+	
 	}
+	
+	static Node flatten(Node root)
+    {
+        // Base Cases
+        if (root == null || root.right == null)
+            return root;
+ 
+        // recur for list on right
+        root.right = flatten(root.right);
+ 
+        // now merge
+        root = merge(root, root.right);
+ 
+        // return the root
+        // it will be in turn merged with its left
+        return root;
+    }
 
 	Node push(int value) {
 
@@ -96,7 +114,10 @@ public class FlattenLinkedList {
 		L2.head.right = L3.head;
 		FlattenLinkedList LMerge = new FlattenLinkedList();
 
-		Node res = LMerge.merge(L.head, L2.head);
+		//Node res = LMerge.merge(L.head, L2.head);
+		
+		
+		Node res=flatten(L.head);
 
 		System.out.println(res);
 

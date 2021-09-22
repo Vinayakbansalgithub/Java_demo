@@ -15,30 +15,10 @@ public class MinimumCoinProblem {
 		int coins[] = new int[] { 2,3,5};
 		int sum = 7;
 
-//		dp = new int[num.length + 1][sum + 1];
 
-//		for (int i = 0; i <= num.length; i++) {
-//
-//			for (int j = 0; j <= sum; j++) {
-//				if (j == 0) {
-//					dp[i][j] = 0;
-//				} else if (i == 0) {
-//					dp[i][j] = Integer.MAX_VALUE - 1;
-//				} else if (i == 1) {
-//					if (j % num[i - 1] == 0) {
-//						dp[i][j] = j / num[i - 1];
-//					} else {
-//						dp[i][j] = Integer.MAX_VALUE - 1;
-//					}
-//
-//				}
-//
-//			}
-//
-//		}
-//
-//		isSubSetSum(num, num.length, sum);
-
+		
+		
+		// here we need not need  permutations but all combinations
 		dp = new int[sum + 1];
 
 		dp[0] = 1;

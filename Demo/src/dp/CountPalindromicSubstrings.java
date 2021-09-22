@@ -1,5 +1,6 @@
 package dp;
 
+// https://www.youtube.com/watch?v=XmSOWnL6T_I&ab_channel=Pepcoding
 public class CountPalindromicSubstrings {
 	public static void main(String[] args) {
 		String str = "abcbbc";
@@ -13,8 +14,6 @@ public class CountPalindromicSubstrings {
 		boolean dp[][] = new boolean[str.length()][str.length()];
 
 		int count = 0;
-
-		int length = 0;
 
 		// base case for single char
 		for (int i = 0; i < str.length(); i++) {
