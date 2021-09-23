@@ -71,6 +71,8 @@ public class Streams8 {
 		int arr[] = { 1, 2, 3, 4, 5 };
 		List<Integer> s = IntStream.of(arr).boxed().collect(Collectors.toList());
 		
+		//Arrays.asList(arr);
+		
 		
 		OptionalDouble avg=IntStream.of(arr).average();
 		System.out.println("avg is "+avg.getAsDouble());

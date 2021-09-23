@@ -1,6 +1,5 @@
 package LinkList;
 
-
 // same as ReverseaLinkedListinGroupsofGivenSize
 public class PairWiseSwip {
 	static Node head;
@@ -17,7 +16,7 @@ public class PairWiseSwip {
 	}
 
 	Node pairWiseSwap(Node head) {
-		// TODO Auto-generated method stub
+
 		if (head == null || head.next == null) {
 			return null;
 		}
@@ -30,12 +29,8 @@ public class PairWiseSwip {
 		while (current != null) {
 
 			Node next = current.next;
-			current.next = prev;
 
-//			if (next == null || next.next == null) {
-//				prev.next = next;
-//				break;
-//			}
+			current.next = prev;
 
 			prev.next = next.next;
 

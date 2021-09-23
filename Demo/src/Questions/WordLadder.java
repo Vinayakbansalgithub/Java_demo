@@ -55,7 +55,6 @@ public class WordLadder {
 
 				if (isAdjacent(wordList.get(i), temp.value)) {
 
-
 					queue.add(new Type(wordList.get(i), temp.index + 1));
 					wordList.remove(wordList.get(i));
 

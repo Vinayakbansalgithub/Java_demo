@@ -2,9 +2,7 @@ package DesignPattern;
 
 abstract class Pizza {
 	abstract String description();
-
 	abstract int cost();
-
 }
 
 class ThinCrust extends Pizza {

@@ -383,7 +383,7 @@ public class BinarySearchTree {
 			return true;
 		} else if (root.left != null && root.key < low) {
 			return false;
-		} else if (root.right != null && root.key > low) {
+		} else if (root.right != null && root.key > high) {
 			return false;
 		}
 

@@ -55,7 +55,7 @@ public class MergeTwoLinkListAlternate {
 		// TODO Auto-generated method stub
 		if (head == null) {
 			head = new MergeTwoNode(i);
-			// System.out.println("head value is  "+head);
+			// System.out.println("head value is "+head);
 			return head;
 
 		}
@@ -76,47 +76,42 @@ public class MergeTwoLinkListAlternate {
 		MergeTwoNode Bhead = l2;
 		MergeTwoNode Anext;
 		MergeTwoNode Bnext;
-		MergeTwoNode temp=null;
+		MergeTwoNode temp = null;
 		MergeTwoNode strore;
 		while (Ahead != null & Bhead != null) {
 			Anext = Ahead.next;
 			Bnext = Bhead.next;
-			Ahead.next=Bhead;
-			Bhead.next=Anext;
+			Ahead.next = Bhead;
+			Bhead.next = Anext;
 
-		
 			Bhead = Bnext;
-			Ahead=Anext;
+			Ahead = Anext;
 
 		}
-		//Ahead=Bhead;
-		while(l1!=null){
-			System.out.println(" value is  "+l1.value);
-			l1=l1.next;
+		// Ahead=Bhead;
+		while (l1 != null) {
+			System.out.println(" value is  " + l1.value);
+			l1 = l1.next;
 		}
 	}
 
-	
-	 static void mergeTwoListAlter(MergeTwoNode l1, MergeTwoNode l2) {
-		// TODO Auto-generated method stub
-		
-		 MergeTwoNode temp=l1;
-		 MergeTwoNode q=l2;
-		while(temp!=null){
-			MergeTwoNode data=temp.next;
-			temp.next=q;
-			temp=temp.next;
-			q=data;
+	static void mergeTwoListAlter(MergeTwoNode l1, MergeTwoNode l2) {
+
+		MergeTwoNode temp = l1;
+		MergeTwoNode q = l2;
+		while (temp != null) {
+			MergeTwoNode data = temp.next;
+			temp.next = q;
+			temp = temp.next;
+			q = data;
 		}
-		
-		while(l1!=null){
-			System.out.println(" value is  "+l1.value);
-			l1=l1.next;
+
+		while (l1 != null) {
+			System.out.println(" value is  " + l1.value);
+			l1 = l1.next;
 		}
 	}
 
-	
-	
 	public static void main(String[] args) {
 		MergeTwoLinkListAlternate list1 = new MergeTwoLinkListAlternate();
 		MergeTwoNode l1 = list1.add(9);
@@ -129,12 +124,11 @@ public class MergeTwoLinkListAlternate {
 		list2.add(55);
 		list2.add(5);
 		list2.add(654);
-		//list2.add(3);
+		// list2.add(3);
 
-		//mergeTwoList(l1, l2);
-		
-		mergeTwoListAlter(l1,l2);
+		// mergeTwoList(l1, l2);
+
+		mergeTwoListAlter(l1, l2);
 	}
 
-	
 }

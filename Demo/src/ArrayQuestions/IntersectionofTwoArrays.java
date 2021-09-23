@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+
+// common in both the arrays
 public class IntersectionofTwoArrays {
 	public static void main(String[] args) {
 

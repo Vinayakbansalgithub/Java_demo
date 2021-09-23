@@ -39,6 +39,8 @@ public class RemoveNthfromEndLinkList {
 		System.out.println(res);
 	}
 
+	
+	// easy
 	Node removeFromEnd2(int n) {
 
 		Node temp = head;

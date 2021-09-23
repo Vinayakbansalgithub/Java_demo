@@ -64,33 +64,26 @@ public class LoopInLinkList {
 	}
 
 	static LNode IsLoop(LNode val) {
-		// TODO Auto-generated method stub
-
 		LNode slow = head, fast = head;
-
 		while (slow != null && fast != null) {
-
 			slow = slow.next;
 			fast = fast.next.next;
+
+			System.out.println("slow is " + slow.data + " ==== fast is " + fast.data);
 			if (slow == fast) {
 				return slow;
 			}
-
 		}
 		return null;
-
 	}
 
 	static LNode LoopStart(LNode slow, LNode head) {
-		// TODO Auto-generated method stub
 
 		LNode value;
 
 		while (slow.next != head.next) {
-
 			slow = slow.next;
 			head = head.next;
-
 		}
 
 		value = slow.next;
@@ -105,28 +98,24 @@ public class LoopInLinkList {
 	public static void main(String[] args) {
 		LoopInLinkList obj = new LoopInLinkList();
 
-		obj.add(11);
-		obj.add(14);
+		obj.add(1);
+		obj.add(2);
 
-		obj.add(18);
+		obj.add(3);
 
-		LNode p = obj.add(22);
-		obj.add(19);
+		LNode p = obj.add(4);
+		obj.add(5);
 
-		obj.add(18);
-		obj.add(17);
-		obj.add(22);
-		obj.add(55);
-
-		obj.add(9);
-
-		LNode l = obj.add(8);
+		obj.add(6);
+		LNode l = obj.add(7);
 
 		l.next = p;
 		LNode loopstartNode = null;
 		LNode val = obj.getHead();
 
 		LNode slow = IsLoop(val);
+
+		System.out.println("isloop node " + slow.data);
 
 		if (slow != null) {
 

@@ -1,5 +1,7 @@
 package DesignPattern;
 
+
+//  behaviour
 interface PaymentAlgo {
 	void Algorithm();
 }

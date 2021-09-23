@@ -77,19 +77,16 @@ public class MiddleOfLinkList {
 	}
 
 	private void getMiddle() {
-		// TODO Auto-generated method stub
 		int MiddleNodeindex = (totalnode - 1) / 2;
 		int i = 0;
-
 		Mnode temp = head;
 		while (i < MiddleNodeindex) {
 			temp = temp.next;
 			i++;
 		}
-
 		System.out.println("HNode [data=" + temp.data + ", next=" + temp.next + "]");
-
 	}
+	
 
 	void getMiddleUsingTwoPointer() {
 		// TODO Auto-generated method stub

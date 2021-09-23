@@ -145,10 +145,10 @@ public class PalindromeLinkList {
 		obj.add(22);
 		obj.add(11);
 		obj.add(56);
-		obj.add(56);
-		obj.add(11);
-		obj.add(22);
-		obj.add(28);
+		obj.add(58);
+//		obj.add(11);
+//		obj.add(22);
+//		obj.add(28);
 		// obj.add(12);
 		// obj.add(12);
 		boolean pal = isPalindrome2(head);

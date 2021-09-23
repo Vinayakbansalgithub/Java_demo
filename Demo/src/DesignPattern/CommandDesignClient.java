@@ -23,6 +23,8 @@ class Order implements Command {
 	}
 }
 
+
+//invoker
 class Waiter implements Command {
 	private Order order;
 
@@ -35,6 +37,7 @@ class Waiter implements Command {
 	}
 }
 
+// receiver
 class Chef {
 
 	public void cookPasta() {

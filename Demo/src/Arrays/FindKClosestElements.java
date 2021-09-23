@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
+import java.lang.Math;
+
 // leetcode 658
 public class FindKClosestElements {
 

@@ -2,7 +2,7 @@ package Recurssion;
 
 
 // also called sum of subset
-public class PrintAllPossibleSubsetswithSumequaltoagivenNumber {
+public class PendingPrintAllPossibleSubsetswithSumequaltoagivenNumber {
 	public static void printSubSets(int N, int curr, String res) {
 		if (curr == 0) {
 			System.out.println(res);

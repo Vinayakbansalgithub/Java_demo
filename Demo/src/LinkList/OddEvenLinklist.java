@@ -1,9 +1,8 @@
 package LinkList;
 
-import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+
+// 328. Odd Even Linked List
 
 public class OddEvenLinklist {
 	class Inode {

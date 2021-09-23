@@ -85,10 +85,9 @@ public class ReverseaLinkedListinGroupsofGivenSize {
 		obj.add(4);
 		obj.add(5);
 		obj.add(6);
-		obj.add(7);
 		
 
-		head = obj.reverseinGroup(head, 2);
+		head = obj.reverseinGroup(head, 4);
 
 		while (head != null) {
 

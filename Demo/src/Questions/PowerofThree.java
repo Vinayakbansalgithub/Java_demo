@@ -29,7 +29,7 @@ public class PowerofThree {
 
 //		y= 3^x
 //				
-//		log(y)= x (log(2))
+//		log(y)= x (log(3))
 //		
 //		log(y)/log(3)= x
 //		

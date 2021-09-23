@@ -71,7 +71,6 @@ abstract class AbstractPhone {
 	AbstractPhone(Assistance assistance, Charger charger) {
 		this.assistance = assistance;
 		this.charger = charger;
-
 	}
 
 	abstract void basicFeatures();

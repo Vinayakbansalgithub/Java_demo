@@ -1,5 +1,6 @@
 package LinkList;
 
+// right rotation
 public class RotateaLinkedList {
 	Node head;
 
@@ -26,8 +27,8 @@ public class RotateaLinkedList {
 		obj.add(3);
 		obj.add(4);
 		obj.add(5);
-
-		int times = 19;
+		obj.add(6);
+		int times = 4;
 		int size = obj.size();
 
 		Node res = obj.rotate(times % size);
@@ -36,27 +37,47 @@ public class RotateaLinkedList {
 
 	}
 
-	Node rotate(int times) {
-		int size = size();
-		Node temp = null;
+	Node rotate(int k) {
+		if (k == 0)
+			return null;
 
-		temp = head;
+		// Let us understand the below code for example k = 4
+		// and list = 10->20->30->40->50->60.
+		Node current = head;
 
-		for (int j = 0; j < size - times - 1; j++) {
-
-			temp = temp.next;
-
+		// current will either point to kth or NULL after this
+		// loop. current will point to node 40 in the above example
+		int count = 1;
+		while (count < k && current != null) {
+			current = current.next;
+			count++;
 		}
 
-		head = temp.next;
-		temp.next = null;
+		// If current is NULL, k is greater than or equal to count
+		// of nodes in linked list. Don't change the list in this case
+		if (current == null)
+			return null;
 
-		Node curr = head;
+		// current points to kth node. Store it in a variable.
+		// kthNode points to node 40 in the above example
+		Node kthNode = current;
 
-		while (curr.next != null) {
-			curr = curr.next;
-		}
-		curr.next = temp;
+		// current will point to last node after this loop
+		// current will point to node 60 in the above example
+		while (current.next != null)
+			current = current.next;
+
+		// Change next of last node to previous head
+		// Next of 60 is now changed to node 10
+
+		current.next = head;
+
+		// Change head to (k+1)th node
+		// head is now changed to node 50
+		head = kthNode.next;
+
+		// change next of kth node to null
+		kthNode.next = null;
 
 		return head;
 	}

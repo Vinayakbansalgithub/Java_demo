@@ -77,40 +77,6 @@ public class RemoveduplicateelementfromsortedLinkedlist {
 		System.out.println("uu" + head);
 
 	}
-	
-	
-	
-	private void removeDuplicate(Dupnode head) {
-		// TODO Auto-generated method stub
-
-		Dupnode prev = head;
-		Dupnode current = prev.next;
-
-		while (current != null) {
-
-			Dupnode next = current.next;
-			
-			
-			while (current.data == prev.data) {
-
-				current = current.next;
-				next = current.next;
-
-			}
-			
-			prev.next=current;
-					
-
-			prev = current;
-
-			current = next;
-
-		
-
-		}
-		System.out.println("uu" + head);
-
-	}
 
 	Dupnode add(int i) {
 
@@ -137,8 +103,8 @@ public class RemoveduplicateelementfromsortedLinkedlist {
 		obj.add(1);
 		obj.add(2);
 
-		 obj.add(3);
-		 obj.add(3);
+		obj.add(3);
+		obj.add(3);
 
 		obj.add(3);
 		obj.add(4);
@@ -147,7 +113,7 @@ public class RemoveduplicateelementfromsortedLinkedlist {
 		obj.add(5);
 		obj.add(4);
 
-		obj.removeDuplicate(head);
+		obj.removeDup(head);
 
 	}
 

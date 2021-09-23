@@ -37,6 +37,8 @@ public class ForEachExample {
 		map.put("key1", "value1");
 		map.put("key2", "value2");
 		map.put("key3", "value3");
+		
+		
 		// using default BiConsumer action
 		map.forEach((key, value) -> System.out.println("key: " + key + ",value: " + value));
 
@@ -46,6 +48,7 @@ public class ForEachExample {
 		System.out.println("Array...");
 		for (String res : str)
 			System.out.print(res + " ");
+		
 		Arrays.sort(str, new Comparator<String>() {
 			public int compare(String one, String two) {
 				int val = one.compareTo(two);
@@ -67,6 +70,8 @@ public class ForEachExample {
 		List<Integer> numbers = Arrays.asList(5, 3, 50, 24, 40, 2, 9, 18);
 		numbers.stream().sorted((a, b) -> a.compareTo(b));
 		numbers.stream().sorted(Integer::compareTo);
+		
+		
 
 		String[] stringArray = { "Barbara", "James", "Mary", "John", "Patricia", "Robert", "Michael", "Linda" };
 

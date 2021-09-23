@@ -57,7 +57,6 @@ interface IObserver {
 
 }
 
-//class ClientObserver implements IObserver {
 class FunctionizeRuntimeServer implements IObserver {
 
 	public Queue<String> message_queue;

@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 // continious elements
-public class LargestSubarraywithZeroSum {
+public class PendingLargestSubarraywithZeroSum {
 
 	static class Pair {
 
@@ -66,7 +66,9 @@ public class LargestSubarraywithZeroSum {
 //		int arr1[] = {3,-1,-2,5};
 //		int arr2[] = {1,2,0,3};
 
-		int arr[] = { 15, -2, 2, -8, 1, 7, 10, 23 };
+		//int arr[] = { 15, -2, 2, -8, 1, 7, 10, 23 };
+		int arr[] = { 15, -15};
+
 
 		subArrayExists(arr);
 

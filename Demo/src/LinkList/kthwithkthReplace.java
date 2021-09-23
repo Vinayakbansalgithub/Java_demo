@@ -1,8 +1,5 @@
 package LinkList;
 
-import LinkList.PairWiseSwip.Node;
-import SelFrDemo.strictfpDemo;
-
 class kthNode {
 
 	int data;
@@ -30,7 +27,6 @@ public class kthwithkthReplace {
 	}
 
 	static void kthnodelast(kthNode head, int k) {
-		// TODO Auto-generated method stub
 
 		kthNode startk, endk, startkprev = null, endkprev = null;
 		startk = head;
@@ -43,7 +39,6 @@ public class kthwithkthReplace {
 		kthNode temp = startk;
 
 		while (temp.next != null) {
-
 			temp = temp.next;
 			endkprev = endk;
 			endk = endk.next;
@@ -75,12 +70,10 @@ public class kthwithkthReplace {
 		list.head.next.next = new kthNode(3);
 		list.head.next.next.next = new kthNode(4);
 		list.head.next.next.next.next = new kthNode(5);
-		list.head.next.next.next.next.next = new kthNode(6);
-		list.head.next.next.next.next.next.next = new kthNode(7);
 
 		System.out.println(totallength(head));
 
-		kthnodelast(head, 3);
+		kthnodelast(head, 2);
 
 	}
 
