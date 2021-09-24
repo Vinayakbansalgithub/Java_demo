@@ -18,18 +18,7 @@ public class SubSetSumproblem {
 
 		dp = new boolean[num.length + 1][sum + 1];
 
-		for (int i = 0; i < num.length; i++) {
-
-			for (int j = 0; j < sum; j++) {
-				if (i == 0 && j == 0) {
-					dp[i][j] = true;
-				} else if (i == 0) {
-					dp[i][j] = false;
-				} else if (j == 0) {
-					dp[i][j] = true;
-				}
-			}
-		}
+	
 
 		isSubSetSum(num, num.length, sum);
 

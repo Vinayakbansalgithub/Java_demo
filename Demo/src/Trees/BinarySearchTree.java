@@ -511,7 +511,6 @@ public class BinarySearchTree {
 
 		System.out.println("LCS is " + listPath2.get(i + 1));
 
-		
 		// pending
 		boolean res = hasPathSum(tree.root, 155);
 		System.out.println("has path " + res);
