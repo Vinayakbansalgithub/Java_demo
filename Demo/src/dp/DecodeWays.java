@@ -40,50 +40,39 @@ public class DecodeWays {
 
 	static int count = 0;
 
-	
 	// easy
 	static int findRecurssion(String str) {
 
-		rec(str);
-		System.out.println("---------");
+		count=helper(str, str.length());
 		return count;
 
 	}
 
-	static void rec(String str) {
+	static int helper(String str, int k) {
 
-		if (str.startsWith("0")) {
-			return;
-		} else if (str.length() == 1) {
-			count++;
-			return;
-		} else {
+		if (k == 0) {
+			return 1;
+		}
 
-			for (int i = 0; i < str.length(); i++) {
+		int index = str.length() - k;
 
-				int value = Integer.parseInt(str.substring(0, i + 1));
+		if (str.charAt(index) == '0') {
+			return 0;
+		}
 
-				System.out.println(value + " call");
+		int result = helper(str, k - 1);
 
-				if (value >= 1 && value <= 26) {
-
-					System.out.println(str.substring(i + 1));
-
-					// System.out.println(value);
-					rec(str.substring(i + 1));
-
-					System.out.println();
-				}
-
-			}
+		if (k >= 2 && Integer.parseInt(str.substring(0, 2)) <= 26) {
+			result = result + helper(str, k - 2);
 
 		}
+		return result;
 
 	}
 
 	public static void main(String[] args) {
 
-		// 1234
+		// 12345
 
 		Scanner scan = new Scanner(System.in);
 

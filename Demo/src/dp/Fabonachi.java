@@ -17,10 +17,6 @@ public class Fabonachi {
 			return n;
 		}
 
-//		if (arr[n] != 0) {
-//			return arr[n];
-//		}
-
 		int r1 = find(n - 1, arr);
 		int r2 = find(n - 2, arr);
 

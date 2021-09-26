@@ -6,7 +6,6 @@ public class RotateMatrix90 {
 		for (int i = 0; i < r; i++) {
 			for (int j = 0; j < c; j++) {
 				if (i <= j) {
-
 					int temp;
 					temp = arr[i][j];
 					arr[i][j] = arr[j][i];

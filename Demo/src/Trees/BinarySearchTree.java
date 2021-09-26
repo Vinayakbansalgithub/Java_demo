@@ -1,15 +1,12 @@
 package Trees;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import Trees.BinarySearchTree.Node;
-
-import java.util.Queue;
+import java.util.Stack;
 
 class Pair {
 	public final int value; // first field of a pair
@@ -364,7 +361,6 @@ public class BinarySearchTree {
 	}
 
 	private static boolean hasPathSum(Node root, int sum) {
-		// TODO Auto-generated method stub
 
 		if (root == null) {
 			return false;
@@ -381,9 +377,11 @@ public class BinarySearchTree {
 
 		if (root == null) {
 			return true;
-		} else if (root.left != null && root.key < low) {
+		}
+
+		else if (root.left != null && low != null && root.key < low) {
 			return false;
-		} else if (root.right != null && root.key > high) {
+		} else if (root.right != null && high != null && root.key > high) {
 			return false;
 		}
 
@@ -394,6 +392,78 @@ public class BinarySearchTree {
 	static boolean isValidBST(Node root) {
 
 		return validBST(root, null, null);
+	}
+
+	static boolean mirrorSymmetric(Node node1, Node node2) {
+		// TODO Auto-generated method stub
+		if (node1 == null && node2 == null) {
+			return true;
+		}
+
+		if (node1.key == node2.key)
+			return (mirrorSymmetric(node1.left, node2.right) && mirrorSymmetric(node1.right, node2.left));
+
+		return false;
+
+	}
+
+	static boolean isSymmetric(Node parent) {
+		return mirrorSymmetric(parent, parent);
+	}
+
+//	static void flatten(Node parent) {
+//
+//		Stack<Node> stack = new Stack<Node>();
+//
+//		stack.add(parent);
+//
+//		while (!stack.isEmpty()) {
+//
+//			Node node = stack.pop();
+//
+//			if (node.left != null)
+//				stack.add(node.left);
+//
+//			if (node.right != null)
+//				stack.add(node.right);
+//
+//			if (!stack.isEmpty()) {
+//				node.right = stack.peek();
+//			}
+//
+//			node.left = null;
+//
+//		}
+//
+//		System.out.println("flat " + parent);
+//
+//	}
+
+	static void flatten(Node parent) {
+
+		if (parent == null || (parent.left == null && parent.right == null))
+			return;
+
+		if (parent.left != null) {
+
+			flatten(parent.left);
+
+			Node right = parent.right;
+
+			parent.right = parent.left;
+
+			parent.left = null;
+
+			Node temp = parent.right;
+			while (temp != null)
+				temp = temp.right;
+
+			parent.right = temp;
+
+		}
+
+		flatten(parent.right);
+
 	}
 
 	// Driver Program to test above functions
@@ -414,6 +484,8 @@ public class BinarySearchTree {
 		tree.insert(45);
 
 		tree.insert(65);
+
+	
 
 		System.out.println("pre (Root, Left, Right)");
 		tree.Preorder(tree.root);
@@ -452,12 +524,6 @@ public class BinarySearchTree {
 
 		System.out.println("top view");
 
-		// System.out.println("vertical view");
-//		for (Entry<Integer, LinkedList<Integer>> entry : map.entrySet()) {
-//			System.out.print(entry.getValue() + "   ");
-//
-//		}
-
 		System.out.println();
 		System.out.println("top view");
 		topView(tree.root, map, 0, 0);
@@ -486,16 +552,15 @@ public class BinarySearchTree {
 
 		System.out.println();
 
-		System.out.println("mirror");
-		mirror(tree.root);
+		System.out.println("is valid bst " + isValidBST(tree.root));
 
 		System.out.println("pre (Root, Left, Right)");
 		tree.Preorder(tree.root);
-
-		nodeToRootpath(tree.root, 45, listPath1);
+		System.out.println("-----");
+		nodeToRootpath(tree.root, 25, listPath1);
 		System.out.println("root to node path " + listPath1);
 
-		nodeToRootpath(tree.root, 30, listPath2);
+		nodeToRootpath(tree.root, 60, listPath2);
 		System.out.println("root to node path " + listPath2);
 
 		int i = listPath2.size() - 1;
@@ -505,17 +570,44 @@ public class BinarySearchTree {
 			if (listPath2.get(i) == listPath1.get(j)) {
 				j--;
 				i--;
-			}
+			} else
+				break;
 
 		}
 
 		System.out.println("LCS is " + listPath2.get(i + 1));
 
-		// pending
-		boolean res = hasPathSum(tree.root, 155);
-		System.out.println("has path " + res);
+		Collections.reverse(listPath1);
+		Collections.reverse(listPath2);
 
-		System.out.println("is valid bst " + isValidBST(tree.root));
+		int lastMatch;
+		while (listPath1.size() > 0 && listPath2.size() > 0 && listPath1.get(0).equals(listPath2.get(0))) {
+			lastMatch = listPath1.get(0);
+
+			listPath1.remove(0);
+			listPath2.remove(0);
+
+		}
+
+		System.out.println(listPath1);
+
+		System.out.println(listPath2);
+
+		System.out.println("distance between path " + (listPath1.size() + listPath2.size() + 1));
+
+		// 112. Path Sum
+		boolean res = hasPathSum(tree.root, 140);
+		System.out.println("has path sum " + res);
+
+		System.out.println("mirror");
+		mirror(tree.root);
+
+		// 101. Symmetric Tree
+		boolean isSymmetric = isSymmetric(tree.root);
+		System.out.println("isSymmetric " + isSymmetric);
+		
+		// 114. Flatten Binary Tree to Linked List
+		flatten(tree.root);
 
 	}
 

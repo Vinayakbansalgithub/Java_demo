@@ -25,6 +25,8 @@ public class MinimumCoinProblem {
 
 		for (int i = 0; i < coins.length; i++) {
 			for (int j = coins[i]; j < dp.length; j++) {
+				
+				// we can make coins[i] and chek for sum-coins[i] and add res
 				dp[j] += dp[j - coins[i]];
 			}
 

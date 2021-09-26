@@ -5,7 +5,7 @@ package dp;
 // leetcode 5
 public class CountPalindromicSubstrings {
 	public static void main(String[] args) {
-		String str = "forgeeksskeegfor";
+		String str = "bananas";
 
 		find(str);
 	}

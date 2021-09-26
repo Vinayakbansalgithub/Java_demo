@@ -41,7 +41,7 @@ public class LongestIncrementPathInaMatric {
 		int left = checknbrs(i, j - 1, i, j, m);
 		int down = checknbrs(i + 1, j, i, j, m);
 		int right = checknbrs(i, j + 1, i, j, m);
-		int res = Math.max(Math.max(Math.max(up, down), left), right) + 1;
+		int res = Math.max(Math.max(Math.max(up, down), left), right) + 1; 
 		System.out.println(res + "  i:" + i + " j:" + j);
 		return res;
 

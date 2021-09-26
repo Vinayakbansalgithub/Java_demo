@@ -1,5 +1,7 @@
 package Matrix;
 
+
+// matrix is sorted
 public class CountNegativeIntegersinRowMatrix {
 
 	static int count(int r, int c, int[][] a) {

@@ -2,7 +2,6 @@ package dp;
 
 public class TileAFloor {
 
-
 	public static void main(String[] args) {
 		int result = find(6);
 		System.out.println(result);
@@ -13,7 +12,7 @@ public class TileAFloor {
 	}
 
 	// floor is n*2 and tile is 2*1
-
+	// Ways To Tile A Floor
 	static int find(int n) {
 		// TODO Auto-generated method stub
 		int result = 0;
@@ -29,14 +28,12 @@ public class TileAFloor {
 	}
 
 	// problem 2 Tiling floor N x M using 1*M Tiles
-
 	private static int waysnNXM(int n, int m) {
 		// TODO Auto-generated method stub
 
 		int dp[] = new int[n + 1];
 
 		for (int i = 1; i <= n; i++) {
-
 			if (i < m) {
 				dp[i] = 1;
 			} else if (i == m) {

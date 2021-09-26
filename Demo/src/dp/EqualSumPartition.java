@@ -1,28 +1,35 @@
-
 package dp;
 
-//KnapSackProblem variation  0/1
-
-public class SubSetSumproblem {
+public class EqualSumPartition {
 
 	static boolean[][] dp;
 
 	public static void main(String[] args) {
 
-		// players score runs
-		int num[] = new int[] { 2, 3, 6, 7 };
-		// total runs to make
-		int sum = 7;
-
-		int count = 0;
-
-		dp = new boolean[num.length + 1][sum + 1];
-
-		isSubSetSum(num, num.length, sum);
+		int num[] = new int[] { 1, 5, 11, 5 };
+		boolean res = isEqualSumPartition(num, num.length);
+		System.out.println(res);
 
 	}
 
-	static void isSubSetSum(int[] num, int length, int sum) {
+	static boolean isEqualSumPartition(int[] num, int length) {
+
+		int cursum = 0;
+		for (int i = 0; i < length; i++) {
+			cursum += num[i];
+		}
+
+		if (cursum % 2 == 1)
+			return false;
+		else {
+			return isSubSetSum(num, length, cursum / 2);
+		}
+
+	}
+
+	static boolean isSubSetSum(int[] num, int length, int sum) {
+
+		dp = new boolean[num.length + 1][sum + 1];
 
 		for (int i = 0; i <= length; i++) {
 
@@ -63,7 +70,7 @@ public class SubSetSumproblem {
 
 			}
 		}
-		System.out.println(dp[length][sum]);
+		return dp[length][sum];
 	}
 
 }

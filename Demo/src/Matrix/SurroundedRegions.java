@@ -1,11 +1,10 @@
 package Matrix;
 
 // 130. Surrounded Regions
-// redo
-public class PendingSurroundedRegions {
+public class SurroundedRegions {
 	public static void main(String[] args) {
-		char arr[][] = { { 'X', 'X', 'X', 'X' }, { 'X', '0', '0', 'X' }, { 'X', '0', 'X', 'X' },
-				{ 'X', '0', 'X', 'X' } };
+		char arr[][] = { { 'X', 'X', 'X', '0', 'X', 'X' }, { 'X', '0', 'X', '0', '0', 'X' },
+				{ 'X', 'X', '0', 'X', 'X', '0' }, { 'X', '0', '0', 'X', 'X', 'X' } };
 		find(arr);
 	}
 
@@ -16,13 +15,13 @@ public class PendingSurroundedRegions {
 
 		// row
 
-		for (int j = 0; j < row; j++) {
+		for (int i = 0; i < row; i++) {
 
-			if (arr[j][0] == '0') {
-				dfs(arr, j, 0);
+			if (arr[i][0] == '0') {
+				dfs(arr, i, 0);
 			}
-			if (arr[j][arr.length - 1] == '0') {
-				dfs(arr, j, col - 1);
+			if (arr[i][col - 1] == '0') {
+				dfs(arr, i, col - 1);
 			}
 
 		}
@@ -62,13 +61,8 @@ public class PendingSurroundedRegions {
 
 	static void dfs(char[][] arr, int row, int col) {
 
-		if (row < 0 || col < 0 || row > arr.length - 1 || col > arr[row].length - 1) {
-			return;
-		}
-
 		if (arr[row][col] == '0') {
 			arr[row][col] = '*';
-		} else {
 
 			if (row > 0 && arr[row - 1][col] == '0')
 				dfs(arr, row - 1, col); // t
@@ -83,5 +77,6 @@ public class PendingSurroundedRegions {
 				dfs(arr, row, col - 1); // l
 
 		}
+
 	}
 }

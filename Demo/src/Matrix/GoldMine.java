@@ -1,8 +1,6 @@
 package Matrix;
 
 // leet 1219. Path with Maximum Gold
-
-
 public class GoldMine {
 
 	private static void getMaxGoldAtLevel(int[][] m, int r, int c) {

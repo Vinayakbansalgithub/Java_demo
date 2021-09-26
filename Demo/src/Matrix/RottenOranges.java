@@ -6,6 +6,9 @@ import java.util.Queue;
 public class RottenOranges {
 
 	static class Point {
+		
+		// i is row
+		// j is col
 		int i;
 		int j;
 
@@ -28,7 +31,6 @@ public class RottenOranges {
 
 	}
 
-	
 	// bfs
 	static void count(int[][] m) {
 		// TODO Auto-generated method stub
