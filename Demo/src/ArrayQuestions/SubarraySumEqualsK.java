@@ -1,8 +1,6 @@
 package ArrayQuestions;
 
 import java.util.HashMap;
-import java.util.Iterator;
-
 
 // 560. Subarray Sum Equals K
 

@@ -12,7 +12,7 @@ public class LongestIncreasingSubsequence {
 	}
 
 	private static int findLIS(int[] arr) {
-		
+
 		int oMax = 0;
 		int dp[] = new int[arr.length];
 		dp[0] = 1;
@@ -20,7 +20,7 @@ public class LongestIncreasingSubsequence {
 		// start at index
 		for (int i = 1; i < arr.length; i++) {
 			int max = 0;
-			
+
 			// end at index
 			for (int j = 0; j < i; j++) {
 				if (arr[j] < arr[i]) {

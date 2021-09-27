@@ -14,6 +14,7 @@ public class Subsets {
 	}
 
 	public static void backtrack(int[] arr, int i, List<Integer> curr, List<List<Integer>> ans) {
+		
 		if (i == arr.length) {
 			ans.add(new ArrayList<Integer>(curr));
 			return;

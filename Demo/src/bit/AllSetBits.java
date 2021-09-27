@@ -1,5 +1,7 @@
 package bit;
 
+import com.google.common.collect.Range;
+
 public class AllSetBits {
 
 	public static int countPrimes(int n) {
@@ -28,6 +30,7 @@ public class AllSetBits {
 	}
 
 	public static void main(String[] args) {
+		
 
 		int i = 128;
 		int ans = 0;

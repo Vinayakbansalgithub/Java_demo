@@ -14,7 +14,7 @@ public class FindthePeakElement {
 			if (start == end)
 				return end;
 
-			// checking mid === 0 means thet left condition is satisfied
+			// checking mid === 0 and length -1 is for case 1 2 or 2 1 
 			if ((mid == 0 || arr[mid] > arr[mid - 1]) && 
 					(arr[mid] > arr[mid + 1] || arr.length - 1 == mid + 1)) {
 				return arr[mid];

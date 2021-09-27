@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PascalTriangle {
 	public static void main(String[] args) {
-		List<ArrayList<Integer>> res=find(5);
+		List<ArrayList<Integer>> res = find(5);
 		System.out.println(res);
 	}
 
@@ -24,7 +24,7 @@ public class PascalTriangle {
 					rowResult.add(1);
 				else {
 
-					rowResult.add(result.get(i-1).get(j)+result.get(i-1).get(j-1));
+					rowResult.add(result.get(i - 1).get(j) + result.get(i - 1).get(j - 1));
 
 				}
 
@@ -32,7 +32,7 @@ public class PascalTriangle {
 
 			result.add(rowResult);
 		}
-		
+
 		return result;
 
 	}

@@ -411,33 +411,6 @@ public class BinarySearchTree {
 		return mirrorSymmetric(parent, parent);
 	}
 
-//	static void flatten(Node parent) {
-//
-//		Stack<Node> stack = new Stack<Node>();
-//
-//		stack.add(parent);
-//
-//		while (!stack.isEmpty()) {
-//
-//			Node node = stack.pop();
-//
-//			if (node.left != null)
-//				stack.add(node.left);
-//
-//			if (node.right != null)
-//				stack.add(node.right);
-//
-//			if (!stack.isEmpty()) {
-//				node.right = stack.peek();
-//			}
-//
-//			node.left = null;
-//
-//		}
-//
-//		System.out.println("flat " + parent);
-//
-//	}
 
 	static void flatten(Node parent) {
 
