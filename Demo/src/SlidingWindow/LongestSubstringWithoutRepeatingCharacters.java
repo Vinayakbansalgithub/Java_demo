@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // leetcode 3
-public class LongestSubstringWithWithoutRepeatingCharacters {
+public class LongestSubstringWithoutRepeatingCharacters {
 
 	static void findSubstring(String str) {
 		// TODO Auto-generated method stub

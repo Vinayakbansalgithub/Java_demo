@@ -48,7 +48,7 @@ public class LongestSubstringWithKUniqueCharacters {
 		}
 
 		System.out.println(max);
-		
+
 		// 2322
 
 	}

@@ -9,8 +9,18 @@ public class CandyDistibutionLeet {
 
 	public static void main(String[] args) {
 		
+String s="CNwHH\n"
+		+ "uECni  ";
+s=s.trim().replace("\n", " ");
 
+System.out.println(s);
 		
+
+if (s.equalsIgnoreCase("CNWHH UECNI")) {
+	System.out.println("lll");
+
+}
+
 		int arr[] = { 7, 1, 5, 3, 6, 4 };
 
 		System.out.println("max candies is " + findCandies(arr));

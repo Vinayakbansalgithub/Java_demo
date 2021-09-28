@@ -35,7 +35,7 @@ public class PowerofThree {
 //		
 //		(log(y)/log(3))%1==0;
 
-		if (Math.log10(y) / Math.log10(3) % 1 == 0)
+		if (java.lang.Math.log10(y) / Math.log10(3) % 1 == 0)
 			return true;
 		else
 			return false;

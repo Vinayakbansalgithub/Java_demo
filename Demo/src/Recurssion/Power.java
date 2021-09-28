@@ -31,7 +31,7 @@ public class Power {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(printPower(2, -2));
+		System.out.println(printPower(2, 3));
 
 	}
 
