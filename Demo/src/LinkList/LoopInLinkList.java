@@ -65,7 +65,7 @@ public class LoopInLinkList {
 
 	static LNode IsLoop(LNode val) {
 		LNode slow = head, fast = head;
-		while (slow != null && fast != null) {
+		while (fast.next != null && fast != null) {
 			slow = slow.next;
 			fast = fast.next.next;
 
@@ -111,15 +111,21 @@ public class LoopInLinkList {
 
 		l.next = p;
 		LNode loopstartNode = null;
-		LNode val = obj.getHead();
+		LNode head = obj.getHead();
 
-		LNode slow = IsLoop(val);
+		LNode slow = IsLoop(head);
 
-		System.out.println("isloop node " + slow.data);
+		if (slow == null) {
+			System.out.println("no loop found");
+			return;
+		}
+
+		else
+			System.out.println("isloop node " + slow.data);
 
 		if (slow != null) {
 
-			loopstartNode = LoopStart(slow, val);
+			loopstartNode = LoopStart(slow, head);
 		} else {
 			System.out.println("no loop in list");
 		}

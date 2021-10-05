@@ -121,7 +121,7 @@ public class MiddleOfLinkList {
 		obj.add(56);
 
 		obj.add(975);
-		obj.add(975);
+		//obj.add(975);
 
 		// obj.getTotal();
 		//obj.getMiddle();

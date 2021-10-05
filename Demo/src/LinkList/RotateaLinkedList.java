@@ -28,7 +28,7 @@ public class RotateaLinkedList {
 		obj.add(4);
 		obj.add(5);
 		obj.add(6);
-		int times = 4;
+		int times = 2;
 		int size = obj.size();
 
 		Node res = obj.rotate(times % size);

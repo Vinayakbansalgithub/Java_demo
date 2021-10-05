@@ -36,7 +36,7 @@ public class MergeTwoSortedLinkedList {
 		// and put the larger one in the result
 
 		if (a.data < b.data) {
-			a.next = merge(a.next, b);
+			 a.next = merge(a.next, b);
 			return a;
 		}
 

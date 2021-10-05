@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class PendingMaximumofAllSubarraysOfSizeK {
+public class MaximumofAllSubarraysOfSizeK {
 
 	static void findSubarrays(int[] arr, int size) {
 		// TODO Auto-generated method stub
@@ -13,16 +13,16 @@ public class PendingMaximumofAllSubarraysOfSizeK {
 		int arrend = 0;
 
 		int max = Integer.MIN_VALUE;
-
-		Queue<Integer> queue = new LinkedList<Integer>();
+		int secondMax = Integer.MIN_VALUE;
 
 		while (arrend < arr.length) {
 
 			if (arr[arrend] > max) {
-				max=	arr[arrend] ;
+				secondMax = max;
+				max = arr[arrend];
+			} else if (arr[arrend] < max && arr[arrend] > secondMax) {
+				secondMax = arr[arrend];
 			}
-			queue.add(arr[arrend]);
-
 
 			if (arrend - arrstart + 1 < size) {
 				arrend++;
@@ -30,8 +30,9 @@ public class PendingMaximumofAllSubarraysOfSizeK {
 
 				System.out.println(" " + max);
 
-				if (queue.peek() == arr[arrstart]) {
-					queue.poll();
+				if (max == arr[arrstart]) {
+					max = secondMax;
+
 				}
 				arrstart++;
 				arrend++;
@@ -40,11 +41,11 @@ public class PendingMaximumofAllSubarraysOfSizeK {
 		}
 
 	}
-	
+
 	// when start is 18 it will fail
 
 	public static void main(String[] args) {
-		int[] arr = { 18, 5, 10, 7, 9, 4, 15, 12, 90, 13};
+		int[] arr = { 18, 5, 10, 7, 9, 4, 15, 12, 90, 13 };
 		int size = 4;
 
 		findSubarrays(arr, size);

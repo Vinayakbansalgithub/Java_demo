@@ -1,7 +1,5 @@
 package ThreadPackage;
 
-import lombok.Synchronized;
-
 public class AtmWithdraw implements Runnable {
 
 	static Integer money = 100;

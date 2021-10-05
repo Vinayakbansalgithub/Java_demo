@@ -28,7 +28,7 @@ class Book {
 
 }
 
-class BookReader implements Runnable {
+class BookReader implements Runnable {	
 
 	Book book;
 

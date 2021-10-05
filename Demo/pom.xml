@@ -98,6 +98,12 @@
 			<scope>test</scope>
 		</dependency>
 
+
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-collections4</artifactId>
+  <version>4.1</version>
+</dependency>
 		<!-- basic spring dependency -->
 		<!-- spring-context – defines the actual Spring Injection Container and 
 			has a small number of dependencies: spring-core, spring-expression, spring-aop, 

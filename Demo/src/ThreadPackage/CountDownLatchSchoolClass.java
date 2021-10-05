@@ -26,7 +26,7 @@ public class CountDownLatchSchoolClass extends Thread {
 		}
 	
 
-		System.out.println("class has been started");
+		System.out.println("class started");
 	}
 
 	public static void main(String[] args) throws InterruptedException {

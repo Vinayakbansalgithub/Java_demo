@@ -41,13 +41,10 @@ public class FlattenLinkedList {
 			a.next = merge(a.next, b);
 			return a;
 		}
-
 		else {
 			b.next = merge(a, b.next);
 			return b;
 		}
-
-	
 	}
 	
 	static Node flatten(Node root)

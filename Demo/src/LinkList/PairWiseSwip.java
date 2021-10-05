@@ -34,9 +34,11 @@ public class PairWiseSwip {
 
 			prev.next = next.next;
 
-			prev = next;
+//			prev = next;
+//			current = prev.next;
 
-			current = prev.next;
+			current = next.next;
+			prev = next;
 
 		}
 

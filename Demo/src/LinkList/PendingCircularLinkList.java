@@ -38,7 +38,7 @@ class CirNode {
 
 }
 
-public class CircularLinkList {
+public class PendingCircularLinkList {
 	static CirNode head;
 
 	static Set<String> set = new HashSet<String>();
@@ -191,7 +191,7 @@ public class CircularLinkList {
 
 	public static void main(String[] args) {
 
-		CircularLinkList list = new CircularLinkList();
+		PendingCircularLinkList list = new PendingCircularLinkList();
 
 		list.add(1);
 		list.add(2);
