@@ -100,5 +100,15 @@ public class Streams8 {
 		Map<String, List<Item>> name = items.stream().collect(Collectors.groupingBy(Item::getName));
 
 		System.out.println(name);
+		
+		
+		/*
+		 * 
+		  Map<String, Employee> topEmployees = allEmployees.stream()
+		  .collect(Collectors.toMap( e -> e.department, e -> e,
+		  BinaryOperator.maxBy(Comparator.comparingInt(e -> e.salary)) ));
+		  
+		  
+		 */
 	}
 }

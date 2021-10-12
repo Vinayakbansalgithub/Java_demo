@@ -54,7 +54,6 @@ public class IpAddress {
 
 			// System.out.println("key is " + e.getKey() + " value " + e.getValue());
 
-			ArrayList<String> times = new ArrayList<String>();
 			SimpleDateFormat sdf = new SimpleDateFormat("hh a");
 			Calendar calendar = GregorianCalendar.getInstance();
 
@@ -101,9 +100,6 @@ public class IpAddress {
 		}
 
 		System.out.println("distinct=======");
-		
-		
-		
 
 		set = map.entrySet();
 		itr = set.iterator();
