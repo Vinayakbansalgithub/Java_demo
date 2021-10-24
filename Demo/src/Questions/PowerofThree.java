@@ -35,6 +35,8 @@ public class PowerofThree {
 //		
 //		(log(y)/log(3))%1==0;
 
+//		this means that x is a soild interger value which can be divided by three
+
 		if (java.lang.Math.log10(y) / Math.log10(3) % 1 == 0)
 			return true;
 		else

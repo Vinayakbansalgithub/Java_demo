@@ -150,8 +150,10 @@ public class Streams {
 		System.out.println("--setting salutation--");
 
 		// this is better that for each we can return result in this
-		Stream.of(s1, s2, s3, s4, s5).peek(e -> e.setName("Mr " + e.getName())).peek(System.out::println)
+		List<Student> arraysalutation = Stream.of(s1, s2, s3, s4, s5).peek(e -> e.setName("Mr " + e.getName()))
 				.collect(Collectors.toList());
+
+		arraysalutation.forEach(System.out::println);
 
 		System.out.println("--sort by name--");
 
@@ -198,10 +200,8 @@ public class Streams {
 		System.out.println(intStream.min());
 		intStream = IntStream.of(10, 20, 30);
 
-		System.out.println("total is "+intStream.count());
+		System.out.println("total is " + intStream.count());
 		IntStream.range(0, 6).forEach(System.out::println);
-
-		
 
 	}
 }

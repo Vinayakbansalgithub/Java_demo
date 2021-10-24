@@ -3,9 +3,13 @@ package java8;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.OptionalDouble;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -18,9 +22,9 @@ public class Streams8 {
 
 			private String name;
 			private int qty;
-			private BigDecimal price;
+			private Double price;
 
-			public Item(String name, int qty, BigDecimal price) {
+			public Item(String name, int qty, Double price) {
 				super();
 				this.name = name;
 				this.qty = qty;
@@ -43,11 +47,11 @@ public class Streams8 {
 				this.qty = qty;
 			}
 
-			public BigDecimal getPrice() {
+			public Double getPrice() {
 				return price;
 			}
 
-			public void setPrice(BigDecimal price) {
+			public void setPrice(Double price) {
 				this.price = price;
 			}
 
@@ -70,45 +74,63 @@ public class Streams8 {
 
 		int arr[] = { 1, 2, 3, 4, 5 };
 		List<Integer> s = IntStream.of(arr).boxed().collect(Collectors.toList());
-		
-		//Arrays.asList(arr);
-		
-		
-		OptionalDouble avg=IntStream.of(arr).average();
-		System.out.println("avg is "+avg.getAsDouble());
-		
-		
+
+		// Arrays.asList(arr);
+
+		OptionalDouble avg = IntStream.of(arr).average();
+
+		System.out.println("avg is " + avg.getAsDouble());
 
 		// 3 apple, 2 banana, others 1
-		List<Item> items = Arrays.asList(new Item("apple", 10, new BigDecimal("9.99")),
-				new Item("banana", 20, new BigDecimal("19.99")), new Item("orang", 10, new BigDecimal("29.99")),
-				new Item("watermelon", 10, new BigDecimal("29.99")), new Item("papaya", 20, new BigDecimal("9.99")),
-				new Item("apple", 10, new BigDecimal("9.99")), new Item("banana", 10, new BigDecimal("19.99")),
-				new Item("apple", 20, new BigDecimal("9.99")));
+		List<Item> items = Arrays.asList(new Item("watermelon", 10, new Double("9.99")),
+				new Item("banana", 20, new Double("19.99")), new Item("orang", 10, new Double("29.99")),
+				new Item("watermelon", 10, new Double("29.99")), new Item("papaya", 20, new Double("9.99")),
+				new Item("cupcake", 10, new Double("9.99")), new Item("cupcake", 20, new Double("9.99"))
+
+		);
+
+		Map<String, List<Item>> groupOnKey = items.stream().collect(Collectors.groupingBy(Item::getName));
+		System.out.println("based on key will give all values   " + groupOnKey);
 
 		// count on attribute
 		Map<String, Long> counting = items.stream()
 				.collect(Collectors.groupingBy(Item::getName, Collectors.counting()));
-
 		System.out.println(counting);
 
 		Map<String, Double> sum = items.stream()
 				.collect(Collectors.groupingBy(Item::getName, Collectors.averagingDouble(Item::getQty)));
-
 		System.out.println(sum);
-
-		Map<String, List<Item>> name = items.stream().collect(Collectors.groupingBy(Item::getName));
-
-		System.out.println(name);
 		
 		
+		BinaryOperator<String> maxLengthString = BinaryOperator.maxBy(Comparator.comparingInt(String::length));
+		String ss = maxLengthString.apply("two", "three");
+		System.out.println(ss);
+		
+
+		// Make sure key is unique
 		/*
+		 * Map<String, Double> mapNamePrice =
+		 * items.stream().collect(Collectors.toMap(Item::getName, Item::getPrice));
 		 * 
-		  Map<String, Employee> topEmployees = allEmployees.stream()
-		  .collect(Collectors.toMap( e -> e.department, e -> e,
-		  BinaryOperator.maxBy(Comparator.comparingInt(e -> e.salary)) ));
-		  
-		  
+		 * Iterator itr = mapNamePrice.entrySet().iterator(); while (itr.hasNext()) {
+		 * Map.Entry<String, BigDecimal> entry = (Entry<String, BigDecimal>) itr.next();
+		 * System.out.println("key is " + entry.getKey() + "  value is " +
+		 * entry.getValue()); }
 		 */
+
+
+		
+		// key as item name and its max price object
+		Map<String, Item> mapNamePrice2 = items.stream().collect(Collectors.toMap(Item::getName, Item -> Item,
+				BinaryOperator.maxBy(Comparator.comparingDouble(item -> item.getPrice()))));
+
+//		Iterator itr1 = mapNamePrice2.entrySet().iterator();
+//		while (itr1.hasNext()) {
+//			Map.Entry<String, BigDecimal> entry = (Entry<String, BigDecimal>) itr1.next();
+//			System.out.println("key is " + entry.getKey() + "  value is " + entry.getValue());
+//		}
+		mapNamePrice2.entrySet().stream()
+	      .forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
+
 	}
 }

@@ -9,8 +9,12 @@ public class WordSearchproblem {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
 
-				if (grid[i][j] == word.charAt(0) && dfs(i, j, visited, grid, 0, word)) {
-					return true;
+				if (grid[i][j] == word.charAt(0)) {
+
+					if (dfs(i, j, visited, grid, 0, word))
+						return true;
+					else
+						return false;
 				}
 
 			}
@@ -32,8 +36,10 @@ public class WordSearchproblem {
 
 		visited[i][j] = true;
 
-		if (dfs(i - 1, j, visited, grid, k + 1, word) || dfs(i, j - 1, visited, grid, k + 1, word)
-				|| dfs(i + 1, j, visited, grid, k + 1, word) || dfs(i, j + 1, visited, grid, k + 1, word)) {
+		if (dfs(i - 1, j, visited, grid, k + 1, word) ||
+				dfs(i, j - 1, visited, grid, k + 1, word)|| 
+				dfs(i + 1, j, visited, grid, k + 1, word) ||
+				dfs(i, j + 1, visited, grid, k + 1, word)) {
 			return true;
 		}
 

@@ -33,10 +33,10 @@ public class IsomorphicStrings {
 
 		Scanner scan = new Scanner(System.in);
 
-		String s1 = scan.nextLine();
-		String s2 = scan.nextLine();
+//		String s1 = scan.nextLine();
+//		String s2 = scan.nextLine();
 
-		boolean res = find(s1, s2);
+		boolean res = find("paper", "title");
 		System.out.println(res);
 
 	}

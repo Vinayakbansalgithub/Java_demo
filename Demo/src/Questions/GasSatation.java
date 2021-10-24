@@ -17,7 +17,6 @@ public class GasSatation {
 			return -1;
 
 		int Currentcost = 0;
-		int startIndex = 0;
 		int index = 0;
 
 		List<Integer> list = new ArrayList<Integer>();
@@ -28,21 +27,22 @@ public class GasSatation {
 
 			if (Currentcost < 0) {
 				Currentcost = 0;
-				startIndex = startIndex + 1;
 				list.clear();
 			} else {
 				boolean isAdd = list.add(index);
 				if (!isAdd) {
-					System.out.println("alread moved here");
-					return startIndex;
+					System.out.println("already moved here");
+					return list.get(0);
 				}
 			}
 			index++;
 			index = index % gas.length;
 
 		}
-
-		return startIndex;
+		if (list.get(0) != null)
+			return list.get(0);
+		else
+			return -1;
 
 	}
 

@@ -2,6 +2,8 @@ package BinarySearch;
 
 public class PaintersPartitionProblem {
 
+	
+	// same as allocate no of pages
 	private static int isValid(int[] arr, int k, int mid) {
 
 		int painters = 1;

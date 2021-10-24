@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
 // leetcode 47
 public class UniquePermutations {
 	static void permutation(int[] input, HashMap<Integer, Integer> map, List<Integer> curr, List<List<Integer>> res) {

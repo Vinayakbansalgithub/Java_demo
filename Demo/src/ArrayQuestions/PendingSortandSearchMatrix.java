@@ -2,7 +2,7 @@ package ArrayQuestions;
 
 import java.util.Arrays;
 
-public class SortandSearchMatrix {
+public class PendingSortandSearchMatrix {
 
 	static int[][] sort(int r, int c, int[][] arr) {
 

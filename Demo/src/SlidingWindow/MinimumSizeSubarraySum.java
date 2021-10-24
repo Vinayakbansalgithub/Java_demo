@@ -1,6 +1,5 @@
 package SlidingWindow;
 
-
 //209. Minimum Size Subarray Sum
 
 public class MinimumSizeSubarraySum {
@@ -20,14 +19,10 @@ public class MinimumSizeSubarraySum {
 
 			if (sum < target) {
 				arrend++;
-
 			} else {
-
 				while (sum > target) {
-
 					sum = sum - arr[arrstart];
 					arrstart++;
-
 				}
 
 				int currentSize = arrend - arrstart + 1;

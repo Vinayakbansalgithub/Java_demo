@@ -420,18 +420,19 @@ public class BinarySearchTree {
 		if (parent.left != null) {
 
 			flatten(parent.left);
-
-			Node right = parent.right;
+			
+			Node temp = parent.right;
 
 			parent.right = parent.left;
 
 			parent.left = null;
+			
+			Node tail=parent.right;
 
-			Node temp = parent.right;
-			while (temp != null)
-				temp = temp.right;
+			while (tail.right != null)
+				tail = tail.right;
 
-			parent.right = temp;
+			tail.right = temp;
 
 		}
 

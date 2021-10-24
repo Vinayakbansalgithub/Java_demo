@@ -30,17 +30,6 @@ public class FindKClosestElements {
 
 	}
 
-	public static void main(String[] args) {
-		int[] arr = { 1, 2, 3, 4, 5 };
-		int k = 2;
-		int x = 5;
-
-		int[] res = find(arr, x, k);
-
-		System.out.println(Arrays.toString(res));
-
-	}
-
 	static int[] find(int[] arr, int x, int k) {
 		// TODO Auto-generated method stub
 
@@ -73,6 +62,17 @@ public class FindKClosestElements {
 		int[] array = list.stream().mapToInt(i -> i).toArray();
 
 		return array;
+	}
+
+	public static void main(String[] args) {
+		int[] arr = { 1, 2, 3, 4, 5 };
+		int k = 2;
+		int x = 5;
+
+		int[] res = find(arr, x, k);
+
+		System.out.println(Arrays.toString(res));
+
 	}
 
 }

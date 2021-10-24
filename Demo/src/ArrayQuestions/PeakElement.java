@@ -1,9 +1,8 @@
 package ArrayQuestions;
 
-public class FindPeakElement {
+public class PeakElement {
 	public static void main(String[] args) {
 		int arr[] = { 1, 1, 4 ,3,5,11};
-
 		int index = find(arr);
 		System.out.println(arr[index]);
 	}

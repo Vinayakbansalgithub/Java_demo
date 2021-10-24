@@ -47,6 +47,8 @@ public class WordLadder {
 		Queue<Type> queue = new LinkedList<Type>();
 
 		queue.add(new Type(beginWord, 1));
+		
+		System.out.println("hit");
 
 		while (!queue.isEmpty()) {
 			Type temp = queue.poll();
@@ -54,13 +56,14 @@ public class WordLadder {
 			for (int i = 0; i < wordList.size(); i++) {
 
 				if (isAdjacent(wordList.get(i), temp.value)) {
-
+					System.out.println(wordList.get(i));
 					queue.add(new Type(wordList.get(i), temp.index + 1));
 					wordList.remove(wordList.get(i));
 
 				}
 
 			}
+			System.out.println("---");
 
 			if (endWord.equals(temp.value))
 				return temp.index;

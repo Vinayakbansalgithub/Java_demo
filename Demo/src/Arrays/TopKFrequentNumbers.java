@@ -35,16 +35,6 @@ public class TopKFrequentNumbers {
 
 	}
 
-	public static void main(String[] args) {
-		int[] arr = { 1, 1, 1, 2, 2, 3 };
-		int k = 2;
-
-		int[] res = find(arr, k);
-
-		System.out.println(Arrays.toString(res));
-
-	}
-
 	static int[] find(int[] arr, int k) {
 		// TODO Auto-generated method stub
 
@@ -60,7 +50,8 @@ public class TopKFrequentNumbers {
 			} else
 				map.put(arr[i], map.get(arr[i]) + 1);
 		}
-		PriorityQueue<Pair> pq = new PriorityQueue<Pair>(Collections.reverseOrder());
+
+		PriorityQueue<Pair> pq = new PriorityQueue<Pair>();
 
 		int counter = 0;
 
@@ -96,4 +87,13 @@ public class TopKFrequentNumbers {
 		return array;
 	}
 
+	public static void main(String[] args) {
+		int[] arr = { 1, 1, 1, 2, 2, 3, 4, 4, 4, 4 };
+		int k = 2;
+
+		int[] res = find(arr, k);
+
+		System.out.println(Arrays.toString(res));
+
+	}
 }

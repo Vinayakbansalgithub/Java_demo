@@ -9,7 +9,6 @@ public class MaxDistance {
 
 	private static int find(int[] arr, int start, int end) {
 		// TODO Auto-generated method stub
-
 		if (start > end) {
 			return -1;
 		}

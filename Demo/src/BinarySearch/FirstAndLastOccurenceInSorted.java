@@ -89,7 +89,7 @@ public class FirstAndLastOccurenceInSorted {
 				return mid + 1;
 			} else if (start < mid && mid < end && arr[mid] > arr[mid - 1] && arr[mid] >= arr[mid + 1]) {  // 9 10 10
 				return mid - 1;
-			} else if (start < mid && mid < end && arr[mid] < arr[mid - 1] && arr[mid] < arr[mid + 1]) {  // 9 10 11
+			} else if (start < mid && mid < end && arr[mid] < arr[mid - 1] && arr[mid] < arr[mid + 1]) {  // 9 8 10
 				return mid;
 			} else if (arr[mid] < arr[end]) {
 				end = mid - 1;
