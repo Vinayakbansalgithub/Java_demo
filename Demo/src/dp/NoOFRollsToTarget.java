@@ -5,8 +5,6 @@ public class NoOFRollsToTarget {
 	static int numRollsToTarget(int d, int f, int target) {
         int[][] dp = new int[d + 1][target + 1];
         dp[0][0] = 1;
-
-        int MOD = 1000000007;
         // How many possibility can i dices sum up to j;
         for (int i = 1; i <= d; i++) {
         	System.out.println();

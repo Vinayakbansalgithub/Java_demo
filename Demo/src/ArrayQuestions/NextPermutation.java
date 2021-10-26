@@ -2,9 +2,10 @@ package ArrayQuestions;
 
 import java.util.Arrays;
 
-public class PendingNextPermutation {
+// leetcode 31
+public class NextPermutation {
 	public static void main(String[] args) {
-		int arr[] = { 3, 2, 1 };
+		int arr[] = { 1, 5, 8, 4, 7, 6, 5, 3, 1 };
 		find(arr);
 	}
 
@@ -20,6 +21,8 @@ public class PendingNextPermutation {
 		}
 
 		if (lastPeekIndex == -1) {
+
+			// need to reverse entire array next of 3 2 1 is 1 2 3
 			int i = 0;
 			int j = arr.length - 1;
 			while (i < j) {
@@ -36,17 +39,18 @@ public class PendingNextPermutation {
 
 		}
 
-		int mn = arr[lastPeekIndex];
-		int index = lastPeekIndex;
+		int replaceIndex=01;
+		int greaterThen = arr[lastPeekIndex-1];
+		int smallerThen = arr[lastPeekIndex];
 		for (int i = lastPeekIndex; i < arr.length; i++) {
-			if (arr[i] > arr[lastPeekIndex - 1] && arr[i] < arr[index]) {
-				index = i;
+			if (arr[i] > greaterThen&& arr[i] < smallerThen) {
+				replaceIndex = i;
 			}
 		}
 
 		int temp = arr[lastPeekIndex - 1];
-		arr[lastPeekIndex - 1] = arr[index];
-		arr[index] = temp;
+		arr[lastPeekIndex - 1] = arr[replaceIndex];
+		arr[replaceIndex] = temp;
 
 		Arrays.sort(arr, lastPeekIndex, arr.length);
 
