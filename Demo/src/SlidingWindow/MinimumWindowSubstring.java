@@ -41,10 +41,10 @@ public class MinimumWindowSubstring {
 				if ((arrend - arrstart + 1) < min)
 					min = arrend - arrstart + 1;
 
-				// remove the character
 				if (!map.containsKey(str.charAt(arrstart))) {
 					arrstart++;
-				} else if (map.containsKey(str.charAt(arrstart)) && map.get(str.charAt(arrstart)) < 0) {
+				} else if (map.containsKey(str.charAt(arrstart)) && 
+						   map.get(str.charAt(arrstart)) < 0) {
 					map.put(str.charAt(arrstart), map.get(str.charAt(arrstart)) + 1);
 					arrstart++;
 				} else {
@@ -54,6 +54,8 @@ public class MinimumWindowSubstring {
 				}
 
 			}
+			
+			
 			arrend++;
 		}
 
@@ -62,8 +64,8 @@ public class MinimumWindowSubstring {
 	}
 
 	public static void main(String[] args) {
-		String str = "ADOBECODEBANC";
-		String key = "ABC";
+		String str = "vinayakbansal";
+		String key = "nasa";
 		findSubstring(str, key);
 	}
 }
