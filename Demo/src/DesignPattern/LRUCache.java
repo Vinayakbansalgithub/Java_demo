@@ -1,4 +1,4 @@
-package Arrays;
+package DesignPattern;
 
 import java.util.Set;
 import java.util.HashMap;

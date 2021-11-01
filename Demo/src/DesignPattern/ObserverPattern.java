@@ -9,7 +9,7 @@ import java.util.Observer;
 import java.util.Queue;
 
 // which is also the subject
-interface IObservable {
+interface Subject {
 
 	public void register(IObserver obj);
 
@@ -19,8 +19,8 @@ interface IObservable {
 
 }
 
-// An observable is an object which notifies observers about the changes in its state
-class KafkaServer implements IObservable {
+//ConcreteSubject
+class KafkaServer implements Subject {
 
 	public List<IObserver> clients;
 	String message;

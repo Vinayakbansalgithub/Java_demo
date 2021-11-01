@@ -1,6 +1,9 @@
 package Recurssion;
 
 
+//- In a cricket match, Given a target to chase, while you can score only 1s or 2s. 
+//Count how many ways are there with which you can chase the target. (Stair case problem).
+//Explained well with recursive as well as DP solution.
 
 // leetcode 70
 public class StairCaseProblem {
